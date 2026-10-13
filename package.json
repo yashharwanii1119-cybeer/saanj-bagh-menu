@@ -1,0 +1,22 @@
+{
+  "name": "saanj-bagh-menu-sample",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Saanj Bagh — Botanical Bar & Kitchen, Jodhpur. Ultra-luxury botanical soup menu client presentation and A4 print proof.",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "dev": "npx serve -l 3000 ."
+  },
+  "keywords": [
+    "saanj-bagh",
+    "jodhpur",
+    "luxury-menu",
+    "botanical-atelier",
+    "restaurant-menu"
+  ],
+  "author": "Saanj Bagh Design Atelier",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "puppeteer-core": "^25.13.0"
+  }
+}

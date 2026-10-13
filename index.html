@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Saanj Bagh — Botanical Bar & Kitchen | Luxury Menu</title>
+  
+  <!-- Modern Typography for Accessibility & Print -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/jpeg" href="assets/images/saanj-bagh-logo.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       CENTRAL PRESENTATION CANVAS (Single Portrait Menu Book)
+       Strictly centered: Front cover when closed, interior pages when open.
+       Page sequence: Cover (0) → 01·Soup (1) → 02·Garde Manger (2) → 03·Contie Chinese (3)
+       Zero blank left pages. Zero filler spreads.
+       ============================================================ -->
+  <main class="menu-viewport" id="menuViewport">
+    
+    <!-- Floating Luxury Menu Quick-Jump Button -->
+    <button class="floating-menu-btn" id="btnJumpMenu" aria-label="Jump to main menu" type="button">
+      <svg class="menu-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+      </svg>
+      <span class="menu-btn-label">MENU</span>
+    </button>
+
+    <div class="menu-stage-wrapper">
+      
+      <!-- The Single Portrait Book Container -->
+      <div class="menu-book-container" id="menuBook" data-state="cover">
+        
+        <!-- ======================================================
+             PAGE LAYER: 06 · INDIAN, DAL & SIZZLER MENU (Page 6)
+             Revealed when turning forward from Tandoor & Rice
+             ====================================================== -->
+        <div class="book-layer indian-layer" id="indianLayer" aria-label="Indian, Dal & Sizzler Menu">
+          <img 
+            src="assets/images/indian-dal.jpg" 
+            alt="Saanj Bagh — Indian, Dal & Sizzler Menu" 
+            class="menu-artwork-img"
+            id="indianArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             PAGE LAYER: 05 · TANDOOR, RICE & BIRYANI MENU (Page 5)
+             Revealed when turning forward from Pasta & Pizza
+             ====================================================== -->
+        <div class="book-layer tandoor-layer" id="tandoorLayer" aria-label="Tandoor, Rice & Biryani Menu">
+          <img 
+            src="assets/images/tandoor-rice.jpg" 
+            alt="Saanj Bagh — Tandoor, Rice & Biryani, Breads & Accompaniments Menu" 
+            class="menu-artwork-img"
+            id="tandoorArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             PAGE LAYER: 04 · PASTA & PIZZA MENU (Page 4)
+             Revealed when turning forward from Contie Chinese
+             ====================================================== -->
+        <div class="book-layer pasta-layer" id="pastaLayer" aria-label="Pasta & Pizza Menu">
+          <img 
+            src="assets/images/pasta-pizza.jpg" 
+            alt="Saanj Bagh — Pasta & Pizza Menu" 
+            class="menu-artwork-img"
+            id="pastaArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             PAGE LAYER 1: 03 · CONTIE CHINESE MENU (Page 3)
+             Revealed when turning forward from Garde Manger
+             ====================================================== -->
+        <div class="book-layer contie-layer" id="contieLayer" aria-label="Contie Chinese Menu">
+
+          <!-- Background Artwork Plate -->
+          <img
+            src="assets/images/contie-bg.jpg"
+            alt="Saanj Bagh — Contie Chinese Menu"
+            class="menu-artwork-img"
+            id="contieArtwork"
+            draggable="false"
+          />
+
+
+          <!-- Subtle Marionette Dancing Puppet System -->
+          <div class="contie-puppet-system" id="contiePuppetSystem" aria-hidden="true">
+            <div class="puppet-animation-wrap">
+              <img 
+                src="assets/images/contie-puppet.png" 
+                class="contie-puppet-img" 
+                alt="Traditional Rajasthani Dancing Puppet" 
+                draggable="false" 
+              />
+            </div>
+          </div>
+
+        </div><!-- /.contie-layer -->
+
+
+        <!-- ======================================================
+             PAGE LAYER 2: 02 · GARDE MANGER MENU
+             Revealed when turning forward from Soup (Page 2)
+             ====================================================== -->
+        <div class="book-layer garde-layer" id="gardeLayer" aria-label="Garde Manger Menu">
+          
+          <!-- Master Cleaned Background Plate (untouched architecture, arches, table, lantern) -->
+          <img 
+            src="assets/images/garde-manger-clean.jpg" 
+            alt="Saanj Bagh — Garde Manger Menu" 
+            class="menu-artwork-img"
+            id="gardeArtwork"
+            draggable="false"
+          />
+
+          <!-- Delicate Botanical Garden Breeze Foliage System -->
+          <!-- Stationary underlays + 6 pure botanical leaf clusters with zero architectural pixels -->
+          <div class="botanical-garde-foliage" id="gardeFoliage" aria-hidden="true">
+            <!-- Stationary underlay plates: strictly static, concealing static foliage with zero ghosting -->
+            <img src="assets/images/foliage/garde_underlay_tl_main.png" class="foliage-underlay underlay-garde-tl-main" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_underlay_tl_hang.png" class="foliage-underlay underlay-garde-tl-hang" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_underlay_tr_main.png" class="foliage-underlay underlay-garde-tr-main" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_underlay_tr_hang.png" class="foliage-underlay underlay-garde-tr-hang" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_underlay_mid_left.png" class="foliage-underlay underlay-garde-mid-left" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_underlay_mid_right.png" class="foliage-underlay underlay-garde-mid-right" alt="" draggable="false" />
+
+            <!-- Animated botanical foliage clusters: independent sway keyframes -->
+            <img src="assets/images/foliage/garde_branch_tl_main.png" class="botanical-branch branch-garde-tl-main" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_branch_tl_hang.png" class="botanical-branch branch-garde-tl-hang" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_branch_tr_main.png" class="botanical-branch branch-garde-tr-main" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_branch_tr_hang.png" class="botanical-branch branch-garde-tr-hang" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_branch_mid_left.png" class="botanical-branch branch-garde-mid-left" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_branch_mid_right.png" class="botanical-branch branch-garde-mid-right" alt="" draggable="false" />
+          </div>
+
+          <!-- Candle Lantern (Stationary flame body and flame plate) -->
+          <div class="garde-lantern-system" aria-hidden="true">
+            <img src="assets/images/foliage/garde_underlay_flame.png" class="garde-flame-underlay" alt="" draggable="false" />
+            <img src="assets/images/foliage/garde_flame.png" class="garde-flame-overlay" alt="" draggable="false" />
+          </div>
+
+          <!-- Editorial Heading (Stationary title and antique-gold flourishes) -->
+          <div class="garde-heading-container" aria-hidden="true">
+            <img src="assets/images/foliage/garde_heading_title.png" class="garde-heading-title" alt="GARDE MANGER" draggable="false" />
+            <img src="assets/images/foliage/garde_heading_flourishes.png" class="garde-heading-flourishes" alt="" draggable="false" />
+          </div>
+
+          <!-- Live Editorial Menu Content (Verified 13 Dishes + 2 Gold Divider Rosettes) -->
+          <div class="garde-menu-content" id="gardeMenuContent">
+            <!-- Item 01 -->
+            <div class="garde-menu-row" style="--row-index: 0;">
+              <div class="dish-headline">
+                <span class="dish-num">01</span>
+                <span class="dish-name">GARDEN GREEN SALAD</span>
+                <span class="dish-price">₹150</span>
+              </div>
+              <div class="dish-desc">CUCUMBER , TOMATO , CAROT , ONION LEMON CHILLIE</div>
+            </div>
+
+            <!-- Item 02 -->
+            <div class="garde-menu-row" style="--row-index: 1;">
+              <div class="dish-headline">
+                <span class="dish-num">02</span>
+                <span class="dish-name">ONION SALAD</span>
+                <span class="dish-price">₹100</span>
+              </div>
+              <div class="dish-desc">SLICE OF ONION , LEMON CHILLIE ON TOP</div>
+            </div>
+
+            <!-- Item 03 -->
+            <div class="garde-menu-row" style="--row-index: 2;">
+              <div class="dish-headline">
+                <span class="dish-num">03</span>
+                <span class="dish-name">LACCHA ONION SALAD</span>
+                <span class="dish-price">₹130</span>
+              </div>
+              <div class="dish-desc">RING OF ONION SPRINKLE INDIAN SPICES</div>
+            </div>
+
+            <!-- Divider 1 with Gold Rosette -->
+            <div class="garde-menu-divider" style="--divider-index: 3;" aria-hidden="true">
+              <div class="divider-line"></div>
+              <div class="divider-rosette-wrap">
+                <img src="assets/images/foliage/garde_divider.png" class="divider-rosette-img" alt="" />
+              </div>
+              <div class="divider-line"></div>
+            </div>
+
+            <!-- Item 04 -->
+            <div class="garde-menu-row" style="--row-index: 3;">
+              <div class="dish-headline">
+                <span class="dish-num">04</span>
+                <span class="dish-name">MASALA PAPAD</span>
+                <span class="dish-price">₹80</span>
+              </div>
+              <div class="dish-desc">PAPADUM FULL LOADED WITH VEGGIES FINISH WITH YELLOW SEV</div>
+            </div>
+
+            <!-- Item 05 -->
+            <div class="garde-menu-row" style="--row-index: 4;">
+              <div class="dish-headline">
+                <span class="dish-num">05</span>
+                <span class="dish-name">ROASTED PAPAD</span>
+                <span class="dish-price">₹60</span>
+              </div>
+              <div class="dish-desc">OVEN ROASTED HOME MADE PAPADUM</div>
+            </div>
+
+            <!-- Item 06 -->
+            <div class="garde-menu-row" style="--row-index: 5;">
+              <div class="dish-headline">
+                <span class="dish-num">06</span>
+                <span class="dish-name">FRENCH FRIES</span>
+                <span class="dish-price">₹260</span>
+              </div>
+              <div class="dish-desc">POTATO FINGER FRIED HOT AND CRUNCY</div>
+            </div>
+
+            <!-- Item 07 -->
+            <div class="garde-menu-row" style="--row-index: 6;">
+              <div class="dish-headline">
+                <span class="dish-num">07</span>
+                <span class="dish-name">BOSTON LOADED PERI PERI FRIES</span>
+                <span class="dish-price">₹310</span>
+              </div>
+              <div class="dish-desc">OUR HOME STYLE DIPS AND CHIPS LOADED WITH GROUND SPICES</div>
+            </div>
+
+            <!-- Divider 2 with Gold Rosette -->
+            <div class="garde-menu-divider" style="--divider-index: 7;" aria-hidden="true">
+              <div class="divider-line"></div>
+              <div class="divider-rosette-wrap">
+                <img src="assets/images/foliage/garde_divider.png" class="divider-rosette-img" alt="" />
+              </div>
+              <div class="divider-line"></div>
+            </div>
+
+            <!-- Item 08 -->
+            <div class="garde-menu-row" style="--row-index: 7;">
+              <div class="dish-headline">
+                <span class="dish-num">08</span>
+                <span class="dish-name">THAI PEANUT CHATKARA</span>
+                <span class="dish-price">₹240</span>
+              </div>
+              <div class="dish-desc">FRIED PEANUT , THAI SPICES PAPADUM BASKET</div>
+            </div>
+
+            <!-- Item 09 -->
+            <div class="garde-menu-row" style="--row-index: 8;">
+              <div class="dish-headline">
+                <span class="dish-num">09</span>
+                <span class="dish-name">KHAU GALI KHICHIYA</span>
+                <span class="dish-price">₹180</span>
+              </div>
+              <div class="dish-desc">MUMBAI KHAU GALI STREET CRAKER WITH DESHI CHATKARA</div>
+            </div>
+
+            <!-- Item 10 -->
+            <div class="garde-menu-row" style="--row-index: 9;">
+              <div class="dish-headline">
+                <span class="dish-num">10</span>
+                <span class="dish-name">CHEESE MASALA KHICHIYA</span>
+                <span class="dish-price">₹230</span>
+              </div>
+              <div class="dish-desc">OUR DESHI CRAKER LOADED WITH VEGGIES</div>
+            </div>
+
+            <!-- Item 11 -->
+            <div class="garde-menu-row" style="--row-index: 10;">
+              <div class="dish-headline">
+                <span class="dish-num">11</span>
+                <span class="dish-name">MAXICAN STREET LOADED NACHOS</span>
+                <span class="dish-price">₹390</span>
+              </div>
+              <div class="dish-desc">CORN NACHOS , CORN & BEANS , CHEESEY SAUCE</div>
+            </div>
+
+            <!-- Item 12 -->
+            <div class="garde-menu-row" style="--row-index: 11;">
+              <div class="dish-headline">
+                <span class="dish-num">12</span>
+                <span class="dish-name">ITALIAN FARMAGGIE BITES</span>
+                <span class="dish-price">₹410</span>
+              </div>
+              <div class="dish-desc">OUR CHEF SPECIAL CHEESE BITES CREAMIES YOUE PALAT</div>
+            </div>
+
+            <!-- Item 13 -->
+            <div class="garde-menu-row" style="--row-index: 12;">
+              <div class="dish-headline">
+                <span class="dish-num">13</span>
+                <span class="dish-name">CHAKNA TROLLY</span>
+                <span class="dish-price">₹450</span>
+              </div>
+              <div class="dish-desc">COMBINATION OF NACHOS, PAPAD, PEANUT, FRENCH FRIES, PERI PERI, CHATPATA CHANA</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======================================================
+             PAGE LAYER 2 (MIDDLE): 01 · SOUP MENU & LIVE STEAM
+             Revealed when Cover opens (Page 1)
+             Continuous live steam runs on this layer without interruption
+             ====================================================== -->
+        <div class="book-layer soup-layer" id="soupLayer" aria-label="Soup Menu">
+          
+          <!-- Soup Menu Reference Artwork (Exact Approved Art) -->
+          <img 
+            src="assets/images/menu-reference.jpg" 
+            alt="Saanj Bagh — Botanical Bar & Kitchen Luxury Soup Menu" 
+            class="menu-artwork-img"
+            id="soupArtwork"
+            draggable="false"
+          />
+
+          <!-- Photorealistic Animated Steam System (Above hot soup bowl) -->
+          <svg 
+            class="steam-overlay" 
+            id="steamOverlay"
+            viewBox="0 0 724 1024" 
+            preserveAspectRatio="xMidYMid meet" 
+            aria-hidden="true"
+          >
+            <defs>
+              <filter id="coreBlur" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2.4" />
+              </filter>
+              <filter id="haloBlur" x="-70%" y="-70%" width="240%" height="240%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5.8" />
+              </filter>
+              <filter id="mistBlur" x="-70%" y="-70%" width="240%" height="240%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8.5" />
+              </filter>
+
+              <linearGradient id="vapourCoreGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#FFFDF7" stop-opacity="0" />
+                <stop offset="10%" stop-color="#FFFFFF" stop-opacity="0.65" />
+                <stop offset="38%" stop-color="#FAF4E8" stop-opacity="0.55" />
+                <stop offset="68%" stop-color="#F5ECE0" stop-opacity="0.32" />
+                <stop offset="88%" stop-color="#F2E6D4" stop-opacity="0.10" />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+              </linearGradient>
+
+              <linearGradient id="vapourHaloGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#FFFDF7" stop-opacity="0" />
+                <stop offset="14%" stop-color="#FAF5EB" stop-opacity="0.32" />
+                <stop offset="42%" stop-color="#F7EEDC" stop-opacity="0.25" />
+                <stop offset="72%" stop-color="#F2E4CD" stop-opacity="0.14" />
+                <stop offset="92%" stop-color="#EDE0C7" stop-opacity="0.04" />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+              </linearGradient>
+
+              <radialGradient id="baseThermalGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.32" />
+                <stop offset="40%" stop-color="#FAF4E8" stop-opacity="0.20" />
+                <stop offset="75%" stop-color="#F5ECE0" stop-opacity="0.08" />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+
+            <!-- Ambient Surface Thermal Glow -->
+            <g class="steam-ambient-thermal" filter="url(#mistBlur)">
+              <ellipse cx="557" cy="746" rx="44" ry="12" fill="url(#baseThermalGrad)" class="thermal-glow-1" />
+              <ellipse cx="550" cy="744" rx="32" ry="9" fill="url(#baseThermalGrad)" class="thermal-glow-2" />
+            </g>
+
+            <!-- 4 Independent Overlapping Natural Steam Wisps -->
+            <g class="steam-wisps-group">
+              <!-- Wisp 1: Left Stream -->
+              <g class="wisp-layer wisp-1">
+                <path d="M 540 748 C 532 725, 526 702, 532 678 C 538 654, 546 640, 542 618 C 538 602, 534 590, 536 574" fill="none" stroke="url(#vapourHaloGrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" filter="url(#haloBlur)" />
+                <path d="M 540 748 C 532 725, 526 702, 532 678 C 538 654, 546 640, 542 618 C 538 602, 534 590, 536 574" fill="none" stroke="url(#vapourCoreGrad)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#coreBlur)" />
+              </g>
+
+              <!-- Wisp 2: Main Center-Right Stream -->
+              <g class="wisp-layer wisp-2">
+                <path d="M 562 745 C 572 722, 580 698, 574 674 C 568 650, 558 636, 564 612 C 568 596, 576 584, 572 568" fill="none" stroke="url(#vapourHaloGrad)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" filter="url(#haloBlur)" />
+                <path d="M 562 745 C 572 722, 580 698, 574 674 C 568 650, 558 636, 564 612 C 568 596, 576 584, 572 568" fill="none" stroke="url(#vapourCoreGrad)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#coreBlur)" />
+              </g>
+
+              <!-- Wisp 3: Central Slender Filament -->
+              <g class="wisp-layer wisp-3">
+                <path d="M 552 746 C 548 726, 556 706, 552 684 C 548 662, 558 646, 554 624 C 550 610, 546 598, 550 582" fill="none" stroke="url(#vapourHaloGrad)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" filter="url(#haloBlur)" />
+                <path d="M 552 746 C 548 726, 556 706, 552 684 C 548 662, 558 646, 554 624 C 550 610, 546 598, 550 582" fill="none" stroke="url(#vapourCoreGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#coreBlur)" />
+              </g>
+
+              <!-- Wisp 4: Right Soft Drifting Plume -->
+              <g class="wisp-layer wisp-4">
+                <path d="M 574 748 C 584 728, 590 706, 584 682 C 578 660, 582 642, 586 620 C 588 606, 584 594, 582 578" fill="none" stroke="url(#vapourHaloGrad)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" filter="url(#haloBlur)" />
+                <path d="M 574 748 C 584 728, 590 706, 584 682 C 578 660, 582 642, 586 620 C 588 606, 584 594, 582 578" fill="none" stroke="url(#vapourCoreGrad)" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round" filter="url(#coreBlur)" />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <!-- ======================================================
+             PAGE LAYER 3 (TOP): COVER MENU (Shown initially as closed book)
+             ====================================================== -->
+        <div class="book-layer cover-layer" id="coverLayer" aria-label="Menu Cover">
+          
+          <!-- Approved Front Cover Artwork -->
+          <img 
+            src="assets/images/menu-cover.jpg" 
+            alt="Saanj Bagh — Botanical Bar & Kitchen Menu Cover" 
+            class="menu-artwork-img"
+            id="coverArtwork"
+            draggable="false"
+          />
+
+          <!-- Delicate Botanical Garden Breeze Foliage System -->
+          <!-- Stationary underlays + 6 pure botanical leaf clusters with zero architectural pixels -->
+          <div class="botanical-cover-foliage" id="coverFoliage" aria-hidden="true">
+            <!-- Stationary underlay plates: strictly static, concealing static leaves with zero ghosting -->
+            <img src="assets/images/foliage/underlay_tl_main.png" class="foliage-underlay underlay-tl-main" alt="" draggable="false" />
+            <img src="assets/images/foliage/underlay_tl_inner.png" class="foliage-underlay underlay-tl-inner" alt="" draggable="false" />
+            <img src="assets/images/foliage/underlay_tr_main.png" class="foliage-underlay underlay-tr-main" alt="" draggable="false" />
+            <img src="assets/images/foliage/underlay_tr_inner.png" class="foliage-underlay underlay-tr-inner" alt="" draggable="false" />
+            <img src="assets/images/foliage/underlay_mid_right.png" class="foliage-underlay underlay-mid-right" alt="" draggable="false" />
+            <img src="assets/images/foliage/underlay_palm.png" class="foliage-underlay underlay-palm" alt="" draggable="false" />
+
+            <!-- Animated botanical foliage clusters: strictly pure leaves with ZERO architectural pixels -->
+            <img src="assets/images/foliage/branch_tl_main.png" class="botanical-branch branch-tl-main" alt="" draggable="false" />
+            <img src="assets/images/foliage/branch_tl_inner.png" class="botanical-branch branch-tl-inner" alt="" draggable="false" />
+            <img src="assets/images/foliage/branch_tr_main.png" class="botanical-branch branch-tr-main" alt="" draggable="false" />
+            <img src="assets/images/foliage/branch_tr_inner.png" class="botanical-branch branch-tr-inner" alt="" draggable="false" />
+            <img src="assets/images/foliage/branch_mid_right.png" class="botanical-branch branch-mid-right" alt="" draggable="false" />
+            <img src="assets/images/foliage/branch_palm.png" class="botanical-branch branch-palm" alt="" draggable="false" />
+          </div>
+
+          <!-- Subtle Paper Edge Highlights -->
+          <div class="paper-edge-highlight" aria-hidden="true"></div>
+        </div>
+
+        <!-- ======================================================
+             PAGE LAYER 4: 3D REALISTIC PAGE CURL CANVAS
+             Renders the physical travelling wave, curling cylinder,
+             dynamic drop shadow and moving highlight during turns/drags
+             ====================================================== -->
+        <canvas class="curl-canvas" id="curlCanvas" aria-hidden="true"></canvas>
+
+        <!-- Subtle Physical Spine Binding Edge -->
+        <div class="book-spine-binding" aria-hidden="true"></div>
+
+        <!-- ======================================================
+             MINIMAL ANTIQUE-GOLD ARROW NAVIGATION CONTROLS
+             Discreet arrows only, positioned at intended bottom location
+             Screen-reader accessible, no text labels, no pill containers
+             ====================================================== -->
+        <nav class="book-arrow-nav" aria-label="Page navigation">
+          <button class="nav-arrow-btn nav-arrow-prev" id="btnNavPrev" aria-label="Previous page" disabled>
+            <svg class="nav-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+          <button class="nav-arrow-btn nav-arrow-next" id="btnNavNext" aria-label="Next page">
+            <svg class="nav-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </nav>
+
+      </div><!-- /.menu-book-container -->
+
+    </div><!-- /.menu-stage-wrapper -->
+
+  </main>
+
+  <!-- ============================================================
+       ACCESSIBILITY & PRINT CONTENT LAYER
+       Preserves full semantic text, dishes, descriptions and prices
+       for screen readers, indexing, and assistive technologies.
+       Order matches digital book: Cover -> 01 · Soup -> 02 · Garde Manger
+       ============================================================ -->
+  <div class="sr-only-content" aria-label="Saanj Bagh Menu Details">
+    <header>
+      <h1>Saanj Bagh — Botanical Bar &amp; Kitchen</h1>
+      <p>Jodhpur, Rajasthan</p>
+    </header>
+
+    <section aria-label="Soup — A Warm Beginning">
+      <h2>01 · Soup — A Warm Beginning</h2>
+      <article>
+        <h3>01 — Pappa al Pomodoro</h3>
+        <p>Classic Italian soup with ripe tomatoes, fresh basil and olive oil.</p>
+        <span>Price: ₹170</span>
+      </article>
+      <article>
+        <h3>02 — Mexican Chilli Bean Soup</h3>
+        <p>Nutritious, spicy and delicious soup served with a crisp tortilla.</p>
+        <span>Price: ₹160</span>
+      </article>
+      <article>
+        <h3>03 — All-Time Favourite</h3>
+        <p>Manchow Soup &bull; Hot &amp; Sour Soup &bull; Lemon Coriander Soup</p>
+        <span>Price: ₹170</span>
+      </article>
+      <article>
+        <h3>04 — Chef's Special: Hawa Hawai</h3>
+        <p>A chef's special soup featuring a generous medley of vegetables.</p>
+        <span>Price: ₹180</span>
+      </article>
+    </section>
+
+    <section aria-label="Garde Manger — Fresh Starts & Relishes">
+      <h2>02 · Garde Manger — Fresh Starts &amp; Relishes</h2>
+      <article>
+        <h3>01 — Garden Green Salad</h3>
+        <p>Cucumber , Tomato , Carot , Onion Lemon Chillie</p>
+        <span>Price: ₹150</span>
+      </article>
+      <article>
+        <h3>02 — Onion Salad</h3>
+        <p>Slice Of Onion , Lemon Chillie On Top</p>
+        <span>Price: ₹100</span>
+      </article>
+      <article>
+        <h3>03 — Laccha Onion Salad</h3>
+        <p>Ring Of Onion Sprinkle Indian Spices</p>
+        <span>Price: ₹130</span>
+      </article>
+      <article>
+        <h3>04 — Masala Papad</h3>
+        <p>Papadum Full Loaded With Veggies Finish With Yellow Sev</p>
+        <span>Price: ₹80</span>
+      </article>
+      <article>
+        <h3>05 — Roasted Papad</h3>
+        <p>Oven Roasted Home Made Papadum</p>
+        <span>Price: ₹60</span>
+      </article>
+      <article>
+        <h3>06 — French Fries</h3>
+        <p>Potato Finger Fried Hot And Cruncy</p>
+        <span>Price: ₹260</span>
+      </article>
+      <article>
+        <h3>07 — Boston Loaded Peri Peri Fries</h3>
+        <p>Our Home Style Dips And Chips Loaded With Ground Spices</p>
+        <span>Price: ₹310</span>
+      </article>
+      <article>
+        <h3>08 — Thai Peanut Chatkara</h3>
+        <p>Fried Peanut , Thai Spices Papadum Basket</p>
+        <span>Price: ₹240</span>
+      </article>
+      <article>
+        <h3>09 — Khau Gali Khichiya</h3>
+        <p>Mumbai Khau Gali Street Craker With Deshi Chatkara</p>
+        <span>Price: ₹180</span>
+      </article>
+      <article>
+        <h3>10 — Cheese Masala Khichiya</h3>
+        <p>Our Deshi Craker Loaded With Veggies</p>
+        <span>Price: ₹230</span>
+      </article>
+      <article>
+        <h3>11 — Maxican Street Loaded Nachos</h3>
+        <p>Corn Nachos , Corn &amp; Beans , Cheesey Sauce</p>
+        <span>Price: ₹390</span>
+      </article>
+      <article>
+        <h3>12 — Italian Farmaggie Bites</h3>
+        <p>Our Chef Special Cheese Bites Creamies Youe Palat</p>
+        <span>Price: ₹410</span>
+      </article>
+      <article>
+        <h3>13 — Chakna Trolly</h3>
+        <p>Combination Of Nachos, Papad, Peanut, French Fries, Peri Peri, Chatpata Chana</p>
+        <span>Price: ₹450</span>
+      </article>
+    </section>
+
+    <section aria-label="Contie Chinese">
+      <h2>03 · Contie Chinese</h2>
+      <article>
+        <h3>01 — Stuff Potatoes Florentine</h3>
+        <span>Price: ₹430</span>
+      </article>
+      <article>
+        <h3>02 — Panko Coated Cakes with Marinara</h3>
+        <span>Price: ₹420</span>
+      </article>
+      <article>
+        <h3>03 — West of England</h3>
+        <span>Price: ₹450</span>
+      </article>
+      <article>
+        <h3>04 — Hummus Tzatziki Platter</h3>
+        <span>Price: ₹470</span>
+      </article>
+      <article>
+        <h3>05 — Tibetan Momo Hot Chilli Style</h3>
+        <span>Price: ₹420</span>
+      </article>
+      <article>
+        <h3>06 — Chillie Paneer</h3>
+        <span>Price: ₹430</span>
+      </article>
+      <article>
+        <h3>07 — Manchurian Dry / Gravy</h3>
+        <span>Price: ₹380 / ₹410</span>
+      </article>
+      <article>
+        <h3>08 — Fungi Cheese Dip with Garlic Bread</h3>
+        <span>Price: ₹450</span>
+      </article>
+      <article>
+        <h3>09 — Mangolian Soya Chillie</h3>
+        <span>Price: ₹450</span>
+      </article>
+      <article>
+        <h3>10 — Dragon / Honey Chillie / Chillie Garlic</h3>
+        <span>Price: ₹340</span>
+      </article>
+      <article>
+        <h3>11 — Hakka Noodle / Shezwan</h3>
+        <span>Price: ₹370</span>
+      </article>
+      <article>
+        <h3>12 — Galangal Cottage Cheese</h3>
+        <span>Price: ₹450</span>
+      </article>
+      <article>
+        <h3>13 — Pad Thai Noodle</h3>
+        <span>Price: ₹410</span>
+      </article>
+      <article>
+        <h3>14 — Burnt Garlic Soba Noodle</h3>
+        <span>Price: ₹420</span>
+      </article>
+    </section>
+
+    <section aria-label="Pasta &amp; Pizza">
+      <h2>04 · Pasta &amp; Pizza</h2>
+      <article>
+        <h3>01 — Penne / Spegetti</h3>
+        <p>Arabiatta / Alfredo / Velvet / Pesto</p>
+        <span>Price: ₹470</span>
+      </article>
+      <article>
+        <h3>02 — Pasta Agliolio</h3>
+        <p>Spegetti Tossed With Veggies Olive Oil Garlic</p>
+        <span>Price: ₹460</span>
+      </article>
+      <article>
+        <h3>03 — Stuff Ravioli Creamy Pomodoro</h3>
+        <p>Ricotta Cheese Stuff Ravioli in Creamy Tomato Basil Sauce</p>
+        <span>Price: ₹490</span>
+      </article>
+      <article>
+        <h3>04 — Fettucine Ala Fungi</h3>
+        <p>Fettucine Pasta With Mashroom Veloute Sauce</p>
+        <span>Price: ₹490</span>
+      </article>
+      <article>
+        <h3>05 — Pesto Spegetti Butter Garlic</h3>
+        <p>Spegetti Pasta With Pesto</p>
+        <span>Price: ₹440</span>
+      </article>
+      <article>
+        <h3>06 — Lemon Spegetti</h3>
+        <p>Spegetti With Lemon Beurre Blanc</p>
+        <span>Price: ₹440</span>
+      </article>
+      <article>
+        <h3>07 — Truffle Cream Fettucine</h3>
+        <p>Creamy Fettucine Peppercon With Truffle</p>
+        <span>Price: ₹450</span>
+      </article>
+      <article>
+        <h3>08 — Ruccolaa Burata Cheese Nepolitan</h3>
+        <p>Nepolitan Based Pizza With Ruccolla &amp; Burrata</p>
+        <span>Price: ₹450</span>
+      </article>
+      <article>
+        <h3>09 — Fungi Pesto Nepolitian</h3>
+        <p>Nepolitan Based Pizza With Pesto And Mashroom</p>
+        <span>Price: ₹440</span>
+      </article>
+      <article>
+        <h3>10 — Tandoori Paneer Tikka Pizza</h3>
+        <p>Our Deshi Fusion Pizza With Kasoori Methi &amp; Paneer</p>
+        <span>Price: ₹450</span>
+      </article>
+      <article>
+        <h3>11 — Four Kind Cheese Pizza</h3>
+        <p>Italian Parmesan Cheese, Process Cheese</p>
+        <span>Price: ₹480</span>
+      </article>
+      <article>
+        <h3>12 — Roma Veggies Pizza</h3>
+        <p>Exotic Veggies, Tomato Sauce Mozzarella Cheese</p>
+        <span>Price: ₹460</span>
+      </article>
+      <article>
+        <h3>13 — Beetroot Hummus With Avacado Toast</h3>
+        <p>Garlic Toast Hummus Spread Avacado On The Top</p>
+        <span>Price: ₹410</span>
+      </article>
+      <article>
+        <h3>14 — Cherry Tomato &amp; Burrata Sandwich</h3>
+        <p>Garlic Toast, Balsamic Glaze Cherry Tomato, Burrata</p>
+        <span>Price: ₹430</span>
+      </article>
+      <article>
+        <h3>15 — Turkies Garlic Bread</h3>
+        <p>Creamies Cheese And Garlic Infused Pizza</p>
+        <span>Price: ₹440</span>
+      </article>
+    </section>
+
+    <section aria-label="Tandoor, Rice &amp; Biryani, Breads &amp; Accompaniments">
+      <h2>05 · Tandoor, Rice &amp; Biryani, Breads &amp; Accompaniments</h2>
+      <article>
+        <h3>01 — Tandoori Kebab Platter</h3>
+        <p>Our Chef Special Kebab Platter Include Signaure Kebab</p>
+        <span>Price: ₹670</span>
+      </article>
+      <article>
+        <h3>02 — Bhune Besan Ka Paneer Tikka</h3>
+        <p>Chef Special Gramflour And Hand Curd Marination Rosted Paneer</p>
+        <span>Price: ₹480</span>
+      </article>
+      <article>
+        <h3>03 — Hare Podina Ka Paneer Tikka</h3>
+        <p>Mint And Ground Spiced Cottage Cheese Cooked In Clay Oven</p>
+        <span>Price: ₹470</span>
+      </article>
+      <article>
+        <h3>04 — Afgani Feta Cheese Kebab</h3>
+        <p>Cruncy Veggies And Feta Cheese Stuff Kebab Served With Fruit Relish</p>
+        <span>Price: ₹420</span>
+      </article>
+      <article>
+        <h3>05 — Seasome Shami Sheekh Kebab</h3>
+        <p>Chef Special Kebab Coated With Seasome Seeds</p>
+        <span>Price: ₹410</span>
+      </article>
+      <article>
+        <h3>06 — Stuff Meva Aloo</h3>
+        <p>Deshi Meva Stuff Tandoori Potatoes Cheese On The Top</p>
+        <span>Price: ₹470</span>
+      </article>
+      <article>
+        <h3>07 — Kaju Dakh Hara Bhara</h3>
+        <p>Green Peas And Chillie Tikki With Cashew &amp; Raisin Sweet And Savoury Combination</p>
+        <span>Price: ₹430</span>
+      </article>
+      <article>
+        <h3>08 — Steam Rice</h3>
+        <p>Plain Steam Cooked Rice</p>
+        <span>Price: ₹160</span>
+      </article>
+      <article>
+        <h3>09 — Jeera Rice</h3>
+        <p>Rice Temperd With Ghee And Jeera</p>
+        <span>Price: ₹180</span>
+      </article>
+      <article>
+        <h3>10 — Peas Pulao</h3>
+        <p>Rice Temperd With Ghee And Peas</p>
+        <span>Price: ₹220</span>
+      </article>
+      <article>
+        <h3>11 — Lakhnavi Biryani</h3>
+        <p>Our Chef Special Sefron And Whole Spiced Flavoured Biryani</p>
+        <span>Price: ₹370</span>
+      </article>
+      <article>
+        <h3>12 — Char Minar Biryani</h3>
+        <p>Brown Onion, Cashew, Ghee, Veggies Its Remid To Muglai Era</p>
+        <span>Price: ₹390</span>
+      </article>
+      <article>
+        <h3>13 — Tandoori Roti</h3>
+        <span>Price: ₹45 / ₹55</span>
+      </article>
+      <article>
+        <h3>14 — Naan</h3>
+        <span>Price: ₹60 / ₹70</span>
+      </article>
+      <article>
+        <h3>15 — Garlic Naan</h3>
+        <span>Price: ₹110</span>
+      </article>
+      <article>
+        <h3>16 — Laccha Paratha</h3>
+        <span>Price: ₹80 / ₹90</span>
+      </article>
+      <article>
+        <h3>17 — Kulcha Mirch Masala</h3>
+        <span>Price: ₹140 / ₹150</span>
+      </article>
+      <article>
+        <h3>18 — Kulcha (Aloo / Paneer)</h3>
+        <span>Price: ₹160 / ₹180</span>
+      </article>
+      <article>
+        <h3>19 — Cheese Garlic Naan</h3>
+        <span>Price: ₹140 / ₹150</span>
+      </article>
+      <article>
+        <h3>20 — Chillie Basil Naan</h3>
+        <span>Price: ₹140</span>
+      </article>
+      <article>
+        <h3>21 — Stuff Paratha</h3>
+        <span>Price: ₹150</span>
+      </article>
+      <article>
+        <h3>22 — Plain Curd</h3>
+        <span>Price: ₹80</span>
+      </article>
+      <article>
+        <h3>23 — Mix Veg Raita</h3>
+        <span>Price: ₹130</span>
+      </article>
+    </section>
+
+    <section aria-label="Indian, Dal &amp; Sizzler">
+      <h2>06 · Indian, Dal &amp; Sizzler</h2>
+      <article>
+        <h3>01 — Paneer Dhaniya Adarki</h3>
+        <p>Its An Combination Dish This Blend Of Cottage Cheese In Ginger And Coriander Gravy</p>
+        <span>Price: ₹420</span>
+      </article>
+      <article>
+        <h3>02 — Paneer Lahori (Peshawari)</h3>
+        <p>Dices Of Cottage Cheese Cooked With Creamy Tomato Gravy With Lahori Whole Spices</p>
+        <span>Price: ₹440</span>
+      </article>
+      <article>
+        <h3>03 — Kade Masale Ka Bhuna Paneer</h3>
+        <p>Bhuna Paneer Is Rich And Spicy Cottage Cheese Dish With An Amezing Bhuna Masala</p>
+        <span>Price: ₹420</span>
+      </article>
+      <article>
+        <h3>04 — Jodhpuri Paneer Tufani</h3>
+        <p>Our Chef Special Deshi Twist Hot And Spicy</p>
+        <span>Price: ₹420</span>
+      </article>
+      <article>
+        <h3>05 — Bhutta Mirch Masala</h3>
+        <p>Panjabi Style Dish Which Is Contain Bhutta Anad Vegetable Rubbed With Indian Spices</p>
+        <span>Price: ₹380</span>
+      </article>
+      <article>
+        <h3>06 — Vegetable Vilayati (Jalfrezi)</h3>
+        <p>Delicious And Healthy Mixure Of English Veg Are Tossed In Tangy Masala</p>
+        <span>Price: ₹360</span>
+      </article>
+      <article>
+        <h3>07 — Methi Malai Paneer</h3>
+        <p>It's A Great Combination Of Fenugreek Leaves With Green Peas Rich Creamy Curry</p>
+        <span>Price: ₹440</span>
+      </article>
+      <article>
+        <h3>08 — Paneer Saagwala</h3>
+        <p>Paneer Is Well Loved Vegeterian Side Dish Its Rich In Calsium From Spinach And Cottage Cheese</p>
+        <span>Price: ₹420</span>
+      </article>
+      <article>
+        <h3>09 — Gulmarg Aloo</h3>
+        <p>It's A Kashmiri Food Potatoes Cooked In Yoghurt Based Gravy With Fennel And Other Spices</p>
+        <span>Price: ₹400</span>
+      </article>
+      <article>
+        <h3>10 — Nanhi Sabjio Ka Mela</h3>
+        <p>It's A Combination Of Vegetable Which One Cooked In An Aeromatic Onion Tomato Masala</p>
+        <span>Price: ₹390</span>
+      </article>
+      <article>
+        <h3>11 — Pindi Chana Masala</h3>
+        <p>It's A Unique Blend Of Spices Adding Some Dry Mango Pwder To Make Perfect Panjabi Cuisin</p>
+        <span>Price: ₹380</span>
+      </article>
+      <article>
+        <h3>12 — Kaju Rawadi</h3>
+        <span>Price: ₹480</span>
+      </article>
+      <article>
+        <h3>13 — Malai Kofta Curry</h3>
+        <p>Round Shape Cottage Cheese And Khoya Dumping Served With Velvet Silky Gravy</p>
+        <span>Price: ₹470</span>
+      </article>
+      <article>
+        <h3>14 — Soya Rara</h3>
+        <p>Soya Chunk And Soya Beans Blended Together With Indian Spices And Herbs</p>
+        <span>Price: ₹480</span>
+      </article>
+      <article>
+        <h3>15 — Pahadi Mashroom Angara</h3>
+        <p>Our Chef Special Home Ground Whole Kashmiri Spices Blend With Mashroom</p>
+        <span>Price: ₹480</span>
+      </article>
+      <article>
+        <h3>16 — Burrata Butter Cheese</h3>
+        <p>Cheese Melted In Mouth With Indian Delicasy Classical Experience</p>
+        <span>Price: ₹520</span>
+      </article>
+      <article>
+        <h3>17 — Dal Fry</h3>
+        <p>Tradionally Yellow Lentil Infused Chef Special Masala</p>
+        <span>Price: ₹220</span>
+      </article>
+      <article>
+        <h3>18 — Dal Tadka</h3>
+        <p>Yellow Lentil Tempring With Curry Leaves, Red Chillies And Ghee</p>
+        <span>Price: ₹260</span>
+      </article>
+      <article>
+        <h3>19 — Pahadi Dal</h3>
+        <p>Chef Special Mix Of Red Gram Lentil And Yellow Lentil Cooked In Pahadi Style</p>
+        <span>Price: ₹280</span>
+      </article>
+      <article>
+        <h3>20 — Dal Makhani</h3>
+        <p>Black Urad Cooked Overnight Finish With Butter And Cream</p>
+        <span>Price: ₹320</span>
+      </article>
+      <article>
+        <h3>21 — Thai Fushion Sizzler</h3>
+        <p>Rice + Cottage Cheese + French Fries In Thai Style</p>
+        <span>Price: ₹650</span>
+      </article>
+      <article>
+        <h3>22 — Italian Sizzler</h3>
+        <p>Rice + Cottage Cheese + French Fries In Oriental Style</p>
+        <span>Price: ₹650</span>
+      </article>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
