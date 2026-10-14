@@ -18,7 +18,7 @@
   <!-- ============================================================
        CENTRAL PRESENTATION CANVAS (Single Portrait Menu Book)
        Strictly centered: Front cover when closed, interior pages when open.
-       Page sequence: Cover (0) → 01·Soup (1) → 02·Garde Manger (2) → 03·Contie Chinese (3)
+       Page sequence: Cover (0) → 01·Soup (1) → 02·Garde Manger (2) → 03·Around the World (3) → 04·Tandoor: Kebabs & Rice/Biryani (4) → 05·Tandoor: Breads & Accompaniments (5) → 06·Pasta & Pizza (6) → 07·Indian, Dal & Sizzler (7)
        Zero blank left pages. Zero filler spreads.
        ============================================================ -->
   <main class="menu-viewport" id="menuViewport">
@@ -38,8 +38,8 @@
       <div class="menu-book-container" id="menuBook" data-state="cover">
         
         <!-- ======================================================
-             PAGE LAYER: 06 · INDIAN, DAL & SIZZLER MENU (Page 6)
-             Revealed when turning forward from Tandoor & Rice
+             PAGE LAYER: 07 · INDIAN, DAL & SIZZLER MENU (Page 7)
+             Revealed when turning forward from Pasta & Pizza
              ====================================================== -->
         <div class="book-layer indian-layer" id="indianLayer" aria-label="Indian, Dal & Sizzler Menu">
           <img 
@@ -52,22 +52,8 @@
         </div>
 
         <!-- ======================================================
-             PAGE LAYER: 05 · TANDOOR, RICE & BIRYANI MENU (Page 5)
-             Revealed when turning forward from Pasta & Pizza
-             ====================================================== -->
-        <div class="book-layer tandoor-layer" id="tandoorLayer" aria-label="Tandoor, Rice & Biryani Menu">
-          <img 
-            src="assets/images/tandoor-rice.jpg" 
-            alt="Saanj Bagh — Tandoor, Rice & Biryani, Breads & Accompaniments Menu" 
-            class="menu-artwork-img"
-            id="tandoorArtwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             PAGE LAYER: 04 · PASTA & PIZZA MENU (Page 4)
-             Revealed when turning forward from Contie Chinese
+             PAGE LAYER: 06 · PASTA & PIZZA MENU (Page 6)
+             Revealed when turning forward from Tandoor — Breads
              ====================================================== -->
         <div class="book-layer pasta-layer" id="pastaLayer" aria-label="Pasta & Pizza Menu">
           <img 
@@ -80,22 +66,46 @@
         </div>
 
         <!-- ======================================================
-             PAGE LAYER 1: 03 · CONTIE CHINESE MENU (Page 3)
-             Revealed when turning forward from Garde Manger
+             PAGE LAYER: 05 · TANDOOR — BREADS & ACCOMPANIMENTS (Page 5)
+             Revealed when turning forward from Tandoor — Kebabs
              ====================================================== -->
-        <div class="book-layer contie-layer" id="contieLayer" aria-label="Contie Chinese Menu">
-
-          <!-- Background Artwork Plate -->
-          <img
-            src="assets/images/contie-bg.jpg"
-            alt="Saanj Bagh — Contie Chinese Menu"
+        <div class="book-layer tandoor-breads-layer" id="tandoorBreadsLayer" aria-label="Tandoor — Breads & Accompaniments Menu">
+          <img 
+            src="assets/images/tandoor-breads.jpg" 
+            alt="Saanj Bagh — Tandoor, Breads & Accompaniments Menu" 
             class="menu-artwork-img"
-            id="contieArtwork"
+            id="tandoorBreadsArtwork"
             draggable="false"
           />
+        </div>
 
+        <!-- ======================================================
+             PAGE LAYER: 04 · TANDOOR — KEBABS & RICE/BIRYANI (Page 4)
+             Revealed when turning forward from Around the World
+             ====================================================== -->
+        <div class="book-layer tandoor-kebabs-layer" id="tandoorKebabsLayer" aria-label="Tandoor — Kebabs & Rice/Biryani Menu">
+          <img 
+            src="assets/images/tandoor-kebabs.jpg" 
+            alt="Saanj Bagh — Tandoor, Kebabs & Rice/Biryani Menu" 
+            class="menu-artwork-img"
+            id="tandoorKebabsArtwork"
+            draggable="false"
+          />
+        </div>
 
-        </div><!-- /.contie-layer -->
+        <!-- ======================================================
+             PAGE LAYER: 03 · AROUND THE WORLD MENU (Page 3)
+             Revealed when turning forward from Garde Manger
+             ====================================================== -->
+        <div class="book-layer around-world-layer" id="aroundWorldLayer" aria-label="Around the World Menu">
+          <img
+            src="assets/images/around-the-world.jpg"
+            alt="Saanj Bagh — Around the World Menu"
+            class="menu-artwork-img"
+            id="aroundWorldArtwork"
+            draggable="false"
+          />
+        </div>
 
 
         <!-- ======================================================
@@ -370,8 +380,8 @@
       </article>
     </section>
 
-    <section aria-label="Contie Chinese">
-      <h2>03 · Contie Chinese</h2>
+    <section aria-label="Around the World">
+      <h2>03 · Around the World</h2>
       <article>
         <h3>01 — Stuff Potatoes Florentine</h3>
         <span>Price: ₹430</span>
@@ -431,7 +441,7 @@
     </section>
 
     <section aria-label="Pasta &amp; Pizza">
-      <h2>04 · Pasta &amp; Pizza</h2>
+      <h2>06 · Pasta &amp; Pizza</h2>
       <article>
         <h3>01 — Penne / Spegetti</h3>
         <p>Arabiatta / Alfredo / Velvet / Pesto</p>
@@ -509,8 +519,8 @@
       </article>
     </section>
 
-    <section aria-label="Tandoor, Rice &amp; Biryani, Breads &amp; Accompaniments">
-      <h2>05 · Tandoor, Rice &amp; Biryani, Breads &amp; Accompaniments</h2>
+    <section aria-label="Tandoor — Kebabs &amp; Rice/Biryani">
+      <h2>04 · Tandoor — Kebabs &amp; Rice/Biryani</h2>
       <article>
         <h3>01 — Tandoori Kebab Platter</h3>
         <p>Our Chef Special Kebab Platter Include Signaure Kebab</p>
@@ -571,6 +581,10 @@
         <p>Brown Onion, Cashew, Ghee, Veggies Its Remid To Muglai Era</p>
         <span>Price: ₹390</span>
       </article>
+    </section>
+
+    <section aria-label="Tandoor — Breads &amp; Accompaniments">
+      <h2>05 · Tandoor — Breads &amp; Accompaniments</h2>
       <article>
         <h3>13 — Tandoori Roti</h3>
         <span>Price: ₹45 / ₹55</span>
@@ -618,7 +632,7 @@
     </section>
 
     <section aria-label="Indian, Dal &amp; Sizzler">
-      <h2>06 · Indian, Dal &amp; Sizzler</h2>
+      <h2>07 · Indian, Dal &amp; Sizzler</h2>
       <article>
         <h3>01 — Paneer Dhaniya Adarki</h3>
         <p>Its An Combination Dish This Blend Of Cottage Cheese In Ginger And Coriander Gravy</p>

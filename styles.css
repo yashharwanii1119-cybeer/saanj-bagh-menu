@@ -103,8 +103,8 @@ html, body {
   transition: opacity 0.2s ease;
 }
 
-/* Layer 5: 05 · Tandoor, Rice & Biryani (Page 5) */
-.tandoor-layer {
+/* Layer 6: 06 · Pasta & Pizza (Page 6) */
+.pasta-layer {
   z-index: 4;
   background: #F6EFE2;
   background-repeat: no-repeat;
@@ -113,8 +113,8 @@ html, body {
   transition: opacity 0.2s ease;
 }
 
-/* Layer 4: 04 · Pasta & Pizza (Page 4) */
-.pasta-layer {
+/* Layer 5: 05 · Tandoor — Breads & Accompaniments (Page 5) */
+.tandoor-breads-layer {
   z-index: 6;
   background: #F6EFE2;
   background-repeat: no-repeat;
@@ -123,9 +123,19 @@ html, body {
   transition: opacity 0.2s ease;
 }
 
-/* Layer 3: 03 · Contie Chinese Menu (Page 3) */
-.contie-layer {
+/* Layer 4: 04 · Tandoor — Kebabs & Rice/Biryani (Page 4) */
+.tandoor-kebabs-layer {
   z-index: 8;
+  background: #F6EFE2;
+  background-repeat: no-repeat;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Layer 3: 03 · Around the World (Page 3) */
+.around-world-layer {
+  z-index: 10;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -135,7 +145,7 @@ html, body {
 
 /* Layer 2: 02 · Garde Manger Menu (Page 2) */
 .garde-layer {
-  z-index: 10;
+  z-index: 12;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -145,7 +155,7 @@ html, body {
 
 /* Layer 1: 01 · Soup Menu (Page 1 - continuous live steam) */
 .soup-layer {
-  z-index: 12;
+  z-index: 14;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -155,7 +165,7 @@ html, body {
 
 /* Layer 0: Menu Cover (Front face of closed book, Page 0) */
 .cover-layer {
-  z-index: 14;
+  z-index: 16;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -170,12 +180,14 @@ html, body {
 .soup-layer .menu-artwork-img,
 .garde-layer img,
 .garde-layer .menu-artwork-img,
-.contie-layer img,
-.contie-layer .menu-artwork-img,
+.around-world-layer img,
+.around-world-layer .menu-artwork-img,
+.tandoor-kebabs-layer img,
+.tandoor-kebabs-layer .menu-artwork-img,
+.tandoor-breads-layer img,
+.tandoor-breads-layer .menu-artwork-img,
 .pasta-layer img,
 .pasta-layer .menu-artwork-img,
-.tandoor-layer img,
-.tandoor-layer .menu-artwork-img,
 .indian-layer img,
 .indian-layer .menu-artwork-img {
   display: block;
@@ -186,7 +198,7 @@ html, body {
   pointer-events: none;
 }
 
-/* Page states & visibility: Sequence Cover (0) -> Soup (1) -> Garde (2) -> Contie (3) -> Pasta (4) -> Tandoor (5) -> Indian (6) */
+/* Page states & visibility: Sequence Cover (0) -> Soup (1) -> Garde (2) -> Around World (3) -> Tandoor Kebabs (4) -> Tandoor Breads (5) -> Pasta (6) -> Indian (7) */
 
 /* Cover (Page 0) */
 .menu-book-container[data-state="cover"] .cover-layer { opacity: 1; pointer-events: auto; }
@@ -200,34 +212,44 @@ html, body {
 .menu-book-container[data-state="garde-manger"] .soup-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-state="garde-manger"] .garde-layer { opacity: 1; pointer-events: auto; }
 
-/* Contie Chinese (Page 3) */
-.menu-book-container[data-state="contie-chinese"] .cover-layer,
-.menu-book-container[data-state="contie-chinese"] .soup-layer,
-.menu-book-container[data-state="contie-chinese"] .garde-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="contie-chinese"] .contie-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Around the World (Page 3) */
+.menu-book-container[data-state="around-the-world"] .cover-layer,
+.menu-book-container[data-state="around-the-world"] .soup-layer,
+.menu-book-container[data-state="around-the-world"] .garde-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="around-the-world"] .around-world-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
-/* Pasta & Pizza (Page 4) */
+/* Tandoor — Kebabs & Rice/Biryani (Page 4) */
+.menu-book-container[data-state="tandoor-kebabs"] .cover-layer,
+.menu-book-container[data-state="tandoor-kebabs"] .soup-layer,
+.menu-book-container[data-state="tandoor-kebabs"] .garde-layer,
+.menu-book-container[data-state="tandoor-kebabs"] .around-world-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="tandoor-kebabs"] .tandoor-kebabs-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Tandoor — Breads & Accompaniments (Page 5) */
+.menu-book-container[data-state="tandoor-breads"] .cover-layer,
+.menu-book-container[data-state="tandoor-breads"] .soup-layer,
+.menu-book-container[data-state="tandoor-breads"] .garde-layer,
+.menu-book-container[data-state="tandoor-breads"] .around-world-layer,
+.menu-book-container[data-state="tandoor-breads"] .tandoor-kebabs-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="tandoor-breads"] .tandoor-breads-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Pasta & Pizza (Page 6) */
 .menu-book-container[data-state="pasta-pizza"] .cover-layer,
 .menu-book-container[data-state="pasta-pizza"] .soup-layer,
 .menu-book-container[data-state="pasta-pizza"] .garde-layer,
-.menu-book-container[data-state="pasta-pizza"] .contie-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="pasta-pizza"] .around-world-layer,
+.menu-book-container[data-state="pasta-pizza"] .tandoor-kebabs-layer,
+.menu-book-container[data-state="pasta-pizza"] .tandoor-breads-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-state="pasta-pizza"] .pasta-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
-/* Tandoor, Rice & Biryani (Page 5) */
-.menu-book-container[data-state="tandoor-rice"] .cover-layer,
-.menu-book-container[data-state="tandoor-rice"] .soup-layer,
-.menu-book-container[data-state="tandoor-rice"] .garde-layer,
-.menu-book-container[data-state="tandoor-rice"] .contie-layer,
-.menu-book-container[data-state="tandoor-rice"] .pasta-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="tandoor-rice"] .tandoor-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Indian, Dal & Sizzler (Page 6) */
+/* Indian, Dal & Sizzler (Page 7) */
 .menu-book-container[data-state="indian-dal"] .cover-layer,
 .menu-book-container[data-state="indian-dal"] .soup-layer,
 .menu-book-container[data-state="indian-dal"] .garde-layer,
-.menu-book-container[data-state="indian-dal"] .contie-layer,
-.menu-book-container[data-state="indian-dal"] .pasta-layer,
-.menu-book-container[data-state="indian-dal"] .tandoor-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="indian-dal"] .around-world-layer,
+.menu-book-container[data-state="indian-dal"] .tandoor-kebabs-layer,
+.menu-book-container[data-state="indian-dal"] .tandoor-breads-layer,
+.menu-book-container[data-state="indian-dal"] .pasta-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-state="indian-dal"] .indian-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
 /* --- Animating states (Page curl in progress) --- */
@@ -241,28 +263,37 @@ html, body {
 .menu-book-container[data-state="animating-2-3"] .cover-layer,
 .menu-book-container[data-state="animating-2-3"] .soup-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-state="animating-2-3"] .garde-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-2-3"] .contie-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-2-3"] .around-world-layer { opacity: 1; pointer-events: none; }
 
 .menu-book-container[data-state="animating-3-4"] .cover-layer,
 .menu-book-container[data-state="animating-3-4"] .soup-layer,
 .menu-book-container[data-state="animating-3-4"] .garde-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-3-4"] .contie-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-3-4"] .pasta-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-3-4"] .around-world-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-3-4"] .tandoor-kebabs-layer { opacity: 1; pointer-events: none; }
 
 .menu-book-container[data-state="animating-4-5"] .cover-layer,
 .menu-book-container[data-state="animating-4-5"] .soup-layer,
 .menu-book-container[data-state="animating-4-5"] .garde-layer,
-.menu-book-container[data-state="animating-4-5"] .contie-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-4-5"] .pasta-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-4-5"] .tandoor-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-4-5"] .around-world-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-4-5"] .tandoor-kebabs-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-4-5"] .tandoor-breads-layer { opacity: 1; pointer-events: none; }
 
 .menu-book-container[data-state="animating-5-6"] .cover-layer,
 .menu-book-container[data-state="animating-5-6"] .soup-layer,
 .menu-book-container[data-state="animating-5-6"] .garde-layer,
-.menu-book-container[data-state="animating-5-6"] .contie-layer,
-.menu-book-container[data-state="animating-5-6"] .pasta-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-5-6"] .tandoor-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-5-6"] .indian-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-5-6"] .around-world-layer,
+.menu-book-container[data-state="animating-5-6"] .tandoor-kebabs-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-5-6"] .tandoor-breads-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-5-6"] .pasta-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-state="animating-6-7"] .cover-layer,
+.menu-book-container[data-state="animating-6-7"] .soup-layer,
+.menu-book-container[data-state="animating-6-7"] .garde-layer,
+.menu-book-container[data-state="animating-6-7"] .around-world-layer,
+.menu-book-container[data-state="animating-6-7"] .tandoor-kebabs-layer,
+.menu-book-container[data-state="animating-6-7"] .tandoor-breads-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-6-7"] .pasta-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-6-7"] .indian-layer { opacity: 1; pointer-events: none; }
 
 /* Backward compatibility aliases */
 .menu-book-container[data-state="open"] .cover-layer {

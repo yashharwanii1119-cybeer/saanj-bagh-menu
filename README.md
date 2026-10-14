@@ -8,13 +8,14 @@
 ## Overview
 
 This project presents the **Saanj Bagh Interactive Digital Menu Book**, featuring:
-1. **Front Cover (Page 0)**: The approved beige-and-gold Saanj Bagh menu cover artwork showcasing the sunlit royal courtyard, Mughal/Rajasthani cusped arch, climbing botanical branches, floral cartouche emblem, and `MENU` title.
-2. **01 · Soup — A Warm Beginning (Page 1)**: Ceramic tomato soup bowl with **photorealistic, continuously rising warm water vapour/steam**.
-3. **02 · Garde Manger — Fresh Starts & Relishes (Page 2)**: Garden architectural courtyard with **organic botanical foliage breeze** swaying isolated leaf clusters.
-4. **03 · Contie Chinese (Page 3)**: Royal pavilion and bridge landscape with **subtle marionette sway of the traditional Rajasthani dancing puppet** ($\pm 0.95^\circ$ graceful suspension loop).
-5. **04 · Pasta & Pizza (Page 4)**: Sunlit fort view with artisanal pasta and Neapolitan wood-fired pizza selections.
-6. **05 · Tandoor, Rice & Biryani, Breads & Accompaniments (Page 5)**: Sunset terrace overlooking the Blue City with tandoor kebabs, biryanis, and artisanal breads.
-7. **06 · Indian, Dal & Sizzler (Page 6)**: Grand royal banquet view featuring traditional curries, slow-cooked dal, and sizzler specialties.
+1. **Front Cover (Page 0)**: Luxury Saanj Bagh parchment cover artwork with antique gold emblem, typography, and botanical bougainvillea accents.
+2. **01 · Soup — A Warm Beginning (Page 1)**: Ceramic soup bowl with **photorealistic, continuously rising warm water vapour/steam**.
+3. **02 · Garde Manger — Fresh Starts & Relishes (Page 2)**: Crisp salads, artisanal papad, chaat, and continental appetizers.
+4. **03 · Around the World (Page 3)**: Global starters, platters, dim sums & momos, noodles, and Asian delicacies.
+5. **04 · Tandoor — Kebabs & Rice/Biryani (Page 4)**: Clay oven roasted kebabs, paneer tikka, aromatic rice, and Dum biryani.
+6. **05 · Tandoor — Breads & Accompaniments (Page 5)**: Fresh clay oven rotis, naans, stuffed kulchas, parathas, and raita.
+7. **06 · Pasta & Pizza (Page 6)**: Handcrafted pasta, Neapolitan wood-fired pizzas, gourmet sourdough toasts, and sandwiches.
+8. **07 · Indian, Dal & Sizzler (Page 7)**: Rich North Indian curries, paneer delicacies, slow-cooked dal, and hot sizzling platters.
 
 ---
 
@@ -38,7 +39,7 @@ The server is running on:
 ```
 http://localhost:3000
 ```
-Open in your browser to experience the 7-page menu book with animations.
+Open in your browser to experience the 8-page menu book with animations.
 
 ### Option 2: Terminal
 ```bash

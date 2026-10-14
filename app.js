@@ -6,7 +6,11 @@
  *   Page 0: Cover (Closed Book)
  *   Page 1: 01 · Soup (A Warm Beginning with Continuous Live Steam)
  *   Page 2: 02 · Garde Manger (Fresh Starts & Relishes)
- *   Page 3: 03 · Contie Chinese (Dancing Kathputli Puppet)
+ *   Page 3: 03 · Around the World
+ *   Page 4: 04 · Tandoor — Kebabs & Rice/Biryani
+ *   Page 5: 05 · Tandoor — Breads & Accompaniments
+ *   Page 6: 06 · Pasta & Pizza
+ *   Page 7: 07 · Indian, Dal & Sizzler
  * 
  * Features:
  * - Dynamic curved Bezier fold contour (heavy-stock uncoated luxury paper sheet)
@@ -24,9 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const coverLayer = document.getElementById('coverLayer');
   const soupLayer = document.getElementById('soupLayer');
   const gardeLayer = document.getElementById('gardeLayer');
-  const contieLayer = document.getElementById('contieLayer');
+  const aroundWorldLayer = document.getElementById('aroundWorldLayer');
+  const tandoorKebabsLayer = document.getElementById('tandoorKebabsLayer');
+  const tandoorBreadsLayer = document.getElementById('tandoorBreadsLayer');
   const pastaLayer = document.getElementById('pastaLayer');
-  const tandoorLayer = document.getElementById('tandoorLayer');
   const indianLayer = document.getElementById('indianLayer');
   const curlCanvas = document.getElementById('curlCanvas');
 
@@ -38,9 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const coverArtwork = document.getElementById('coverArtwork');
   const soupArtwork = document.getElementById('soupArtwork');
   const gardeArtwork = document.getElementById('gardeArtwork');
-  const contieArtwork = document.getElementById('contieArtwork');
+  const aroundWorldArtwork = document.getElementById('aroundWorldArtwork');
+  const tandoorKebabsArtwork = document.getElementById('tandoorKebabsArtwork');
+  const tandoorBreadsArtwork = document.getElementById('tandoorBreadsArtwork');
   const pastaArtwork = document.getElementById('pastaArtwork');
-  const tandoorArtwork = document.getElementById('tandoorArtwork');
   const indianArtwork = document.getElementById('indianArtwork');
 
   // --- High-DPI Canvas 2D Setup (Uniform 682 x 1024 Aspect Ratio) ---
@@ -213,9 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Turning page: Cover (page 0), Soup (page 1), or Garde Manger (page 2)
     // ------------------------------------------------------------------------
     let turningArt;
-    if (turningPage === 5) turningArt = tandoorArtwork;
-    else if (turningPage === 4) turningArt = pastaArtwork;
-    else if (turningPage === 3) turningArt = contieArtwork;
+    if (turningPage === 6) turningArt = pastaArtwork;
+    else if (turningPage === 5) turningArt = tandoorBreadsArtwork;
+    else if (turningPage === 4) turningArt = tandoorKebabsArtwork;
+    else if (turningPage === 3) turningArt = aroundWorldArtwork;
     else if (turningPage === 2) turningArt = gardeArtwork;
     else if (turningPage === 1) turningArt = soupArtwork;
     else turningArt = coverArtwork;
@@ -339,9 +346,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     btnNavPrev.disabled = (currentPage === 0);
-    btnNavNext.disabled = (currentPage === 6);
+    btnNavNext.disabled = (currentPage === 7);
     btnNavPrev.setAttribute('aria-disabled', currentPage === 0 ? 'true' : 'false');
-    btnNavNext.setAttribute('aria-disabled', currentPage === 6 ? 'true' : 'false');
+    btnNavNext.setAttribute('aria-disabled', currentPage === 7 ? 'true' : 'false');
   }
 
   function setFinalState(page) {
@@ -349,10 +356,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (page === 0) currentState = 'cover';
     else if (page === 1) currentState = 'soup';
     else if (page === 2) currentState = 'garde-manger';
-    else if (page === 3) currentState = 'contie-chinese';
-    else if (page === 4) currentState = 'pasta-pizza';
-    else if (page === 5) currentState = 'tandoor-rice';
-    else if (page === 6) currentState = 'indian-dal';
+    else if (page === 3) currentState = 'around-the-world';
+    else if (page === 4) currentState = 'tandoor-kebabs';
+    else if (page === 5) currentState = 'tandoor-breads';
+    else if (page === 6) currentState = 'pasta-pizza';
+    else if (page === 7) currentState = 'indian-dal';
 
     menuBook.dataset.state = currentState;
     updateArrowNav();
@@ -366,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Smooth physics-based turn animation for a single page turn
-   * @param {number} turningPage - 0 to 5
+   * @param {number} turningPage - 0 to 6
    * @param {number} startProg - Starting progress [0, 1]
    * @param {number} targetProg - Target progress [0, 1]
    * @param {number} duration - Turn duration in ms
@@ -418,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function goToPage(targetPage, liftBias = 0.45) {
     if (isAnimating || targetPage === currentPage) return;
-    if (targetPage < 0 || targetPage > 6) return;
+    if (targetPage < 0 || targetPage > 7) return;
 
     if (Math.abs(targetPage - currentPage) === 1) {
       if (targetPage > currentPage) {
@@ -473,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (dx < 0) {
         // Dragging left = forward turn
-        if (currentPage < 6) {
+        if (currentPage < 7) {
           activeTurningPage = currentPage;
           dragDirectionLocked = 'forward';
           menuBook.dataset.state = `animating-${activeTurningPage}-${activeTurningPage + 1}`;
@@ -528,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const clickXNorm = (e.clientX - rect.left) / rect.width;
 
       if (clickXNorm > 0.6) {
-        if (currentPage < 6) goToPage(currentPage + 1, currentLiftBias);
+        if (currentPage < 7) goToPage(currentPage + 1, currentLiftBias);
       } else if (clickXNorm < 0.4) {
         if (currentPage > 0) goToPage(currentPage - 1, currentLiftBias);
       }
@@ -579,7 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnNavNext.addEventListener('click', (e) => {
       e.stopPropagation();
       if (isAnimating) return;
-      if (currentPage < 6) {
+      if (currentPage < 7) {
         goToPage(currentPage + 1, 0.45);
       }
     });
@@ -597,13 +605,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Keyboard accessibility
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && currentPage < 6)) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && currentPage < 7)) {
       e.preventDefault();
       if (isAnimating) return;
-      if (currentPage < 6) {
+      if (currentPage < 7) {
         goToPage(currentPage + 1, 0.45);
       }
-    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || (e.key === ' ' && currentPage === 6)) {
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || (e.key === ' ' && currentPage === 7)) {
       e.preventDefault();
       if (isAnimating) return;
       if (currentPage > 0) {
@@ -625,9 +633,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!coverArtwork.complete) coverArtwork.onload = () => {};
   if (!soupArtwork.complete) soupArtwork.onload = () => {};
   if (!gardeArtwork.complete) gardeArtwork.onload = () => {};
-  if (contieArtwork && !contieArtwork.complete) contieArtwork.onload = () => {};
+  if (aroundWorldArtwork && !aroundWorldArtwork.complete) aroundWorldArtwork.onload = () => {};
+  if (tandoorKebabsArtwork && !tandoorKebabsArtwork.complete) tandoorKebabsArtwork.onload = () => {};
+  if (tandoorBreadsArtwork && !tandoorBreadsArtwork.complete) tandoorBreadsArtwork.onload = () => {};
   if (pastaArtwork && !pastaArtwork.complete) pastaArtwork.onload = () => {};
-  if (tandoorArtwork && !tandoorArtwork.complete) tandoorArtwork.onload = () => {};
   if (indianArtwork && !indianArtwork.complete) indianArtwork.onload = () => {};
 
   // Initialize initial arrow navigation states
