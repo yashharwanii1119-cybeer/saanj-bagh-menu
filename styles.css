@@ -49,7 +49,7 @@ html, body {
   position: relative;
   width: auto;
   height: min(88vh, 920px);
-  aspect-ratio: 724 / 1024;
+  aspect-ratio: 682 / 1024;
   container-type: inline-size;
   background: #F6EFE2;
   border-radius: 3px;
@@ -68,7 +68,7 @@ html, body {
     4.5px 3px 0 #D8C6AC,
     6px 4px 10px rgba(0, 0, 0, 0.40),
     0 0 1px rgba(201, 164, 92, 0.45);
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, aspect-ratio 0.4s ease, width 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
 }
 
 .menu-book-container:active {
@@ -163,16 +163,15 @@ html, body {
   transition: opacity 0.2s ease;
 }
 
-/* Container adaptivity matching cover page ratio (682 / 1024 = 1364 / 2048) for Pages 4, 5, 6 */
-.menu-book-container[data-state="pasta-pizza"],
-.menu-book-container[data-state="tandoor-rice"],
-.menu-book-container[data-state="indian-dal"],
-.menu-book-container[data-state="animating-4-5"],
-.menu-book-container[data-state="animating-5-6"] {
-  aspect-ratio: 682 / 1024;
-}
-
-/* Specific styling for new page artwork: 100% complete image fitting with object-fit: contain */
+/* Specific styling for all menu page artwork: 100% complete edge-to-edge image fitting */
+.cover-layer img,
+.cover-layer .menu-artwork-img,
+.soup-layer img,
+.soup-layer .menu-artwork-img,
+.garde-layer img,
+.garde-layer .menu-artwork-img,
+.contie-layer img,
+.contie-layer .menu-artwork-img,
 .pasta-layer img,
 .pasta-layer .menu-artwork-img,
 .tandoor-layer img,
@@ -182,7 +181,7 @@ html, body {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
   object-position: center;
   pointer-events: none;
 }

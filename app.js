@@ -43,17 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const tandoorArtwork = document.getElementById('tandoorArtwork');
   const indianArtwork = document.getElementById('indianArtwork');
 
-  // --- High-DPI Canvas 2D Setup ---
+  // --- High-DPI Canvas 2D Setup (Uniform 682 x 1024 Aspect Ratio) ---
   const ctx = curlCanvas.getContext('2d');
-  let currentVirtualW = 724;
+  const VIRTUAL_W = 682;
   const VIRTUAL_H = 1024;
+  let currentVirtualW = VIRTUAL_W;
   let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-  function resizeCanvas(turningPage = activeTurningPage) {
-    const targetW = (turningPage >= 4) ? 682 : 724;
-    currentVirtualW = targetW;
+  function resizeCanvas() {
+    currentVirtualW = VIRTUAL_W;
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const targetPixelW = Math.round(targetW * dpr);
+    const targetPixelW = Math.round(VIRTUAL_W * dpr);
     const targetPixelH = Math.round(VIRTUAL_H * dpr);
     if (curlCanvas.width !== targetPixelW || curlCanvas.height !== targetPixelH) {
       curlCanvas.width = targetPixelW;
@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
   }
-  resizeCanvas(0);
-  window.addEventListener('resize', () => resizeCanvas(activeTurningPage));
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
 
   // --- Multi-Page Book State ---
   // Sequence: 0 = Cover, 1 = Soup, 2 = Garde Manger, 3 = Contie Chinese
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. PHOTOREALISTIC CANVAS RENDERER
   // ==========================================================================
   function renderCurl(progress, liftBias = 0.45, turningPage = activeTurningPage) {
-    resizeCanvas(turningPage);
+    resizeCanvas();
     ctx.clearRect(0, 0, currentVirtualW, VIRTUAL_H);
 
     // If completely closed or open for this page transition, no curl needed on canvas
@@ -358,6 +358,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateArrowNav();
   }
 
+  // Natural physical paper turn easing curve (Symmetric cubic ease-in-out)
+  // Gentle start from rest (0 velocity), natural mid-turn sweep, gentle settling flat
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
   /**
    * Smooth physics-based turn animation for a single page turn
    * @param {number} turningPage - 0 to 5
@@ -373,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateArrowNav();
     activeTurningPage = turningPage;
     currentLiftBias = liftBias;
-    resizeCanvas(turningPage);
+    resizeCanvas();
 
     // Set the animating data-state for CSS layer visibility
     menuBook.dataset.state = `animating-${turningPage}-${turningPage + 1}`;
@@ -384,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function frame(now) {
       const elapsed = now - startTime;
       const t = Math.min(elapsed / duration, 1.0);
-      const ease = 1.0 - Math.pow(1.0 - t, 2.8);
+      const ease = easeInOutCubic(t);
       currentProgress = startProg + delta * ease;
 
       renderCurl(currentProgress, currentLiftBias, turningPage);
@@ -392,15 +398,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (t < 1.0) {
         animationId = requestAnimationFrame(frame);
       } else {
-        isAnimating = false;
         currentProgress = targetProg;
-        ctx.clearRect(0, 0, currentVirtualW, VIRTUAL_H);
-
-        // Compute resulting page
+        // Compute resulting page and set final state FIRST
         const endPage = (targetProg >= 0.5) ? turningPage + 1 : turningPage;
         setFinalState(endPage);
 
-        if (callback) callback();
+        // Seamless handover: clear canvas on next frame once DOM layer is established
+        requestAnimationFrame(() => {
+          ctx.clearRect(0, 0, currentVirtualW, VIRTUAL_H);
+          isAnimating = false;
+          updateArrowNav();
+          if (callback) callback();
+        });
       }
     }
 
@@ -413,23 +422,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (Math.abs(targetPage - currentPage) === 1) {
       if (targetPage > currentPage) {
-        animateTransition(currentPage, 0.0, 1.0, 900, liftBias);
+        animateTransition(currentPage, 0.0, 1.0, 880, liftBias);
       } else {
-        animateTransition(targetPage, 1.0, 0.0, 900, liftBias);
+        animateTransition(targetPage, 1.0, 0.0, 880, liftBias);
       }
     } else {
+      // Direct smooth turn to target page
       const step = targetPage > currentPage ? 1 : -1;
-      const stepNext = () => {
-        if (currentPage !== targetPage) {
-          const nextTarget = currentPage + step;
-          if (step > 0) {
-            animateTransition(currentPage, 0.0, 1.0, 500, liftBias, stepNext);
-          } else {
-            animateTransition(nextTarget, 1.0, 0.0, 500, liftBias, stepNext);
-          }
-        }
-      };
-      stepNext();
+      const turnPage = step > 0 ? currentPage : targetPage;
+      const startP = step > 0 ? 0.0 : 1.0;
+      const targetP = step > 0 ? 1.0 : 0.0;
+      animateTransition(turnPage, startP, targetP, 750, liftBias, () => {
+        setFinalState(targetPage);
+      });
     }
   }
 

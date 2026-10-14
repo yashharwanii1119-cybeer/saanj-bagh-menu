@@ -16,7 +16,7 @@
   ],
   "author": "Saanj Bagh Design Atelier",
   "license": "UNLICENSED",
-  "dependencies": {
+  "devDependencies": {
     "puppeteer-core": "^25.13.0"
   }
 }
