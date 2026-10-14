@@ -12,9 +12,9 @@ This project presents the **Saanj Bagh Interactive Digital Menu Book**, featurin
 2. **01 · Soup — A Warm Beginning (Page 1)**: Ceramic soup bowl with **photorealistic, continuously rising warm water vapour/steam**.
 3. **02 · Garde Manger — Fresh Starts & Relishes (Page 2)**: Crisp salads, artisanal papad, chaat, and continental appetizers.
 4. **03 · Around the World (Page 3)**: Global starters, platters, dim sums & momos, noodles, and Asian delicacies.
-5. **04 · Tandoor — Kebabs & Rice/Biryani (Page 4)**: Clay oven roasted kebabs, paneer tikka, aromatic rice, and Dum biryani.
-6. **05 · Tandoor — Breads & Accompaniments (Page 5)**: Fresh clay oven rotis, naans, stuffed kulchas, parathas, and raita.
-7. **06 · Pasta & Pizza (Page 6)**: Handcrafted pasta, Neapolitan wood-fired pizzas, gourmet sourdough toasts, and sandwiches.
+5. **04 · Pasta & Pizza (Page 4)**: Handcrafted pasta, Neapolitan wood-fired pizzas, gourmet sourdough toasts, and sandwiches.
+6. **05 · Tandoor — Kebabs & Rice/Biryani (Page 5)**: Clay oven roasted kebabs, paneer tikka, aromatic rice, and Dum biryani.
+7. **06 · Tandoor — Breads & Accompaniments (Page 6)**: Fresh clay oven rotis, naans, stuffed kulchas, parathas, and raita.
 8. **07 · Indian, Dal & Sizzler (Page 7)**: Rich North Indian curries, paneer delicacies, slow-cooked dal, and hot sizzling platters.
 
 ---

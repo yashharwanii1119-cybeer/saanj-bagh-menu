@@ -7,9 +7,9 @@
  *   Page 1: 01 · Soup (A Warm Beginning with Continuous Live Steam)
  *   Page 2: 02 · Garde Manger (Fresh Starts & Relishes)
  *   Page 3: 03 · Around the World
- *   Page 4: 04 · Tandoor — Kebabs & Rice/Biryani
- *   Page 5: 05 · Tandoor — Breads & Accompaniments
- *   Page 6: 06 · Pasta & Pizza
+ *   Page 4: 04 · Pasta & Pizza
+ *   Page 5: 05 · Tandoor — Kebabs & Rice/Biryani
+ *   Page 6: 06 · Tandoor — Breads & Accompaniments
  *   Page 7: 07 · Indian, Dal & Sizzler
  * 
  * Features:
@@ -219,9 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Turning page: Cover (page 0), Soup (page 1), or Garde Manger (page 2)
     // ------------------------------------------------------------------------
     let turningArt;
-    if (turningPage === 6) turningArt = pastaArtwork;
-    else if (turningPage === 5) turningArt = tandoorBreadsArtwork;
-    else if (turningPage === 4) turningArt = tandoorKebabsArtwork;
+    if (turningPage === 6) turningArt = tandoorBreadsArtwork;
+    else if (turningPage === 5) turningArt = tandoorKebabsArtwork;
+    else if (turningPage === 4) turningArt = pastaArtwork;
     else if (turningPage === 3) turningArt = aroundWorldArtwork;
     else if (turningPage === 2) turningArt = gardeArtwork;
     else if (turningPage === 1) turningArt = soupArtwork;
@@ -357,9 +357,9 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (page === 1) currentState = 'soup';
     else if (page === 2) currentState = 'garde-manger';
     else if (page === 3) currentState = 'around-the-world';
-    else if (page === 4) currentState = 'tandoor-kebabs';
-    else if (page === 5) currentState = 'tandoor-breads';
-    else if (page === 6) currentState = 'pasta-pizza';
+    else if (page === 4) currentState = 'pasta-pizza';
+    else if (page === 5) currentState = 'tandoor-kebabs';
+    else if (page === 6) currentState = 'tandoor-breads';
     else if (page === 7) currentState = 'indian-dal';
 
     menuBook.dataset.state = currentState;

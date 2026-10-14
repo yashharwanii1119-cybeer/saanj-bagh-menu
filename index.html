@@ -18,7 +18,7 @@
   <!-- ============================================================
        CENTRAL PRESENTATION CANVAS (Single Portrait Menu Book)
        Strictly centered: Front cover when closed, interior pages when open.
-       Page sequence: Cover (0) → 01·Soup (1) → 02·Garde Manger (2) → 03·Around the World (3) → 04·Tandoor: Kebabs & Rice/Biryani (4) → 05·Tandoor: Breads & Accompaniments (5) → 06·Pasta & Pizza (6) → 07·Indian, Dal & Sizzler (7)
+       Page sequence: Cover (0) → 01·Soup (1) → 02·Garde Manger (2) → 03·Around the World (3) → 04·Pasta & Pizza (4) → 05·Tandoor: Kebabs & Rice/Biryani (5) → 06·Tandoor: Breads & Accompaniments (6) → 07·Indian, Dal & Sizzler (7)
        Zero blank left pages. Zero filler spreads.
        ============================================================ -->
   <main class="menu-viewport" id="menuViewport">
@@ -39,7 +39,7 @@
         
         <!-- ======================================================
              PAGE LAYER: 07 · INDIAN, DAL & SIZZLER MENU (Page 7)
-             Revealed when turning forward from Pasta & Pizza
+             Revealed when turning forward from Tandoor — Breads
              ====================================================== -->
         <div class="book-layer indian-layer" id="indianLayer" aria-label="Indian, Dal & Sizzler Menu">
           <img 
@@ -52,21 +52,7 @@
         </div>
 
         <!-- ======================================================
-             PAGE LAYER: 06 · PASTA & PIZZA MENU (Page 6)
-             Revealed when turning forward from Tandoor — Breads
-             ====================================================== -->
-        <div class="book-layer pasta-layer" id="pastaLayer" aria-label="Pasta & Pizza Menu">
-          <img 
-            src="assets/images/pasta-pizza.jpg" 
-            alt="Saanj Bagh — Pasta & Pizza Menu" 
-            class="menu-artwork-img"
-            id="pastaArtwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             PAGE LAYER: 05 · TANDOOR — BREADS & ACCOMPANIMENTS (Page 5)
+             PAGE LAYER: 06 · TANDOOR — BREADS & ACCOMPANIMENTS (Page 6)
              Revealed when turning forward from Tandoor — Kebabs
              ====================================================== -->
         <div class="book-layer tandoor-breads-layer" id="tandoorBreadsLayer" aria-label="Tandoor — Breads & Accompaniments Menu">
@@ -80,8 +66,8 @@
         </div>
 
         <!-- ======================================================
-             PAGE LAYER: 04 · TANDOOR — KEBABS & RICE/BIRYANI (Page 4)
-             Revealed when turning forward from Around the World
+             PAGE LAYER: 05 · TANDOOR — KEBABS & RICE/BIRYANI (Page 5)
+             Revealed when turning forward from Pasta & Pizza
              ====================================================== -->
         <div class="book-layer tandoor-kebabs-layer" id="tandoorKebabsLayer" aria-label="Tandoor — Kebabs & Rice/Biryani Menu">
           <img 
@@ -89,6 +75,20 @@
             alt="Saanj Bagh — Tandoor, Kebabs & Rice/Biryani Menu" 
             class="menu-artwork-img"
             id="tandoorKebabsArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             PAGE LAYER: 04 · PASTA & PIZZA MENU (Page 4)
+             Revealed when turning forward from Around the World
+             ====================================================== -->
+        <div class="book-layer pasta-layer" id="pastaLayer" aria-label="Pasta & Pizza Menu">
+          <img 
+            src="assets/images/pasta-pizza.jpg" 
+            alt="Saanj Bagh — Pasta & Pizza Menu" 
+            class="menu-artwork-img"
+            id="pastaArtwork"
             draggable="false"
           />
         </div>
@@ -441,7 +441,7 @@
     </section>
 
     <section aria-label="Pasta &amp; Pizza">
-      <h2>06 · Pasta &amp; Pizza</h2>
+      <h2>04 · Pasta &amp; Pizza</h2>
       <article>
         <h3>01 — Penne / Spegetti</h3>
         <p>Arabiatta / Alfredo / Velvet / Pesto</p>
@@ -520,7 +520,7 @@
     </section>
 
     <section aria-label="Tandoor — Kebabs &amp; Rice/Biryani">
-      <h2>04 · Tandoor — Kebabs &amp; Rice/Biryani</h2>
+      <h2>05 · Tandoor — Kebabs &amp; Rice/Biryani</h2>
       <article>
         <h3>01 — Tandoori Kebab Platter</h3>
         <p>Our Chef Special Kebab Platter Include Signaure Kebab</p>
@@ -584,7 +584,7 @@
     </section>
 
     <section aria-label="Tandoor — Breads &amp; Accompaniments">
-      <h2>05 · Tandoor — Breads &amp; Accompaniments</h2>
+      <h2>06 · Tandoor — Breads &amp; Accompaniments</h2>
       <article>
         <h3>13 — Tandoori Roti</h3>
         <span>Price: ₹45 / ₹55</span>
