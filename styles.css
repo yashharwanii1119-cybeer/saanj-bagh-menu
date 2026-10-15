@@ -33,7 +33,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 1rem 3.5rem 1rem;
+  padding: 4.8rem 1rem 3rem 1rem;
 }
 
 .menu-stage-wrapper {
@@ -48,7 +48,7 @@ html, body {
 .menu-book-container {
   position: relative;
   width: auto;
-  height: min(88vh, 920px);
+  height: min(82vh, 860px);
   aspect-ratio: 682 / 1024;
   container-type: inline-size;
   background: #F6EFE2;
@@ -312,6 +312,109 @@ html, body {
   opacity: 0;
   pointer-events: none;
 }
+
+/* ==========================================================================
+   BAR MENU LAYERS & SWITCHER PRESENTATION
+   Dual-Menu Architecture: Seamless switching between Food & Bar experiences
+   ========================================================================== */
+
+/* In Food Mode, hide all Bar layers */
+.menu-book-container[data-menu="food"] .bar-layer {
+  display: none !important;
+}
+
+/* In Bar Mode, hide all Food layers */
+.menu-book-container[data-menu="bar"] .cover-layer,
+.menu-book-container[data-menu="bar"] .soup-layer,
+.menu-book-container[data-menu="bar"] .garde-layer,
+.menu-book-container[data-menu="bar"] .around-world-layer,
+.menu-book-container[data-menu="bar"] .pasta-layer,
+.menu-book-container[data-menu="bar"] .tandoor-kebabs-layer,
+.menu-book-container[data-menu="bar"] .tandoor-breads-layer,
+.menu-book-container[data-menu="bar"] .indian-layer {
+  display: none !important;
+}
+
+/* Bar Layers Base */
+.bar-layer {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Layer 2 (Bottommost Bar): Beer, Wine, Rum & Breezers */
+.bar-beer-layer {
+  z-index: 2;
+  background: #250B0D;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Layer 1: Tequila, Gin, Vodka & Liqueur */
+.bar-tequila-layer {
+  z-index: 4;
+  background: #F6EFE2;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Layer 0 (Topmost Bar): Whiskey (Single Malt & Scotch) */
+.bar-whiskey-layer {
+  z-index: 6;
+  background: #0E1F0E;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease;
+}
+
+/* Specific styling for bar artwork images */
+.bar-tequila-layer img,
+.bar-beer-layer img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+  pointer-events: none;
+}
+
+/* Whiskey page: Authentic 403x1024 artwork is centered without stretching or distortion */
+.bar-whiskey-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  margin: 0 auto;
+}
+
+/* Bar Page States */
+/* Bar Page 0: Whiskey */
+.menu-book-container[data-menu="bar"][data-state="bar-0"] .bar-whiskey-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Bar Page 1: Tequila & Spirits */
+.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-whiskey-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-tequila-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Bar Page 2: Beer, Wine & Rum */
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-whiskey-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-tequila-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-beer-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Bar Animating States */
+.menu-book-container[data-menu="bar"][data-state="animating-bar-0-1"] .bar-whiskey-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-0-1"] .bar-tequila-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-whiskey-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-tequila-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-beer-layer { opacity: 1; pointer-events: none; }
 
 /* --- 3B. DELICATE BOTANICAL COVER BREEZE ANIMATION --- */
 /* Strictly pure foliage movement: zero architectural, arch, pillar, or border movement */
@@ -1508,4 +1611,141 @@ html, body {
     height: 12px;
   }
 }
+
+/* ==========================================================================
+   LUXURY HERITAGE MENU SWITCHER (FOOD MENU ↔ BAR MENU)
+   ========================================================================== */
+.menu-switcher-nav {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.menu-switcher-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(14, 26, 19, 0.90);
+  border: 1px solid rgba(201, 164, 92, 0.45);
+  border-radius: 28px;
+  padding: 4px 6px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.55),
+    0 0 1px rgba(201, 164, 92, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-switcher-pill:hover {
+  border-color: rgba(201, 164, 92, 0.70);
+  box-shadow: 
+    0 10px 36px rgba(0, 0, 0, 0.65),
+    0 0 15px rgba(201, 164, 92, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.menu-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 18px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 22px;
+  color: #B2A796;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.94rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.menu-switch-btn .switch-bullet {
+  font-size: 0.60rem;
+  color: #C9A45C;
+  opacity: 0.45;
+  transition: transform 0.28s ease, opacity 0.28s ease, color 0.28s ease;
+  line-height: 1;
+}
+
+.menu-switch-btn:hover {
+  color: #FFF8EA;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.menu-switch-btn:hover .switch-bullet {
+  opacity: 0.8;
+  transform: scale(1.15);
+}
+
+.menu-switch-btn.active {
+  color: #FFF9EE;
+  background: linear-gradient(135deg, rgba(201, 164, 92, 0.30) 0%, rgba(138, 110, 56, 0.38) 100%);
+  border-color: rgba(201, 164, 92, 0.70);
+  box-shadow: 
+    0 3px 12px rgba(0, 0, 0, 0.45),
+    0 0 14px rgba(201, 164, 92, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+.menu-switch-btn.active .switch-bullet {
+  opacity: 1;
+  color: #F7DA96;
+  transform: scale(1.25);
+  text-shadow: 0 0 8px rgba(247, 218, 150, 0.75);
+}
+
+.menu-switch-btn:focus-visible {
+  outline: 2px solid #C9A45C;
+  outline-offset: 2px;
+}
+
+.switch-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(201, 164, 92, 0.28);
+  margin: 0 2px;
+}
+
+/* Mobile responsive adaptations */
+@media (max-width: 768px) {
+  .menu-switcher-nav {
+    top: 16px;
+  }
+  .menu-switcher-pill {
+    padding: 3px 5px;
+  }
+  .menu-switch-btn {
+    padding: 6px 14px;
+    font-size: 0.86rem;
+    letter-spacing: 0.14em;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-switcher-nav {
+    top: 12px;
+  }
+  .menu-switch-btn {
+    padding: 5px 11px;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    gap: 4px;
+  }
+}
+
 

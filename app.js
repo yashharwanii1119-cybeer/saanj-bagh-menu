@@ -35,11 +35,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const indianLayer = document.getElementById('indianLayer');
   const curlCanvas = document.getElementById('curlCanvas');
 
+  // Menu Switcher Controls
+  const btnFoodMenu = document.getElementById('btnFoodMenu');
+  const btnBarMenu = document.getElementById('btnBarMenu');
+
+  // Bar Menu Layers & Artworks
+  const barWhiskeyLayer = document.getElementById('barWhiskeyLayer');
+  const barTequilaLayer = document.getElementById('barTequilaLayer');
+  const barBeerLayer = document.getElementById('barBeerLayer');
+  const barWhiskeyArtwork = document.getElementById('barWhiskeyArtwork');
+  const barTequilaArtwork = document.getElementById('barTequilaArtwork');
+  const barBeerArtwork = document.getElementById('barBeerArtwork');
+
   // Minimal Antique-Gold Arrow Navigation Controls
   const btnNavPrev = document.getElementById('btnNavPrev');
   const btnNavNext = document.getElementById('btnNavNext');
 
-  // Artwork references
+  // Food Artwork references
   const coverArtwork = document.getElementById('coverArtwork');
   const soupArtwork = document.getElementById('soupArtwork');
   const gardeArtwork = document.getElementById('gardeArtwork');
@@ -71,15 +83,23 @@ document.addEventListener('DOMContentLoaded', () => {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  // --- Multi-Page Book State ---
-  // Sequence: 0 = Cover, 1 = Soup, 2 = Garde Manger, 3 = Contie Chinese
-  let currentPage = 0;          // 0 = Cover, 1 = Soup, 2 = Garde Manger, 3 = Contie Chinese
-  let currentState = 'cover';   // 'cover' | 'soup' | 'garde-manger' | 'contie-chinese'
-  let activeTurningPage = 0;    // 0 (Cover↔Soup) | 1 (Soup↔Garde) | 2 (Garde↔Contie)
+  // --- Dual-Menu Book State ---
+  // Food Menu Sequence: 0: Cover → 1: Soup → 2: Garde Manger → 3: Around World → 4: Pasta & Pizza → 5: Tandoor Kebabs → 6: Tandoor Breads → 7: Indian & Dal
+  // Bar Menu Sequence:  0: Whiskey (Single Malt & Scotch) → 1: Tequila (Gin, Vodka & Liqueur) → 2: Beer (Rum, Wine & Breezers)
+  let currentMenu = 'food';     // 'food' | 'bar'
+  let foodPage = 0;             // [0..7]
+  let barPage = 0;              // [0..2]
+  let currentPage = 0;          // Active page within the active menu
+  let currentState = 'cover';   // Current data-state attribute
+  let activeTurningPage = 0;    // Active turning page index
   let currentProgress = 0.0;    // [0, 1] relative to the active turning page
   let currentLiftBias = 0.45;   // Positive = bottom corner leads, Negative = top leads
   let isAnimating = false;
   let animationId = null;
+
+  function getMaxPage() {
+    return currentMenu === 'food' ? 7 : 2;
+  }
 
   // --- Drag Tracking State ---
   let isPointerDown = false;
@@ -219,13 +239,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Turning page: Cover (page 0), Soup (page 1), or Garde Manger (page 2)
     // ------------------------------------------------------------------------
     let turningArt;
-    if (turningPage === 6) turningArt = tandoorBreadsArtwork;
-    else if (turningPage === 5) turningArt = tandoorKebabsArtwork;
-    else if (turningPage === 4) turningArt = pastaArtwork;
-    else if (turningPage === 3) turningArt = aroundWorldArtwork;
-    else if (turningPage === 2) turningArt = gardeArtwork;
-    else if (turningPage === 1) turningArt = soupArtwork;
-    else turningArt = coverArtwork;
+    if (currentMenu === 'food') {
+      if (turningPage === 6) turningArt = tandoorBreadsArtwork;
+      else if (turningPage === 5) turningArt = tandoorKebabsArtwork;
+      else if (turningPage === 4) turningArt = pastaArtwork;
+      else if (turningPage === 3) turningArt = aroundWorldArtwork;
+      else if (turningPage === 2) turningArt = gardeArtwork;
+      else if (turningPage === 1) turningArt = soupArtwork;
+      else turningArt = coverArtwork;
+    } else {
+      if (turningPage === 1) turningArt = barTequilaArtwork;
+      else turningArt = barWhiskeyArtwork;
+    }
+
     if (turningArt && turningArt.complete) {
       ctx.save();
       ctx.beginPath();
@@ -236,8 +262,18 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.closePath();
       ctx.clip();
 
-      // 100% full uncropped artwork drawing matching container proportions
-      ctx.drawImage(turningArt, 0, 0, W, H);
+      if (turningArt === barWhiskeyArtwork) {
+        ctx.fillStyle = '#0E1F0E';
+        ctx.fillRect(0, 0, W, H);
+        const nw = turningArt.naturalWidth || 403;
+        const nh = turningArt.naturalHeight || 1024;
+        const artW = Math.round(H * (nw / nh));
+        const artX = Math.round((W - artW) / 2);
+        ctx.drawImage(turningArt, artX, 0, artW, H);
+      } else {
+        // 100% full uncropped artwork drawing matching container proportions
+        ctx.drawImage(turningArt, 0, 0, W, H);
+      }
 
       // Crease Ambient Darkening: Valley formed where paper curves upward
       const creaseDist = Math.max(22, radius * 0.65);
@@ -345,23 +381,33 @@ document.addEventListener('DOMContentLoaded', () => {
       btnNavNext.disabled = true;
       return;
     }
+    const maxP = getMaxPage();
     btnNavPrev.disabled = (currentPage === 0);
-    btnNavNext.disabled = (currentPage === 7);
+    btnNavNext.disabled = (currentPage === maxP);
     btnNavPrev.setAttribute('aria-disabled', currentPage === 0 ? 'true' : 'false');
-    btnNavNext.setAttribute('aria-disabled', currentPage === 7 ? 'true' : 'false');
+    btnNavNext.setAttribute('aria-disabled', currentPage === maxP ? 'true' : 'false');
   }
 
   function setFinalState(page) {
     currentPage = page;
-    if (page === 0) currentState = 'cover';
-    else if (page === 1) currentState = 'soup';
-    else if (page === 2) currentState = 'garde-manger';
-    else if (page === 3) currentState = 'around-the-world';
-    else if (page === 4) currentState = 'pasta-pizza';
-    else if (page === 5) currentState = 'tandoor-kebabs';
-    else if (page === 6) currentState = 'tandoor-breads';
-    else if (page === 7) currentState = 'indian-dal';
+    if (currentMenu === 'food') {
+      foodPage = page;
+      if (page === 0) currentState = 'cover';
+      else if (page === 1) currentState = 'soup';
+      else if (page === 2) currentState = 'garde-manger';
+      else if (page === 3) currentState = 'around-the-world';
+      else if (page === 4) currentState = 'pasta-pizza';
+      else if (page === 5) currentState = 'tandoor-kebabs';
+      else if (page === 6) currentState = 'tandoor-breads';
+      else if (page === 7) currentState = 'indian-dal';
+    } else {
+      barPage = page;
+      if (page === 0) currentState = 'bar-0';
+      else if (page === 1) currentState = 'bar-1';
+      else if (page === 2) currentState = 'bar-2';
+    }
 
+    menuBook.dataset.menu = currentMenu;
     menuBook.dataset.state = currentState;
     updateArrowNav();
   }
@@ -374,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Smooth physics-based turn animation for a single page turn
-   * @param {number} turningPage - 0 to 6
+   * @param {number} turningPage - page index currently turning
    * @param {number} startProg - Starting progress [0, 1]
    * @param {number} targetProg - Target progress [0, 1]
    * @param {number} duration - Turn duration in ms
@@ -390,7 +436,9 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
 
     // Set the animating data-state for CSS layer visibility
-    menuBook.dataset.state = `animating-${turningPage}-${turningPage + 1}`;
+    menuBook.dataset.state = currentMenu === 'food'
+      ? `animating-${turningPage}-${turningPage + 1}`
+      : `animating-bar-${turningPage}-${turningPage + 1}`;
 
     const delta = targetProg - startProg;
     const startTime = performance.now();
@@ -426,7 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function goToPage(targetPage, liftBias = 0.45) {
     if (isAnimating || targetPage === currentPage) return;
-    if (targetPage < 0 || targetPage > 7) return;
+    const maxP = getMaxPage();
+    if (targetPage < 0 || targetPage > maxP) return;
 
     if (Math.abs(targetPage - currentPage) === 1) {
       if (targetPage > currentPage) {
@@ -479,21 +528,26 @@ document.addEventListener('DOMContentLoaded', () => {
       hasMovedPastDeadband = true;
       menuBook.setPointerCapture(e.pointerId);
 
+      const maxP = getMaxPage();
       if (dx < 0) {
         // Dragging left = forward turn
-        if (currentPage < 7) {
+        if (currentPage < maxP) {
           activeTurningPage = currentPage;
           dragDirectionLocked = 'forward';
-          menuBook.dataset.state = `animating-${activeTurningPage}-${activeTurningPage + 1}`;
-          resizeCanvas(activeTurningPage);
+          menuBook.dataset.state = currentMenu === 'food'
+            ? `animating-${activeTurningPage}-${activeTurningPage + 1}`
+            : `animating-bar-${activeTurningPage}-${activeTurningPage + 1}`;
+          resizeCanvas();
         }
       } else {
         // Dragging right = backward turn
         if (currentPage > 0) {
           activeTurningPage = currentPage - 1;
           dragDirectionLocked = 'backward';
-          menuBook.dataset.state = `animating-${activeTurningPage}-${activeTurningPage + 1}`;
-          resizeCanvas(activeTurningPage);
+          menuBook.dataset.state = currentMenu === 'food'
+            ? `animating-${activeTurningPage}-${activeTurningPage + 1}`
+            : `animating-bar-${activeTurningPage}-${activeTurningPage + 1}`;
+          resizeCanvas();
         }
       }
     }
@@ -534,9 +588,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!hasMovedPastDeadband) {
       const rect = menuBook.getBoundingClientRect();
       const clickXNorm = (e.clientX - rect.left) / rect.width;
+      const maxP = getMaxPage();
 
       if (clickXNorm > 0.6) {
-        if (currentPage < 7) goToPage(currentPage + 1, currentLiftBias);
+        if (currentPage < maxP) goToPage(currentPage + 1, currentLiftBias);
       } else if (clickXNorm < 0.4) {
         if (currentPage > 0) goToPage(currentPage - 1, currentLiftBias);
       }
@@ -587,36 +642,99 @@ document.addEventListener('DOMContentLoaded', () => {
     btnNavNext.addEventListener('click', (e) => {
       e.stopPropagation();
       if (isAnimating) return;
-      if (currentPage < 7) {
+      const maxP = getMaxPage();
+      if (currentPage < maxP) {
         goToPage(currentPage + 1, 0.45);
       }
     });
   }
 
-  // Floating Quick-Action Menu Jump Button (Navigates directly to first main menu page)
+  // Floating Quick-Action Menu Jump Button
   const btnJumpMenu = document.getElementById('btnJumpMenu');
   if (btnJumpMenu) {
     btnJumpMenu.addEventListener('click', (e) => {
       e.stopPropagation();
       if (isAnimating) return;
-      goToPage(1, 0.45);
+      if (currentMenu === 'food') {
+        goToPage(1, 0.45);
+      } else {
+        goToPage(0, 0.45);
+      }
+    });
+  }
+
+  // ==========================================================================
+  // 6. FOOD MENU ↔ BAR MENU SWITCHER ENGINE
+  // ==========================================================================
+  function switchMenu(targetMenu) {
+    if (isAnimating || targetMenu === currentMenu) return;
+
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+      isAnimating = false;
+    }
+    ctx.clearRect(0, 0, currentVirtualW, VIRTUAL_H);
+
+    currentMenu = targetMenu;
+
+    if (currentMenu === 'food') {
+      if (btnFoodMenu) {
+        btnFoodMenu.classList.add('active');
+        btnFoodMenu.setAttribute('aria-selected', 'true');
+      }
+      if (btnBarMenu) {
+        btnBarMenu.classList.remove('active');
+        btnBarMenu.setAttribute('aria-selected', 'false');
+      }
+      setFinalState(foodPage);
+    } else {
+      if (btnBarMenu) {
+        btnBarMenu.classList.add('active');
+        btnBarMenu.setAttribute('aria-selected', 'true');
+      }
+      if (btnFoodMenu) {
+        btnFoodMenu.classList.remove('active');
+        btnFoodMenu.setAttribute('aria-selected', 'false');
+      }
+      setFinalState(barPage);
+    }
+  }
+
+  if (btnFoodMenu) {
+    btnFoodMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      switchMenu('food');
+    });
+  }
+
+  if (btnBarMenu) {
+    btnBarMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      switchMenu('bar');
     });
   }
 
   // Keyboard accessibility
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && currentPage < 7)) {
+    const maxP = getMaxPage();
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && currentPage < maxP)) {
       e.preventDefault();
       if (isAnimating) return;
-      if (currentPage < 7) {
+      if (currentPage < maxP) {
         goToPage(currentPage + 1, 0.45);
       }
-    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || (e.key === ' ' && currentPage === 7)) {
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || (e.key === ' ' && currentPage === maxP)) {
       e.preventDefault();
       if (isAnimating) return;
       if (currentPage > 0) {
         goToPage(currentPage - 1, 0.45);
       }
+    }
+
+    // 'M' key quick-toggles between Food and Bar menus
+    if (e.key.toLowerCase() === 'm' && !e.ctrlKey && !e.metaKey) {
+      switchMenu(currentMenu === 'food' ? 'bar' : 'food');
     }
 
     // 'F' key for Fullscreen presentation
@@ -638,7 +756,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tandoorBreadsArtwork && !tandoorBreadsArtwork.complete) tandoorBreadsArtwork.onload = () => {};
   if (pastaArtwork && !pastaArtwork.complete) pastaArtwork.onload = () => {};
   if (indianArtwork && !indianArtwork.complete) indianArtwork.onload = () => {};
+  if (barWhiskeyArtwork && !barWhiskeyArtwork.complete) barWhiskeyArtwork.onload = () => {};
+  if (barTequilaArtwork && !barTequilaArtwork.complete) barTequilaArtwork.onload = () => {};
+  if (barBeerArtwork && !barBeerArtwork.complete) barBeerArtwork.onload = () => {};
 
   // Initialize initial arrow navigation states
-  updateArrowNav();
+  setFinalState(0);
 });

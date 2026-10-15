@@ -23,6 +23,21 @@
        ============================================================ -->
   <main class="menu-viewport" id="menuViewport">
     
+    <!-- Luxury Saanj Bagh Food / Bar Menu Switcher Navigation -->
+    <nav class="menu-switcher-nav" aria-label="Menu experience selector">
+      <div class="menu-switcher-pill" role="tablist">
+        <button class="menu-switch-btn active" id="btnFoodMenu" role="tab" aria-selected="true" aria-controls="menuBook" type="button">
+          <span class="switch-bullet" aria-hidden="true">✦</span>
+          <span class="switch-label">FOOD MENU</span>
+        </button>
+        <div class="switch-divider" aria-hidden="true"></div>
+        <button class="menu-switch-btn" id="btnBarMenu" role="tab" aria-selected="false" aria-controls="menuBook" type="button">
+          <span class="switch-bullet" aria-hidden="true">✦</span>
+          <span class="switch-label">BAR MENU</span>
+        </button>
+      </div>
+    </nav>
+
     <!-- Floating Luxury Menu Quick-Jump Button -->
     <button class="floating-menu-btn" id="btnJumpMenu" aria-label="Jump to main menu" type="button">
       <svg class="menu-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -35,7 +50,7 @@
     <div class="menu-stage-wrapper">
       
       <!-- The Single Portrait Book Container -->
-      <div class="menu-book-container" id="menuBook" data-state="cover">
+      <div class="menu-book-container" id="menuBook" data-menu="food" data-state="cover">
         
         <!-- ======================================================
              PAGE LAYER: 07 · INDIAN, DAL & SIZZLER MENU (Page 7)
@@ -237,6 +252,48 @@
 
           <!-- Subtle Paper Edge Highlights -->
           <div class="paper-edge-highlight" aria-hidden="true"></div>
+        </div>
+
+        <!-- ======================================================
+             BAR MENU PAGE LAYER 2: BEER, WINE, RUM & BREEZER (Bar Page 2)
+             Revealed when turning forward from Tequila / Spirits
+             ====================================================== -->
+        <div class="book-layer bar-layer bar-beer-layer" id="barBeerLayer" aria-label="Beer, Wine, Rum & Breezer Menu">
+          <img 
+            src="assets/images/bar-beer-wine.png" 
+            alt="Saanj Bagh — Beer, Wine, Rum & Breezer Menu" 
+            class="menu-artwork-img"
+            id="barBeerArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             BAR MENU PAGE LAYER 1: TEQUILA, GIN, VODKA & LIQUEUR (Bar Page 1)
+             Revealed when turning forward from Whiskey
+             ====================================================== -->
+        <div class="book-layer bar-layer bar-tequila-layer" id="barTequilaLayer" aria-label="Tequila, Gin, Vodka & Liqueur Menu">
+          <img 
+            src="assets/images/bar-tequila-spirits.jpg" 
+            alt="Saanj Bagh — Tequila, Gin, Vodka & Liqueur Menu" 
+            class="menu-artwork-img"
+            id="barTequilaArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             BAR MENU PAGE LAYER 0: WHISKEY (Single Malt & Scotch) (Bar Page 0)
+             First page of Bar Menu (Displayed initially in Bar Mode)
+             ====================================================== -->
+        <div class="book-layer bar-layer bar-whiskey-layer" id="barWhiskeyLayer" aria-label="Whiskey Menu">
+          <img 
+            src="assets/images/bar-whiskey.png" 
+            alt="Saanj Bagh — Single Malt & Scotch Whiskey Menu" 
+            class="menu-artwork-img bar-whiskey-img"
+            id="barWhiskeyArtwork"
+            draggable="false"
+          />
         </div>
 
         <!-- ======================================================
@@ -742,6 +799,43 @@
         <p>Rice + Cottage Cheese + French Fries In Oriental Style</p>
         <span>Price: ₹650</span>
       </article>
+    </section>
+
+    <!-- Bar Menu Semantic Content -->
+    <section aria-label="Bar Menu — Spirits, Wine & Beer">
+      <h2>Saanj Bagh — Bar Menu</h2>
+      
+      <h3>Whiskey — Single Malt &amp; Scotch</h3>
+      <article><p>Rampur Single Malt (30ml) — ₹1,999</p></article>
+      <article><p>Talisker (30ml) — ₹799</p></article>
+      <article><p>The Glenlivet 18 Y.O (30ml) — ₹1,999</p></article>
+      <article><p>The Glenlivet 15 Yrs (30ml) — ₹1,299</p></article>
+      <article><p>The Glenlivet 12 Yrs (30ml) — ₹799</p></article>
+      <article><p>Glenfiddich 12 Yrs / 15 Yrs (30ml) — ₹799 / ₹1,299</p></article>
+      <article><p>The Singleton 12 Yrs / 15 Yrs (30ml) — ₹799 / ₹1,299</p></article>
+      <article><p>Indri Single Malt / Laphroaig 10 Yrs / Monkey Solder (30ml) — ₹599 / ₹599 / ₹799</p></article>
+      <article><p>Chivas Regal 18 Yrs / 15 Yrs / 12 Yrs (30ml) — ₹1,299 / ₹849 / ₹499</p></article>
+      <article><p>Johnnie Walker Gold / Double Black / Black / Red Label (30ml) — ₹849 / ₹549 / ₹499 / ₹299</p></article>
+      <article><p>Teacher's Golden Thistle / Highland Cream / 50 (30ml) — ₹499 / ₹299 / ₹349</p></article>
+      <article><p>Black Dog Triple Gold / Reserve / 100 Pipers (30ml) — ₹349 / ₹299 / ₹299</p></article>
+      <article><p>Ballantine's / Black &amp; White / J&amp;B Rare / Jameson / Jim Beam / Jack Daniel's (30ml) — ₹299 - ₹349</p></article>
+      <article><p>Blenders Pride Reserve (30ml) — ₹249</p></article>
+
+      <h3>Tequila, Gin, Vodka &amp; Liqueur</h3>
+      <article><p>Camino Real Blanco / Gold (30ml) — ₹399</p></article>
+      <article><p>Patron Silver / Reposado (30ml) — ₹899</p></article>
+      <article><p>Jodhpur / Hapusa / Beefeater / Bombay Sapphire / Tanqueray Gin (30ml) — ₹299 - ₹849</p></article>
+      <article><p>Grey Goose / Absolut / Ketel One / Smirnoff / Morpheus X.O. Vodka (30ml) — ₹249 - ₹599</p></article>
+      <article><p>Jägermeister / Kahlua / Absinthe / Baileys / Campari / Cointreau — ₹349 - ₹549</p></article>
+
+      <h3>Rum, Wine, Beer &amp; Breezers</h3>
+      <article><p>Bacardi White / Old Monk Rum (30ml) — ₹249</p></article>
+      <article><p>Sula Sauvignon Blanc / Zinfandel / Shiraz Cabernet (150ml) — ₹599</p></article>
+      <article><p>Jacob's Creek Chardonnay / Shiraz (150ml) — ₹749</p></article>
+      <article><p>Corona 330ml / Heineken 330ml / Carlsberg Elephant — ₹549 - ₹599</p></article>
+      <article><p>Kingfisher Ultra / Ultra Max / Hoegaarden 330ml — ₹499 - ₹699</p></article>
+      <article><p>Budweiser 330ml / Magnum 500ml — ₹499 / ₹599</p></article>
+      <article><p>Breezer Orange / Cranberry — ₹349</p></article>
     </section>
   </div>
 
