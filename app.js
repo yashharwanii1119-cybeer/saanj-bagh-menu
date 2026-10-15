@@ -63,11 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const indianArtwork = document.getElementById('indianArtwork');
 
   // Bar Menu Layers & Artworks
-  const barWhiskeyLayer = document.getElementById('barWhiskeyLayer');
+  const barWhiskey1Layer = document.getElementById('barWhiskey1Layer');
+  const barWhiskey2Layer = document.getElementById('barWhiskey2Layer');
+  const barWhiskey3Layer = document.getElementById('barWhiskey3Layer');
   const barTequilaLayer = document.getElementById('barTequilaLayer');
   const barBeerLayer = document.getElementById('barBeerLayer');
 
-  const barWhiskeyArtwork = document.getElementById('barWhiskeyArtwork');
+  const barWhiskey1Artwork = document.getElementById('barWhiskey1Artwork');
+  const barWhiskey2Artwork = document.getElementById('barWhiskey2Artwork');
+  const barWhiskey3Artwork = document.getElementById('barWhiskey3Artwork');
   const barTequilaArtwork = document.getElementById('barTequilaArtwork');
   const barBeerArtwork = document.getElementById('barBeerArtwork');
 
@@ -110,7 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Expanded Viewer Data Manifests ---
   const BAR_MENU_PAGES = [
-    { title: 'WHISKY — SINGLE MALT & SCOTCH', src: 'assets/images/bar-whiskey.png', alt: 'Saanj Bagh — Single Malt & Scotch Whiskey Menu' },
+    { title: 'WHISKEY — SINGLE MALT', src: 'assets/images/bar-whiskey-1.jpg', alt: 'Saanj Bagh — Single Malt Whiskey Menu' },
+    { title: 'SCOTCH WHISKY', src: 'assets/images/bar-whiskey-2.jpg', alt: 'Saanj Bagh — Scotch Whisky Menu (Part 1)' },
+    { title: 'SCOTCH & BLENDED WHISKY', src: 'assets/images/bar-whiskey-3.png', alt: 'Saanj Bagh — Scotch & Blended Whisky Menu (Part 2)' },
     { title: 'TEQUILA, GIN, VODKA & LIQUEUR', src: 'assets/images/bar-tequila-spirits.png', alt: 'Saanj Bagh — Tequila, Gin, Vodka & Liqueur Menu' },
     { title: 'BEER, WINE, RUM & BREEZER', src: 'assets/images/bar-beer-wine.png', alt: 'Saanj Bagh — Beer, Wine, Rum & Breezer Menu' }
   ];
@@ -148,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 3-Way Menu Book State ---
   let currentMenu = 'food';     // 'food' | 'bar' | 'cocktail'
   let foodPage = 0;             // [0..7]
-  let barPage = 0;              // [0..2]
+  let barPage = 0;              // [0..4]
   let cocktailPage = 0;         // [0..4]
   let currentPage = 0;          // Active page within the active menu
   let currentState = 'cover';   // Current data-state attribute
@@ -163,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getMaxPage() {
     if (currentMenu === 'food') return 7;
-    if (currentMenu === 'bar') return 2;
+    if (currentMenu === 'bar') return 4;
     if (currentMenu === 'cocktail') return 4;
     return 7;
   }
@@ -314,8 +320,10 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (turningPage === 1) turningArt = soupArtwork;
       else turningArt = coverArtwork;
     } else if (currentMenu === 'bar') {
-      if (turningPage === 1) turningArt = barTequilaArtwork;
-      else turningArt = barWhiskeyArtwork;
+      if (turningPage === 3) turningArt = barTequilaArtwork;
+      else if (turningPage === 2) turningArt = barWhiskey3Artwork;
+      else if (turningPage === 1) turningArt = barWhiskey2Artwork;
+      else turningArt = barWhiskey1Artwork;
     } else {
       if (turningPage === 3) turningArt = cocktailIcedTeasArtwork;
       else if (turningPage === 2) turningArt = cocktailWineArtwork;
@@ -334,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.clip();
 
       if (currentMenu === 'bar') {
-        if (turningArt === barWhiskeyArtwork) {
+        if (turningArt === barWhiskey1Artwork || turningArt === barWhiskey2Artwork || turningArt === barWhiskey3Artwork) {
           ctx.fillStyle = '#0E1F0E';
         } else if (turningArt === barTequilaArtwork) {
           ctx.fillStyle = '#E6CDA9';
@@ -342,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ctx.fillStyle = '#500D09';
         }
         ctx.fillRect(0, 0, W, H);
-        const nw = turningArt.naturalWidth || 403;
+        const nw = turningArt.naturalWidth || 576;
         const nh = turningArt.naturalHeight || 1024;
         const artW = Math.round(H * (nw / nh));
         const artX = Math.round((W - artW) / 2);
@@ -485,6 +493,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (page === 0) currentState = 'bar-0';
       else if (page === 1) currentState = 'bar-1';
       else if (page === 2) currentState = 'bar-2';
+      else if (page === 3) currentState = 'bar-3';
+      else if (page === 4) currentState = 'bar-4';
     } else {
       cocktailPage = page;
       if (page === 0) currentState = 'cocktail-0';
@@ -1001,7 +1011,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/images/tandoor-kebabs.jpg',
     'assets/images/tandoor-breads.jpg',
     'assets/images/indian-dal.jpg',
-    'assets/images/bar-whiskey.png',
+    'assets/images/bar-whiskey-1.jpg',
+    'assets/images/bar-whiskey-2.jpg',
+    'assets/images/bar-whiskey-3.png',
     'assets/images/bar-tequila-spirits.png',
     'assets/images/bar-beer-wine.png',
     'assets/images/cocktail-1-tequila-whisky.jpg',

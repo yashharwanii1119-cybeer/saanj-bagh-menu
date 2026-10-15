@@ -361,7 +361,7 @@ html, body {
   overflow: hidden;
 }
 
-/* Layer 2 (Bottommost Bar): Beer, Wine, Rum & Breezers */
+/* Layer 4 (Bottommost Bar): Beer, Wine, Rum & Breezers */
 .bar-beer-layer {
   z-index: 2;
   background: #500D09;
@@ -370,7 +370,7 @@ html, body {
   transition: opacity 0.2s ease;
 }
 
-/* Layer 1: Tequila, Gin, Vodka & Liqueur */
+/* Layer 3: Tequila, Gin, Vodka & Liqueur */
 .bar-tequila-layer {
   z-index: 4;
   background: #E6CDA9;
@@ -379,9 +379,27 @@ html, body {
   transition: opacity 0.2s ease;
 }
 
-/* Layer 0 (Topmost Bar): Whiskey (Single Malt & Scotch) */
-.bar-whiskey-layer {
+/* Layer 2: Scotch & Blended Whisky (Part 2) */
+.bar-whiskey-3-layer {
   z-index: 6;
+  background: #0E1F0E;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Layer 1: Scotch Whisky (Part 1) */
+.bar-whiskey-2-layer {
+  z-index: 8;
+  background: #0E1F0E;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Layer 0 (Topmost Bar): Single Malt Whiskey */
+.bar-whiskey-1-layer {
+  z-index: 10;
   background: #0E1F0E;
   opacity: 1;
   pointer-events: auto;
@@ -408,25 +426,49 @@ html, body {
 }
 
 /* Bar Page States */
-/* Bar Page 0: Whiskey */
-.menu-book-container[data-menu="bar"][data-state="bar-0"] .bar-whiskey-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Bar Page 0: Single Malt Whiskey */
+.menu-book-container[data-menu="bar"][data-state="bar-0"] .bar-whiskey-1-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
-/* Bar Page 1: Tequila & Spirits */
-.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-whiskey-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-tequila-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Bar Page 1: Scotch Whisky (Part 1) */
+.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-whiskey-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-whiskey-2-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
-/* Bar Page 2: Beer, Wine & Rum */
-.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-whiskey-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-tequila-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-beer-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Bar Page 2: Scotch & Blended Whisky (Part 2) */
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-whiskey-1-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-whiskey-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-whiskey-3-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Bar Page 3: Tequila & Spirits */
+.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-whiskey-1-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-whiskey-2-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-whiskey-3-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-tequila-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Bar Page 4: Beer, Wine & Rum */
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-whiskey-1-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-whiskey-2-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-whiskey-3-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-tequila-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-beer-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
 /* Bar Animating States */
-.menu-book-container[data-menu="bar"][data-state="animating-bar-0-1"] .bar-whiskey-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-0-1"] .bar-tequila-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-0-1"] .bar-whiskey-1-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-0-1"] .bar-whiskey-2-layer { opacity: 1; pointer-events: none; }
 
-.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-whiskey-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-tequila-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-beer-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-whiskey-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-whiskey-2-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-whiskey-3-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="bar"][data-state="animating-bar-2-3"] .bar-whiskey-1-layer,
+.menu-book-container[data-menu="bar"][data-state="animating-bar-2-3"] .bar-whiskey-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-2-3"] .bar-whiskey-3-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-2-3"] .bar-tequila-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-whiskey-1-layer,
+.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-whiskey-2-layer,
+.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-whiskey-3-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-tequila-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-beer-layer { opacity: 1; pointer-events: none; }
 
 /* ==========================================================================
    COCKTAIL MENU LAYERS & BOOK PRESENTATION
