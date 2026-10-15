@@ -23,39 +23,33 @@
        ============================================================ -->
   <main class="menu-viewport" id="menuViewport">
     
-    <!-- Luxury Saanj Bagh Food / Bar Menu Switcher Navigation -->
+    <!-- Luxury Saanj Bagh 3-Way Menu Switcher: FOOD MENU | BAR MENU | COCKTAIL MENU -->
     <nav class="menu-switcher-nav" aria-label="Menu experience selector">
       <div class="menu-switcher-pill" role="tablist">
-        <button class="menu-switch-btn active" id="btnFoodMenu" role="tab" aria-selected="true" aria-controls="menuBook" type="button">
+        <button class="menu-switch-btn active" id="btnFoodMenu" role="tab" aria-selected="true" type="button">
           <span class="switch-bullet" aria-hidden="true">✦</span>
           <span class="switch-label">FOOD MENU</span>
         </button>
         <div class="switch-divider" aria-hidden="true"></div>
-        <button class="menu-switch-btn" id="btnBarMenu" role="tab" aria-selected="false" aria-controls="menuBook" type="button">
+        <button class="menu-switch-btn" id="btnBarMenu" role="tab" aria-selected="false" type="button">
           <span class="switch-bullet" aria-hidden="true">✦</span>
           <span class="switch-label">BAR MENU</span>
+        </button>
+        <div class="switch-divider" aria-hidden="true"></div>
+        <button class="menu-switch-btn" id="btnCocktailMenu" role="tab" aria-selected="false" type="button">
+          <span class="switch-bullet" aria-hidden="true">✦</span>
+          <span class="switch-label">COCKTAIL MENU</span>
         </button>
       </div>
     </nav>
 
-    <!-- Floating Luxury Menu Quick-Jump Button -->
+    <!-- Floating Luxury Menu Quick-Jump Button (Food Book) -->
     <button class="floating-menu-btn" id="btnJumpMenu" aria-label="Jump to main menu" type="button">
       <svg class="menu-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
       </svg>
       <span class="menu-btn-label">MENU</span>
-    </button>
-
-    <!-- Floating Luxury "EXPAND MENU" Reading Mode Button (Visible in Bar Mode) -->
-    <button class="floating-expand-btn" id="btnExpandBarMenu" aria-label="Open enlarged reading mode for comfortable viewing" type="button">
-      <svg class="expand-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M15 3h6v6"></path>
-        <path d="M9 21H3v-6"></path>
-        <path d="M21 3l-7 7"></path>
-        <path d="M3 21l7-7"></path>
-      </svg>
-      <span class="expand-btn-label">✦ EXPAND MENU</span>
     </button>
 
     <div class="menu-stage-wrapper">
@@ -340,6 +334,161 @@
       </div><!-- /.menu-book-container -->
 
     </div><!-- /.menu-stage-wrapper -->
+
+    <!-- ======================================================
+         FULL-SCREEN VERTICAL REGISTER: BAR MENU
+         Single Malts, Aged Scotches, Fine Spirits, Wines & Beers
+         ====================================================== -->
+    <section class="vertical-register-section" id="barRegisterView" aria-label="Saanj Bagh Bar Menu Register" hidden>
+      <div class="register-inner-wrap">
+        <header class="register-header">
+          <div class="register-brand-emblem" aria-hidden="true">✦</div>
+          <h1 class="register-main-title">SAANJ BAGH</h1>
+          <div class="register-sub-badge">BOTANICAL BAR &amp; KITCHEN</div>
+          <h2 class="register-category-title">BAR MENU</h2>
+          <p class="register-curation-text">A Curated Anthology of Single Malts, Aged Scotches, Handcrafted Spirits, Fine Wines &amp; Beers</p>
+          
+          <!-- Category Quick-Jump Chips -->
+          <nav class="register-jump-nav" aria-label="Bar categories">
+            <a href="#barSecWhiskey" class="register-jump-chip">✦ WHISKY</a>
+            <a href="#barSecSpirits" class="register-jump-chip">✦ SPIRITS &amp; LIQUEUR</a>
+            <a href="#barSecBeerWine" class="register-jump-chip">✦ BEER, WINE &amp; RUM</a>
+          </nav>
+        </header>
+
+        <!-- Vertical Register Stack -->
+        <div class="register-sheet-stack">
+          <!-- Sheet 1: Whisky (Single Malt & Scotch) -->
+          <article class="register-sheet-card" id="barSecWhiskey" aria-label="Whisky — Single Malt &amp; Scotch">
+            <img
+              src="assets/images/bar-whiskey.png"
+              alt="Saanj Bagh — Single Malt &amp; Scotch Whiskey Menu"
+              class="register-artwork-img"
+              loading="eager"
+              decoding="async"
+            />
+          </article>
+
+          <!-- Sheet 2: Spirits (Tequila, Gin, Vodka, Liqueur) -->
+          <article class="register-sheet-card" id="barSecSpirits" aria-label="Tequila, Gin, Vodka &amp; Liqueur">
+            <img
+              src="assets/images/bar-tequila-spirits.png"
+              alt="Saanj Bagh — Tequila, Gin, Vodka &amp; Liqueur Menu"
+              class="register-artwork-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </article>
+
+          <!-- Sheet 3: Beer, Wine, Rum & Breezer -->
+          <article class="register-sheet-card" id="barSecBeerWine" aria-label="Beer, Wine, Rum &amp; Breezer">
+            <img
+              src="assets/images/bar-beer-wine.png"
+              alt="Saanj Bagh — Beer, Wine, Rum &amp; Breezer Menu"
+              class="register-artwork-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </article>
+        </div>
+
+        <!-- Register Footer -->
+        <footer class="register-footer">
+          <div class="register-footer-crest">✦ ✦ ✦</div>
+          <p class="register-footer-text">Saanj Bagh — Botanical Bar &amp; Kitchen</p>
+          <div class="register-footer-actions">
+            <button class="register-switch-return-btn" id="btnReturnFoodFromBar" type="button">
+              ← FOOD MENU BOOK
+            </button>
+            <button class="register-switch-return-btn" id="btnGoToCocktailFromBar" type="button">
+              COCKTAIL MENU →
+            </button>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         FULL-SCREEN VERTICAL REGISTER: COCKTAIL MENU
+         Botanical Concoctions, Masterful Twists & Classics
+         ====================================================== -->
+    <section class="vertical-register-section" id="cocktailRegisterView" aria-label="Saanj Bagh Cocktail Menu Register" hidden>
+      <div class="register-inner-wrap">
+        <header class="register-header">
+          <div class="register-brand-emblem" aria-hidden="true">✦</div>
+          <h1 class="register-main-title">SAANJ BAGH</h1>
+          <div class="register-sub-badge">BOTANICAL BAR &amp; KITCHEN</div>
+          <h2 class="register-category-title">COCKTAIL MENU</h2>
+          <p class="register-curation-text">Artisanal Botanical Concoctions, Signature Infusions &amp; Celebrated Timeless Classics</p>
+          
+          <!-- Category Quick-Jump Chips -->
+          <nav class="register-jump-nav" aria-label="Cocktail categories">
+            <a href="#cocktailSecVodkaGin" class="register-jump-chip">✦ VODKA &amp; GIN</a>
+            <a href="#cocktailSecTequilaWhiskyRum" class="register-jump-chip">✦ TEQUILA, WHISKY &amp; RUM</a>
+            <a href="#cocktailSecWineLiit" class="register-jump-chip">✦ WINE &amp; LONG ISLAND ICED TEAS</a>
+          </nav>
+        </header>
+
+        <!-- Vertical Register Stack -->
+        <div class="register-sheet-stack">
+          <!-- Sheet 1: Vodka & Gin Cocktails -->
+          <article class="register-sheet-card" id="cocktailSecVodkaGin" aria-label="Vodka &amp; Gin Cocktails">
+            <img
+              src="assets/images/cocktail-1-vodka-gin.png"
+              alt="Saanj Bagh — Vodka &amp; Gin Cocktails Menu"
+              class="register-artwork-img"
+              loading="eager"
+              decoding="async"
+            />
+          </article>
+
+          <!-- Sheet 2: Tequila, Whisky & Rum Cocktails -->
+          <article class="register-sheet-card" id="cocktailSecTequilaWhiskyRum" aria-label="Tequila, Whisky &amp; Rum Cocktails">
+            <img
+              src="assets/images/cocktail-2-tequila-rum.png"
+              alt="Saanj Bagh — Tequila, Whisky &amp; Rum Cocktails Menu"
+              class="register-artwork-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </article>
+
+          <!-- Sheet 3: Wine Cocktails & Long Island Iced Teas -->
+          <article class="register-sheet-card" id="cocktailSecWineLiit" aria-label="Wine Cocktails &amp; Long Island Iced Teas">
+            <img
+              src="assets/images/cocktail-3-wine-liit.png"
+              alt="Saanj Bagh — Wine Cocktails &amp; Long Island Iced Teas Menu"
+              class="register-artwork-img"
+              loading="lazy"
+              decoding="async"
+            />
+          </article>
+        </div>
+
+        <!-- Register Footer -->
+        <footer class="register-footer">
+          <div class="register-footer-crest">✦ ✦ ✦</div>
+          <p class="register-footer-text">Saanj Bagh — Botanical Bar &amp; Kitchen</p>
+          <div class="register-footer-actions">
+            <button class="register-switch-return-btn" id="btnReturnFoodFromCocktail" type="button">
+              ← FOOD MENU BOOK
+            </button>
+            <button class="register-switch-return-btn" id="btnGoToBarFromCocktail" type="button">
+              BAR MENU →
+            </button>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Floating Back-to-Top Button for Long Registers -->
+    <button class="floating-back-to-top" id="btnBackToTop" aria-label="Back to top of menu register" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+      <span class="back-top-label">TOP</span>
+    </button>
 
   </main>
 
@@ -848,93 +997,89 @@
       <article><p>Budweiser 330ml / Magnum 500ml — ₹499 / ₹599</p></article>
       <article><p>Breezer Orange / Cranberry — ₹349</p></article>
     </section>
-  </div>
 
-  <!-- ======================================================
-       BAR MENU DEDICATED EXPANDED READING VIEWER
-       High-legibility, mobile-friendly viewing mode with zoom,
-       pan, and seamless page navigation.
-       ====================================================== -->
-  <div class="bar-reading-overlay" id="barExpandedViewer" role="dialog" aria-modal="true" aria-label="Expanded Bar Menu Viewer" hidden>
-    <!-- Top Luxury Header Bar -->
-    <header class="expanded-header">
-      <div class="expanded-brand">
-        <span class="expanded-brand-crest" aria-hidden="true">✦</span>
-        <span class="expanded-brand-name">SAANJ BAGH</span>
-        <span class="expanded-brand-divider" aria-hidden="true">·</span>
-        <span class="expanded-page-title" id="expandedPageTitle">WHISKY — SINGLE MALT &amp; SCOTCH</span>
-      </div>
+    <!-- Cocktail Menu Semantic Content -->
+    <section aria-label="Cocktail Menu — Botanical Cocktails &amp; Long Island Iced Teas">
+      <h2>Saanj Bagh — Cocktail Menu</h2>
 
-      <!-- Zoom & View Controls -->
-      <div class="expanded-header-actions">
-        <div class="expanded-zoom-controls" role="group" aria-label="Zoom controls">
-          <button class="expanded-ctrl-btn" id="btnZoomOut" aria-label="Zoom out" type="button" title="Zoom Out (-)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
-          </button>
-          <button class="expanded-ctrl-btn" id="btnZoomFit" aria-label="Reset zoom to fit width" type="button" title="Fit to screen">
-            <span class="ctrl-fit-text">FIT</span>
-          </button>
-          <button class="expanded-ctrl-btn" id="btnZoomIn" aria-label="Zoom in" type="button" title="Zoom In (+)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="11" y1="8" x2="11" y2="14"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
-          </button>
-        </div>
+      <h3>Vodka Cocktails</h3>
+      <article><p>Ruby Rush — ₹600 (Build over tall glass with cubed ice, top with soda and garnish with rosemary sprig)</p></article>
+      <article><p>Berry Blush — ₹625 (Shake and strain into a highball glass over clear ice, top with club soda)</p></article>
+      <article><p>Black Russian — ₹600 (Pour over ice in a rocks glass, stir gently)</p></article>
+      <article><p>Sea Breeze — ₹600 (Build in a highball glass filled with ice, stir and garnish with a lime wheel)</p></article>
+      <article><p>Greyhound — ₹575 (Build in a highball glass over ice, stir and salt rim optionally)</p></article>
+      <article><p>Kamikaze — ₹575 (Shake vigorously with ice, strain into a chilled cocktail glass or shot glasses)</p></article>
+      <article><p>Sex on the Beach — ₹625 (Build over ice in a highball glass, garnish with an orange slice and cherry)</p></article>
+      <article><p>White Russian — ₹650 (Pour over ice in a rocks glass, float cream on top and stir gently)</p></article>
+      <article><p>Moscow Mule — ₹625 (Build in a copper mug over crushed ice, top with ginger beer and stir)</p></article>
+      <article><p>Espresso Martini — ₹675 (Shake vigorously with ice until frothy, strain into a chilled martini glass)</p></article>
+      <article><p>White Peach Cosmo — ₹650 (Shake all ingredients with ice, strain into a chilled cocktail glass)</p></article>
+      <article><p>Lemongrass Fizz — ₹600 (Shake vodka, syrup, and lemon juice, strain into a highball glass, top with ginger ale)</p></article>
+      <article><p>Midnight Bloom — ₹650 (Layer butterfly pea tea over shaken lychee and vodka for a color-changing effect)</p></article>
+      <article><p>Cosmopolitan — ₹625 (Shake all ingredients with ice, strain into a chilled cocktail glass)</p></article>
 
-        <!-- Close / Back to Book Button -->
-        <button class="expanded-close-btn" id="btnCloseExpanded" aria-label="Close expanded view and return to book" type="button">
-          <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-          <span class="close-text">BACK TO BOOK</span>
-        </button>
-      </div>
-    </header>
+      <h3>Gin Cocktails</h3>
+      <article><p>Tom Collins — ₹625 (Shake gin, lemon, and syrup, strain into a tall glass over ice, top with club soda)</p></article>
+      <article><p>Classic Dry Martini — ₹650 (Stir well with cracked ice, strain into a chilled martini glass, garnish with an olive)</p></article>
+      <article><p>Negroni — ₹675 (Stir all ingredients with ice, strain into a rocks glass over a large ice cube, garnish with orange peel)</p></article>
+      <article><p>Negroni Sbagliato — ₹675 (Stir gin, Campari, and vermouth over large ice, top with prosecco)</p></article>
+      <article><p>Gibson — ₹650 (Stir well with ice, strain into a chilled cocktail glass, garnish with cocktail onions)</p></article>
+      <article><p>Bee's Knees — ₹625 (Shake with ice, strain into a chilled coupe glass)</p></article>
+      <article><p>Last Word — ₹775 (Shake with ice, strain into a chilled coupe glass)</p></article>
+      <article><p>Southside Royale — ₹675 (Shake gin, lime, and mint syrup, strain into coupe, float prosecco on top)</p></article>
+      <article><p>Cucumber Elderflower Collins — ₹650 (Build in a highball glass, top with soda and stir gently)</p></article>
 
-    <!-- Main Interactive Viewport -->
-    <div class="expanded-viewport" id="expandedViewport" tabindex="0">
-      <div class="expanded-canvas-wrap" id="expandedCanvasWrap">
-        <img
-          src="assets/images/bar-whiskey.png"
-          alt="Saanj Bagh Bar Menu Page"
-          class="expanded-menu-img"
-          id="expandedMenuImg"
-          draggable="false"
-        />
-      </div>
-    </div>
+      <h3>Tequila Cocktails</h3>
+      <article><p>Brave Bull — ₹600 (Pour over ice in a rocks glass, stir gently)</p></article>
+      <article><p>Cantarito — ₹675 (Build in a clay cup or highball with ice, stir well)</p></article>
+      <article><p>Margarita — ₹700 (Shake with ice, strain into a salt-rimmed rocks glass over fresh ice)</p></article>
+      <article><p>Paloma — ₹650 (Build in a highball glass with a salted rim, stir well)</p></article>
+      <article><p>Hibiscus Rosé Margarita — ₹650 (Shake all ingredients with ice, strain over a large ice cube in a rimmed glass)</p></article>
+      <article><p>Cucumber Jalapeño Cooler — ₹650 (Muddle cucumber and jalapeño, shake with tequila and lime, double strain)</p></article>
 
-    <!-- Bottom Floating Page Navigation Bar -->
-    <footer class="expanded-footer-nav" aria-label="Bar menu pages">
-      <button class="expanded-nav-btn" id="btnExpPrev" aria-label="Previous bar page" type="button" disabled>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-        <span>PREV</span>
-      </button>
+      <h3>Whisky Cocktails</h3>
+      <article><p>Smoked Maple Old Fashioned — ₹750 (Stir whiskey and maple with ice, smoke the glass with wood chip aroma)</p></article>
+      <article><p>Scottish Penicillin — ₹725 (Shake Scotch, honey-ginger, and lemon, strain over large ice, float peated Scotch on top)</p></article>
+      <article><p>Apple Cinnamon Smash — ₹675 (Muddle apple and mint, shake with bourbon and syrup, double strain over crushed ice)</p></article>
+      <article><p>Rye &amp; Spice Manhattan — ₹725 (Stir with ice until chilled, strain into a coupe, garnish with a brandied cherry)</p></article>
+      <article><p>Highland Honey Highball — ₹650 (Build in a tall highball glass with clear ice sticks, garnish with lemon peel)</p></article>
+      <article><p>Boulevardier — ₹725 (Stir with ice, strain into a rocks glass over a large ice cube, garnish with orange peel)</p></article>
+      <article><p>Rob Roy — ₹700 (Stir with ice, strain into a chilled coupe glass, garnish with a brandied cherry)</p></article>
+      <article><p>Blood and Sand — ₹675 (Shake with ice, strain into a chilled coupe glass)</p></article>
+      <article><p>Old Fashioned — ₹725 (Muddle sugar, bitters, and water, add bourbon and large ice, stir and garnish with orange twist)</p></article>
+      <article><p>Manhattan — ₹750 (Stir with ice, strain into a chilled coupe glass, garnish with a brandied cherry)</p></article>
+      <article><p>Whiskey Sour — ₹675 (Dry shake without ice, then shake hard with ice, strain into a rocks glass)</p></article>
 
-      <div class="expanded-page-indicator" id="expandedPageIndicator" aria-live="polite">
-        <span class="exp-dot active" data-index="0" aria-label="Page 1 of 3: Whisky"></span>
-        <span class="exp-dot" data-index="1" aria-label="Page 2 of 3: Spirits"></span>
-        <span class="exp-dot" data-index="2" aria-label="Page 3 of 3: Beer &amp; Wine"></span>
-        <span class="exp-page-number" id="expPageNumber">PAGE 1 OF 3</span>
-      </div>
+      <h3>Rum Cocktails</h3>
+      <article><p>Saanjh Tropical Mai Tai — ₹700 (Shake all ingredients with ice, strain into a tiki mug over crushed ice, mint bouquet)</p></article>
+      <article><p>Spiced Cuban Mojito — ₹650 (Muddle mint, lime, and sugar gently, add spiced rum and crushed ice, top with soda)</p></article>
+      <article><p>Coconut Breeze — ₹650 (Blend with ice until smooth and creamy, serve in a hurricane glass with pineapple wedge)</p></article>
+      <article><p>Dark &amp; Stormy Night — ₹625 (Build over large ice cubes in a highball glass, float dark rum on top)</p></article>
+      <article><p>Guava Chili Daiquiri — ₹625 (Shake vigorously with ice and strain straight up into a chilled coupette)</p></article>
+      <article><p>Vanilla Spice Old Cuban — ₹700 (Muddle mint and lime, shake with aged rum and syrup, strain, top with sparkling wine)</p></article>
+      <article><p>Piña Colada — ₹650 (Blend all ingredients with ice until smooth, serve in a hurricane glass)</p></article>
+      <article><p>Dark 'n' Stormy — ₹650 (Build ginger beer and lime over ice, float dark rum on top)</p></article>
+      <article><p>Mai Tai — ₹700 (Shake ingredients with ice, strain into a tiki mug over crushed ice, float dark rum)</p></article>
+      <article><p>Painkiller — ₹700 (Shake with ice, pour into a hurricane glass, garnish with freshly grated nutmeg)</p></article>
+      <article><p>Mojito — ₹625 (Muddle mint, lime, and sugar, add rum and crushed ice, top with club soda and stir gently)</p></article>
+      <article><p>Daiquiri — ₹600 (Shake vigorously with ice, strain into a chilled coupe glass)</p></article>
+      <article><p>Jaggery &amp; Spiced Rum — ₹600 (Shake rum, jaggery syrup, and lemon juice with ice, strain into a rocks glass)</p></article>
+      <article><p>Banana Rum Flip — ₹675 (Dry shake then wet shake intensely, strain into a coupe and dust with fresh nutmeg)</p></article>
 
-      <button class="expanded-nav-btn" id="btnExpNext" aria-label="Next bar page" type="button">
-        <span>NEXT</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-    </footer>
+      <h3>Wine Cocktails</h3>
+      <article><p>Classic Red Sangria — ₹625 (Macerate fruits in brandy and triple sec, mix with chilled red wine and top with soda)</p></article>
+      <article><p>White Peach Spritzer — ₹600 (Build in a wine glass with ice, stir gently and garnish with a peach slice)</p></article>
+      <article><p>Rosé Botanical Punch — ₹650 (Stir all ingredients in a large pitcher with ice, serve in wine goblets)</p></article>
+      <article><p>Sparkling Mimosa Royale — ₹650 (Pour chilled blood orange juice into a champagne flute, top with dry prosecco)</p></article>
+      <article><p>Mulled Wine (Winter Special) — ₹675 (Simmer gently on low heat with spices and honey, serve warm in a mug)</p></article>
+
+      <h3>Long Island Iced Teas</h3>
+      <article><p>Classic Long Island Iced Tea (Traditional) — ₹625 (Vodka, Rum, Gin, Tequila, Triple Sec, Lemon Juice, Simple Syrup, Top with Cola)</p></article>
+      <article><p>Saanjh Bagh Sunset Tea (Signature) — ₹650 (Vodka, Light Rum, Gin, Tequila, Aperol, Lemon Juice, Top with Grapefruit Soda)</p></article>
+      <article><p>Tokyo Iced Tea (Fruity / Green) — ₹650 (Vodka, Rum, Gin, Tequila, Midori, Lemon Juice, Top with Lemon-Lime Soda)</p></article>
+      <article><p>Tennessee Iced Tea (Strong) — ₹675 (Vodka, Rum, Gin, Tequila, Triple Sec, Jack Daniel's, Lemon Juice, Simple, Top with Cola)</p></article>
+      <article><p>Hawaiian Iced Tea (Tropical) — ₹999 (Vodka, Rum, Gin, Tequila, Triple Sec, Lemon Juice, Top with Pineapple Juice)</p></article>
+    </section>
   </div>
 
   <script src="app.js"></script>

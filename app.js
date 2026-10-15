@@ -35,33 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const indianLayer = document.getElementById('indianLayer');
   const curlCanvas = document.getElementById('curlCanvas');
 
-  // Menu Switcher Controls
+  // 3-Way Menu Switcher Controls
   const btnFoodMenu = document.getElementById('btnFoodMenu');
   const btnBarMenu = document.getElementById('btnBarMenu');
+  const btnCocktailMenu = document.getElementById('btnCocktailMenu');
 
-  // Bar Menu Layers & Artworks
-  const barWhiskeyLayer = document.getElementById('barWhiskeyLayer');
-  const barTequilaLayer = document.getElementById('barTequilaLayer');
-  const barBeerLayer = document.getElementById('barBeerLayer');
+  // Vertical Register Views & Navigation
+  const barRegisterView = document.getElementById('barRegisterView');
+  const cocktailRegisterView = document.getElementById('cocktailRegisterView');
+  const btnBackToTop = document.getElementById('btnBackToTop');
+
+  // Register Footer Cross-Switch Navigation Buttons
+  const btnReturnFoodFromBar = document.getElementById('btnReturnFoodFromBar');
+  const btnGoToCocktailFromBar = document.getElementById('btnGoToCocktailFromBar');
+  const btnReturnFoodFromCocktail = document.getElementById('btnReturnFoodFromCocktail');
+  const btnGoToBarFromCocktail = document.getElementById('btnGoToBarFromCocktail');
+
+  // Bar Menu Layers & Artworks (for book fallback/preload)
   const barWhiskeyArtwork = document.getElementById('barWhiskeyArtwork');
   const barTequilaArtwork = document.getElementById('barTequilaArtwork');
   const barBeerArtwork = document.getElementById('barBeerArtwork');
-
-  // Dedicated Bar Reading Mode Elements
-  const btnExpandBarMenu = document.getElementById('btnExpandBarMenu');
-  const barExpandedViewer = document.getElementById('barExpandedViewer');
-  const expandedPageTitle = document.getElementById('expandedPageTitle');
-  const btnZoomOut = document.getElementById('btnZoomOut');
-  const btnZoomFit = document.getElementById('btnZoomFit');
-  const btnZoomIn = document.getElementById('btnZoomIn');
-  const btnCloseExpanded = document.getElementById('btnCloseExpanded');
-  const expandedViewport = document.getElementById('expandedViewport');
-  const expandedCanvasWrap = document.getElementById('expandedCanvasWrap');
-  const expandedMenuImg = document.getElementById('expandedMenuImg');
-  const btnExpPrev = document.getElementById('btnExpPrev');
-  const btnExpNext = document.getElementById('btnExpNext');
-  const expPageNumber = document.getElementById('expPageNumber');
-  const expDots = document.querySelectorAll('.exp-dot');
 
   // Minimal Antique-Gold Arrow Navigation Controls
   const btnNavPrev = document.getElementById('btnNavPrev');
@@ -696,307 +689,152 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 6. FOOD MENU ↔ BAR MENU SWITCHER ENGINE
+  // 6. THREE-WAY MENU SWITCHER ENGINE (FOOD MENU | BAR MENU | COCKTAIL MENU)
   // ==========================================================================
   function switchMenu(targetMenu) {
-    if (isAnimating || targetMenu === currentMenu) return;
+    if (targetMenu === currentMenu) return;
 
-    if (animationId) {
-      cancelAnimationFrame(animationId);
-      animationId = null;
+    if (isAnimating) {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
       isAnimating = false;
     }
     ctx.clearRect(0, 0, currentVirtualW, VIRTUAL_H);
 
     currentMenu = targetMenu;
+    document.body.dataset.activeMenu = targetMenu;
 
-    if (currentMenu === 'food') {
-      document.body.classList.remove('bar-mode-active');
-      if (btnExpandBarMenu) btnExpandBarMenu.classList.remove('visible');
-      if (isExpandedOpen) closeBarExpanded();
-      if (btnFoodMenu) {
-        btnFoodMenu.classList.add('active');
-        btnFoodMenu.setAttribute('aria-selected', 'true');
-      }
-      if (btnBarMenu) {
-        btnBarMenu.classList.remove('active');
-        btnBarMenu.setAttribute('aria-selected', 'false');
-      }
-      setFinalState(foodPage);
-    } else {
-      document.body.classList.add('bar-mode-active');
-      if (btnExpandBarMenu) btnExpandBarMenu.classList.add('visible');
-      if (btnBarMenu) {
-        btnBarMenu.classList.add('active');
-        btnBarMenu.setAttribute('aria-selected', 'true');
-      }
-      if (btnFoodMenu) {
-        btnFoodMenu.classList.remove('active');
-        btnFoodMenu.setAttribute('aria-selected', 'false');
-      }
-      setFinalState(barPage);
+    // Update 3-Way Switcher Nav Buttons
+    if (btnFoodMenu) {
+      const isFood = (targetMenu === 'food');
+      btnFoodMenu.classList.toggle('active', isFood);
+      btnFoodMenu.setAttribute('aria-selected', isFood ? 'true' : 'false');
     }
-  }
-
-  // ==========================================================================
-  // 7. DEDICATED BAR MENU EXPANDED READING CONTROLLER
-  // ==========================================================================
-  const BAR_PAGES = [
-    {
-      index: 0,
-      title: 'WHISKY — SINGLE MALT & SCOTCH',
-      alt: 'Saanj Bagh — Single Malt & Scotch Whiskey Menu',
-      src: 'assets/images/bar-whiskey.png',
-      bg: '#0E1F0E'
-    },
-    {
-      index: 1,
-      title: 'TEQUILA, GIN, VODKA & LIQUEUR',
-      alt: 'Saanj Bagh — Tequila, Gin, Vodka & Liqueur Menu',
-      src: 'assets/images/bar-tequila-spirits.png',
-      bg: '#E6CDA9'
-    },
-    {
-      index: 2,
-      title: 'BEER, WINE, RUM & BREEZER',
-      alt: 'Saanj Bagh — Beer, Wine, Rum & Breezer Menu',
-      src: 'assets/images/bar-beer-wine.png',
-      bg: '#500D09'
+    if (btnBarMenu) {
+      const isBar = (targetMenu === 'bar');
+      btnBarMenu.classList.toggle('active', isBar);
+      btnBarMenu.setAttribute('aria-selected', isBar ? 'true' : 'false');
     }
-  ];
-
-  let isExpandedOpen = false;
-  let expandedPage = 0;
-  let expandedZoom = 1.0;
-  const MIN_ZOOM = 0.8;
-  const MAX_ZOOM = 2.8;
-  const ZOOM_STEP = 0.25;
-
-  function applyZoom(level) {
-    expandedZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, Math.round(level * 100) / 100));
-    if (expandedCanvasWrap) {
-      expandedCanvasWrap.style.transform = `scale(${expandedZoom})`;
-      expandedCanvasWrap.style.transformOrigin = 'top center';
-    }
-  }
-
-  function setExpandedPage(idx) {
-    expandedPage = Math.max(0, Math.min(2, idx));
-    const pageData = BAR_PAGES[expandedPage];
-
-    if (expandedMenuImg) {
-      expandedMenuImg.src = pageData.src;
-      expandedMenuImg.alt = pageData.alt;
-    }
-    if (expandedPageTitle) {
-      expandedPageTitle.textContent = pageData.title;
-    }
-    if (expPageNumber) {
-      expPageNumber.textContent = `PAGE ${expandedPage + 1} OF 3`;
-    }
-    if (btnExpPrev) btnExpPrev.disabled = (expandedPage === 0);
-    if (btnExpNext) btnExpNext.disabled = (expandedPage === 2);
-
-    if (expDots && expDots.length) {
-      expDots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === expandedPage);
-        dot.setAttribute('aria-selected', i === expandedPage ? 'true' : 'false');
-      });
+    if (btnCocktailMenu) {
+      const isCocktail = (targetMenu === 'cocktail');
+      btnCocktailMenu.classList.toggle('active', isCocktail);
+      btnCocktailMenu.setAttribute('aria-selected', isCocktail ? 'true' : 'false');
     }
 
-    applyZoom(1.0);
-    if (expandedViewport) {
-      expandedViewport.scrollTop = 0;
-      expandedViewport.scrollLeft = 0;
-    }
-  }
-
-  function openBarExpanded(pageIdx = barPage) {
-    if (currentMenu !== 'bar') return;
-    isExpandedOpen = true;
-
-    if (barExpandedViewer) {
-      barExpandedViewer.removeAttribute('hidden');
-      barExpandedViewer.style.display = 'flex';
-      void barExpandedViewer.offsetWidth; // Force reflow
-      barExpandedViewer.classList.add('active');
+    // Toggle Section Visibility and Window Scroll
+    if (targetMenu === 'food') {
+      if (barRegisterView) barRegisterView.hidden = true;
+      if (cocktailRegisterView) cocktailRegisterView.hidden = true;
+      setFinalState(currentPage);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else if (targetMenu === 'bar') {
+      if (barRegisterView) barRegisterView.hidden = false;
+      if (cocktailRegisterView) cocktailRegisterView.hidden = true;
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else if (targetMenu === 'cocktail') {
+      if (barRegisterView) barRegisterView.hidden = true;
+      if (cocktailRegisterView) cocktailRegisterView.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
-    setExpandedPage(pageIdx);
-    document.body.style.overflow = 'hidden';
-
-    if (expandedViewport) {
-      expandedViewport.focus();
-    }
+    updateBackToTop();
   }
 
-  function closeBarExpanded() {
-    if (!isExpandedOpen) return;
-    isExpandedOpen = false;
-
-    if (barExpandedViewer) {
-      barExpandedViewer.classList.remove('active');
-      setTimeout(() => {
-        if (!isExpandedOpen) {
-          barExpandedViewer.setAttribute('hidden', '');
-          barExpandedViewer.style.display = 'none';
-        }
-      }, 280);
-    }
-
-    document.body.style.overflow = '';
-
-    // Synchronize flipbook book state to the page viewed in expanded mode
-    setFinalState(expandedPage);
-  }
-
-  // Bind Expanded Mode Controls
-  if (btnExpandBarMenu) {
-    btnExpandBarMenu.addEventListener('click', (e) => {
-      e.stopPropagation();
-      openBarExpanded(barPage);
-    });
-  }
-
-  if (btnCloseExpanded) {
-    btnCloseExpanded.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeBarExpanded();
-    });
-  }
-
-  if (btnZoomIn) {
-    btnZoomIn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      applyZoom(expandedZoom + ZOOM_STEP);
-    });
-  }
-
-  if (btnZoomOut) {
-    btnZoomOut.addEventListener('click', (e) => {
-      e.stopPropagation();
-      applyZoom(expandedZoom - ZOOM_STEP);
-    });
-  }
-
-  if (btnZoomFit) {
-    btnZoomFit.addEventListener('click', (e) => {
-      e.stopPropagation();
-      applyZoom(1.0);
-    });
-  }
-
-  if (btnExpPrev) {
-    btnExpPrev.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (expandedPage > 0) setExpandedPage(expandedPage - 1);
-    });
-  }
-
-  if (btnExpNext) {
-    btnExpNext.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (expandedPage < 2) setExpandedPage(expandedPage + 1);
-    });
-  }
-
-  if (expDots && expDots.length) {
-    expDots.forEach((dot) => {
-      dot.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const targetIdx = parseInt(dot.dataset.index, 10);
-        if (!isNaN(targetIdx)) setExpandedPage(targetIdx);
-      });
-    });
-  }
-
-  // Double tap / double click to toggle zoom on expanded image
-  let lastTapTime = 0;
-  if (expandedMenuImg) {
-    expandedMenuImg.addEventListener('touchend', (e) => {
-      const now = Date.now();
-      if (now - lastTapTime < 320) {
-        e.preventDefault();
-        applyZoom(expandedZoom > 1.2 ? 1.0 : 1.75);
-      }
-      lastTapTime = now;
-    });
-
-    expandedMenuImg.addEventListener('dblclick', (e) => {
-      e.preventDefault();
-      applyZoom(expandedZoom > 1.2 ? 1.0 : 1.75);
-    });
-  }
-
-  // Tapping directly on the bar layers in normal book mode triggers expanded reading mode
-  [barWhiskeyLayer, barTequilaLayer, barBeerLayer].forEach((layer) => {
-    if (layer) {
-      layer.addEventListener('click', () => {
-        if (!hasMovedPastDeadband && !isAnimating && currentMenu === 'bar') {
-          openBarExpanded(barPage);
-        }
-      });
-    }
-  });
-
+  // Bind Top Switcher Buttons
   if (btnFoodMenu) {
     btnFoodMenu.addEventListener('click', (e) => {
       e.stopPropagation();
       switchMenu('food');
     });
   }
-
   if (btnBarMenu) {
     btnBarMenu.addEventListener('click', (e) => {
       e.stopPropagation();
       switchMenu('bar');
     });
   }
+  if (btnCocktailMenu) {
+    btnCocktailMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      switchMenu('cocktail');
+    });
+  }
+
+  // Bind Register Footer Cross-Switch Buttons
+  if (btnReturnFoodFromBar) {
+    btnReturnFoodFromBar.addEventListener('click', () => switchMenu('food'));
+  }
+  if (btnGoToCocktailFromBar) {
+    btnGoToCocktailFromBar.addEventListener('click', () => switchMenu('cocktail'));
+  }
+  if (btnReturnFoodFromCocktail) {
+    btnReturnFoodFromCocktail.addEventListener('click', () => switchMenu('food'));
+  }
+  if (btnGoToBarFromCocktail) {
+    btnGoToBarFromCocktail.addEventListener('click', () => switchMenu('bar'));
+  }
+
+  // Floating Back to Top Controller
+  function updateBackToTop() {
+    if (currentMenu === 'food') {
+      if (btnBackToTop) btnBackToTop.classList.remove('visible');
+      return;
+    }
+    const scrolled = window.scrollY || document.documentElement.scrollTop;
+    if (btnBackToTop) {
+      btnBackToTop.classList.toggle('visible', scrolled > 320);
+    }
+  }
+
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+
+  if (btnBackToTop) {
+    btnBackToTop.addEventListener('click', (e) => {
+      e.stopPropagation();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Category Quick-Jump Smooth Scrolling
+  document.querySelectorAll('.register-jump-chip').forEach((chip) => {
+    chip.addEventListener('click', (e) => {
+      const targetId = chip.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
 
   // Keyboard accessibility
   window.addEventListener('keydown', (e) => {
-    // When Bar Expanded Viewer is open, handle its own shortcuts
-    if (isExpandedOpen) {
-      if (e.key === 'Escape') {
+    if (currentMenu === 'food') {
+      const maxP = getMaxPage();
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && currentPage < maxP)) {
         e.preventDefault();
-        closeBarExpanded();
-      } else if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        if (isAnimating) return;
+        if (currentPage < maxP) {
+          goToPage(currentPage + 1, 0.45);
+        }
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || (e.key === ' ' && currentPage === maxP)) {
         e.preventDefault();
-        if (expandedPage < 2) setExpandedPage(expandedPage + 1);
-      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-        e.preventDefault();
-        if (expandedPage > 0) setExpandedPage(expandedPage - 1);
-      } else if (e.key === '+' || e.key === '=') {
-        e.preventDefault();
-        applyZoom(expandedZoom + ZOOM_STEP);
-      } else if (e.key === '-' || e.key === '_') {
-        e.preventDefault();
-        applyZoom(expandedZoom - ZOOM_STEP);
-      } else if (e.key === '0') {
-        e.preventDefault();
-        applyZoom(1.0);
-      }
-      return;
-    }
-
-    const maxP = getMaxPage();
-    if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && currentPage < maxP)) {
-      e.preventDefault();
-      if (isAnimating) return;
-      if (currentPage < maxP) {
-        goToPage(currentPage + 1, 0.45);
-      }
-    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || (e.key === ' ' && currentPage === maxP)) {
-      e.preventDefault();
-      if (isAnimating) return;
-      if (currentPage > 0) {
-        goToPage(currentPage - 1, 0.45);
+        if (isAnimating) return;
+        if (currentPage > 0) {
+          goToPage(currentPage - 1, 0.45);
+        }
       }
     }
 
-    // 'M' key quick-toggles between Food and Bar menus
+    // 'M' key cycles through Food -> Bar -> Cocktail -> Food
     if (e.key.toLowerCase() === 'm' && !e.ctrlKey && !e.metaKey) {
-      switchMenu(currentMenu === 'food' ? 'bar' : 'food');
+      if (currentMenu === 'food') switchMenu('bar');
+      else if (currentMenu === 'bar') switchMenu('cocktail');
+      else switchMenu('food');
     }
 
     // 'F' key for Fullscreen presentation
@@ -1010,17 +848,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Preload and verify image assets in memory
-  if (!coverArtwork.complete) coverArtwork.onload = () => {};
-  if (!soupArtwork.complete) soupArtwork.onload = () => {};
-  if (!gardeArtwork.complete) gardeArtwork.onload = () => {};
-  if (aroundWorldArtwork && !aroundWorldArtwork.complete) aroundWorldArtwork.onload = () => {};
-  if (tandoorKebabsArtwork && !tandoorKebabsArtwork.complete) tandoorKebabsArtwork.onload = () => {};
-  if (tandoorBreadsArtwork && !tandoorBreadsArtwork.complete) tandoorBreadsArtwork.onload = () => {};
-  if (pastaArtwork && !pastaArtwork.complete) pastaArtwork.onload = () => {};
-  if (indianArtwork && !indianArtwork.complete) indianArtwork.onload = () => {};
-  if (barWhiskeyArtwork && !barWhiskeyArtwork.complete) barWhiskeyArtwork.onload = () => {};
-  if (barTequilaArtwork && !barTequilaArtwork.complete) barTequilaArtwork.onload = () => {};
-  if (barBeerArtwork && !barBeerArtwork.complete) barBeerArtwork.onload = () => {};
+  const preloadSources = [
+    'assets/images/menu-cover.jpg',
+    'assets/images/menu-reference.jpg',
+    'assets/images/garde-manger.jpg',
+    'assets/images/around-the-world.jpg',
+    'assets/images/pasta-pizza.jpg',
+    'assets/images/tandoor-kebabs.jpg',
+    'assets/images/tandoor-breads.jpg',
+    'assets/images/indian-dal.jpg',
+    'assets/images/bar-whiskey.png',
+    'assets/images/bar-tequila-spirits.png',
+    'assets/images/bar-beer-wine.png',
+    'assets/images/cocktail-1-vodka-gin.png',
+    'assets/images/cocktail-2-tequila-rum.png',
+    'assets/images/cocktail-3-wine-liit.png'
+  ];
+
+  preloadSources.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
 
   // Initialize initial arrow navigation states
   setFinalState(0);
