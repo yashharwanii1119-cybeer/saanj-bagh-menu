@@ -302,6 +302,76 @@
         </div>
 
         <!-- ======================================================
+             COCKTAIL MENU PAGE LAYER 4: RUM COCKTAILS (Cocktail Page 4)
+             Revealed when turning forward from Iced Teas
+             ====================================================== -->
+        <div class="book-layer cocktail-layer cocktail-rum-layer" id="cocktailRumLayer" aria-label="Rum Cocktails">
+          <img 
+            src="assets/images/cocktail-5-rum-cocktails.jpg" 
+            alt="Saanj Bagh — Handcrafted Rum Cocktails Menu" 
+            class="menu-artwork-img cocktail-artwork-img"
+            id="cocktailRumArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             COCKTAIL MENU PAGE LAYER 3: ICED TEAS (Cocktail Page 3)
+             Revealed when turning forward from Wine Cocktails
+             ====================================================== -->
+        <div class="book-layer cocktail-layer cocktail-iced-teas-layer" id="cocktailIcedTeasLayer" aria-label="Artisanal Iced Teas">
+          <img 
+            src="assets/images/cocktail-4-iced-teas.png" 
+            alt="Saanj Bagh — Artisanal Iced Teas Menu" 
+            class="menu-artwork-img cocktail-artwork-img"
+            id="cocktailIcedTeasArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             COCKTAIL MENU PAGE LAYER 2: WINE COCKTAILS (Cocktail Page 2)
+             Revealed when turning forward from Classic Whisky Cocktails
+             ====================================================== -->
+        <div class="book-layer cocktail-layer cocktail-wine-layer" id="cocktailWineLayer" aria-label="Wine Cocktails &amp; Sangrias">
+          <img 
+            src="assets/images/cocktail-3-wine-cocktails.jpg" 
+            alt="Saanj Bagh — Wine Cocktails &amp; Sangrias Menu" 
+            class="menu-artwork-img cocktail-artwork-img"
+            id="cocktailWineArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             COCKTAIL MENU PAGE LAYER 1: CLASSIC WHISKY COCKTAILS (Cocktail Page 1)
+             Revealed when turning forward from Tequila & Whisky Cocktails
+             ====================================================== -->
+        <div class="book-layer cocktail-layer cocktail-whisky-layer" id="cocktailWhiskyLayer" aria-label="Classic Whisky Cocktails">
+          <img 
+            src="assets/images/cocktail-2-whisky-classics.jpg" 
+            alt="Saanj Bagh — Classic Whisky Cocktails Menu" 
+            class="menu-artwork-img cocktail-artwork-img"
+            id="cocktailWhiskyArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
+             COCKTAIL MENU PAGE LAYER 0: TEQUILA & WHISKY COCKTAILS (Cocktail Page 0)
+             First page of Cocktail Menu (Displayed initially in Cocktail Mode)
+             ====================================================== -->
+        <div class="book-layer cocktail-layer cocktail-tequila-layer" id="cocktailTequilaLayer" aria-label="Tequila &amp; Whisky Cocktails">
+          <img 
+            src="assets/images/cocktail-1-tequila-whisky.jpg" 
+            alt="Saanj Bagh — Tequila &amp; Whisky Cocktails Menu" 
+            class="menu-artwork-img cocktail-artwork-img"
+            id="cocktailTequilaArtwork"
+            draggable="false"
+          />
+        </div>
+
+        <!-- ======================================================
              PAGE LAYER 4: 3D REALISTIC PAGE CURL CANVAS
              Renders the physical travelling wave, curling cylinder,
              dynamic drop shadow and moving highlight during turns/drags
@@ -336,159 +406,81 @@
     </div><!-- /.menu-stage-wrapper -->
 
     <!-- ======================================================
-         FULL-SCREEN VERTICAL REGISTER: BAR MENU
-         Single Malts, Aged Scotches, Fine Spirits, Wines & Beers
+         FLOATING "✦ EXPAND MENU" BUTTON
+         Visible in Bar Menu and Cocktail Menu modes
          ====================================================== -->
-    <section class="vertical-register-section" id="barRegisterView" aria-label="Saanj Bagh Bar Menu Register" hidden>
-      <div class="register-inner-wrap">
-        <header class="register-header">
-          <div class="register-brand-emblem" aria-hidden="true">✦</div>
-          <h1 class="register-main-title">SAANJ BAGH</h1>
-          <div class="register-sub-badge">BOTANICAL BAR &amp; KITCHEN</div>
-          <h2 class="register-category-title">BAR MENU</h2>
-          <p class="register-curation-text">A Curated Anthology of Single Malts, Aged Scotches, Handcrafted Spirits, Fine Wines &amp; Beers</p>
-          
-          <!-- Category Quick-Jump Chips -->
-          <nav class="register-jump-nav" aria-label="Bar categories">
-            <a href="#barSecWhiskey" class="register-jump-chip">✦ WHISKY</a>
-            <a href="#barSecSpirits" class="register-jump-chip">✦ SPIRITS &amp; LIQUEUR</a>
-            <a href="#barSecBeerWine" class="register-jump-chip">✦ BEER, WINE &amp; RUM</a>
-          </nav>
-        </header>
-
-        <!-- Vertical Register Stack -->
-        <div class="register-sheet-stack">
-          <!-- Sheet 1: Whisky (Single Malt & Scotch) -->
-          <article class="register-sheet-card" id="barSecWhiskey" aria-label="Whisky — Single Malt &amp; Scotch">
-            <img
-              src="assets/images/bar-whiskey.png"
-              alt="Saanj Bagh — Single Malt &amp; Scotch Whiskey Menu"
-              class="register-artwork-img"
-              loading="eager"
-              decoding="async"
-            />
-          </article>
-
-          <!-- Sheet 2: Spirits (Tequila, Gin, Vodka, Liqueur) -->
-          <article class="register-sheet-card" id="barSecSpirits" aria-label="Tequila, Gin, Vodka &amp; Liqueur">
-            <img
-              src="assets/images/bar-tequila-spirits.png"
-              alt="Saanj Bagh — Tequila, Gin, Vodka &amp; Liqueur Menu"
-              class="register-artwork-img"
-              loading="lazy"
-              decoding="async"
-            />
-          </article>
-
-          <!-- Sheet 3: Beer, Wine, Rum & Breezer -->
-          <article class="register-sheet-card" id="barSecBeerWine" aria-label="Beer, Wine, Rum &amp; Breezer">
-            <img
-              src="assets/images/bar-beer-wine.png"
-              alt="Saanj Bagh — Beer, Wine, Rum &amp; Breezer Menu"
-              class="register-artwork-img"
-              loading="lazy"
-              decoding="async"
-            />
-          </article>
-        </div>
-
-        <!-- Register Footer -->
-        <footer class="register-footer">
-          <div class="register-footer-crest">✦ ✦ ✦</div>
-          <p class="register-footer-text">Saanj Bagh — Botanical Bar &amp; Kitchen</p>
-          <div class="register-footer-actions">
-            <button class="register-switch-return-btn" id="btnReturnFoodFromBar" type="button">
-              ← FOOD MENU BOOK
-            </button>
-            <button class="register-switch-return-btn" id="btnGoToCocktailFromBar" type="button">
-              COCKTAIL MENU →
-            </button>
-          </div>
-        </footer>
-      </div>
-    </section>
+    <button class="floating-expand-btn" id="btnExpandMenu" type="button" aria-label="Expand menu to full screen reading mode">
+      <svg class="expand-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <polyline points="9 21 3 21 3 15"></polyline>
+        <line x1="21" y1="3" x2="14" y2="10"></line>
+        <line x1="3" y1="21" x2="10" y2="14"></line>
+      </svg>
+      <span class="expand-btn-label">✦ EXPAND MENU</span>
+    </button>
 
     <!-- ======================================================
-         FULL-SCREEN VERTICAL REGISTER: COCKTAIL MENU
-         Botanical Concoctions, Masterful Twists & Classics
+         DEDICATED EXPANDED READING VIEWER
+         High-legibility reading mode: fit to width, natural
+         vertical scrolling, no image scaling or zooming.
          ====================================================== -->
-    <section class="vertical-register-section" id="cocktailRegisterView" aria-label="Saanj Bagh Cocktail Menu Register" hidden>
-      <div class="register-inner-wrap">
-        <header class="register-header">
-          <div class="register-brand-emblem" aria-hidden="true">✦</div>
-          <h1 class="register-main-title">SAANJ BAGH</h1>
-          <div class="register-sub-badge">BOTANICAL BAR &amp; KITCHEN</div>
-          <h2 class="register-category-title">COCKTAIL MENU</h2>
-          <p class="register-curation-text">Artisanal Botanical Concoctions, Signature Infusions &amp; Celebrated Timeless Classics</p>
-          
-          <!-- Category Quick-Jump Chips -->
-          <nav class="register-jump-nav" aria-label="Cocktail categories">
-            <a href="#cocktailSecVodkaGin" class="register-jump-chip">✦ VODKA &amp; GIN</a>
-            <a href="#cocktailSecTequilaWhiskyRum" class="register-jump-chip">✦ TEQUILA, WHISKY &amp; RUM</a>
-            <a href="#cocktailSecWineLiit" class="register-jump-chip">✦ WINE &amp; LONG ISLAND ICED TEAS</a>
-          </nav>
-        </header>
-
-        <!-- Vertical Register Stack -->
-        <div class="register-sheet-stack">
-          <!-- Sheet 1: Vodka & Gin Cocktails -->
-          <article class="register-sheet-card" id="cocktailSecVodkaGin" aria-label="Vodka &amp; Gin Cocktails">
-            <img
-              src="assets/images/cocktail-1-vodka-gin.png"
-              alt="Saanj Bagh — Vodka &amp; Gin Cocktails Menu"
-              class="register-artwork-img"
-              loading="eager"
-              decoding="async"
-            />
-          </article>
-
-          <!-- Sheet 2: Tequila, Whisky & Rum Cocktails -->
-          <article class="register-sheet-card" id="cocktailSecTequilaWhiskyRum" aria-label="Tequila, Whisky &amp; Rum Cocktails">
-            <img
-              src="assets/images/cocktail-2-tequila-rum.png"
-              alt="Saanj Bagh — Tequila, Whisky &amp; Rum Cocktails Menu"
-              class="register-artwork-img"
-              loading="lazy"
-              decoding="async"
-            />
-          </article>
-
-          <!-- Sheet 3: Wine Cocktails & Long Island Iced Teas -->
-          <article class="register-sheet-card" id="cocktailSecWineLiit" aria-label="Wine Cocktails &amp; Long Island Iced Teas">
-            <img
-              src="assets/images/cocktail-3-wine-liit.png"
-              alt="Saanj Bagh — Wine Cocktails &amp; Long Island Iced Teas Menu"
-              class="register-artwork-img"
-              loading="lazy"
-              decoding="async"
-            />
-          </article>
+    <div class="menu-reading-overlay" id="menuExpandedViewer" role="dialog" aria-modal="true" aria-label="Expanded Menu Viewer" hidden>
+      <!-- Top Luxury Header Bar -->
+      <header class="expanded-header">
+        <div class="expanded-brand">
+          <span class="expanded-brand-crest" aria-hidden="true">✦</span>
+          <span class="expanded-brand-name">SAANJ BAGH</span>
+          <span class="expanded-brand-divider" aria-hidden="true">·</span>
+          <span class="expanded-page-title" id="expandedPageTitle">WHISKY — SINGLE MALT &amp; SCOTCH</span>
         </div>
 
-        <!-- Register Footer -->
-        <footer class="register-footer">
-          <div class="register-footer-crest">✦ ✦ ✦</div>
-          <p class="register-footer-text">Saanj Bagh — Botanical Bar &amp; Kitchen</p>
-          <div class="register-footer-actions">
-            <button class="register-switch-return-btn" id="btnReturnFoodFromCocktail" type="button">
-              ← FOOD MENU BOOK
-            </button>
-            <button class="register-switch-return-btn" id="btnGoToBarFromCocktail" type="button">
-              BAR MENU →
-            </button>
-          </div>
-        </footer>
-      </div>
-    </section>
+        <!-- Close / Back to Book Button -->
+        <div class="expanded-header-actions">
+          <button class="expanded-close-btn" id="btnCloseExpanded" aria-label="Close expanded view and return to book" type="button">
+            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+            <span class="close-text">BACK TO BOOK</span>
+          </button>
+        </div>
+      </header>
 
-    <!-- Floating Back-to-Top Button for Long Registers -->
-    <button class="floating-back-to-top" id="btnBackToTop" aria-label="Back to top of menu register" type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <line x1="12" y1="19" x2="12" y2="5"></line>
-        <polyline points="5 12 12 5 19 12"></polyline>
-      </svg>
-      <span class="back-top-label">TOP</span>
-    </button>
+      <!-- Main Viewport (Natural Vertical Scrolling, Zoom Disabled) -->
+      <div class="expanded-viewport" id="expandedViewport" tabindex="0">
+        <div class="expanded-canvas-wrap" id="expandedCanvasWrap">
+          <img
+            src=""
+            alt=""
+            class="expanded-menu-img"
+            id="expandedMenuImg"
+            draggable="false"
+          />
+        </div>
+      </div>
+
+      <!-- Bottom Page Navigation Bar -->
+      <footer class="expanded-footer-nav" role="toolbar" aria-label="Expanded page navigation">
+        <button class="expanded-nav-btn exp-btn-prev" id="btnExpPrev" aria-label="Previous menu page" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>PREV</span>
+        </button>
+
+        <div class="expanded-page-indicator" id="expandedPageIndicator" aria-live="polite">
+          <div class="exp-dots-wrap" id="expDotsWrap"></div>
+          <span class="exp-page-number" id="expPageNumber">PAGE 1 OF 3</span>
+        </div>
+
+        <button class="expanded-nav-btn exp-btn-next" id="btnExpNext" aria-label="Next menu page" type="button">
+          <span>NEXT</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </footer>
+    </div>
 
   </main>
 

@@ -318,12 +318,13 @@ html, body {
    Dual-Menu Architecture: Seamless switching between Food & Bar experiences
    ========================================================================== */
 
-/* In Food Mode, hide all Bar layers */
-.menu-book-container[data-menu="food"] .bar-layer {
+/* In Food Mode, hide Bar and Cocktail layers */
+.menu-book-container[data-menu="food"] .bar-layer,
+.menu-book-container[data-menu="food"] .cocktail-layer {
   display: none !important;
 }
 
-/* In Bar Mode, hide all Food layers */
+/* In Bar Mode, hide Food and Cocktail layers */
 .menu-book-container[data-menu="bar"] .cover-layer,
 .menu-book-container[data-menu="bar"] .soup-layer,
 .menu-book-container[data-menu="bar"] .garde-layer,
@@ -331,7 +332,21 @@ html, body {
 .menu-book-container[data-menu="bar"] .pasta-layer,
 .menu-book-container[data-menu="bar"] .tandoor-kebabs-layer,
 .menu-book-container[data-menu="bar"] .tandoor-breads-layer,
-.menu-book-container[data-menu="bar"] .indian-layer {
+.menu-book-container[data-menu="bar"] .indian-layer,
+.menu-book-container[data-menu="bar"] .cocktail-layer {
+  display: none !important;
+}
+
+/* In Cocktail Mode, hide Food and Bar layers */
+.menu-book-container[data-menu="cocktail"] .cover-layer,
+.menu-book-container[data-menu="cocktail"] .soup-layer,
+.menu-book-container[data-menu="cocktail"] .garde-layer,
+.menu-book-container[data-menu="cocktail"] .around-world-layer,
+.menu-book-container[data-menu="cocktail"] .pasta-layer,
+.menu-book-container[data-menu="cocktail"] .tandoor-kebabs-layer,
+.menu-book-container[data-menu="cocktail"] .tandoor-breads-layer,
+.menu-book-container[data-menu="cocktail"] .indian-layer,
+.menu-book-container[data-menu="cocktail"] .bar-layer {
   display: none !important;
 }
 
@@ -374,11 +389,12 @@ html, body {
 }
 
 /* Bar Layers Clickable for Quick Expand */
-.menu-book-container[data-menu="bar"] .bar-layer {
+.menu-book-container[data-menu="bar"] .bar-layer,
+.menu-book-container[data-menu="cocktail"] .cocktail-layer {
   cursor: pointer;
 }
 
-/* Bar artwork images: Authentic individual proportions centered without stretching or distortion */
+/* Bar artwork images: Centered without stretching or distortion */
 .bar-whiskey-img,
 .bar-tequila-img,
 .bar-beer-img {
@@ -411,6 +427,81 @@ html, body {
 .menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-whiskey-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-tequila-layer { opacity: 0; pointer-events: none; }
 .menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-beer-layer { opacity: 1; pointer-events: none; }
+
+/* ==========================================================================
+   COCKTAIL MENU LAYERS & BOOK PRESENTATION
+   ========================================================================== */
+.cocktail-layer {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #EFE5D0;
+}
+
+.cocktail-rum-layer { z-index: 2; opacity: 1; pointer-events: none; transition: opacity 0.2s ease; }
+.cocktail-iced-teas-layer { z-index: 4; opacity: 1; pointer-events: none; transition: opacity 0.2s ease; }
+.cocktail-wine-layer { z-index: 6; opacity: 1; pointer-events: none; transition: opacity 0.2s ease; }
+.cocktail-whisky-layer { z-index: 8; opacity: 1; pointer-events: none; transition: opacity 0.2s ease; }
+.cocktail-tequila-layer { z-index: 10; opacity: 1; pointer-events: auto; transition: opacity 0.2s ease; }
+
+.cocktail-artwork-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  margin: 0 auto;
+}
+
+/* Cocktail Page States */
+/* Page 0: Tequila & Whisky Cocktails */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-0"] .cocktail-tequila-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Page 1: Classic Whisky Cocktails */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-1"] .cocktail-tequila-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-1"] .cocktail-whisky-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Page 2: Wine Cocktails & Sangrias */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-2"] .cocktail-tequila-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-2"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-2"] .cocktail-wine-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Page 3: Artisanal Iced Teas */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-tequila-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-wine-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-iced-teas-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Page 4: Handcrafted Rum Cocktails */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-tequila-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-wine-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-iced-teas-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-rum-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Cocktail Animating States */
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-0-1"] .cocktail-tequila-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-0-1"] .cocktail-whisky-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-1-2"] .cocktail-tequila-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-1-2"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-1-2"] .cocktail-wine-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-tequila-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-wine-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-iced-teas-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-tequila-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-wine-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-iced-teas-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-rum-layer { opacity: 1; pointer-events: none; }
 
 /* --- 3B. DELICATE BOTANICAL COVER BREEZE ANIMATION --- */
 /* Strictly pure foliage movement: zero architectural, arch, pillar, or border movement */
@@ -1768,404 +1859,441 @@ html, body {
 }
 
 /* ==========================================================================
-   VIEWPORT & ACTIVE MENU DISPLAY CONTROLLERS
+   FLOATING "✦ EXPAND MENU" BUTTON (Visible in Bar Menu & Cocktail Menu)
    ========================================================================== */
-
-/* Food Menu Active (Default) */
-body:not([data-active-menu="bar"]):not([data-active-menu="cocktail"]) #barRegisterView,
-body:not([data-active-menu="bar"]):not([data-active-menu="cocktail"]) #cocktailRegisterView,
-body[data-active-menu="food"] #barRegisterView,
-body[data-active-menu="food"] #cocktailRegisterView {
-  display: none !important;
-}
-
-body:not([data-active-menu="bar"]):not([data-active-menu="cocktail"]) .menu-stage-wrapper,
-body[data-active-menu="food"] .menu-stage-wrapper {
-  display: flex !important;
-}
-
-/* Bar Menu Active */
-body[data-active-menu="bar"] {
-  align-items: flex-start !important;
-  justify-content: stretch !important;
-  overflow-y: auto !important;
-  height: auto !important;
-}
-
-body[data-active-menu="bar"] .menu-viewport {
-  display: block !important;
-  padding: 0 !important;
-  min-height: 100vh;
-  height: auto !important;
-  overflow: visible !important;
-}
-
-body[data-active-menu="bar"] .menu-stage-wrapper,
-body[data-active-menu="bar"] #cocktailRegisterView {
-  display: none !important;
-}
-
-body[data-active-menu="bar"] #barRegisterView {
-  display: flex !important;
-}
-
-/* Cocktail Menu Active */
-body[data-active-menu="cocktail"] {
-  align-items: flex-start !important;
-  justify-content: stretch !important;
-  overflow-y: auto !important;
-  height: auto !important;
-}
-
-body[data-active-menu="cocktail"] .menu-viewport {
-  display: block !important;
-  padding: 0 !important;
-  min-height: 100vh;
-  height: auto !important;
-  overflow: visible !important;
-}
-
-body[data-active-menu="cocktail"] .menu-stage-wrapper,
-body[data-active-menu="cocktail"] #barRegisterView {
-  display: none !important;
-}
-
-body[data-active-menu="cocktail"] #cocktailRegisterView {
-  display: flex !important;
-}
-
-
-/* ==========================================================================
-   VERTICAL REGISTER PRESENTATIONS (BAR & COCKTAIL MENUS)
-   Full-screen, long-register layout with natural vertical scrolling
-   ========================================================================== */
-.vertical-register-section {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 82px 16px 72px 16px;
-  background: radial-gradient(circle at 50% 15%, #16261c 0%, #0c1611 50%, #060b08 100%);
-  color: #EBDCB9;
-  box-sizing: border-box;
-}
-
-.vertical-register-section[hidden] {
-  display: none !important;
-}
-
-.register-inner-wrap {
-  width: 100%;
-  max-width: 680px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-}
-
-/* Register Header */
-.register-header {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 12px 10px 12px;
-  width: 100%;
-}
-
-.register-brand-emblem {
-  color: #DFC074;
-  font-size: 1.3rem;
-  line-height: 1;
-  text-shadow: 0 0 10px rgba(223, 192, 116, 0.45);
-}
-
-.register-main-title {
-  font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
-  font-size: clamp(1.8rem, 5vw, 2.4rem);
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: #F8EFE0;
-  margin: 0;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
-}
-
-.register-sub-badge {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.32em;
-  color: #C9A45C;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.register-category-title {
-  font-family: 'Cinzel', Georgia, serif;
-  font-size: clamp(1.25rem, 3.8vw, 1.65rem);
-  font-weight: 600;
-  letter-spacing: 0.20em;
-  color: #DFC074;
-  margin: 0;
-  border-top: 1px solid rgba(201, 164, 92, 0.35);
-  border-bottom: 1px solid rgba(201, 164, 92, 0.35);
-  padding: 6px 28px;
-  text-transform: uppercase;
-}
-
-.register-curation-text {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.02rem;
-  font-style: italic;
-  color: #D3C4A5;
-  max-width: 520px;
-  margin: 6px 0 12px 0;
-  line-height: 1.45;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-}
-
-/* Category Quick-Jump Navigation Chips */
-.register-jump-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 6px;
-  width: 100%;
-}
-
-.register-jump-chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 14px;
-  background: rgba(22, 40, 28, 0.85);
-  border: 1px solid rgba(201, 164, 92, 0.45);
-  border-radius: 20px;
-  color: #EBDCB9;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 0.86rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-}
-
-.register-jump-chip:hover {
-  background: rgba(201, 164, 92, 0.25);
-  border-color: rgba(226, 198, 133, 0.85);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-}
-
-.register-jump-chip:focus-visible {
-  outline: 2px solid #C9A45C;
-  outline-offset: 2px;
-}
-
-/* Vertical Register Sheet Stack */
-.register-sheet-stack {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-  align-items: center;
-}
-
-.register-sheet-card {
-  width: 100%;
-  max-width: 680px;
-  background: #0E1610;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 
-    0 16px 50px rgba(0, 0, 0, 0.85),
-    0 0 2px rgba(201, 164, 92, 0.35);
-  border: 1px solid rgba(201, 164, 92, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  scroll-margin-top: 86px;
-}
-
-.register-sheet-card:hover {
-  border-color: rgba(201, 164, 92, 0.45);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.90),
-    0 0 8px rgba(201, 164, 92, 0.25);
-}
-
-.register-artwork-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  user-select: none;
-  -webkit-user-select: none;
-  pointer-events: auto;
-}
-
-/* Register Footer */
-.register-footer {
-  text-align: center;
-  padding: 32px 16px 40px 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-}
-
-.register-footer-crest {
-  color: #C9A45C;
-  letter-spacing: 0.5em;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-.register-footer-text {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.05rem;
-  letter-spacing: 0.18em;
-  color: #D3C4A5;
-}
-
-.register-footer-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.register-switch-return-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 22px;
-  background: rgba(22, 40, 28, 0.92);
-  border: 1px solid rgba(201, 164, 92, 0.55);
-  border-radius: 24px;
-  color: #F8EFE0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 0.94rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-}
-
-.register-switch-return-btn:hover {
-  background: rgba(201, 164, 92, 0.28);
-  border-color: #E2C685;
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.60);
-}
-
-.register-switch-return-btn:focus-visible {
-  outline: 2px solid #C9A45C;
-  outline-offset: 2px;
-}
-
-/* ==========================================================================
-   FLOATING "BACK TO TOP" BUTTON (Visible during register scrolling)
-   ========================================================================== */
-.floating-back-to-top {
+.floating-expand-btn {
+  display: none;
   position: fixed;
   bottom: 24px;
-  right: 24px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 95;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(14, 26, 19, 0.92);
-  border: 1px solid rgba(201, 164, 92, 0.60);
-  color: #DFC074;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  padding: 9px 22px;
+  background: rgba(14, 26, 19, 0.92);
+  border: 1px solid rgba(201, 164, 92, 0.65);
+  border-radius: 26px;
+  color: #FFF9EE;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   cursor: pointer;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 
-    0 6px 22px rgba(0, 0, 0, 0.70),
-    0 0 12px rgba(201, 164, 92, 0.25);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(12px);
+    0 8px 28px rgba(0, 0, 0, 0.65),
+    0 0 16px rgba(201, 164, 92, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transition: 
-    opacity 0.25s ease, 
-    visibility 0.25s ease, 
-    transform 0.25s ease,
     background 0.25s ease,
-    border-color 0.25s ease;
-  outline: none;
+    border-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
   -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  animation: expandBtnPulse 3.5s ease-in-out infinite;
 }
 
-.floating-back-to-top * {
+.floating-expand-btn * {
   pointer-events: none;
 }
 
-.floating-back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
+body[data-active-menu="bar"] .floating-expand-btn,
+body[data-active-menu="cocktail"] .floating-expand-btn,
+.floating-expand-btn.visible {
+  display: inline-flex;
 }
 
-.floating-back-to-top:hover {
-  background: rgba(24, 44, 32, 0.98);
-  border-color: #E2C685;
+.floating-expand-btn .expand-btn-icon {
+  width: 15px;
+  height: 15px;
+  stroke: #DFC074;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.floating-expand-btn:hover {
+  background: rgba(22, 42, 30, 0.98);
+  border-color: rgba(226, 198, 133, 0.95);
   color: #FFFFFF;
-  transform: translateY(-2px);
+  transform: translateX(-50%) translateY(-2px);
   box-shadow: 
-    0 8px 26px rgba(0, 0, 0, 0.80),
-    0 0 16px rgba(201, 164, 92, 0.45);
+    0 10px 34px rgba(0, 0, 0, 0.75),
+    0 0 22px rgba(201, 164, 92, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-.floating-back-to-top:focus-visible {
+.floating-expand-btn:hover .expand-btn-icon {
+  transform: scale(1.18);
+  stroke: #FFE5A3;
+}
+
+.floating-expand-btn:active {
+  transform: translateX(-50%) translateY(0);
+}
+
+.floating-expand-btn:focus-visible {
   outline: 2px solid #C9A45C;
   outline-offset: 3px;
 }
 
-.floating-back-to-top svg {
-  width: 20px;
-  height: 20px;
+@keyframes expandBtnPulse {
+  0%, 100% {
+    box-shadow: 
+      0 8px 28px rgba(0, 0, 0, 0.65),
+      0 0 14px rgba(201, 164, 92, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 
+      0 10px 32px rgba(0, 0, 0, 0.75),
+      0 0 22px rgba(201, 164, 92, 0.50),
+      inset 0 1px 0 rgba(255, 255, 255, 0.20);
+  }
 }
 
 @media (max-width: 768px) {
-  .vertical-register-section {
-    padding: 72px 10px 60px 10px;
-  }
-  .register-inner-wrap {
-    gap: 24px;
-  }
-  .register-header {
-    padding: 10px 6px 6px 6px;
-  }
-  .register-sheet-stack {
-    gap: 20px;
-  }
-  .register-jump-chip {
-    padding: 5px 10px;
-    font-size: 0.78rem;
-  }
-  .floating-back-to-top {
+  .floating-expand-btn {
     bottom: 18px;
-    right: 18px;
-    width: 40px;
-    height: 40px;
+    padding: 8px 18px;
+    font-size: 0.88rem;
+    letter-spacing: 0.14em;
   }
 }
+
+/* ==========================================================================
+   DEDICATED EXPANDED READING VIEWER
+   Fit-to-width, natural vertical scrolling, NO image zoom
+   ========================================================================== */
+.menu-reading-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 250;
+  background: rgba(7, 16, 11, 0.98);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.28s;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.menu-reading-overlay[hidden] {
+  display: none !important;
+}
+
+.menu-reading-overlay:not([hidden]).active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Header */
+.expanded-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: rgba(10, 22, 15, 0.95);
+  border-bottom: 1px solid rgba(201, 164, 92, 0.35);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.55);
+  z-index: 10;
+}
+
+.expanded-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #EBDCB9;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.16em;
+}
+
+.expanded-brand-crest {
+  color: #C9A45C;
+  font-size: 0.85rem;
+}
+
+.expanded-brand-name {
+  font-weight: 700;
+  color: #F8EFE0;
+}
+
+.expanded-brand-divider {
+  color: rgba(201, 164, 92, 0.45);
+}
+
+.expanded-page-title {
+  font-weight: 600;
+  color: #DFC074;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.expanded-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.expanded-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 18px;
+  background: rgba(201, 164, 92, 0.18);
+  border: 1px solid rgba(201, 164, 92, 0.60);
+  border-radius: 20px;
+  color: #F8EFE0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.90rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.expanded-close-btn * {
+  pointer-events: none;
+}
+
+.expanded-close-btn .close-icon {
+  width: 15px;
+  height: 15px;
+  stroke: #DFC074;
+}
+
+.expanded-close-btn:hover {
+  background: rgba(201, 164, 92, 0.38);
+  border-color: #E2C685;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.expanded-close-btn:focus-visible {
+  outline: 2px solid #DFC074;
+  outline-offset: 2px;
+}
+
+/* Main Viewport: Fit to width, natural vertical scrolling, ZOOM DISABLED */
+.expanded-viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y; /* Strict vertical pan only: NO pinch-zoom */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 16px 86px 16px;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+.expanded-canvas-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 680px;
+}
+
+.expanded-menu-img {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 
+    0 14px 50px rgba(0, 0, 0, 0.85),
+    0 0 2px rgba(201, 164, 92, 0.40);
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none; /* Prevents image dragging or browser gesture scaling */
+}
+
+/* Mobile responsive adaptations */
+@media (max-width: 768px) {
+  .expanded-header {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .expanded-brand-name {
+    font-size: 0.95rem;
+  }
+  .expanded-brand-divider,
+  .expanded-page-title {
+    display: none;
+  }
+  .expanded-viewport {
+    padding: 14px 8px 84px 8px;
+  }
+  .expanded-canvas-wrap {
+    width: 100%;
+  }
+  .expanded-menu-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .expanded-close-btn .close-text {
+    display: none;
+  }
+  .expanded-close-btn {
+    padding: 7px 10px;
+  }
+}
+
+/* Footer Navigation Bar */
+.expanded-footer-nav {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 18px;
+  background: rgba(14, 26, 19, 0.94);
+  border: 1px solid rgba(201, 164, 92, 0.48);
+  border-radius: 28px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.70);
+  z-index: 10;
+}
+
+.expanded-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #C9A45C;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 16px;
+  outline: none;
+}
+
+.expanded-nav-btn * {
+  pointer-events: none;
+}
+
+.expanded-nav-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.expanded-nav-btn:hover:not(:disabled) {
+  color: #FFF9EE;
+  background: rgba(201, 164, 92, 0.20);
+}
+
+.expanded-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.expanded-nav-btn:focus-visible {
+  outline: 2px solid #C9A45C;
+}
+
+.expanded-page-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #D3C4A5;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.exp-dots-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.exp-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(201, 164, 92, 0.35);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.exp-dot.active {
+  background: #F7DA96;
+  transform: scale(1.35);
+  box-shadow: 0 0 8px rgba(247, 218, 150, 0.75);
+}
+
+.exp-page-number {
+  font-size: 0.80rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .expanded-footer-nav {
+    bottom: 12px;
+    gap: 8px;
+    padding: 5px 12px;
+    max-width: 94vw;
+  }
+  .expanded-nav-btn {
+    padding: 4px 6px;
+    font-size: 0.80rem;
+    gap: 4px;
+  }
+  .expanded-nav-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+  .expanded-page-indicator {
+    gap: 5px;
+  }
+  .exp-dots-wrap {
+    gap: 5px;
+  }
+  .exp-dot {
+    width: 6px;
+    height: 6px;
+  }
+  .exp-page-number {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+}
+
 
 
 
