@@ -47,6 +47,17 @@
       <span class="menu-btn-label">MENU</span>
     </button>
 
+    <!-- Floating Luxury "EXPAND MENU" Reading Mode Button (Visible in Bar Mode) -->
+    <button class="floating-expand-btn" id="btnExpandBarMenu" aria-label="Open enlarged reading mode for comfortable viewing" type="button">
+      <svg class="expand-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 3h6v6"></path>
+        <path d="M9 21H3v-6"></path>
+        <path d="M21 3l-7 7"></path>
+        <path d="M3 21l7-7"></path>
+      </svg>
+      <span class="expand-btn-label">✦ EXPAND MENU</span>
+    </button>
+
     <div class="menu-stage-wrapper">
       
       <!-- The Single Portrait Book Container -->
@@ -262,7 +273,7 @@
           <img 
             src="assets/images/bar-beer-wine.png" 
             alt="Saanj Bagh — Beer, Wine, Rum & Breezer Menu" 
-            class="menu-artwork-img"
+            class="menu-artwork-img bar-beer-img"
             id="barBeerArtwork"
             draggable="false"
           />
@@ -274,9 +285,9 @@
              ====================================================== -->
         <div class="book-layer bar-layer bar-tequila-layer" id="barTequilaLayer" aria-label="Tequila, Gin, Vodka & Liqueur Menu">
           <img 
-            src="assets/images/bar-tequila-spirits.jpg" 
+            src="assets/images/bar-tequila-spirits.png" 
             alt="Saanj Bagh — Tequila, Gin, Vodka & Liqueur Menu" 
-            class="menu-artwork-img"
+            class="menu-artwork-img bar-tequila-img"
             id="barTequilaArtwork"
             draggable="false"
           />
@@ -837,6 +848,93 @@
       <article><p>Budweiser 330ml / Magnum 500ml — ₹499 / ₹599</p></article>
       <article><p>Breezer Orange / Cranberry — ₹349</p></article>
     </section>
+  </div>
+
+  <!-- ======================================================
+       BAR MENU DEDICATED EXPANDED READING VIEWER
+       High-legibility, mobile-friendly viewing mode with zoom,
+       pan, and seamless page navigation.
+       ====================================================== -->
+  <div class="bar-reading-overlay" id="barExpandedViewer" role="dialog" aria-modal="true" aria-label="Expanded Bar Menu Viewer" hidden>
+    <!-- Top Luxury Header Bar -->
+    <header class="expanded-header">
+      <div class="expanded-brand">
+        <span class="expanded-brand-crest" aria-hidden="true">✦</span>
+        <span class="expanded-brand-name">SAANJ BAGH</span>
+        <span class="expanded-brand-divider" aria-hidden="true">·</span>
+        <span class="expanded-page-title" id="expandedPageTitle">WHISKY — SINGLE MALT &amp; SCOTCH</span>
+      </div>
+
+      <!-- Zoom & View Controls -->
+      <div class="expanded-header-actions">
+        <div class="expanded-zoom-controls" role="group" aria-label="Zoom controls">
+          <button class="expanded-ctrl-btn" id="btnZoomOut" aria-label="Zoom out" type="button" title="Zoom Out (-)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </button>
+          <button class="expanded-ctrl-btn" id="btnZoomFit" aria-label="Reset zoom to fit width" type="button" title="Fit to screen">
+            <span class="ctrl-fit-text">FIT</span>
+          </button>
+          <button class="expanded-ctrl-btn" id="btnZoomIn" aria-label="Zoom in" type="button" title="Zoom In (+)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Close / Back to Book Button -->
+        <button class="expanded-close-btn" id="btnCloseExpanded" aria-label="Close expanded view and return to book" type="button">
+          <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span class="close-text">BACK TO BOOK</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Interactive Viewport -->
+    <div class="expanded-viewport" id="expandedViewport" tabindex="0">
+      <div class="expanded-canvas-wrap" id="expandedCanvasWrap">
+        <img
+          src="assets/images/bar-whiskey.png"
+          alt="Saanj Bagh Bar Menu Page"
+          class="expanded-menu-img"
+          id="expandedMenuImg"
+          draggable="false"
+        />
+      </div>
+    </div>
+
+    <!-- Bottom Floating Page Navigation Bar -->
+    <footer class="expanded-footer-nav" aria-label="Bar menu pages">
+      <button class="expanded-nav-btn" id="btnExpPrev" aria-label="Previous bar page" type="button" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span>PREV</span>
+      </button>
+
+      <div class="expanded-page-indicator" id="expandedPageIndicator" aria-live="polite">
+        <span class="exp-dot active" data-index="0" aria-label="Page 1 of 3: Whisky"></span>
+        <span class="exp-dot" data-index="1" aria-label="Page 2 of 3: Spirits"></span>
+        <span class="exp-dot" data-index="2" aria-label="Page 3 of 3: Beer &amp; Wine"></span>
+        <span class="exp-page-number" id="expPageNumber">PAGE 1 OF 3</span>
+      </div>
+
+      <button class="expanded-nav-btn" id="btnExpNext" aria-label="Next bar page" type="button">
+        <span>NEXT</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </footer>
   </div>
 
   <script src="app.js"></script>

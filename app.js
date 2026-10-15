@@ -47,6 +47,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const barTequilaArtwork = document.getElementById('barTequilaArtwork');
   const barBeerArtwork = document.getElementById('barBeerArtwork');
 
+  // Dedicated Bar Reading Mode Elements
+  const btnExpandBarMenu = document.getElementById('btnExpandBarMenu');
+  const barExpandedViewer = document.getElementById('barExpandedViewer');
+  const expandedPageTitle = document.getElementById('expandedPageTitle');
+  const btnZoomOut = document.getElementById('btnZoomOut');
+  const btnZoomFit = document.getElementById('btnZoomFit');
+  const btnZoomIn = document.getElementById('btnZoomIn');
+  const btnCloseExpanded = document.getElementById('btnCloseExpanded');
+  const expandedViewport = document.getElementById('expandedViewport');
+  const expandedCanvasWrap = document.getElementById('expandedCanvasWrap');
+  const expandedMenuImg = document.getElementById('expandedMenuImg');
+  const btnExpPrev = document.getElementById('btnExpPrev');
+  const btnExpNext = document.getElementById('btnExpNext');
+  const expPageNumber = document.getElementById('expPageNumber');
+  const expDots = document.querySelectorAll('.exp-dot');
+
   // Minimal Antique-Gold Arrow Navigation Controls
   const btnNavPrev = document.getElementById('btnNavPrev');
   const btnNavNext = document.getElementById('btnNavNext');
@@ -266,6 +282,22 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.fillStyle = '#0E1F0E';
         ctx.fillRect(0, 0, W, H);
         const nw = turningArt.naturalWidth || 403;
+        const nh = turningArt.naturalHeight || 1024;
+        const artW = Math.round(H * (nw / nh));
+        const artX = Math.round((W - artW) / 2);
+        ctx.drawImage(turningArt, artX, 0, artW, H);
+      } else if (turningArt === barTequilaArtwork) {
+        ctx.fillStyle = '#E6CDA9';
+        ctx.fillRect(0, 0, W, H);
+        const nw = turningArt.naturalWidth || 512;
+        const nh = turningArt.naturalHeight || 1024;
+        const artW = Math.round(H * (nw / nh));
+        const artX = Math.round((W - artW) / 2);
+        ctx.drawImage(turningArt, artX, 0, artW, H);
+      } else if (turningArt === barBeerArtwork) {
+        ctx.fillStyle = '#500D09';
+        ctx.fillRect(0, 0, W, H);
+        const nw = turningArt.naturalWidth || 487;
         const nh = turningArt.naturalHeight || 1024;
         const artW = Math.round(H * (nw / nh));
         const artX = Math.round((W - artW) / 2);
@@ -679,6 +711,9 @@ document.addEventListener('DOMContentLoaded', () => {
     currentMenu = targetMenu;
 
     if (currentMenu === 'food') {
+      document.body.classList.remove('bar-mode-active');
+      if (btnExpandBarMenu) btnExpandBarMenu.classList.remove('visible');
+      if (isExpandedOpen) closeBarExpanded();
       if (btnFoodMenu) {
         btnFoodMenu.classList.add('active');
         btnFoodMenu.setAttribute('aria-selected', 'true');
@@ -689,6 +724,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       setFinalState(foodPage);
     } else {
+      document.body.classList.add('bar-mode-active');
+      if (btnExpandBarMenu) btnExpandBarMenu.classList.add('visible');
       if (btnBarMenu) {
         btnBarMenu.classList.add('active');
         btnBarMenu.setAttribute('aria-selected', 'true');
@@ -700,6 +737,207 @@ document.addEventListener('DOMContentLoaded', () => {
       setFinalState(barPage);
     }
   }
+
+  // ==========================================================================
+  // 7. DEDICATED BAR MENU EXPANDED READING CONTROLLER
+  // ==========================================================================
+  const BAR_PAGES = [
+    {
+      index: 0,
+      title: 'WHISKY — SINGLE MALT & SCOTCH',
+      alt: 'Saanj Bagh — Single Malt & Scotch Whiskey Menu',
+      src: 'assets/images/bar-whiskey.png',
+      bg: '#0E1F0E'
+    },
+    {
+      index: 1,
+      title: 'TEQUILA, GIN, VODKA & LIQUEUR',
+      alt: 'Saanj Bagh — Tequila, Gin, Vodka & Liqueur Menu',
+      src: 'assets/images/bar-tequila-spirits.png',
+      bg: '#E6CDA9'
+    },
+    {
+      index: 2,
+      title: 'BEER, WINE, RUM & BREEZER',
+      alt: 'Saanj Bagh — Beer, Wine, Rum & Breezer Menu',
+      src: 'assets/images/bar-beer-wine.png',
+      bg: '#500D09'
+    }
+  ];
+
+  let isExpandedOpen = false;
+  let expandedPage = 0;
+  let expandedZoom = 1.0;
+  const MIN_ZOOM = 0.8;
+  const MAX_ZOOM = 2.8;
+  const ZOOM_STEP = 0.25;
+
+  function applyZoom(level) {
+    expandedZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, Math.round(level * 100) / 100));
+    if (expandedCanvasWrap) {
+      expandedCanvasWrap.style.transform = `scale(${expandedZoom})`;
+      expandedCanvasWrap.style.transformOrigin = 'top center';
+    }
+  }
+
+  function setExpandedPage(idx) {
+    expandedPage = Math.max(0, Math.min(2, idx));
+    const pageData = BAR_PAGES[expandedPage];
+
+    if (expandedMenuImg) {
+      expandedMenuImg.src = pageData.src;
+      expandedMenuImg.alt = pageData.alt;
+    }
+    if (expandedPageTitle) {
+      expandedPageTitle.textContent = pageData.title;
+    }
+    if (expPageNumber) {
+      expPageNumber.textContent = `PAGE ${expandedPage + 1} OF 3`;
+    }
+    if (btnExpPrev) btnExpPrev.disabled = (expandedPage === 0);
+    if (btnExpNext) btnExpNext.disabled = (expandedPage === 2);
+
+    if (expDots && expDots.length) {
+      expDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === expandedPage);
+        dot.setAttribute('aria-selected', i === expandedPage ? 'true' : 'false');
+      });
+    }
+
+    applyZoom(1.0);
+    if (expandedViewport) {
+      expandedViewport.scrollTop = 0;
+      expandedViewport.scrollLeft = 0;
+    }
+  }
+
+  function openBarExpanded(pageIdx = barPage) {
+    if (currentMenu !== 'bar') return;
+    isExpandedOpen = true;
+
+    if (barExpandedViewer) {
+      barExpandedViewer.removeAttribute('hidden');
+      barExpandedViewer.style.display = 'flex';
+      void barExpandedViewer.offsetWidth; // Force reflow
+      barExpandedViewer.classList.add('active');
+    }
+
+    setExpandedPage(pageIdx);
+    document.body.style.overflow = 'hidden';
+
+    if (expandedViewport) {
+      expandedViewport.focus();
+    }
+  }
+
+  function closeBarExpanded() {
+    if (!isExpandedOpen) return;
+    isExpandedOpen = false;
+
+    if (barExpandedViewer) {
+      barExpandedViewer.classList.remove('active');
+      setTimeout(() => {
+        if (!isExpandedOpen) {
+          barExpandedViewer.setAttribute('hidden', '');
+          barExpandedViewer.style.display = 'none';
+        }
+      }, 280);
+    }
+
+    document.body.style.overflow = '';
+
+    // Synchronize flipbook book state to the page viewed in expanded mode
+    setFinalState(expandedPage);
+  }
+
+  // Bind Expanded Mode Controls
+  if (btnExpandBarMenu) {
+    btnExpandBarMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openBarExpanded(barPage);
+    });
+  }
+
+  if (btnCloseExpanded) {
+    btnCloseExpanded.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeBarExpanded();
+    });
+  }
+
+  if (btnZoomIn) {
+    btnZoomIn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyZoom(expandedZoom + ZOOM_STEP);
+    });
+  }
+
+  if (btnZoomOut) {
+    btnZoomOut.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyZoom(expandedZoom - ZOOM_STEP);
+    });
+  }
+
+  if (btnZoomFit) {
+    btnZoomFit.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyZoom(1.0);
+    });
+  }
+
+  if (btnExpPrev) {
+    btnExpPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (expandedPage > 0) setExpandedPage(expandedPage - 1);
+    });
+  }
+
+  if (btnExpNext) {
+    btnExpNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (expandedPage < 2) setExpandedPage(expandedPage + 1);
+    });
+  }
+
+  if (expDots && expDots.length) {
+    expDots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const targetIdx = parseInt(dot.dataset.index, 10);
+        if (!isNaN(targetIdx)) setExpandedPage(targetIdx);
+      });
+    });
+  }
+
+  // Double tap / double click to toggle zoom on expanded image
+  let lastTapTime = 0;
+  if (expandedMenuImg) {
+    expandedMenuImg.addEventListener('touchend', (e) => {
+      const now = Date.now();
+      if (now - lastTapTime < 320) {
+        e.preventDefault();
+        applyZoom(expandedZoom > 1.2 ? 1.0 : 1.75);
+      }
+      lastTapTime = now;
+    });
+
+    expandedMenuImg.addEventListener('dblclick', (e) => {
+      e.preventDefault();
+      applyZoom(expandedZoom > 1.2 ? 1.0 : 1.75);
+    });
+  }
+
+  // Tapping directly on the bar layers in normal book mode triggers expanded reading mode
+  [barWhiskeyLayer, barTequilaLayer, barBeerLayer].forEach((layer) => {
+    if (layer) {
+      layer.addEventListener('click', () => {
+        if (!hasMovedPastDeadband && !isAnimating && currentMenu === 'bar') {
+          openBarExpanded(barPage);
+        }
+      });
+    }
+  });
 
   if (btnFoodMenu) {
     btnFoodMenu.addEventListener('click', (e) => {
@@ -717,6 +955,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Keyboard accessibility
   window.addEventListener('keydown', (e) => {
+    // When Bar Expanded Viewer is open, handle its own shortcuts
+    if (isExpandedOpen) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeBarExpanded();
+      } else if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault();
+        if (expandedPage < 2) setExpandedPage(expandedPage + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        if (expandedPage > 0) setExpandedPage(expandedPage - 1);
+      } else if (e.key === '+' || e.key === '=') {
+        e.preventDefault();
+        applyZoom(expandedZoom + ZOOM_STEP);
+      } else if (e.key === '-' || e.key === '_') {
+        e.preventDefault();
+        applyZoom(expandedZoom - ZOOM_STEP);
+      } else if (e.key === '0') {
+        e.preventDefault();
+        applyZoom(1.0);
+      }
+      return;
+    }
+
     const maxP = getMaxPage();
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && currentPage < maxP)) {
       e.preventDefault();
