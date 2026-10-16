@@ -526,10 +526,14 @@ html, body {
   background: #EFE5D0;
 }
 
-.cocktail-classics-layer { z-index: 2; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-gin-layer { z-index: 4; opacity: 1; pointer-events: none; background: #F5DCDA; }
-.cocktail-tequila-whisky-layer { z-index: 6; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-sig-layer { z-index: 8; opacity: 1; pointer-events: auto; background: #F5DCDA; }
+.cocktail-iced-tea-layer { z-index: 2; opacity: 1; pointer-events: none; background: #EFE5D0; }
+.cocktail-wine-layer { z-index: 4; opacity: 1; pointer-events: none; background: #EFE5D0; }
+.cocktail-whisky-layer { z-index: 6; opacity: 1; pointer-events: none; background: #EFE5D0; }
+.cocktail-rum-layer { z-index: 8; opacity: 1; pointer-events: none; background: #EFE5D0; }
+.cocktail-classics-layer { z-index: 10; opacity: 1; pointer-events: none; background: #EFE5D0; }
+.cocktail-gin-layer { z-index: 12; opacity: 1; pointer-events: none; background: #F5DCDA; }
+.cocktail-tequila-whisky-layer { z-index: 14; opacity: 1; pointer-events: none; background: #EFE5D0; }
+.cocktail-sig-layer { z-index: 16; opacity: 1; pointer-events: auto; background: #F5DCDA; }
 
 .cocktail-artwork-img {
   display: block;
@@ -560,6 +564,40 @@ html, body {
 .menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-gin-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-classics-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
+/* Page 4: Rum Cocktails */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-sig-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-tequila-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-gin-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-classics-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-rum-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Page 5: Whisky Cocktails */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-sig-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-tequila-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-gin-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-classics-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-rum-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-whisky-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Page 6: Wine Cocktails */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-sig-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-tequila-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-gin-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-classics-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-rum-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-wine-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Page 7: Iced Tea Cocktails */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-sig-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-tequila-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-gin-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-classics-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-rum-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-wine-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-iced-tea-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
 /* Cocktail Animating States */
 .menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-0-1"] .cocktail-sig-layer { opacity: 0; pointer-events: none; }
 .menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-0-1"] .cocktail-tequila-whisky-layer { opacity: 1; pointer-events: none; }
@@ -572,6 +610,36 @@ html, body {
 .menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-tequila-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-gin-layer { opacity: 0; pointer-events: none; }
 .menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-classics-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-sig-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-tequila-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-gin-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-classics-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-rum-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-sig-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-tequila-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-gin-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-classics-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-rum-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-whisky-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-sig-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-tequila-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-gin-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-classics-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-rum-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-wine-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-sig-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-tequila-whisky-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-gin-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-classics-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-rum-layer,
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-wine-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-iced-tea-layer { opacity: 1; pointer-events: none; }
 
 /* --- 3B. DELICATE BOTANICAL COVER BREEZE ANIMATION --- */
 /* Strictly pure foliage movement: zero architectural, arch, pillar, or border movement */
