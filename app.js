@@ -123,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: 'SCOTCH & BLENDED WHISKY', src: 'assets/images/bar-whiskey-3.png', alt: 'Saanj Bagh — Scotch & Blended Whisky Menu (Part 2)' },
     { title: 'TEQUILA & GIN', src: 'assets/images/bar-tequila-gin.jpg', alt: 'Saanj Bagh — Tequila & Gin Menu' },
     { title: 'VODKA, BRANDY, LIQUEUR & RUM', src: 'assets/images/bar-vodka-rum.jpg', alt: 'Saanj Bagh — Vodka, Brandy, Liqueur & Rum Menu' },
-    { title: 'BEER & BREEZER', src: 'assets/images/bar-beer-breezer.jpg', alt: 'Saanj Bagh — Beer & Breezer Menu' },
-    { title: 'WINE SELECTION', src: 'assets/images/bar-wine.jpg', alt: 'Saanj Bagh — Wine Selection Menu' }
+    { title: 'WINE SELECTION', src: 'assets/images/bar-wine.jpg', alt: 'Saanj Bagh — Wine Selection Menu' },
+    { title: 'BEER & BREEZER', src: 'assets/images/bar-beer-breezer.jpg', alt: 'Saanj Bagh — Beer & Breezer Menu' }
   ];
 
   const COCKTAIL_MENU_PAGES = [
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (turningPage === 1) turningArt = soupArtwork;
       else turningArt = coverArtwork;
     } else if (currentMenu === 'bar') {
-      if (turningPage === 5) turningArt = barBeerBreezerArtwork;
+      if (turningPage === 5) turningArt = barWineArtwork;
       else if (turningPage === 4) turningArt = barVodkaRumArtwork;
       else if (turningPage === 3) turningArt = barTequilaGinArtwork;
       else if (turningPage === 2) turningArt = barWhiskey3Artwork;
@@ -1024,8 +1024,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/images/bar-whiskey-3.png',
     'assets/images/bar-tequila-gin.jpg',
     'assets/images/bar-vodka-rum.jpg',
-    'assets/images/bar-beer-breezer.jpg',
     'assets/images/bar-wine.jpg',
+    'assets/images/bar-beer-breezer.jpg',
     'assets/images/cocktail-1-tequila-whisky.jpg',
     'assets/images/cocktail-2-whisky-classics.jpg',
     'assets/images/cocktail-3-wine-cocktails.jpg',
