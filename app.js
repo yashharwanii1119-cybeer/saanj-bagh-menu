@@ -4,7 +4,7 @@
  * 
  * Menus & Page Sequences:
  * 
- * 1. FOOD MENU (8 Pages):
+ * 1. FOOD MENU (10 Pages):
  *    Page 0: Cover (Closed Book)
  *    Page 1: 01 · Soup (A Warm Beginning with Continuous Live Steam)
  *    Page 2: 02 · Garde Manger (Fresh Starts & Relishes)
@@ -12,7 +12,9 @@
  *    Page 4: 04 · Pasta & Pizza
  *    Page 5: 05 · Tandoor — Kebabs & Rice/Biryani
  *    Page 6: 06 · Tandoor — Breads & Accompaniments
- *    Page 7: 07 · Indian, Dal & Sizzler
+ *    Page 7: 07 · Indian Specialities — Paneer
+ *    Page 8: 08 · Indian Specialities — Vegetables & Kofta
+ *    Page 9: 09 · Indian Specialities — Dal & Sizzlers
  * 
  * 2. BAR MENU (3 Pages):
  *    Page 0: Single Malt & Scotch Whisky
@@ -54,7 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const pastaLayer = document.getElementById('pastaLayer');
   const tandoorKebabsLayer = document.getElementById('tandoorKebabsLayer');
   const tandoorBreadsLayer = document.getElementById('tandoorBreadsLayer');
-  const indianLayer = document.getElementById('indianLayer');
+  const indian1Layer = document.getElementById('indian1Layer');
+  const indian2Layer = document.getElementById('indian2Layer');
+  const indian3Layer = document.getElementById('indian3Layer');
 
   const coverArtwork = document.getElementById('coverArtwork');
   const soupArtwork = document.getElementById('soupArtwork');
@@ -63,7 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const pastaArtwork = document.getElementById('pastaArtwork');
   const tandoorKebabsArtwork = document.getElementById('tandoorKebabsArtwork');
   const tandoorBreadsArtwork = document.getElementById('tandoorBreadsArtwork');
-  const indianArtwork = document.getElementById('indianArtwork');
+  const indian1Artwork = document.getElementById('indian1Artwork');
+  const indian2Artwork = document.getElementById('indian2Artwork');
+  const indian3Artwork = document.getElementById('indian3Artwork');
 
   // Bar Menu Layers & Artworks
   const barWhiskey1Layer = document.getElementById('barWhiskey1Layer');
@@ -171,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 3-Way Menu Book State ---
   let currentMenu = 'food';     // 'food' | 'bar' | 'cocktail'
-  let foodPage = 0;             // [0..7]
+  let foodPage = 0;             // [0..9]
   let barPage = 0;              // [0..6]
   let cocktailPage = 0;         // [0..7]
   let currentPage = 0;          // Active page within the active menu
@@ -186,10 +192,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let expandedPageIndex = 0;
 
   function getMaxPage() {
-    if (currentMenu === 'food') return 7;
+    if (currentMenu === 'food') return 9;
     if (currentMenu === 'bar') return 6;
     if (currentMenu === 'cocktail') return 7;
-    return 7;
+    return 9;
   }
 
   function getAnimatingStateName(turningPg) {
@@ -330,7 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // LAYER C: CLIPPED PAGE ARTWORK FOR THE TURNING SHEET
     let turningArt;
     if (currentMenu === 'food') {
-      if (turningPage === 6) turningArt = tandoorBreadsArtwork;
+      if (turningPage === 8) turningArt = indian2Artwork;
+      else if (turningPage === 7) turningArt = indian1Artwork;
+      else if (turningPage === 6) turningArt = tandoorBreadsArtwork;
       else if (turningPage === 5) turningArt = tandoorKebabsArtwork;
       else if (turningPage === 4) turningArt = pastaArtwork;
       else if (turningPage === 3) turningArt = aroundWorldArtwork;
@@ -512,7 +520,9 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (page === 4) currentState = 'pasta-pizza';
       else if (page === 5) currentState = 'tandoor-kebabs';
       else if (page === 6) currentState = 'tandoor-breads';
-      else if (page === 7) currentState = 'indian-dal';
+      else if (page === 7) currentState = 'indian-1';
+      else if (page === 8) currentState = 'indian-2';
+      else if (page === 9) currentState = 'indian-3';
     } else if (currentMenu === 'bar') {
       barPage = page;
       if (page === 0) currentState = 'bar-0';
@@ -1034,13 +1044,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const preloadSources = [
     'assets/images/menu-cover.jpg',
-    'assets/images/menu-reference.jpg',
+    'assets/images/soup.jpg',
     'assets/images/garde-manger.jpg',
     'assets/images/around-the-world.jpg',
     'assets/images/pasta-pizza.jpg',
     'assets/images/tandoor-kebabs.jpg',
     'assets/images/tandoor-breads.jpg',
-    'assets/images/indian-dal.jpg',
+    'assets/images/indian-1.jpg',
+    'assets/images/indian-2.jpg',
+    'assets/images/indian-3.jpg',
     'assets/images/bar-whiskey-1.jpg',
     'assets/images/bar-whiskey-2.jpg',
     'assets/images/bar-whiskey-3.png',

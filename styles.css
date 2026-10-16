@@ -93,8 +93,8 @@ html, body {
   pointer-events: none;
 }
 
-/* Layer 6 (Bottommost): 06 · Indian, Dal & Sizzler (Page 6) */
-.indian-layer {
+/* Food Menu 10-Layer Stack */
+.indian-3-layer {
   z-index: 2;
   background: #F6EFE2;
   background-repeat: no-repeat;
@@ -103,9 +103,32 @@ html, body {
   transition: opacity 0.2s ease;
 }
 
+.indian-2-layer {
+  z-index: 4;
+  background: #F6EFE2;
+  background-repeat: no-repeat;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.indian-1-layer {
+  z-index: 6;
+  background: #F6EFE2;
+  background-repeat: no-repeat;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.indian-layer {
+  background: #F6EFE2;
+  background-repeat: no-repeat;
+}
+
 /* Layer 6: 06 · Tandoor — Breads & Accompaniments (Page 6) */
 .tandoor-breads-layer {
-  z-index: 4;
+  z-index: 8;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -115,7 +138,7 @@ html, body {
 
 /* Layer 5: 05 · Tandoor — Kebabs & Rice/Biryani (Page 5) */
 .tandoor-kebabs-layer {
-  z-index: 6;
+  z-index: 10;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -125,7 +148,7 @@ html, body {
 
 /* Layer 4: 04 · Pasta & Pizza (Page 4) */
 .pasta-layer {
-  z-index: 8;
+  z-index: 12;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -135,7 +158,7 @@ html, body {
 
 /* Layer 3: 03 · Around the World (Page 3) */
 .around-world-layer {
-  z-index: 10;
+  z-index: 14;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -145,7 +168,7 @@ html, body {
 
 /* Layer 2: 02 · Garde Manger Menu (Page 2) */
 .garde-layer {
-  z-index: 12;
+  z-index: 16;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -155,7 +178,7 @@ html, body {
 
 /* Layer 1: 01 · Soup Menu (Page 1 - continuous live steam) */
 .soup-layer {
-  z-index: 14;
+  z-index: 18;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -165,7 +188,7 @@ html, body {
 
 /* Layer 0: Menu Cover (Front face of closed book, Page 0) */
 .cover-layer {
-  z-index: 16;
+  z-index: 20;
   background: #F6EFE2;
   background-repeat: no-repeat;
   opacity: 1;
@@ -242,15 +265,38 @@ html, body {
 .menu-book-container[data-state="tandoor-breads"] .tandoor-kebabs-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-state="tandoor-breads"] .tandoor-breads-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
-/* Indian, Dal & Sizzler (Page 7) */
-.menu-book-container[data-state="indian-dal"] .cover-layer,
-.menu-book-container[data-state="indian-dal"] .soup-layer,
-.menu-book-container[data-state="indian-dal"] .garde-layer,
-.menu-book-container[data-state="indian-dal"] .around-world-layer,
-.menu-book-container[data-state="indian-dal"] .pasta-layer,
-.menu-book-container[data-state="indian-dal"] .tandoor-kebabs-layer,
-.menu-book-container[data-state="indian-dal"] .tandoor-breads-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="indian-dal"] .indian-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Indian Menu — Page 1: Paneer & Mains (Page 7) */
+.menu-book-container[data-state="indian-1"] .cover-layer,
+.menu-book-container[data-state="indian-1"] .soup-layer,
+.menu-book-container[data-state="indian-1"] .garde-layer,
+.menu-book-container[data-state="indian-1"] .around-world-layer,
+.menu-book-container[data-state="indian-1"] .pasta-layer,
+.menu-book-container[data-state="indian-1"] .tandoor-kebabs-layer,
+.menu-book-container[data-state="indian-1"] .tandoor-breads-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="indian-1"] .indian-1-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Indian Menu — Page 2: Specialties & Vegetables (Page 8) */
+.menu-book-container[data-state="indian-2"] .cover-layer,
+.menu-book-container[data-state="indian-2"] .soup-layer,
+.menu-book-container[data-state="indian-2"] .garde-layer,
+.menu-book-container[data-state="indian-2"] .around-world-layer,
+.menu-book-container[data-state="indian-2"] .pasta-layer,
+.menu-book-container[data-state="indian-2"] .tandoor-kebabs-layer,
+.menu-book-container[data-state="indian-2"] .tandoor-breads-layer,
+.menu-book-container[data-state="indian-2"] .indian-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="indian-2"] .indian-2-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Indian Menu — Page 3: Dal & Sizzlers (Page 9) */
+.menu-book-container[data-state="indian-3"] .cover-layer,
+.menu-book-container[data-state="indian-3"] .soup-layer,
+.menu-book-container[data-state="indian-3"] .garde-layer,
+.menu-book-container[data-state="indian-3"] .around-world-layer,
+.menu-book-container[data-state="indian-3"] .pasta-layer,
+.menu-book-container[data-state="indian-3"] .tandoor-kebabs-layer,
+.menu-book-container[data-state="indian-3"] .tandoor-breads-layer,
+.menu-book-container[data-state="indian-3"] .indian-1-layer,
+.menu-book-container[data-state="indian-3"] .indian-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="indian-3"] .indian-3-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
 /* --- Animating states (Page curl in progress) --- */
 .menu-book-container[data-state="animating-0-1"] .cover-layer { opacity: 0; pointer-events: none; }
@@ -293,7 +339,28 @@ html, body {
 .menu-book-container[data-state="animating-6-7"] .pasta-layer,
 .menu-book-container[data-state="animating-6-7"] .tandoor-kebabs-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-state="animating-6-7"] .tandoor-breads-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-6-7"] .indian-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-6-7"] .indian-1-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-state="animating-7-8"] .cover-layer,
+.menu-book-container[data-state="animating-7-8"] .soup-layer,
+.menu-book-container[data-state="animating-7-8"] .garde-layer,
+.menu-book-container[data-state="animating-7-8"] .around-world-layer,
+.menu-book-container[data-state="animating-7-8"] .pasta-layer,
+.menu-book-container[data-state="animating-7-8"] .tandoor-kebabs-layer,
+.menu-book-container[data-state="animating-7-8"] .tandoor-breads-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-7-8"] .indian-1-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-7-8"] .indian-2-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-state="animating-8-9"] .cover-layer,
+.menu-book-container[data-state="animating-8-9"] .soup-layer,
+.menu-book-container[data-state="animating-8-9"] .garde-layer,
+.menu-book-container[data-state="animating-8-9"] .around-world-layer,
+.menu-book-container[data-state="animating-8-9"] .pasta-layer,
+.menu-book-container[data-state="animating-8-9"] .tandoor-kebabs-layer,
+.menu-book-container[data-state="animating-8-9"] .tandoor-breads-layer,
+.menu-book-container[data-state="animating-8-9"] .indian-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-8-9"] .indian-2-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-8-9"] .indian-3-layer { opacity: 1; pointer-events: none; }
 
 /* Backward compatibility aliases */
 .menu-book-container[data-state="open"] .cover-layer {
@@ -860,7 +927,7 @@ html, body {
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 20;
+  z-index: 25;
   pointer-events: none;
   opacity: 0;
 }
