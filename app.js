@@ -66,14 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const barWhiskey1Layer = document.getElementById('barWhiskey1Layer');
   const barWhiskey2Layer = document.getElementById('barWhiskey2Layer');
   const barWhiskey3Layer = document.getElementById('barWhiskey3Layer');
-  const barTequilaLayer = document.getElementById('barTequilaLayer');
-  const barBeerLayer = document.getElementById('barBeerLayer');
+  const barTequilaGinLayer = document.getElementById('barTequilaGinLayer');
+  const barVodkaRumLayer = document.getElementById('barVodkaRumLayer');
+  const barBeerBreezerLayer = document.getElementById('barBeerBreezerLayer');
+  const barWineLayer = document.getElementById('barWineLayer');
 
   const barWhiskey1Artwork = document.getElementById('barWhiskey1Artwork');
   const barWhiskey2Artwork = document.getElementById('barWhiskey2Artwork');
   const barWhiskey3Artwork = document.getElementById('barWhiskey3Artwork');
-  const barTequilaArtwork = document.getElementById('barTequilaArtwork');
-  const barBeerArtwork = document.getElementById('barBeerArtwork');
+  const barTequilaGinArtwork = document.getElementById('barTequilaGinArtwork');
+  const barVodkaRumArtwork = document.getElementById('barVodkaRumArtwork');
+  const barBeerBreezerArtwork = document.getElementById('barBeerBreezerArtwork');
+  const barWineArtwork = document.getElementById('barWineArtwork');
 
   // Cocktail Menu Layers & Artworks
   const cocktailTequilaLayer = document.getElementById('cocktailTequilaLayer');
@@ -117,8 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: 'WHISKEY — SINGLE MALT', src: 'assets/images/bar-whiskey-1.jpg', alt: 'Saanj Bagh — Single Malt Whiskey Menu' },
     { title: 'SCOTCH WHISKY', src: 'assets/images/bar-whiskey-2.jpg', alt: 'Saanj Bagh — Scotch Whisky Menu (Part 1)' },
     { title: 'SCOTCH & BLENDED WHISKY', src: 'assets/images/bar-whiskey-3.png', alt: 'Saanj Bagh — Scotch & Blended Whisky Menu (Part 2)' },
-    { title: 'TEQUILA, GIN, VODKA & LIQUEUR', src: 'assets/images/bar-tequila-spirits.png', alt: 'Saanj Bagh — Tequila, Gin, Vodka & Liqueur Menu' },
-    { title: 'BEER, WINE, RUM & BREEZER', src: 'assets/images/bar-beer-wine.png', alt: 'Saanj Bagh — Beer, Wine, Rum & Breezer Menu' }
+    { title: 'TEQUILA & GIN', src: 'assets/images/bar-tequila-gin.jpg', alt: 'Saanj Bagh — Tequila & Gin Menu' },
+    { title: 'VODKA, BRANDY, LIQUEUR & RUM', src: 'assets/images/bar-vodka-rum.jpg', alt: 'Saanj Bagh — Vodka, Brandy, Liqueur & Rum Menu' },
+    { title: 'BEER & BREEZER', src: 'assets/images/bar-beer-breezer.jpg', alt: 'Saanj Bagh — Beer & Breezer Menu' },
+    { title: 'WINE SELECTION', src: 'assets/images/bar-wine.jpg', alt: 'Saanj Bagh — Wine Selection Menu' }
   ];
 
   const COCKTAIL_MENU_PAGES = [
@@ -169,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getMaxPage() {
     if (currentMenu === 'food') return 7;
-    if (currentMenu === 'bar') return 4;
+    if (currentMenu === 'bar') return 6;
     if (currentMenu === 'cocktail') return 4;
     return 7;
   }
@@ -320,7 +326,9 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (turningPage === 1) turningArt = soupArtwork;
       else turningArt = coverArtwork;
     } else if (currentMenu === 'bar') {
-      if (turningPage === 3) turningArt = barTequilaArtwork;
+      if (turningPage === 5) turningArt = barBeerBreezerArtwork;
+      else if (turningPage === 4) turningArt = barVodkaRumArtwork;
+      else if (turningPage === 3) turningArt = barTequilaGinArtwork;
       else if (turningPage === 2) turningArt = barWhiskey3Artwork;
       else if (turningPage === 1) turningArt = barWhiskey2Artwork;
       else turningArt = barWhiskey1Artwork;
@@ -344,13 +352,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentMenu === 'bar') {
         if (turningArt === barWhiskey1Artwork || turningArt === barWhiskey2Artwork || turningArt === barWhiskey3Artwork) {
           ctx.fillStyle = '#0E1F0E';
-        } else if (turningArt === barTequilaArtwork) {
-          ctx.fillStyle = '#E6CDA9';
         } else {
-          ctx.fillStyle = '#500D09';
+          ctx.fillStyle = '#E8D5B7';
         }
         ctx.fillRect(0, 0, W, H);
-        const nw = turningArt.naturalWidth || 576;
+        const nw = turningArt.naturalWidth || 571;
         const nh = turningArt.naturalHeight || 1024;
         const artW = Math.round(H * (nw / nh));
         const artX = Math.round((W - artW) / 2);
@@ -495,6 +501,8 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (page === 2) currentState = 'bar-2';
       else if (page === 3) currentState = 'bar-3';
       else if (page === 4) currentState = 'bar-4';
+      else if (page === 5) currentState = 'bar-5';
+      else if (page === 6) currentState = 'bar-6';
     } else {
       cocktailPage = page;
       if (page === 0) currentState = 'cocktail-0';
@@ -1014,8 +1022,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/images/bar-whiskey-1.jpg',
     'assets/images/bar-whiskey-2.jpg',
     'assets/images/bar-whiskey-3.png',
-    'assets/images/bar-tequila-spirits.png',
-    'assets/images/bar-beer-wine.png',
+    'assets/images/bar-tequila-gin.jpg',
+    'assets/images/bar-vodka-rum.jpg',
+    'assets/images/bar-beer-breezer.jpg',
+    'assets/images/bar-wine.jpg',
     'assets/images/cocktail-1-tequila-whisky.jpg',
     'assets/images/cocktail-2-whisky-classics.jpg',
     'assets/images/cocktail-3-wine-cocktails.jpg',
