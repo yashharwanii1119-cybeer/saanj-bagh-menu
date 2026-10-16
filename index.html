@@ -12,9 +12,11 @@
   
   <link rel="canonical" href="https://menu.saanjbagh.in/">
   <script>
-    // Critical Acceptance Guarantee: Ensure address bar always displays menu.saanjbagh.in
+    // Critical Acceptance Guarantee: Ensure address bar always displays https://menu.saanjbagh.in
     if (window.location.hostname === 'yashharwanii1119-cybeer.github.io') {
       window.location.replace('https://menu.saanjbagh.in' + window.location.pathname.replace(/^\/saanj-bagh-menu\/?/, '/') + window.location.search + window.location.hash);
+    } else if (window.location.hostname === 'menu.saanjbagh.in' && window.location.protocol === 'http:') {
+      window.location.replace('https://menu.saanjbagh.in' + window.location.pathname + window.location.search + window.location.hash);
     }
   </script>
   <link rel="icon" type="image/jpeg" href="assets/images/saanj-bagh-logo.jpg">
