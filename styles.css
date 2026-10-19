@@ -598,9 +598,9 @@ html, body {
 .cocktail-whisky-layer { z-index: 6; opacity: 1; pointer-events: none; background: #EFE5D0; }
 .cocktail-rum-layer { z-index: 8; opacity: 1; pointer-events: none; background: #EFE5D0; }
 .cocktail-classics-layer { z-index: 10; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-gin-layer { z-index: 12; opacity: 1; pointer-events: none; background: #F5DCDA; }
+.cocktail-gin-layer { z-index: 12; opacity: 1; pointer-events: none; background: #EFE5D0; }
 .cocktail-tequila-whisky-layer { z-index: 14; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-sig-layer { z-index: 16; opacity: 1; pointer-events: auto; background: #F5DCDA; }
+.cocktail-sig-layer { z-index: 16; opacity: 1; pointer-events: auto; background: #EFE5D0; }
 
 .cocktail-artwork-img {
   display: block;

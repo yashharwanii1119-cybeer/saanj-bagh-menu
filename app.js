@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: 'RUM COCKTAILS', src: 'assets/images/cocktail-5-rum.jpg', alt: 'Saanj Bagh — Rum Cocktails Menu' },
     { title: 'WHISKY COCKTAILS', src: 'assets/images/cocktail-6-whisky.jpg', alt: 'Saanj Bagh — Whisky Cocktails Menu' },
     { title: 'WINE COCKTAILS', src: 'assets/images/cocktail-7-wine.jpg', alt: 'Saanj Bagh — Wine Cocktails Menu' },
-    { title: 'ICED TEA COCKTAILS', src: 'assets/images/cocktail-8-iced-tea.png', alt: 'Saanj Bagh — Iced Tea Cocktails Menu' }
+    { title: 'LIIT — LONG ISLAND ICED TEA', src: 'assets/images/cocktail-8-iced-tea.jpg', alt: 'Saanj Bagh — LIIT — Long Island Iced Tea Menu' }
   ];
 
   // --- High-DPI Canvas 2D Setup (Uniform 682 x 1024 Aspect Ratio) ---
@@ -385,11 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const artX = Math.round((W - artW) / 2);
         ctx.drawImage(turningArt, artX, 0, artW, H);
       } else if (currentMenu === 'cocktail') {
-        if (turningArt === cocktailSigArtwork || turningArt === cocktailGinArtwork) {
-          ctx.fillStyle = '#F5DCDA';
-        } else {
-          ctx.fillStyle = '#EFE5D0';
-        }
+        ctx.fillStyle = '#EFE5D0';
         ctx.fillRect(0, 0, W, H);
         const nw = turningArt.naturalWidth || 571;
         const nh = turningArt.naturalHeight || 1024;
@@ -1067,7 +1063,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/images/cocktail-5-rum.jpg',
     'assets/images/cocktail-6-whisky.jpg',
     'assets/images/cocktail-7-wine.jpg',
-    'assets/images/cocktail-8-iced-tea.png'
+    'assets/images/cocktail-8-iced-tea.jpg'
   ];
 
   preloadSources.forEach((src) => {
