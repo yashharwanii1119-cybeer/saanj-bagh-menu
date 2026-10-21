@@ -555,6 +555,32 @@
     </button>
 
     <!-- ======================================================
+         DEDICATED QR LANDING & MENU SELECTION SCREEN
+         Activated via ?view=bar-cocktail or ?view=food-beverage
+         ====================================================== -->
+    <div class="qr-landing-overlay" id="qrLandingOverlay" role="dialog" aria-modal="true" aria-label="Menu Selection Screen" hidden>
+      <div class="qr-landing-backdrop" id="qrLandingBackdrop"></div>
+      <div class="qr-landing-modal">
+        <div class="qr-landing-header">
+          <img src="assets/images/saanj-bagh-logo.jpg" alt="Saanj Bagh Botanical Bar & Kitchen Logo" class="qr-landing-logo">
+          <div class="qr-landing-brand-subtitle">BOTANICAL BAR &amp; KITCHEN</div>
+          <h1 class="qr-landing-title" id="qrLandingTitle">MENU SELECTION</h1>
+          <p class="qr-landing-desc" id="qrLandingDesc">Please select a menu experience below to begin exploring:</p>
+        </div>
+
+        <div class="qr-landing-options" id="qrLandingOptions" role="group" aria-label="Menu choices">
+          <!-- Dynamically populated based on QR code context -->
+        </div>
+
+        <div class="qr-landing-footer">
+          <button type="button" class="qr-landing-browse-all" id="btnQrBrowseAll" aria-label="Dismiss selection and browse interactive book">
+            <span>Explore full interactive book ➔</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================
          DEDICATED EXPANDED READING VIEWER
          High-legibility reading mode: fit to width, natural
          vertical scrolling, no image scaling or zooming.

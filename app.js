@@ -1072,4 +1072,151 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   setFinalState(0);
+
+  // ==========================================================================
+  // 10. DEDICATED QR LANDING & MENU SELECTION CONTROLLER
+  //     Activated via ?view=bar-cocktail or ?view=food-beverage
+  // ==========================================================================
+  const qrLandingOverlay = document.getElementById('qrLandingOverlay');
+  const qrLandingTitle = document.getElementById('qrLandingTitle');
+  const qrLandingDesc = document.getElementById('qrLandingDesc');
+  const qrLandingOptions = document.getElementById('qrLandingOptions');
+  const btnQrBrowseAll = document.getElementById('btnQrBrowseAll');
+  const btnJumpMenu = document.getElementById('btnJumpMenu');
+
+  let activeQrView = null;
+
+  const QR_MENU_CONFIG = {
+    food: {
+      id: 'food',
+      icon: '🍽️',
+      title: 'FOOD MENU',
+      subtitle: 'Soups, Fresh Relishes, Pastas, Woodfired Pizzas, Tandoor & Indian Specialties (10 Pages)',
+      badge: '10 Pages',
+      btnText: 'View Food Menu'
+    },
+    bar: {
+      id: 'bar',
+      icon: '🥃',
+      title: 'BAR MENU',
+      subtitle: 'Single Malts, Scotch, Tequila, Gin, Vodka, Rum, Wine Selection & Beers (7 Pages)',
+      badge: '7 Pages',
+      btnText: 'View Bar Menu'
+    },
+    cocktail: {
+      id: 'cocktail',
+      icon: '🍸',
+      title: 'COCKTAIL MENU',
+      subtitle: 'Artisanal Signatures, Tequila, Gin, Classics, Wine Cocktails & LIIT (8 Pages)',
+      badge: '8 Pages',
+      btnText: 'View Cocktail Menu'
+    }
+  };
+
+  function showQrLanding(viewType) {
+    if (!qrLandingOverlay || !qrLandingOptions) return;
+    activeQrView = viewType;
+
+    if (viewType === 'bar-cocktail') {
+      if (qrLandingTitle) qrLandingTitle.textContent = 'BAR & COCKTAIL MENU';
+      if (qrLandingDesc) qrLandingDesc.textContent = 'Please select a menu experience below to begin exploring:';
+      renderQrOptions(['bar', 'cocktail']);
+      qrLandingOverlay.removeAttribute('hidden');
+      requestAnimationFrame(() => {
+        qrLandingOverlay.classList.add('active');
+      });
+    } else if (viewType === 'food-beverage') {
+      if (qrLandingTitle) qrLandingTitle.textContent = 'FOOD & BEVERAGE MENU';
+      if (qrLandingDesc) qrLandingDesc.textContent = 'Please select a menu experience below to begin exploring:';
+      renderQrOptions(['food', 'bar', 'cocktail']);
+      qrLandingOverlay.removeAttribute('hidden');
+      requestAnimationFrame(() => {
+        qrLandingOverlay.classList.add('active');
+      });
+    }
+  }
+
+  function renderQrOptions(menuKeys) {
+    qrLandingOptions.innerHTML = '';
+    menuKeys.forEach((key) => {
+      const data = QR_MENU_CONFIG[key];
+      if (!data) return;
+
+      const card = document.createElement('div');
+      card.className = `qr-menu-card qr-card-${data.id}`;
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', `Open ${data.title}`);
+
+      card.innerHTML = `
+        <div class="qr-card-header">
+          <span class="qr-card-icon" aria-hidden="true">${data.icon}</span>
+          <span class="qr-card-badge">${data.badge}</span>
+        </div>
+        <div class="qr-card-body">
+          <h2 class="qr-card-title">${data.title}</h2>
+          <p class="qr-card-desc">${data.subtitle}</p>
+        </div>
+        <div class="qr-card-action">
+          <span class="qr-card-btn-label">${data.btnText}</span>
+          <span class="qr-card-btn-arrow" aria-hidden="true">➔</span>
+        </div>
+      `;
+
+      const selectHandler = (e) => {
+        if (e) e.stopPropagation();
+        closeQrLanding();
+        switchMenu(data.id);
+      };
+
+      card.addEventListener('click', selectHandler);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectHandler(e);
+        }
+      });
+
+      qrLandingOptions.appendChild(card);
+    });
+  }
+
+  function closeQrLanding() {
+    if (!qrLandingOverlay) return;
+    qrLandingOverlay.classList.remove('active');
+    setTimeout(() => {
+      qrLandingOverlay.setAttribute('hidden', '');
+    }, 350);
+  }
+
+  if (btnQrBrowseAll) {
+    btnQrBrowseAll.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeQrLanding();
+    });
+  }
+
+  if (btnJumpMenu) {
+    btnJumpMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (activeQrView) {
+        showQrLanding(activeQrView);
+      } else {
+        if (currentMenu !== 'food') {
+          switchMenu('food');
+        } else {
+          goToPage(0, 0.45);
+        }
+      }
+    });
+  }
+
+  // Check URL parameters on initialization
+  const urlSearch = new URLSearchParams(window.location.search);
+  const viewArg = urlSearch.get('view') || (window.location.hash ? window.location.hash.replace(/^#/, '') : null);
+
+  if (viewArg === 'bar-cocktail' || viewArg === 'food-beverage') {
+    showQrLanding(viewArg);
+  }
 });
+
