@@ -748,56 +748,47 @@ html, body {
   -webkit-user-drag: none;
 }
 
-/* Beverages Page 1: Shakes, Smoothies & Beverages (Page 1) */
-.bev-shakes-layer {
-  z-index: 2;
-  background: #FDF4E7;
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* Beverages Page 0: Coffee (Page 0) */
-.bev-coffee-layer {
-  z-index: 4;
-  background: #F8ECD7;
-  opacity: 1;
-  pointer-events: auto;
-}
+/* Beverages Layer Stacking (4 Pages) */
+.bev-beverages-layer { z-index: 2; background: #FDF4E7; opacity: 1; pointer-events: none; }
+.bev-shakes-smoothies-layer { z-index: 4; background: #F8ECD7; opacity: 1; pointer-events: none; }
+.bev-coffee-shakes-layer { z-index: 6; background: #FDF4E7; opacity: 1; pointer-events: none; }
+.bev-coffee-layer { z-index: 8; background: #F8ECD7; opacity: 1; pointer-events: auto; }
 
 /* Beverages State: Page 0 (Coffee active) */
-.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-coffee-layer {
-  opacity: 1;
-  pointer-events: auto;
-  visibility: visible;
-}
-.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-shakes-layer {
-  opacity: 1;
-  pointer-events: none;
-  visibility: visible;
-}
+.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-coffee-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-coffee-shakes-layer { opacity: 1; pointer-events: none; visibility: visible; }
 
 /* Beverages State: Animating Page 0 -> 1 */
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-0-1"] .bev-coffee-layer {
-  opacity: 0;
-  pointer-events: none;
-}
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-0-1"] .bev-shakes-layer {
-  opacity: 1;
-  pointer-events: none;
-  visibility: visible;
-}
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-0-1"] .bev-coffee-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-0-1"] .bev-coffee-shakes-layer { opacity: 1; pointer-events: none; visibility: visible; }
 
-/* Beverages State: Page 1 (Shakes, Smoothies & Beverages active) */
-.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-coffee-layer {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
-.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-shakes-layer {
-  opacity: 1;
-  pointer-events: auto;
-  visibility: visible;
-}
+/* Beverages State: Page 1 (Coffee & Shakes active) */
+.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-coffee-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-coffee-shakes-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-shakes-smoothies-layer { opacity: 1; pointer-events: none; visibility: visible; }
+
+/* Beverages State: Animating Page 1 -> 2 */
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-1-2"] .bev-coffee-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-1-2"] .bev-coffee-shakes-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-1-2"] .bev-shakes-smoothies-layer { opacity: 1; pointer-events: none; visibility: visible; }
+
+/* Beverages State: Page 2 (Shakes & Smoothies active) */
+.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-coffee-layer,
+.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-coffee-shakes-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-shakes-smoothies-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-beverages-layer { opacity: 1; pointer-events: none; visibility: visible; }
+
+/* Beverages State: Animating Page 2 -> 3 */
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-2-3"] .bev-coffee-layer,
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-2-3"] .bev-coffee-shakes-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-2-3"] .bev-shakes-smoothies-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-2-3"] .bev-beverages-layer { opacity: 1; pointer-events: none; visibility: visible; }
+
+/* Beverages State: Page 3 (Beverages active) */
+.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-coffee-layer,
+.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-coffee-shakes-layer,
+.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-shakes-smoothies-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-beverages-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
 /* --- 3B. DELICATE BOTANICAL COVER BREEZE ANIMATION --- */
 /* Strictly pure foliage movement: zero architectural, arch, pillar, or border movement */
