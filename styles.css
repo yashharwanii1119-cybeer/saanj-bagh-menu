@@ -2875,7 +2875,7 @@ body[data-active-menu="beverages"] .floating-expand-btn,
 body[data-view-mode="bar-cocktail"] #btnFoodMenu,
 body[data-view-mode="bar-cocktail"] .switch-divider-food,
 body[data-view-mode="bar-cocktail"] #btnBeveragesMenu,
-body[data-view-mode="bar-cocktail"] .switch-divider-cocktail {
+body[data-view-mode="bar-cocktail"] .switch-divider-beverages {
   display: none !important;
 }
 

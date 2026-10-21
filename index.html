@@ -20,7 +20,7 @@
     }
   </script>
   <link rel="icon" type="image/jpeg" href="assets/images/saanj-bagh-logo.jpg">
-  <link rel="stylesheet" href="styles.css?v=20261021d">
+  <link rel="stylesheet" href="styles.css?v=20261021f">
   <script>
     // Early Synchronous View Routing Detector (prevents visual flashing)
     (function() {
@@ -42,7 +42,7 @@
        ============================================================ -->
   <main class="menu-viewport" id="menuViewport">
     
-    <!-- Luxury Saanj Bagh 4-Way Menu Switcher: FOOD MENU | BAR MENU | COCKTAIL MENU | BEVERAGES -->
+    <!-- Luxury Saanj Bagh 4-Way Menu Switcher: FOOD MENU | BEVERAGES | BAR MENU | COCKTAIL MENU -->
     <nav class="menu-switcher-nav" aria-label="Menu experience selector">
       <div class="menu-switcher-pill" role="tablist">
         <button class="menu-switch-btn active" id="btnFoodMenu" role="tab" aria-selected="true" type="button">
@@ -50,6 +50,11 @@
           <span class="switch-label">FOOD MENU</span>
         </button>
         <div class="switch-divider switch-divider-food" aria-hidden="true"></div>
+        <button class="menu-switch-btn" id="btnBeveragesMenu" role="tab" aria-selected="false" type="button">
+          <span class="switch-bullet" aria-hidden="true">✦</span>
+          <span class="switch-label">BEVERAGES</span>
+        </button>
+        <div class="switch-divider switch-divider-beverages" aria-hidden="true"></div>
         <button class="menu-switch-btn" id="btnBarMenu" role="tab" aria-selected="false" type="button">
           <span class="switch-bullet" aria-hidden="true">✦</span>
           <span class="switch-label">BAR MENU</span>
@@ -58,11 +63,6 @@
         <button class="menu-switch-btn" id="btnCocktailMenu" role="tab" aria-selected="false" type="button">
           <span class="switch-bullet" aria-hidden="true">✦</span>
           <span class="switch-label">COCKTAIL MENU</span>
-        </button>
-        <div class="switch-divider switch-divider-cocktail" aria-hidden="true"></div>
-        <button class="menu-switch-btn" id="btnBeveragesMenu" role="tab" aria-selected="false" type="button">
-          <span class="switch-bullet" aria-hidden="true">✦</span>
-          <span class="switch-label">BEVERAGES</span>
         </button>
       </div>
     </nav>
@@ -206,7 +206,7 @@
           
           <!-- Soup Menu Replacement Artwork -->
           <img 
-            src="assets/images/soup.jpg" 
+            src="assets/images/soup.jpg?v=20261021e" 
             alt="Saanj Bagh — Botanical Bar & Kitchen Luxury Soup Menu" 
             class="menu-artwork-img"
             id="soupArtwork"
@@ -718,8 +718,8 @@
         <span>Price: ₹170</span>
       </article>
       <article>
-        <h3>04 — Chef's Special: Hawa Hawai</h3>
-        <p>A chef's special soup featuring a generous medley of vegetables.</p>
+        <h3>04 — Tibetan Thukpa Soup</h3>
+        <p>Originally Tibetan street soup.</p>
         <span>Price: ₹180</span>
       </article>
     </section>
@@ -1157,6 +1157,59 @@
       </article>
     </section>
 
+    <!-- Beverages Menu Semantic Content -->
+    <section aria-label="Beverages Menu — Coffee, Shakes, Smoothies &amp; Refreshments">
+      <h2>Saanj Bagh — Beverages Menu</h2>
+
+      <h3>Hot Coffee</h3>
+      <article><p>Classic Espresso — ₹149 (Arabica Coffee Beans, Water)</p></article>
+      <article><p>Americano — ₹199 (Arabica Coffee Beans, Hot Water)</p></article>
+      <article><p>Cortado — ₹219 (Espresso, Steamed Milk)</p></article>
+      <article><p>Flat White — ₹219 (Double Espresso, Micro-foam Milk)</p></article>
+      <article><p>Cappuccino — ₹199 (Espresso, Steamed Milk, Milk Foam)</p></article>
+      <article><p>Café Latte — ₹199 (Espresso, Steamed Milk)</p></article>
+      <article><p>Vanilla Bean Latte — ₹249 (Espresso, Milk, Vanilla Bean Syrup)</p></article>
+      <article><p>Dark Chocolate Mocha — ₹249 (Espresso, Milk, Dark Chocolate Sauce)</p></article>
+
+      <h3>Cold Coffee</h3>
+      <article><p>Iced Americano — ₹249 (Espresso, Cold Water, Ice)</p></article>
+      <article><p>Classic Cold Brew — ₹349 (Coarse Ground Coffee, Filtered Water, Ice)</p></article>
+      <article><p>Nitro Cold Brew — ₹349 (Cold Brew Coffee, Nitrogen Gas)</p></article>
+      <article><p>Iced Caramel Macchiato — ₹349 (Espresso, Milk, Ice, Caramel Sauce)</p></article>
+      <article><p>Iced Hazelnut Latte — ₹349 (Espresso, Cold Milk, Ice, Hazelnut Syrup)</p></article>
+      <article><p>Vietnamese Iced Coffee — ₹349 (Dark Roast Coffee, Condensed Milk, Ice)</p></article>
+      <article><p>Affogato — ₹349 (Double Espresso, Vanilla Ice Cream)</p></article>
+
+      <h3>Shakes</h3>
+      <article><p>Vanilla Bean Shake — ₹349 (Vanilla Ice Cream, Whole Milk)</p></article>
+      <article><p>Double Chocolate Fudge Shake — ₹349 (Chocolate Ice Cream, Milk, Hot Fudge)</p></article>
+      <article><p>Fresh Strawberry Shake — ₹349 (Strawberry Ice Cream, Milk, Real Strawberries)</p></article>
+      <article><p>Oreo Cookies &amp; Cream Shake — ₹349 (Vanilla Ice Cream, Milk, Oreo Cookies)</p></article>
+      <article><p>Mango Shake — ₹349 (Vanilla Ice Cream, Milk, Mango Puree)</p></article>
+      <article><p>Saanjh Bagh Signature Royal Shake — ₹349 (Vanilla Ice Cream, Milk, Saffron, Dates, Almonds)</p></article>
+      <article><p>Salted Caramel Pretzel Shake — ₹349 (Vanilla Ice Cream, Milk, Caramel, Sea Salt, Pretzels)</p></article>
+      <article><p>Nutella Hazelnut Shake — ₹349 (Chocolate Ice Cream, Milk, Nutella, Roasted Hazelnuts)</p></article>
+      <article><p>Lotus Biscoff Shake — ₹349 (Vanilla Ice Cream, Milk, Biscoff Spread, Crumbs)</p></article>
+      <article><p>Brownie Batter Shake — ₹349 (Chocolate Ice Cream, Milk, Brownie Chunks, Chocolate)</p></article>
+
+      <h3>Smoothies</h3>
+      <article><p>Mixed Berry Blast — ₹349 (Strawberries, Blueberries, Yogurt, Honey, Almond Milk)</p></article>
+      <article><p>Tropical Mango &amp; Passionfruit — ₹349 (Mango, Passionfruit Pulp, Greek Yogurt, Coconut Water)</p></article>
+      <article><p>Green Detox — ₹349 (Spinach, Green Apple, Kiwi, Mint, Coconut Water)</p></article>
+      <article><p>Banana Oat &amp; Honey — ₹349 (Banana, Rolled Oats, Honey, Cinnamon, Almond Milk)</p></article>
+      <article><p>Piña Colada Smoothie — ₹349 (Pineapple Chunks, Coconut Cream, Banana, Coconut Milk)</p></article>
+
+      <h3>Beverages</h3>
+      <article><p>Mineral Water — ₹149</p></article>
+      <article><p>Coke — ₹149</p></article>
+      <article><p>Thums Up — ₹149</p></article>
+      <article><p>Diet Coke — ₹199</p></article>
+      <article><p>Ginger Ale — ₹149</p></article>
+      <article><p>Tonic Water — ₹149</p></article>
+      <article><p>Red Bull — ₹299</p></article>
+      <article><p>Canned Juice — ₹149</p></article>
+    </section>
+
     <!-- Bar Menu Semantic Content -->
     <section aria-label="Bar Menu — Spirits, Wine & Beer">
       <h2>Saanj Bagh — Bar Menu</h2>
@@ -1276,62 +1329,9 @@
       <article><p>Tennessee Iced Tea (Strong) — ₹675 (Vodka, Rum, Gin, Tequila, Triple Sec, Jack Daniel's, Lemon Juice, Simple, Top with Cola)</p></article>
       <article><p>Hawaiian Iced Tea (Tropical) — ₹999 (Vodka, Rum, Gin, Tequila, Triple Sec, Lemon Juice, Top with Pineapple Juice)</p></article>
     </section>
-
-    <!-- Beverages Menu Semantic Content -->
-    <section aria-label="Beverages Menu — Coffee, Shakes, Smoothies &amp; Refreshments">
-      <h2>Saanj Bagh — Beverages Menu</h2>
-
-      <h3>Hot Coffee</h3>
-      <article><p>Classic Espresso — ₹149 (Arabica Coffee Beans, Water)</p></article>
-      <article><p>Americano — ₹199 (Arabica Coffee Beans, Hot Water)</p></article>
-      <article><p>Cortado — ₹219 (Espresso, Steamed Milk)</p></article>
-      <article><p>Flat White — ₹219 (Double Espresso, Micro-foam Milk)</p></article>
-      <article><p>Cappuccino — ₹199 (Espresso, Steamed Milk, Milk Foam)</p></article>
-      <article><p>Café Latte — ₹199 (Espresso, Steamed Milk)</p></article>
-      <article><p>Vanilla Bean Latte — ₹249 (Espresso, Milk, Vanilla Bean Syrup)</p></article>
-      <article><p>Dark Chocolate Mocha — ₹249 (Espresso, Milk, Dark Chocolate Sauce)</p></article>
-
-      <h3>Cold Coffee</h3>
-      <article><p>Iced Americano — ₹249 (Espresso, Cold Water, Ice)</p></article>
-      <article><p>Classic Cold Brew — ₹349 (Coarse Ground Coffee, Filtered Water, Ice)</p></article>
-      <article><p>Nitro Cold Brew — ₹349 (Cold Brew Coffee, Nitrogen Gas)</p></article>
-      <article><p>Iced Caramel Macchiato — ₹349 (Espresso, Milk, Ice, Caramel Sauce)</p></article>
-      <article><p>Iced Hazelnut Latte — ₹349 (Espresso, Cold Milk, Ice, Hazelnut Syrup)</p></article>
-      <article><p>Vietnamese Iced Coffee — ₹349 (Dark Roast Coffee, Condensed Milk, Ice)</p></article>
-      <article><p>Affogato — ₹349 (Double Espresso, Vanilla Ice Cream)</p></article>
-
-      <h3>Shakes</h3>
-      <article><p>Vanilla Bean Shake — ₹349 (Vanilla Ice Cream, Whole Milk)</p></article>
-      <article><p>Double Chocolate Fudge Shake — ₹349 (Chocolate Ice Cream, Milk, Hot Fudge)</p></article>
-      <article><p>Fresh Strawberry Shake — ₹349 (Strawberry Ice Cream, Milk, Real Strawberries)</p></article>
-      <article><p>Oreo Cookies &amp; Cream Shake — ₹349 (Vanilla Ice Cream, Milk, Oreo Cookies)</p></article>
-      <article><p>Mango Shake — ₹349 (Vanilla Ice Cream, Milk, Mango Puree)</p></article>
-      <article><p>Saanjh Bagh Signature Royal Shake — ₹349 (Vanilla Ice Cream, Milk, Saffron, Dates, Almonds)</p></article>
-      <article><p>Salted Caramel Pretzel Shake — ₹349 (Vanilla Ice Cream, Milk, Caramel, Sea Salt, Pretzels)</p></article>
-      <article><p>Nutella Hazelnut Shake — ₹349 (Chocolate Ice Cream, Milk, Nutella, Roasted Hazelnuts)</p></article>
-      <article><p>Lotus Biscoff Shake — ₹349 (Vanilla Ice Cream, Milk, Biscoff Spread, Crumbs)</p></article>
-      <article><p>Brownie Batter Shake — ₹349 (Chocolate Ice Cream, Milk, Brownie Chunks, Chocolate)</p></article>
-
-      <h3>Smoothies</h3>
-      <article><p>Mixed Berry Blast — ₹349 (Strawberries, Blueberries, Yogurt, Honey, Almond Milk)</p></article>
-      <article><p>Tropical Mango &amp; Passionfruit — ₹349 (Mango, Passionfruit Pulp, Greek Yogurt, Coconut Water)</p></article>
-      <article><p>Green Detox — ₹349 (Spinach, Green Apple, Kiwi, Mint, Coconut Water)</p></article>
-      <article><p>Banana Oat &amp; Honey — ₹349 (Banana, Rolled Oats, Honey, Cinnamon, Almond Milk)</p></article>
-      <article><p>Piña Colada Smoothie — ₹349 (Pineapple Chunks, Coconut Cream, Banana, Coconut Milk)</p></article>
-
-      <h3>Beverages</h3>
-      <article><p>Mineral Water — ₹149</p></article>
-      <article><p>Coke — ₹149</p></article>
-      <article><p>Thums Up — ₹149</p></article>
-      <article><p>Diet Coke — ₹199</p></article>
-      <article><p>Ginger Ale — ₹149</p></article>
-      <article><p>Tonic Water — ₹149</p></article>
-      <article><p>Red Bull — ₹299</p></article>
-      <article><p>Canned Juice — ₹149</p></article>
-    </section>
   </div>
 
-  <script src="app.js?v=20261021d"></script>
+  <script src="app.js?v=20261021f"></script>
 </body>
 </html>
 

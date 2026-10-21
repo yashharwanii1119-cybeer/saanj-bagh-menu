@@ -1060,9 +1060,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (e.key.toLowerCase() === 'm' && !e.ctrlKey && !e.metaKey) {
-      if (currentMenu === 'food') switchMenu('bar');
+      if (currentMenu === 'food') switchMenu('beverages');
+      else if (currentMenu === 'beverages') switchMenu('bar');
       else if (currentMenu === 'bar') switchMenu('cocktail');
-      else if (currentMenu === 'cocktail') switchMenu('beverages');
       else switchMenu('food');
     }
 
