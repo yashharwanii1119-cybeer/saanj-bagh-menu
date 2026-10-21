@@ -1199,15 +1199,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnJumpMenu) {
     btnJumpMenu.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (activeQrView) {
-        showQrLanding(activeQrView);
-      } else {
-        if (currentMenu !== 'food') {
-          switchMenu('food');
-        } else {
-          goToPage(0, 0.45);
-        }
-      }
+      goToPage(0, 0.45);
     });
   }
 
@@ -1215,43 +1207,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const urlSearch = new URLSearchParams(window.location.search);
   const viewArg = (urlSearch.get('view') || (window.location.hash ? window.location.hash.replace(/^#/, '') : '')).toLowerCase();
 
+  // Ensure QR landing overlay is strictly hidden and never captures clicks or blocks interaction
+  if (qrLandingOverlay) {
+    qrLandingOverlay.setAttribute('hidden', '');
+    qrLandingOverlay.classList.remove('active');
+  }
+
   if (viewArg === 'bar-cocktail') {
+    // Open Bar Menu book directly at cover/first page
     document.body.dataset.viewMode = 'bar-cocktail';
     currentMenu = 'bar';
     barPage = 0;
     switchMenu('bar', true);
-    showQrLanding('bar-cocktail');
   } else if (viewArg === 'food-beverage') {
+    // Open Food Menu book directly at cover
     document.body.dataset.viewMode = 'food-beverage';
     currentMenu = 'food';
     foodPage = 0;
     setFinalState(0);
-    showQrLanding('food-beverage');
   } else if (viewArg === 'food') {
     document.body.dataset.viewMode = 'food';
     currentMenu = 'food';
     foodPage = 0;
     setFinalState(0);
-    if (qrLandingOverlay) qrLandingOverlay.setAttribute('hidden', '');
   } else if (viewArg === 'bar') {
     document.body.dataset.viewMode = 'bar';
     currentMenu = 'bar';
     barPage = 0;
     switchMenu('bar', true);
-    if (qrLandingOverlay) qrLandingOverlay.setAttribute('hidden', '');
   } else if (viewArg === 'cocktail') {
     document.body.dataset.viewMode = 'cocktail';
     currentMenu = 'cocktail';
     cocktailPage = 0;
     switchMenu('cocktail', true);
-    if (qrLandingOverlay) qrLandingOverlay.setAttribute('hidden', '');
   } else {
     // Default website experience (no view parameter)
     document.body.removeAttribute('data-view-mode');
     currentMenu = 'food';
     foodPage = 0;
     setFinalState(0);
-    if (qrLandingOverlay) qrLandingOverlay.setAttribute('hidden', '');
   }
 });
 

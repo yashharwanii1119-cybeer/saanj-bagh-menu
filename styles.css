@@ -2521,12 +2521,16 @@ body[data-active-menu="cocktail"] .floating-expand-btn,
 
 .qr-landing-overlay[hidden] {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .qr-landing-overlay:not([hidden]) {
   display: flex !important;
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .qr-landing-overlay.active {
@@ -2788,15 +2792,32 @@ body[data-view-mode="cocktail"] .menu-switcher-nav {
   display: none !important;
 }
 
-/* Anti-flash early hide for unselected menus when entering via QR */
-html[data-initial-view="bar-cocktail"] .menu-book-container[data-menu="food"],
-html[data-initial-view="food-beverage"] .menu-book-container[data-menu="food"] {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-html[data-initial-view="bar-cocktail"] .menu-book-container:not([data-menu="food"]),
-html[data-initial-view="food-beverage"] .menu-book-container {
-  opacity: 1;
+/* Anti-flash early hide: ensure non-food initial menus do not flash food layers */
+html[data-initial-view="bar-cocktail"] .menu-book-container .cover-layer,
+html[data-initial-view="bar-cocktail"] .menu-book-container .soup-layer,
+html[data-initial-view="bar-cocktail"] .menu-book-container .garde-layer,
+html[data-initial-view="bar-cocktail"] .menu-book-container .around-world-layer,
+html[data-initial-view="bar-cocktail"] .menu-book-container .pasta-layer,
+html[data-initial-view="bar-cocktail"] .menu-book-container .tandoor-kebabs-layer,
+html[data-initial-view="bar-cocktail"] .menu-book-container .tandoor-breads-layer,
+html[data-initial-view="bar-cocktail"] .menu-book-container .indian-layer,
+html[data-initial-view="bar"] .menu-book-container .cover-layer,
+html[data-initial-view="bar"] .menu-book-container .soup-layer,
+html[data-initial-view="bar"] .menu-book-container .garde-layer,
+html[data-initial-view="bar"] .menu-book-container .around-world-layer,
+html[data-initial-view="bar"] .menu-book-container .pasta-layer,
+html[data-initial-view="bar"] .menu-book-container .tandoor-kebabs-layer,
+html[data-initial-view="bar"] .menu-book-container .tandoor-breads-layer,
+html[data-initial-view="bar"] .menu-book-container .indian-layer,
+html[data-initial-view="cocktail"] .menu-book-container .cover-layer,
+html[data-initial-view="cocktail"] .menu-book-container .soup-layer,
+html[data-initial-view="cocktail"] .menu-book-container .garde-layer,
+html[data-initial-view="cocktail"] .menu-book-container .around-world-layer,
+html[data-initial-view="cocktail"] .menu-book-container .pasta-layer,
+html[data-initial-view="cocktail"] .menu-book-container .tandoor-kebabs-layer,
+html[data-initial-view="cocktail"] .menu-book-container .tandoor-breads-layer,
+html[data-initial-view="cocktail"] .menu-book-container .indian-layer {
+  display: none !important;
 }
 
 
