@@ -385,13 +385,14 @@ html, body {
    Dual-Menu Architecture: Seamless switching between Food & Bar experiences
    ========================================================================== */
 
-/* In Food Mode, hide Bar and Cocktail layers */
+/* In Food Mode, hide Bar, Cocktail and Beverages layers */
 .menu-book-container[data-menu="food"] .bar-layer,
-.menu-book-container[data-menu="food"] .cocktail-layer {
+.menu-book-container[data-menu="food"] .cocktail-layer,
+.menu-book-container[data-menu="food"] .bev-layer {
   display: none !important;
 }
 
-/* In Bar Mode, hide Food and Cocktail layers */
+/* In Bar Mode, hide Food, Cocktail and Beverages layers */
 .menu-book-container[data-menu="bar"] .cover-layer,
 .menu-book-container[data-menu="bar"] .soup-layer,
 .menu-book-container[data-menu="bar"] .garde-layer,
@@ -400,11 +401,12 @@ html, body {
 .menu-book-container[data-menu="bar"] .tandoor-kebabs-layer,
 .menu-book-container[data-menu="bar"] .tandoor-breads-layer,
 .menu-book-container[data-menu="bar"] .indian-layer,
-.menu-book-container[data-menu="bar"] .cocktail-layer {
+.menu-book-container[data-menu="bar"] .cocktail-layer,
+.menu-book-container[data-menu="bar"] .bev-layer {
   display: none !important;
 }
 
-/* In Cocktail Mode, hide Food and Bar layers */
+/* In Cocktail Mode, hide Food, Bar and Beverages layers */
 .menu-book-container[data-menu="cocktail"] .cover-layer,
 .menu-book-container[data-menu="cocktail"] .soup-layer,
 .menu-book-container[data-menu="cocktail"] .garde-layer,
@@ -413,7 +415,22 @@ html, body {
 .menu-book-container[data-menu="cocktail"] .tandoor-kebabs-layer,
 .menu-book-container[data-menu="cocktail"] .tandoor-breads-layer,
 .menu-book-container[data-menu="cocktail"] .indian-layer,
-.menu-book-container[data-menu="cocktail"] .bar-layer {
+.menu-book-container[data-menu="cocktail"] .bar-layer,
+.menu-book-container[data-menu="cocktail"] .bev-layer {
+  display: none !important;
+}
+
+/* In Beverages Mode, hide Food, Bar and Cocktail layers */
+.menu-book-container[data-menu="beverages"] .cover-layer,
+.menu-book-container[data-menu="beverages"] .soup-layer,
+.menu-book-container[data-menu="beverages"] .garde-layer,
+.menu-book-container[data-menu="beverages"] .around-world-layer,
+.menu-book-container[data-menu="beverages"] .pasta-layer,
+.menu-book-container[data-menu="beverages"] .tandoor-kebabs-layer,
+.menu-book-container[data-menu="beverages"] .tandoor-breads-layer,
+.menu-book-container[data-menu="beverages"] .indian-layer,
+.menu-book-container[data-menu="beverages"] .bar-layer,
+.menu-book-container[data-menu="beverages"] .cocktail-layer {
   display: none !important;
 }
 
@@ -707,6 +724,80 @@ html, body {
 .menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 .menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-wine-layer { opacity: 0; pointer-events: none; }
 .menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-iced-tea-layer { opacity: 1; pointer-events: none; }
+
+/* ==========================================================================
+   BEVERAGES MENU LAYERS & BOOK PRESENTATION (COFFEE + SHAKES/BEVERAGES)
+   ========================================================================== */
+.bev-layer {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #F8ECD7;
+}
+
+.bev-artwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Beverages Page 1: Shakes, Smoothies & Beverages (Page 1) */
+.bev-shakes-layer {
+  z-index: 2;
+  background: #FDF4E7;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Beverages Page 0: Coffee (Page 0) */
+.bev-coffee-layer {
+  z-index: 4;
+  background: #F8ECD7;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Beverages State: Page 0 (Coffee active) */
+.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-coffee-layer {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-shakes-layer {
+  opacity: 1;
+  pointer-events: none;
+  visibility: visible;
+}
+
+/* Beverages State: Animating Page 0 -> 1 */
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-0-1"] .bev-coffee-layer {
+  opacity: 0;
+  pointer-events: none;
+}
+.menu-book-container[data-menu="beverages"][data-state="animating-bev-0-1"] .bev-shakes-layer {
+  opacity: 1;
+  pointer-events: none;
+  visibility: visible;
+}
+
+/* Beverages State: Page 1 (Shakes, Smoothies & Beverages active) */
+.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-coffee-layer {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-shakes-layer {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
 
 /* --- 3B. DELICATE BOTANICAL COVER BREEZE ANIMATION --- */
 /* Strictly pure foliage movement: zero architectural, arch, pillar, or border movement */
@@ -2109,6 +2200,7 @@ html, body {
 
 body[data-active-menu="bar"] .floating-expand-btn,
 body[data-active-menu="cocktail"] .floating-expand-btn,
+body[data-active-menu="beverages"] .floating-expand-btn,
 .floating-expand-btn.visible {
   display: inline-flex;
 }
@@ -2779,9 +2871,11 @@ body[data-active-menu="cocktail"] .floating-expand-btn,
    INDEPENDENT MENU EXPERIENCE VIEW MODES
    ========================================================================== */
 
-/* Bar & Cocktail QR Experience: Food Menu is strictly hidden from switcher */
+/* Bar & Cocktail QR Experience: Food Menu and Beverages are strictly hidden from switcher */
 body[data-view-mode="bar-cocktail"] #btnFoodMenu,
-body[data-view-mode="bar-cocktail"] .switch-divider-food {
+body[data-view-mode="bar-cocktail"] .switch-divider-food,
+body[data-view-mode="bar-cocktail"] #btnBeveragesMenu,
+body[data-view-mode="bar-cocktail"] .switch-divider-cocktail {
   display: none !important;
 }
 
@@ -2816,8 +2910,30 @@ html[data-initial-view="cocktail"] .menu-book-container .around-world-layer,
 html[data-initial-view="cocktail"] .menu-book-container .pasta-layer,
 html[data-initial-view="cocktail"] .menu-book-container .tandoor-kebabs-layer,
 html[data-initial-view="cocktail"] .menu-book-container .tandoor-breads-layer,
-html[data-initial-view="cocktail"] .menu-book-container .indian-layer {
+html[data-initial-view="cocktail"] .menu-book-container .indian-layer,
+html[data-initial-view="beverages"] .menu-book-container .cover-layer,
+html[data-initial-view="beverages"] .menu-book-container .soup-layer,
+html[data-initial-view="beverages"] .menu-book-container .garde-layer,
+html[data-initial-view="beverages"] .menu-book-container .around-world-layer,
+html[data-initial-view="beverages"] .menu-book-container .pasta-layer,
+html[data-initial-view="beverages"] .menu-book-container .tandoor-kebabs-layer,
+html[data-initial-view="beverages"] .menu-book-container .tandoor-breads-layer,
+html[data-initial-view="beverages"] .menu-book-container .indian-layer {
   display: none !important;
+}
+
+/* Responsive 4-Menu Switcher Enhancement */
+.menu-switcher-nav {
+  max-width: 98vw;
+}
+.menu-switcher-pill {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  max-width: 100%;
+}
+.menu-switcher-pill::-webkit-scrollbar {
+  display: none;
 }
 
 

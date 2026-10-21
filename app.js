@@ -107,10 +107,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const cocktailWineArtwork = document.getElementById('cocktailWineArtwork');
   const cocktailIcedTeaArtwork = document.getElementById('cocktailIcedTeaArtwork');
 
-  // 3-Way Menu Switcher Controls
+  // Beverages Menu Layers & Artworks (Coffee + Shakes, Smoothies & Beverages)
+  const bevCoffeeLayer = document.getElementById('bevCoffeeLayer');
+  const bevShakesLayer = document.getElementById('bevShakesLayer');
+  const bevCoffeeArtwork = document.getElementById('bevCoffeeArtwork');
+  const bevShakesArtwork = document.getElementById('bevShakesArtwork');
+
+  // 4-Way Menu Switcher Controls
   const btnFoodMenu = document.getElementById('btnFoodMenu');
   const btnBarMenu = document.getElementById('btnBarMenu');
   const btnCocktailMenu = document.getElementById('btnCocktailMenu');
+  const btnBeveragesMenu = document.getElementById('btnBeveragesMenu');
 
   // Book Arrow Navigation Controls
   const btnNavPrev = document.getElementById('btnNavPrev');
@@ -153,6 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: 'LIIT — LONG ISLAND ICED TEA', src: 'assets/images/cocktail-8-iced-tea.jpg', alt: 'Saanj Bagh — LIIT — Long Island Iced Tea Menu' }
   ];
 
+  const BEVERAGES_MENU_PAGES = [
+    { title: 'COFFEE', src: 'assets/images/coffee-menu.png', alt: 'Saanj Bagh — Coffee Menu' },
+    { title: 'SHAKES, SMOOTHIES & BEVERAGES', src: 'assets/images/shakes-beverages-menu.jpg', alt: 'Saanj Bagh — Shakes, Smoothies & Beverages Menu' }
+  ];
+
   // --- High-DPI Canvas 2D Setup (Uniform 682 x 1024 Aspect Ratio) ---
   const ctx = curlCanvas.getContext('2d');
   const VIRTUAL_W = 682;
@@ -175,11 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  // --- 3-Way Menu Book State ---
-  let currentMenu = 'food';     // 'food' | 'bar' | 'cocktail'
+  // --- 4-Way Menu Book State ---
+  let currentMenu = 'food';     // 'food' | 'bar' | 'cocktail' | 'beverages'
   let foodPage = 0;             // [0..9]
   let barPage = 0;              // [0..6]
   let cocktailPage = 0;         // [0..7]
+  let beveragesPage = 0;        // [0..1]
   let currentPage = 0;          // Active page within the active menu
   let currentState = 'cover';   // Current data-state attribute
   let activeTurningPage = 0;    // Active turning page index
@@ -195,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentMenu === 'food') return 9;
     if (currentMenu === 'bar') return 6;
     if (currentMenu === 'cocktail') return 7;
+    if (currentMenu === 'beverages') return 1;
     return 9;
   }
 
@@ -203,8 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return `animating-${turningPg}-${turningPg + 1}`;
     } else if (currentMenu === 'bar') {
       return `animating-bar-${turningPg}-${turningPg + 1}`;
-    } else {
+    } else if (currentMenu === 'cocktail') {
       return `animating-cocktail-${turningPg}-${turningPg + 1}`;
+    } else {
+      return `animating-bev-${turningPg}-${turningPg + 1}`;
     }
   }
 
@@ -352,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (turningPage === 2) turningArt = barWhiskey3Artwork;
       else if (turningPage === 1) turningArt = barWhiskey2Artwork;
       else turningArt = barWhiskey1Artwork;
-    } else {
+    } else if (currentMenu === 'cocktail') {
       if (turningPage === 6) turningArt = cocktailWineArtwork;
       else if (turningPage === 5) turningArt = cocktailWhiskyArtwork;
       else if (turningPage === 4) turningArt = cocktailRumArtwork;
@@ -360,6 +376,8 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (turningPage === 2) turningArt = cocktailGinArtwork;
       else if (turningPage === 1) turningArt = cocktailTequilaWhiskyArtwork;
       else turningArt = cocktailSigArtwork;
+    } else if (currentMenu === 'beverages') {
+      turningArt = bevCoffeeArtwork;
     }
 
     if (turningArt && turningArt.complete) {
@@ -392,6 +410,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const artW = Math.round(H * (nw / nh));
         const artX = Math.round((W - artW) / 2);
         ctx.drawImage(turningArt, artX, 0, artW, H);
+      } else if (currentMenu === 'beverages') {
+        ctx.fillStyle = '#F8ECD7';
+        ctx.fillRect(0, 0, W, H);
+        ctx.drawImage(turningArt, 0, 0, W, H);
       } else {
         ctx.drawImage(turningArt, 0, 0, W, H);
       }
@@ -528,7 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (page === 4) currentState = 'bar-4';
       else if (page === 5) currentState = 'bar-5';
       else if (page === 6) currentState = 'bar-6';
-    } else {
+    } else if (currentMenu === 'cocktail') {
       cocktailPage = page;
       if (page === 0) currentState = 'cocktail-0';
       else if (page === 1) currentState = 'cocktail-1';
@@ -538,6 +560,10 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (page === 5) currentState = 'cocktail-5';
       else if (page === 6) currentState = 'cocktail-6';
       else if (page === 7) currentState = 'cocktail-7';
+    } else if (currentMenu === 'beverages') {
+      beveragesPage = page;
+      if (page === 0) currentState = 'bev-0';
+      else currentState = 'bev-1';
     }
 
     menuBook.dataset.menu = currentMenu;
@@ -546,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle Floating Expand Button Visibility
     if (btnExpandMenu) {
-      const isExpandable = (currentMenu === 'bar' || currentMenu === 'cocktail');
+      const isExpandable = (currentMenu === 'bar' || currentMenu === 'cocktail' || currentMenu === 'beverages');
       btnExpandMenu.classList.toggle('visible', isExpandable);
     }
 
@@ -713,7 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const clickXNorm = (e.clientX - rect.left) / rect.width;
       const maxP = getMaxPage();
 
-      if (currentMenu === 'bar' || currentMenu === 'cocktail') {
+      if (currentMenu === 'bar' || currentMenu === 'cocktail' || currentMenu === 'beverages') {
         if (clickXNorm > 0.80) {
           if (currentPage < maxP) goToPage(currentPage + 1, currentLiftBias);
         } else if (clickXNorm < 0.20) {
@@ -819,11 +845,17 @@ document.addEventListener('DOMContentLoaded', () => {
       btnCocktailMenu.classList.toggle('active', isCocktail);
       btnCocktailMenu.setAttribute('aria-selected', isCocktail ? 'true' : 'false');
     }
+    if (btnBeveragesMenu) {
+      const isBeverages = (targetMenu === 'beverages');
+      btnBeveragesMenu.classList.toggle('active', isBeverages);
+      btnBeveragesMenu.setAttribute('aria-selected', isBeverages ? 'true' : 'false');
+    }
 
     let restoredPage = 0;
     if (targetMenu === 'food') restoredPage = foodPage;
     else if (targetMenu === 'bar') restoredPage = barPage;
     else if (targetMenu === 'cocktail') restoredPage = cocktailPage;
+    else if (targetMenu === 'beverages') restoredPage = beveragesPage;
 
     setFinalState(restoredPage);
   }
@@ -846,6 +878,12 @@ document.addEventListener('DOMContentLoaded', () => {
       switchMenu('cocktail');
     });
   }
+  if (btnBeveragesMenu) {
+    btnBeveragesMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      switchMenu('beverages');
+    });
+  }
 
   // ==========================================================================
   // 7. HIGH-LEGIBILITY EXPANDED READING VIEWER CONTROLLER
@@ -854,6 +892,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function getCurrentMenuManifest() {
     if (currentMenu === 'bar') return BAR_MENU_PAGES;
     if (currentMenu === 'cocktail') return COCKTAIL_MENU_PAGES;
+    if (currentMenu === 'beverages') return BEVERAGES_MENU_PAGES;
     return null;
   }
 
@@ -1015,7 +1054,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (e.key.toLowerCase() === 'e' && !e.ctrlKey && !e.metaKey) {
-      if (currentMenu === 'bar' || currentMenu === 'cocktail') {
+      if (currentMenu === 'bar' || currentMenu === 'cocktail' || currentMenu === 'beverages') {
         openExpanded(currentPage);
       }
     }
@@ -1023,6 +1062,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key.toLowerCase() === 'm' && !e.ctrlKey && !e.metaKey) {
       if (currentMenu === 'food') switchMenu('bar');
       else if (currentMenu === 'bar') switchMenu('cocktail');
+      else if (currentMenu === 'cocktail') switchMenu('beverages');
       else switchMenu('food');
     }
 
@@ -1063,7 +1103,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/images/cocktail-5-rum.jpg',
     'assets/images/cocktail-6-whisky.jpg',
     'assets/images/cocktail-7-wine.jpg',
-    'assets/images/cocktail-8-iced-tea.jpg'
+    'assets/images/cocktail-8-iced-tea.jpg',
+    'assets/images/coffee-menu.png',
+    'assets/images/shakes-beverages-menu.jpg'
   ];
 
   preloadSources.forEach((src) => {
@@ -1114,6 +1156,14 @@ document.addEventListener('DOMContentLoaded', () => {
       subtitle: 'Artisanal Signatures, Tequila, Gin, Classics, Wine Cocktails & LIIT (8 Pages)',
       badge: '8 Pages',
       btnText: 'View Cocktail Menu'
+    },
+    beverages: {
+      id: 'beverages',
+      icon: '☕',
+      title: 'BEVERAGES',
+      subtitle: 'Hot & Cold Coffees, Thick Shakes, Smoothies, Crushes & Refreshers (2 Pages)',
+      badge: '2 Pages',
+      btnText: 'View Beverages'
     }
   };
 
@@ -1240,6 +1290,11 @@ document.addEventListener('DOMContentLoaded', () => {
     currentMenu = 'cocktail';
     cocktailPage = 0;
     switchMenu('cocktail', true);
+  } else if (viewArg === 'beverages') {
+    document.body.dataset.viewMode = 'beverages';
+    currentMenu = 'beverages';
+    beveragesPage = 0;
+    switchMenu('beverages', true);
   } else {
     // Default website experience (no view parameter)
     document.body.removeAttribute('data-view-mode');
