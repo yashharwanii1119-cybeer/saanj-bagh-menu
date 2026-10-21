@@ -20,7 +20,17 @@
     }
   </script>
   <link rel="icon" type="image/jpeg" href="assets/images/saanj-bagh-logo.jpg">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261021b">
+  <script>
+    // Early Synchronous View Routing Detector (prevents visual flashing)
+    (function() {
+      const p = new URLSearchParams(window.location.search);
+      const v = (p.get('view') || (window.location.hash ? window.location.hash.replace(/^#/, '') : '')).toLowerCase();
+      if (v) {
+        document.documentElement.dataset.initialView = v;
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -39,12 +49,12 @@
           <span class="switch-bullet" aria-hidden="true">✦</span>
           <span class="switch-label">FOOD MENU</span>
         </button>
-        <div class="switch-divider" aria-hidden="true"></div>
+        <div class="switch-divider switch-divider-food" aria-hidden="true"></div>
         <button class="menu-switch-btn" id="btnBarMenu" role="tab" aria-selected="false" type="button">
           <span class="switch-bullet" aria-hidden="true">✦</span>
           <span class="switch-label">BAR MENU</span>
         </button>
-        <div class="switch-divider" aria-hidden="true"></div>
+        <div class="switch-divider switch-divider-bar" aria-hidden="true"></div>
         <button class="menu-switch-btn" id="btnCocktailMenu" role="tab" aria-selected="false" type="button">
           <span class="switch-bullet" aria-hidden="true">✦</span>
           <span class="switch-label">COCKTAIL MENU</span>
@@ -1235,7 +1245,7 @@
     </section>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=20261021b"></script>
 </body>
 </html>
 

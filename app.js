@@ -785,8 +785,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   // 6. THREE-WAY MENU SWITCHER ENGINE (FOOD MENU | BAR MENU | COCKTAIL MENU)
   // ==========================================================================
-  function switchMenu(targetMenu) {
-    if (targetMenu === currentMenu) return;
+  function switchMenu(targetMenu, force = false) {
+    if (!force && targetMenu === currentMenu) return;
 
     if (isAnimating) {
       if (animationId) {
@@ -1071,11 +1071,15 @@ document.addEventListener('DOMContentLoaded', () => {
     img.src = src;
   });
 
-  setFinalState(0);
-
   // ==========================================================================
-  // 10. DEDICATED QR LANDING & MENU SELECTION CONTROLLER
-  //     Activated via ?view=bar-cocktail or ?view=food-beverage
+  // 10. CANONICAL ROUTER & DEDICATED QR LANDING CONTROLLER
+  //     Supports:
+  //     - ?view=food (Direct Food Menu experience)
+  //     - ?view=bar (Direct Bar Menu experience)
+  //     - ?view=cocktail (Direct Cocktail Menu experience)
+  //     - ?view=bar-cocktail (Dedicated Bar & Cocktail 2-option selection)
+  //     - ?view=food-beverage (Dedicated Food & Beverage 3-option selection)
+  //     - Default (no query parameter: Standard 3-way website experience)
   // ==========================================================================
   const qrLandingOverlay = document.getElementById('qrLandingOverlay');
   const qrLandingTitle = document.getElementById('qrLandingTitle');
@@ -1122,17 +1126,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (qrLandingDesc) qrLandingDesc.textContent = 'Please select a menu experience below to begin exploring:';
       renderQrOptions(['bar', 'cocktail']);
       qrLandingOverlay.removeAttribute('hidden');
-      requestAnimationFrame(() => {
-        qrLandingOverlay.classList.add('active');
-      });
+      qrLandingOverlay.classList.add('active');
     } else if (viewType === 'food-beverage') {
       if (qrLandingTitle) qrLandingTitle.textContent = 'FOOD & BEVERAGE MENU';
       if (qrLandingDesc) qrLandingDesc.textContent = 'Please select a menu experience below to begin exploring:';
       renderQrOptions(['food', 'bar', 'cocktail']);
       qrLandingOverlay.removeAttribute('hidden');
-      requestAnimationFrame(() => {
-        qrLandingOverlay.classList.add('active');
-      });
+      qrLandingOverlay.classList.add('active');
     }
   }
 
@@ -1166,7 +1166,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const selectHandler = (e) => {
         if (e) e.stopPropagation();
         closeQrLanding();
-        switchMenu(data.id);
+        switchMenu(data.id, true);
       };
 
       card.addEventListener('click', selectHandler);
@@ -1186,7 +1186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     qrLandingOverlay.classList.remove('active');
     setTimeout(() => {
       qrLandingOverlay.setAttribute('hidden', '');
-    }, 350);
+    }, 300);
   }
 
   if (btnQrBrowseAll) {
@@ -1211,12 +1211,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Check URL parameters on initialization
+  // --- INITIALIZATION & ROUTING EXECUTION ---
   const urlSearch = new URLSearchParams(window.location.search);
-  const viewArg = urlSearch.get('view') || (window.location.hash ? window.location.hash.replace(/^#/, '') : null);
+  const viewArg = (urlSearch.get('view') || (window.location.hash ? window.location.hash.replace(/^#/, '') : '')).toLowerCase();
 
-  if (viewArg === 'bar-cocktail' || viewArg === 'food-beverage') {
-    showQrLanding(viewArg);
+  if (viewArg === 'bar-cocktail') {
+    document.body.dataset.viewMode = 'bar-cocktail';
+    currentMenu = 'bar';
+    barPage = 0;
+    switchMenu('bar', true);
+    showQrLanding('bar-cocktail');
+  } else if (viewArg === 'food-beverage') {
+    document.body.dataset.viewMode = 'food-beverage';
+    currentMenu = 'food';
+    foodPage = 0;
+    setFinalState(0);
+    showQrLanding('food-beverage');
+  } else if (viewArg === 'food') {
+    document.body.dataset.viewMode = 'food';
+    currentMenu = 'food';
+    foodPage = 0;
+    setFinalState(0);
+    if (qrLandingOverlay) qrLandingOverlay.setAttribute('hidden', '');
+  } else if (viewArg === 'bar') {
+    document.body.dataset.viewMode = 'bar';
+    currentMenu = 'bar';
+    barPage = 0;
+    switchMenu('bar', true);
+    if (qrLandingOverlay) qrLandingOverlay.setAttribute('hidden', '');
+  } else if (viewArg === 'cocktail') {
+    document.body.dataset.viewMode = 'cocktail';
+    currentMenu = 'cocktail';
+    cocktailPage = 0;
+    switchMenu('cocktail', true);
+    if (qrLandingOverlay) qrLandingOverlay.setAttribute('hidden', '');
+  } else {
+    // Default website experience (no view parameter)
+    document.body.removeAttribute('data-view-mode');
+    currentMenu = 'food';
+    foodPage = 0;
+    setFinalState(0);
+    if (qrLandingOverlay) qrLandingOverlay.setAttribute('hidden', '');
   }
 });
 

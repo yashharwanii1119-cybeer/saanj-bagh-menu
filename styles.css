@@ -2510,13 +2510,23 @@ body[data-active-menu="cocktail"] .floating-expand-btn,
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: rgba(10, 17, 13, 0.88);
+  background: rgba(10, 17, 13, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
   overflow-y: auto;
+}
+
+.qr-landing-overlay[hidden] {
+  display: none !important;
+}
+
+.qr-landing-overlay:not([hidden]) {
+  display: flex !important;
+  opacity: 1;
+  visibility: visible;
 }
 
 .qr-landing-overlay.active {
@@ -2760,6 +2770,35 @@ body[data-active-menu="cocktail"] .floating-expand-btn,
     padding: 0.95rem 1.1rem;
   }
 }
+
+/* ==========================================================================
+   INDEPENDENT MENU EXPERIENCE VIEW MODES
+   ========================================================================== */
+
+/* Bar & Cocktail QR Experience: Food Menu is strictly hidden from switcher */
+body[data-view-mode="bar-cocktail"] #btnFoodMenu,
+body[data-view-mode="bar-cocktail"] .switch-divider-food {
+  display: none !important;
+}
+
+/* Direct Single-Menu Experiences: Standalone view without distracting switchers */
+body[data-view-mode="food"] .menu-switcher-nav,
+body[data-view-mode="bar"] .menu-switcher-nav,
+body[data-view-mode="cocktail"] .menu-switcher-nav {
+  display: none !important;
+}
+
+/* Anti-flash early hide for unselected menus when entering via QR */
+html[data-initial-view="bar-cocktail"] .menu-book-container[data-menu="food"],
+html[data-initial-view="food-beverage"] .menu-book-container[data-menu="food"] {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+html[data-initial-view="bar-cocktail"] .menu-book-container:not([data-menu="food"]),
+html[data-initial-view="food-beverage"] .menu-book-container {
+  opacity: 1;
+}
+
 
 
 
