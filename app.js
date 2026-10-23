@@ -107,12 +107,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const cocktailWineArtwork = document.getElementById('cocktailWineArtwork');
   const cocktailIcedTeaArtwork = document.getElementById('cocktailIcedTeaArtwork');
 
-  // Beverages Menu Layers & Artworks (4 Pages)
+  // Beverages Menu Layers & Artworks (6 Pages)
+  const bevMocktails1Layer = document.getElementById('bevMocktails1Layer');
+  const bevMocktails2Layer = document.getElementById('bevMocktails2Layer');
   const bevCoffeeLayer = document.getElementById('bevCoffeeLayer');
   const bevCoffeeShakesLayer = document.getElementById('bevCoffeeShakesLayer');
   const bevShakesSmoothiesLayer = document.getElementById('bevShakesSmoothiesLayer');
   const bevBeveragesLayer = document.getElementById('bevBeveragesLayer');
 
+  const bevMocktails1Artwork = document.getElementById('bevMocktails1Artwork');
+  const bevMocktails2Artwork = document.getElementById('bevMocktails2Artwork');
   const bevCoffeeArtwork = document.getElementById('bevCoffeeArtwork');
   const bevCoffeeShakesArtwork = document.getElementById('bevCoffeeShakesArtwork');
   const bevShakesSmoothiesArtwork = document.getElementById('bevShakesSmoothiesArtwork');
@@ -166,6 +170,8 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const BEVERAGES_MENU_PAGES = [
+    { title: 'MOCKTAILS (1–10)', src: 'assets/images/beverages-mocktails-1.jpg', alt: 'Saanj Bagh — Mocktails Menu (Items 1–10)' },
+    { title: 'MOCKTAILS (11–20)', src: 'assets/images/beverages-mocktails-2.jpg', alt: 'Saanj Bagh — Mocktails Menu (Items 11–20)' },
     { title: 'COFFEE', src: 'assets/images/beverages-1-coffee.jpg', alt: 'Saanj Bagh — Coffee Menu' },
     { title: 'COFFEE & SHAKES', src: 'assets/images/beverages-2-coffee-shakes.jpg', alt: 'Saanj Bagh — Coffee & Shakes Menu' },
     { title: 'SHAKES & SMOOTHIES', src: 'assets/images/beverages-3-shakes-smoothies.jpg', alt: 'Saanj Bagh — Shakes & Smoothies Menu' },
@@ -199,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let foodPage = 0;             // [0..9]
   let barPage = 0;              // [0..6]
   let cocktailPage = 0;         // [0..7]
-  let beveragesPage = 0;        // [0..3]
+  let beveragesPage = 0;        // [0..5]
   let currentPage = 0;          // Active page within the active menu
   let currentState = 'cover';   // Current data-state attribute
   let activeTurningPage = 0;    // Active turning page index
@@ -215,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentMenu === 'food') return 9;
     if (currentMenu === 'bar') return 6;
     if (currentMenu === 'cocktail') return 7;
-    if (currentMenu === 'beverages') return 3;
+    if (currentMenu === 'beverages') return 5;
     return 9;
   }
 
@@ -384,9 +390,11 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (turningPage === 1) turningArt = cocktailTequilaWhiskyArtwork;
       else turningArt = cocktailSigArtwork;
     } else if (currentMenu === 'beverages') {
-      if (turningPage === 2) turningArt = bevShakesSmoothiesArtwork;
-      else if (turningPage === 1) turningArt = bevCoffeeShakesArtwork;
-      else turningArt = bevCoffeeArtwork;
+      if (turningPage === 4) turningArt = bevShakesSmoothiesArtwork;
+      else if (turningPage === 3) turningArt = bevCoffeeShakesArtwork;
+      else if (turningPage === 2) turningArt = bevCoffeeArtwork;
+      else if (turningPage === 1) turningArt = bevMocktails2Artwork;
+      else turningArt = bevMocktails1Artwork;
     }
 
     if (turningArt && turningArt.complete) {
@@ -575,6 +583,8 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (page === 1) currentState = 'bev-1';
       else if (page === 2) currentState = 'bev-2';
       else if (page === 3) currentState = 'bev-3';
+      else if (page === 4) currentState = 'bev-4';
+      else if (page === 5) currentState = 'bev-5';
     }
 
     menuBook.dataset.menu = currentMenu;
@@ -1115,6 +1125,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/images/cocktail-6-whisky.jpg',
     'assets/images/cocktail-7-wine.jpg',
     'assets/images/cocktail-8-iced-tea.jpg',
+    'assets/images/beverages-mocktails-1.jpg',
+    'assets/images/beverages-mocktails-2.jpg',
     'assets/images/beverages-1-coffee.jpg',
     'assets/images/beverages-2-coffee-shakes.jpg',
     'assets/images/beverages-3-shakes-smoothies.jpg',
@@ -1172,10 +1184,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     beverages: {
       id: 'beverages',
-      icon: '☕',
+      icon: '🍹',
       title: 'BEVERAGES',
-      subtitle: 'Coffees, Thick Shakes, Smoothies, Crushes & Refreshers (4 Pages)',
-      badge: '4 Pages',
+      subtitle: 'Mocktails, Artisanal Coffees, Thick Shakes, Smoothies & Refreshers (6 Pages)',
+      badge: '6 Pages',
       btnText: 'View Beverages'
     }
   };
