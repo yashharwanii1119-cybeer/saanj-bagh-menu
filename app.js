@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { title: 'TEQUILA & GIN', src: 'assets/images/bar-tequila-gin.jpg', alt: 'Saanj Bagh — Tequila & Gin Menu' },
     { title: 'VODKA, BRANDY, LIQUEUR & RUM', src: 'assets/images/bar-vodka-rum.jpg', alt: 'Saanj Bagh — Vodka, Brandy, Liqueur & Rum Menu' },
     { title: 'WINE SELECTION', src: 'assets/images/bar-wine.jpg', alt: 'Saanj Bagh — Wine Selection Menu' },
-    { title: 'BEER & BREEZER', src: 'assets/images/bar-beer-breezer.jpg', alt: 'Saanj Bagh — Beer & Breezer Menu' }
+    { title: 'BEER & BREEZER', src: 'assets/images/bar-beer-breezer.jpg?v=20261027a', alt: 'Saanj Bagh — Beer & Breezer Menu' }
   ];
 
   const COCKTAIL_MENU_PAGES = [
@@ -1116,7 +1116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/images/bar-tequila-gin.jpg',
     'assets/images/bar-vodka-rum.jpg',
     'assets/images/bar-wine.jpg',
-    'assets/images/bar-beer-breezer.jpg',
+    'assets/images/bar-beer-breezer.jpg?v=20261027a',
     'assets/images/cocktail-1-signature.jpg',
     'assets/images/cocktail-2-tequila-whisky.jpg',
     'assets/images/cocktail-3-gin.jpg',
