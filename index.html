@@ -20,7 +20,7 @@
     }
   </script>
   <link rel="icon" type="image/jpeg" href="assets/images/saanj-bagh-logo.jpg">
-  <link rel="stylesheet" href="styles.css?v=20261021h">
+  <link rel="stylesheet" href="styles.css?v=20261102a">
   <script>
     // Early Synchronous View Routing Detector (prevents visual flashing)
     (function() {
@@ -82,534 +82,231 @@
       <div class="menu-book-container" id="menuBook" data-menu="food" data-state="cover">
         
         <!-- ======================================================
-             PAGE LAYER: 09 · INDIAN MENU — PAGE 3: DAL & SIZZLER (Page 9)
-             Revealed when turning forward from Indian Page 2
+             FOOD MENU LAYERS (7 Pages total: 0 to 6)
+             Stacked from back (Page 6) to front (Page 0 Cover)
              ====================================================== -->
-        <div class="book-layer food-layer indian-layer indian-3-layer" id="indian3Layer" aria-label="Indian Menu — Dal, Sizzler &amp; Dessert">
+        <!-- Food Page 6: Dal Prepration & Desert -->
+        <div class="book-layer food-layer food-6-layer" id="food6Layer" aria-label="Food Menu — Dal Prepration &amp; Desert">
           <img 
-            src="assets/images/indian-3.jpg?v=20261027b" 
-            alt="Saanj Bagh — Indian Menu — Dal, Sizzler &amp; Dessert (Page 9)" 
+            src="assets/images/food-7-dal-dessert.jpg?v=20261102a" 
+            alt="Saanj Bagh — Dal Prepration &amp; Desert (Page 6)" 
             class="menu-artwork-img"
-            id="indian3Artwork"
+            id="food6Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             PAGE LAYER: 08 · INDIAN MENU — PAGE 2: SPECIALTIES & VEGETABLES (Page 8)
-             Revealed when turning forward from Indian Page 1
-             ====================================================== -->
-        <div class="book-layer food-layer indian-layer indian-2-layer" id="indian2Layer" aria-label="Indian Menu — Specialties &amp; Vegetables">
+        <!-- Food Page 5: Rice Prepration, Breads & Curd -->
+        <div class="book-layer food-layer food-5-layer" id="food5Layer" aria-label="Food Menu — Rice Prepration, Breads &amp; Curd">
           <img 
-            src="assets/images/indian-2.jpg" 
-            alt="Saanj Bagh — Indian Menu — Specialties &amp; Vegetables (Page 2)" 
+            src="assets/images/food-6-rice-breads.jpg?v=20261102a" 
+            alt="Saanj Bagh — Rice Prepration, Breads &amp; Curd (Page 5)" 
             class="menu-artwork-img"
-            id="indian2Artwork"
+            id="food5Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             PAGE LAYER: 07 · INDIAN MENU — PAGE 1: PANEER & MAINS (Page 7)
-             Revealed when turning forward from Tandoor — Breads
-             ====================================================== -->
-        <div class="book-layer food-layer indian-layer indian-1-layer" id="indian1Layer" aria-label="Indian Menu — Paneer &amp; Mains">
+        <!-- Food Page 4: Indian Specialities -->
+        <div class="book-layer food-layer food-4-layer" id="food4Layer" aria-label="Food Menu — Indian Specialities">
           <img 
-            src="assets/images/indian-1.jpg?v=20261027b" 
-            alt="Saanj Bagh — Indian Menu — Paneer &amp; Mains (Page 1)" 
+            src="assets/images/food-5-indian.jpg?v=20261102a" 
+            alt="Saanj Bagh — Indian Specialities (Page 4)" 
             class="menu-artwork-img"
-            id="indian1Artwork"
+            id="food4Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             PAGE LAYER: 06 · TANDOOR — BREADS & ACCOMPANIMENTS (Page 6)
-             Revealed when turning forward from Tandoor — Kebabs
-             ====================================================== -->
-        <div class="book-layer tandoor-breads-layer" id="tandoorBreadsLayer" aria-label="Tandoor — Breads & Accompaniments Menu">
+        <!-- Food Page 3: Pizza & Tandoor -->
+        <div class="book-layer food-layer food-3-layer" id="food3Layer" aria-label="Food Menu — Pizza &amp; Tandoor">
           <img 
-            src="assets/images/tandoor-breads.jpg" 
-            alt="Saanj Bagh — Tandoor, Breads & Accompaniments Menu" 
+            src="assets/images/food-4-pizza-tandoor.jpg?v=20261102a" 
+            alt="Saanj Bagh — Pizza &amp; Tandoor (Page 3)" 
             class="menu-artwork-img"
-            id="tandoorBreadsArtwork"
+            id="food3Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             PAGE LAYER: 05 · TANDOOR — KEBABS & RICE/BIRYANI (Page 5)
-             Revealed when turning forward from Pasta & Pizza
-             ====================================================== -->
-        <div class="book-layer tandoor-kebabs-layer" id="tandoorKebabsLayer" aria-label="Tandoor — Kebabs & Rice/Biryani Menu">
+        <!-- Food Page 2: Contie Chinese & Pasta -->
+        <div class="book-layer food-layer food-2-layer" id="food2Layer" aria-label="Food Menu — Contie Chinese &amp; Pasta">
           <img 
-            src="assets/images/tandoor-kebabs.jpg" 
-            alt="Saanj Bagh — Tandoor, Kebabs & Rice/Biryani Menu" 
+            src="assets/images/food-3-contie-pasta.jpg?v=20261102a" 
+            alt="Saanj Bagh — Contie Chinese &amp; Pasta (Page 2)" 
             class="menu-artwork-img"
-            id="tandoorKebabsArtwork"
+            id="food2Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             PAGE LAYER: 04 · PASTA & PIZZA MENU (Page 4)
-             Revealed when turning forward from Around the World
-             ====================================================== -->
-        <div class="book-layer pasta-layer" id="pastaLayer" aria-label="Pasta & Pizza Menu">
+        <!-- Food Page 1: Soup & Garde Manger -->
+        <div class="book-layer food-layer food-1-layer" id="food1Layer" aria-label="Food Menu — Soup &amp; Garde Manger">
           <img 
-            src="assets/images/pasta-pizza.jpg?v=20261027b" 
-            alt="Saanj Bagh — Pasta & Pizza Menu" 
+            src="assets/images/food-2-soup-garde.jpg?v=20261102a" 
+            alt="Saanj Bagh — Soup &amp; Garde Manger (Page 1)" 
             class="menu-artwork-img"
-            id="pastaArtwork"
+            id="food1Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             PAGE LAYER: 03 · AROUND THE WORLD MENU (Page 3)
-             Revealed when turning forward from Garde Manger
-             ====================================================== -->
-        <div class="book-layer around-world-layer" id="aroundWorldLayer" aria-label="Around the World Menu">
-          <img
-            src="assets/images/around-the-world.jpg?v=20261027b"
-            alt="Saanj Bagh — Around the World Menu"
-            class="menu-artwork-img"
-            id="aroundWorldArtwork"
-            draggable="false"
-          />
-        </div>
-
-
-        <!-- ======================================================
-             PAGE LAYER 2: 02 · GARDE MANGER MENU
-             Revealed when turning forward from Soup (Page 2)
-             ====================================================== -->
-        <div class="book-layer garde-layer" id="gardeLayer" aria-label="Garde Manger Menu">
-          
-          <!-- Master Cleaned Background Plate (Full artwork with typography and illustrations) -->
+        <!-- Food Page 0: Cover (Top layer) -->
+        <div class="book-layer food-layer cover-layer food-cover-layer" id="foodCoverLayer" aria-label="Food Menu Cover">
           <img 
-            src="assets/images/garde-manger.jpg?v=20261027b" 
-            alt="Saanj Bagh — Garde Manger Menu" 
+            src="assets/images/food-1-cover.jpg?v=20261102a" 
+            alt="Saanj Bagh — Botanical Bar &amp; Kitchen Food Menu Cover" 
             class="menu-artwork-img"
-            id="gardeArtwork"
+            id="foodCoverArtwork"
             draggable="false"
           />
-
-        </div>
-
-        <!-- ======================================================
-             PAGE LAYER 2 (MIDDLE): 01 · SOUP MENU & LIVE STEAM
-             Revealed when Cover opens (Page 1)
-             Continuous live steam runs on this layer without interruption
-             ====================================================== -->
-        <div class="book-layer soup-layer" id="soupLayer" aria-label="Soup Menu">
-          
-          <!-- Soup Menu Replacement Artwork -->
-          <img 
-            src="assets/images/soup.jpg?v=20261021e" 
-            alt="Saanj Bagh — Botanical Bar & Kitchen Luxury Soup Menu" 
-            class="menu-artwork-img"
-            id="soupArtwork"
-            draggable="false"
-          />
-
-          <!-- Photorealistic Animated Steam System (Above hot soup bowl) -->
-          <svg 
-            class="steam-overlay" 
-            id="steamOverlay"
-            viewBox="0 0 682 1024" 
-            preserveAspectRatio="xMidYMid meet" 
-            aria-hidden="true"
-          >
-            <defs>
-              <filter id="coreBlur" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2.4" />
-              </filter>
-              <filter id="haloBlur" x="-70%" y="-70%" width="240%" height="240%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="5.8" />
-              </filter>
-              <filter id="mistBlur" x="-70%" y="-70%" width="240%" height="240%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="8.5" />
-              </filter>
-
-              <linearGradient id="vapourCoreGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#FFFDF7" stop-opacity="0" />
-                <stop offset="10%" stop-color="#FFFFFF" stop-opacity="0.65" />
-                <stop offset="38%" stop-color="#FAF4E8" stop-opacity="0.55" />
-                <stop offset="68%" stop-color="#F5ECE0" stop-opacity="0.32" />
-                <stop offset="88%" stop-color="#F2E6D4" stop-opacity="0.10" />
-                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
-              </linearGradient>
-
-              <linearGradient id="vapourHaloGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#FFFDF7" stop-opacity="0" />
-                <stop offset="14%" stop-color="#FAF5EB" stop-opacity="0.32" />
-                <stop offset="42%" stop-color="#F7EEDC" stop-opacity="0.25" />
-                <stop offset="72%" stop-color="#F2E4CD" stop-opacity="0.14" />
-                <stop offset="92%" stop-color="#EDE0C7" stop-opacity="0.04" />
-                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
-              </linearGradient>
-
-              <radialGradient id="baseThermalGrad" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.32" />
-                <stop offset="40%" stop-color="#FAF4E8" stop-opacity="0.20" />
-                <stop offset="75%" stop-color="#F5ECE0" stop-opacity="0.08" />
-                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
-              </radialGradient>
-            </defs>
-
-            <!-- Ambient Surface Thermal Glow -->
-            <g class="steam-ambient-thermal" filter="url(#mistBlur)">
-              <ellipse cx="522" cy="642" rx="40" ry="12" fill="url(#baseThermalGrad)" class="thermal-glow-1" />
-              <ellipse cx="515" cy="640" rx="30" ry="9" fill="url(#baseThermalGrad)" class="thermal-glow-2" />
-            </g>
-
-            <!-- 4 Independent Overlapping Natural Steam Wisps -->
-            <g class="steam-wisps-group">
-              <!-- Wisp 1: Left Stream -->
-              <g class="wisp-layer wisp-1">
-                <path d="M 506 642 C 498 620, 492 598, 498 574 C 504 550, 512 536, 508 514 C 504 498, 500 486, 502 470" fill="none" stroke="url(#vapourHaloGrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" filter="url(#haloBlur)" />
-                <path d="M 506 642 C 498 620, 492 598, 498 574 C 504 550, 512 536, 508 514 C 504 498, 500 486, 502 470" fill="none" stroke="url(#vapourCoreGrad)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#coreBlur)" />
-              </g>
-
-              <!-- Wisp 2: Main Center-Right Stream -->
-              <g class="wisp-layer wisp-2">
-                <path d="M 526 640 C 536 617, 544 593, 538 569 C 532 545, 522 531, 528 507 C 532 491, 540 479, 536 463" fill="none" stroke="url(#vapourHaloGrad)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" filter="url(#haloBlur)" />
-                <path d="M 526 640 C 536 617, 544 593, 538 569 C 532 545, 522 531, 528 507 C 532 491, 540 479, 536 463" fill="none" stroke="url(#vapourCoreGrad)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#coreBlur)" />
-              </g>
-
-              <!-- Wisp 3: Central Slender Filament -->
-              <g class="wisp-layer wisp-3">
-                <path d="M 517 641 C 513 621, 521 601, 517 579 C 513 557, 523 541, 519 519 C 515 505, 511 493, 515 477" fill="none" stroke="url(#vapourHaloGrad)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" filter="url(#haloBlur)" />
-                <path d="M 517 641 C 513 621, 521 601, 517 579 C 513 557, 523 541, 519 519 C 515 505, 511 493, 515 477" fill="none" stroke="url(#vapourCoreGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#coreBlur)" />
-              </g>
-
-              <!-- Wisp 4: Right Soft Drifting Plume -->
-              <g class="wisp-layer wisp-4">
-                <path d="M 538 642 C 548 622, 554 600, 548 576 C 542 554, 546 536, 550 514 C 552 500, 548 488, 546 472" fill="none" stroke="url(#vapourHaloGrad)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" filter="url(#haloBlur)" />
-                <path d="M 538 642 C 548 622, 554 600, 548 576 C 542 554, 546 536, 550 514 C 552 500, 548 488, 546 472" fill="none" stroke="url(#vapourCoreGrad)" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round" filter="url(#coreBlur)" />
-              </g>
-            </g>
-          </svg>
-        </div>
-
-        <!-- ======================================================
-             PAGE LAYER 3 (TOP): COVER MENU (Shown initially as closed book)
-             ====================================================== -->
-        <div class="book-layer cover-layer" id="coverLayer" aria-label="Menu Cover">
-          
-          <!-- Approved Front Cover Artwork -->
-          <img 
-            src="assets/images/menu-cover.jpg" 
-            alt="Saanj Bagh — Botanical Bar & Kitchen Menu Cover" 
-            class="menu-artwork-img"
-            id="coverArtwork"
-            draggable="false"
-          />
-
-          <!-- Subtle Paper Edge Highlights -->
           <div class="paper-edge-highlight" aria-hidden="true"></div>
         </div>
 
         <!-- ======================================================
-             BAR MENU PAGE LAYER 6: BEER & BREEZER (Bar Page 6)
-             Revealed when turning forward from Wine Selection
+             BAR MENU LAYERS (5 Pages total: 0 to 4)
+             Stacked from back (Page 4) to front (Page 0 Cover)
              ====================================================== -->
-        <div class="book-layer bar-layer bar-beer-breezer-layer" id="barBeerBreezerLayer" aria-label="Beer & Breezer Menu">
+        <!-- Bar Page 4: Wine, Beer & Breezer -->
+        <div class="book-layer bar-layer bar-4-layer" id="bar4Layer" aria-label="Bar Menu — Wine, Beer &amp; Breezer">
           <img 
-            src="assets/images/bar-beer-breezer.jpg?v=20261027c" 
-            alt="Saanj Bagh — Beer & Breezer Menu" 
+            src="assets/images/bar-5-wine-beer.jpg?v=20261102a" 
+            alt="Saanj Bagh — Wine, Beer &amp; Breezer Menu (Page 4)" 
             class="menu-artwork-img bar-parchment-img"
-            id="barBeerBreezerArtwork"
+            id="bar4Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             BAR MENU PAGE LAYER 5: WINE SELECTION (Bar Page 5)
-             Revealed when turning forward from Vodka, Liqueur & Rum
-             ====================================================== -->
-        <div class="book-layer bar-layer bar-wine-layer" id="barWineLayer" aria-label="Wine Selection Menu">
+        <!-- Bar Page 3: Vodka, Tequila, Liqueur & Rum -->
+        <div class="book-layer bar-layer bar-3-layer" id="bar3Layer" aria-label="Bar Menu — Vodka, Tequila, Liqueur &amp; Rum">
           <img 
-            src="assets/images/bar-wine.jpg" 
-            alt="Saanj Bagh — Wine Selection Menu" 
+            src="assets/images/bar-4-vodka-rum.jpg?v=20261102a" 
+            alt="Saanj Bagh — Vodka, Tequila, Liqueur &amp; Rum Menu (Page 3)" 
             class="menu-artwork-img bar-parchment-img"
-            id="barWineArtwork"
+            id="bar3Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             BAR MENU PAGE LAYER 4: VODKA, BRANDY, LIQUEUR & RUM (Bar Page 4)
-             Revealed when turning forward from Tequila & Gin
-             ====================================================== -->
-        <div class="book-layer bar-layer bar-vodka-rum-layer" id="barVodkaRumLayer" aria-label="Vodka, Brandy, Liqueur & Rum Menu">
+        <!-- Bar Page 2: Scotch Whisky, Tequila & Gin -->
+        <div class="book-layer bar-layer bar-2-layer" id="bar2Layer" aria-label="Bar Menu — Scotch Whisky, Tequila &amp; Gin">
           <img 
-            src="assets/images/bar-vodka-rum.jpg" 
-            alt="Saanj Bagh — Vodka, Brandy, Liqueur & Rum Menu" 
+            src="assets/images/bar-3-scotch-tequila-gin.jpg?v=20261102a" 
+            alt="Saanj Bagh — Scotch Whisky, Tequila &amp; Gin Menu (Page 2)" 
             class="menu-artwork-img bar-parchment-img"
-            id="barVodkaRumArtwork"
+            id="bar2Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             BAR MENU PAGE LAYER 3: TEQUILA & GIN (Bar Page 3)
-             Revealed when turning forward from Whiskey Page 3
-             ====================================================== -->
-        <div class="book-layer bar-layer bar-tequila-gin-layer" id="barTequilaGinLayer" aria-label="Tequila & Gin Menu">
+        <!-- Bar Page 1: Single Malt Whiskey & Scotch Whisky -->
+        <div class="book-layer bar-layer bar-1-layer" id="bar1Layer" aria-label="Bar Menu — Single Malt Whiskey &amp; Scotch Whisky">
           <img 
-            src="assets/images/bar-tequila-gin.jpg" 
-            alt="Saanj Bagh — Tequila & Gin Menu" 
+            src="assets/images/bar-2-whiskey.jpg?v=20261102a" 
+            alt="Saanj Bagh — Single Malt Whiskey &amp; Scotch Whisky Menu (Page 1)" 
             class="menu-artwork-img bar-parchment-img"
-            id="barTequilaGinArtwork"
+            id="bar1Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             BAR MENU PAGE LAYER 2: SCOTCH & BLENDED WHISKY (Bar Page 2)
-             Revealed when turning forward from Whiskey Page 2
-             ====================================================== -->
-        <div class="book-layer bar-layer bar-whiskey-3-layer" id="barWhiskey3Layer" aria-label="Scotch & Blended Whisky Menu">
+        <!-- Bar Page 0: Cover (Top layer for Bar Menu) -->
+        <div class="book-layer bar-layer bar-0-layer" id="bar0Layer" aria-label="Bar Menu Cover">
           <img 
-            src="assets/images/bar-whiskey-3.png" 
-            alt="Saanj Bagh — Scotch & Blended Whisky Menu (Part 2)" 
-            class="menu-artwork-img bar-whiskey-img"
-            id="barWhiskey3Artwork"
+            src="assets/images/bar-1-cover.jpg?v=20261102a" 
+            alt="Saanj Bagh — Botanical Bar &amp; Kitchen Bar Menu Cover" 
+            class="menu-artwork-img bar-parchment-img"
+            id="bar0Artwork"
             draggable="false"
           />
+          <div class="paper-edge-highlight" aria-hidden="true"></div>
         </div>
 
         <!-- ======================================================
-             BAR MENU PAGE LAYER 1: SCOTCH WHISKY (Bar Page 1)
-             Revealed when turning forward from Whiskey Page 1
+             COCKTAIL MENU LAYERS (3 Pages total: 0 to 2)
+             Stacked from back (Page 2) to front (Page 0)
              ====================================================== -->
-        <div class="book-layer bar-layer bar-whiskey-2-layer" id="barWhiskey2Layer" aria-label="Scotch Whisky Menu">
+        <!-- Cocktail Page 2: Rum & Wine Base Cocktails -->
+        <div class="book-layer cocktail-layer cocktail-2-layer" id="cocktail2Layer" aria-label="Cocktail Menu — Rum &amp; Wine Base Cocktails">
           <img 
-            src="assets/images/bar-whiskey-2.jpg" 
-            alt="Saanj Bagh — Scotch Whisky Menu (Part 1)" 
-            class="menu-artwork-img bar-whiskey-img"
-            id="barWhiskey2Artwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             BAR MENU PAGE LAYER 0: SINGLE MALT WHISKEY (Bar Page 0)
-             First page of Bar Menu (Displayed initially in Bar Mode)
-             ====================================================== -->
-        <div class="book-layer bar-layer bar-whiskey-1-layer" id="barWhiskey1Layer" aria-label="Single Malt Whiskey Menu">
-          <img 
-            src="assets/images/bar-whiskey-1.jpg" 
-            alt="Saanj Bagh — Single Malt Whiskey Menu" 
-            class="menu-artwork-img bar-whiskey-img"
-            id="barWhiskey1Artwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             COCKTAIL MENU PAGE LAYER 7: ICED TEA COCKTAILS (Cocktail Page 7)
-             Revealed when turning forward from Wine Cocktails
-             ====================================================== -->
-        <div class="book-layer cocktail-layer cocktail-iced-tea-layer" id="cocktailIcedTeaLayer" aria-label="LIIT — Long Island Iced Tea Menu">
-          <img 
-            src="assets/images/cocktail-8-iced-tea.jpg" 
-            alt="Saanj Bagh — LIIT — Long Island Iced Tea Menu" 
+            src="assets/images/cocktail-3-rum-wine.jpg?v=20261102a" 
+            alt="Saanj Bagh — Rum &amp; Wine Base Cocktails Menu (Page 2)" 
             class="menu-artwork-img cocktail-artwork-img"
-            id="cocktailIcedTeaArtwork"
+            id="cocktail2Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             COCKTAIL MENU PAGE LAYER 6: WINE COCKTAILS (Cocktail Page 6)
-             Revealed when turning forward from Whisky Cocktails
-             ====================================================== -->
-        <div class="book-layer cocktail-layer cocktail-wine-layer" id="cocktailWineLayer" aria-label="Wine Cocktails Menu">
+        <!-- Cocktail Page 1: Gin & Tequila Base Cocktails -->
+        <div class="book-layer cocktail-layer cocktail-1-layer" id="cocktail1Layer" aria-label="Cocktail Menu — Gin &amp; Tequila Base Cocktails">
           <img 
-            src="assets/images/cocktail-7-wine.jpg" 
-            alt="Saanj Bagh — Wine Cocktails Menu" 
+            src="assets/images/cocktail-2-gin-tequila.jpg?v=20261102a" 
+            alt="Saanj Bagh — Gin &amp; Tequila Base Cocktails Menu (Page 1)" 
             class="menu-artwork-img cocktail-artwork-img"
-            id="cocktailWineArtwork"
+            id="cocktail1Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             COCKTAIL MENU PAGE LAYER 5: WHISKY COCKTAILS (Cocktail Page 5)
-             Revealed when turning forward from Rum Cocktails
-             ====================================================== -->
-        <div class="book-layer cocktail-layer cocktail-whisky-layer" id="cocktailWhiskyLayer" aria-label="Whisky Cocktails Menu">
+        <!-- Cocktail Page 0: Vodka Base Cocktails & Classic LIIT -->
+        <div class="book-layer cocktail-layer cocktail-0-layer" id="cocktail0Layer" aria-label="Cocktail Menu — Vodka Base Cocktails &amp; LIIT">
           <img 
-            src="assets/images/cocktail-6-whisky.jpg" 
-            alt="Saanj Bagh — Whisky Cocktails Menu" 
+            src="assets/images/cocktail-1-vodka-liit.jpg?v=20261102a" 
+            alt="Saanj Bagh — Vodka Base Cocktails &amp; Classic LIIT Menu (Page 0)" 
             class="menu-artwork-img cocktail-artwork-img"
-            id="cocktailWhiskyArtwork"
+            id="cocktail0Artwork"
             draggable="false"
           />
         </div>
 
         <!-- ======================================================
-             COCKTAIL MENU PAGE LAYER 4: RUM COCKTAILS (Cocktail Page 4)
-             Revealed when turning forward from Classic Cocktails
+             BEVERAGES MENU LAYERS (4 Pages total: 0 to 3)
+             Stacked from back (Page 3) to front (Page 0)
              ====================================================== -->
-        <div class="book-layer cocktail-layer cocktail-rum-layer" id="cocktailRumLayer" aria-label="Rum Cocktails Menu">
+        <!-- Beverages Page 3: Beverages -->
+        <div class="book-layer bev-layer bev-3-layer" id="bev3Layer" aria-label="Beverages — Refreshers &amp; Beverages">
           <img 
-            src="assets/images/cocktail-5-rum.jpg" 
-            alt="Saanj Bagh — Rum Cocktails Menu" 
-            class="menu-artwork-img cocktail-artwork-img"
-            id="cocktailRumArtwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             COCKTAIL MENU PAGE LAYER 3: CLASSIC COCKTAILS (Cocktail Page 3)
-             Revealed when turning forward from Gin Cocktails
-             ====================================================== -->
-        <div class="book-layer cocktail-layer cocktail-classics-layer" id="cocktailClassicsLayer" aria-label="Classic Cocktails Menu">
-          <img 
-            src="assets/images/cocktail-4-classics.jpg" 
-            alt="Saanj Bagh — Classic Cocktails Menu" 
-            class="menu-artwork-img cocktail-artwork-img"
-            id="cocktailClassicsArtwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             COCKTAIL MENU PAGE LAYER 2: GIN COCKTAILS (Cocktail Page 2)
-             Revealed when turning forward from Tequila & Whisky Cocktails
-             ====================================================== -->
-        <div class="book-layer cocktail-layer cocktail-gin-layer" id="cocktailGinLayer" aria-label="Gin Cocktails Menu">
-          <img 
-            src="assets/images/cocktail-3-gin.jpg" 
-            alt="Saanj Bagh — Gin Cocktails Menu" 
-            class="menu-artwork-img cocktail-artwork-img"
-            id="cocktailGinArtwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             COCKTAIL MENU PAGE LAYER 1: TEQUILA & WHISKY COCKTAILS (Cocktail Page 1)
-             Revealed when turning forward from Signature Cocktails
-             ====================================================== -->
-        <div class="book-layer cocktail-layer cocktail-tequila-whisky-layer" id="cocktailTequilaWhiskyLayer" aria-label="Tequila &amp; Whisky Cocktails Menu">
-          <img 
-            src="assets/images/cocktail-2-tequila-whisky.jpg" 
-            alt="Saanj Bagh — Tequila &amp; Whisky Cocktails Menu" 
-            class="menu-artwork-img cocktail-artwork-img"
-            id="cocktailTequilaWhiskyArtwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             COCKTAIL MENU PAGE LAYER 0: SIGNATURE COCKTAILS (Cocktail Page 0)
-             First page of Cocktail Menu (Displayed initially in Cocktail Mode)
-             ====================================================== -->
-        <div class="book-layer cocktail-layer cocktail-sig-layer" id="cocktailSigLayer" aria-label="Signature Cocktails Menu">
-          <img 
-            src="assets/images/cocktail-1-signature.jpg" 
-            alt="Saanj Bagh — Signature Cocktails Menu" 
-            class="menu-artwork-img cocktail-artwork-img"
-            id="cocktailSigArtwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             BEVERAGES MENU PAGE LAYER 5: BEVERAGES (Beverages Page 5)
-             Revealed when turning forward from Shakes & Smoothies
-             ====================================================== -->
-        <div class="book-layer bev-layer bev-beverages-layer" id="bevBeveragesLayer" aria-label="Beverages — Refreshers &amp; Beverages">
-          <img 
-            src="assets/images/beverages-4-beverages.jpg?v=20261024a" 
-            alt="Saanj Bagh — Beverages Menu" 
+            src="assets/images/beverages-4-beverages.jpg?v=20261102a" 
+            alt="Saanj Bagh — Beverages Menu (Page 3)" 
             class="menu-artwork-img bev-artwork-img"
-            id="bevBeveragesArtwork"
+            id="bev3Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             BEVERAGES MENU PAGE LAYER 4: SHAKES & SMOOTHIES (Beverages Page 4)
-             Revealed when turning forward from Coffee & Shakes
-             ====================================================== -->
-        <div class="book-layer bev-layer bev-shakes-smoothies-layer" id="bevShakesSmoothiesLayer" aria-label="Beverages — Shakes &amp; Smoothies">
+        <!-- Beverages Page 2: Shakes & Smoothie -->
+        <div class="book-layer bev-layer bev-2-layer" id="bev2Layer" aria-label="Beverages — Shakes &amp; Smoothie">
           <img 
-            src="assets/images/beverages-3-shakes-smoothies.jpg?v=20261024a" 
-            alt="Saanj Bagh — Shakes &amp; Smoothies Menu" 
+            src="assets/images/beverages-3-shakes-smoothie.jpg?v=20261102a" 
+            alt="Saanj Bagh — Shakes &amp; Smoothie Menu (Page 2)" 
             class="menu-artwork-img bev-artwork-img"
-            id="bevShakesSmoothiesArtwork"
+            id="bev2Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             BEVERAGES MENU PAGE LAYER 3: COFFEE & SHAKES (Beverages Page 3)
-             Revealed when turning forward from Coffee
-             ====================================================== -->
-        <div class="book-layer bev-layer bev-coffee-shakes-layer" id="bevCoffeeShakesLayer" aria-label="Beverages — Coffee &amp; Shakes">
+        <!-- Beverages Page 1: Coffee Shop Menu -->
+        <div class="book-layer bev-layer bev-1-layer" id="bev1Layer" aria-label="Beverages — Coffee Shop Menu">
           <img 
-            src="assets/images/beverages-2-coffee-shakes.jpg?v=20261024a" 
-            alt="Saanj Bagh — Coffee &amp; Shakes Menu" 
+            src="assets/images/beverages-2-coffee.jpg?v=20261102a" 
+            alt="Saanj Bagh — Coffee Shop Menu (Page 1)" 
             class="menu-artwork-img bev-artwork-img"
-            id="bevCoffeeShakesArtwork"
+            id="bev1Artwork"
             draggable="false"
           />
         </div>
 
-        <!-- ======================================================
-             BEVERAGES MENU PAGE LAYER 2: COFFEE (Beverages Page 2)
-             Revealed when turning forward from Mocktails (11–20)
-             ====================================================== -->
-        <div class="book-layer bev-layer bev-coffee-layer" id="bevCoffeeLayer" aria-label="Beverages — Coffee Menu">
+        <!-- Beverages Page 0: Mocktails -->
+        <div class="book-layer bev-layer bev-0-layer" id="bev0Layer" aria-label="Beverages — Mocktails Menu">
           <img 
-            src="assets/images/beverages-1-coffee.jpg?v=20261024a" 
-            alt="Saanj Bagh — Coffee Menu" 
+            src="assets/images/beverages-1-mocktails.jpg?v=20261102a" 
+            alt="Saanj Bagh — Mocktails Menu (Page 0)" 
             class="menu-artwork-img bev-artwork-img"
-            id="bevCoffeeArtwork"
+            id="bev0Artwork"
             draggable="false"
           />
         </div>
-
-        <!-- ======================================================
-             BEVERAGES MENU PAGE LAYER 1: MOCKTAILS 11–20 (Beverages Page 1)
-             Revealed when turning forward from Mocktails 1–10
-             ====================================================== -->
-        <div class="book-layer bev-layer bev-mocktails-2-layer" id="bevMocktails2Layer" aria-label="Beverages — Mocktails (Items 11–20)">
-          <img 
-            src="assets/images/beverages-mocktails-2.jpg?v=20261024a" 
-            alt="Saanj Bagh — Mocktails Menu (Items 11–20)" 
-            class="menu-artwork-img bev-artwork-img"
-            id="bevMocktails2Artwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             BEVERAGES MENU PAGE LAYER 0: MOCKTAILS 1–10 (Beverages Page 0)
-             First page of Beverages Menu (Displayed initially in Beverages Mode)
-             ====================================================== -->
-        <div class="book-layer bev-layer bev-mocktails-1-layer" id="bevMocktails1Layer" aria-label="Beverages — Mocktails (Items 1–10)">
-          <img 
-            src="assets/images/beverages-mocktails-1.jpg?v=20261024a" 
-            alt="Saanj Bagh — Mocktails Menu (Items 1–10)" 
-            class="menu-artwork-img bev-artwork-img"
-            id="bevMocktails1Artwork"
-            draggable="false"
-          />
-        </div>
-
-        <!-- ======================================================
-             PAGE LAYER 4: 3D REALISTIC PAGE CURL CANVAS
-             Renders the physical travelling wave, curling cylinder,
-             dynamic drop shadow and moving highlight during turns/drags
-             ====================================================== -->
         <canvas class="curl-canvas" id="curlCanvas" aria-hidden="true"></canvas>
 
         <!-- Subtle Physical Spine Binding Edge -->
@@ -748,665 +445,354 @@
        ACCESSIBILITY & PRINT CONTENT LAYER
        Preserves full semantic text, dishes, descriptions and prices
        for screen readers, indexing, and assistive technologies.
-       Order matches digital book: Cover -> 01 · Soup -> 02 · Garde Manger
+       Order matches digital book: Food Menu, Bar Menu, Cocktail Menu, Beverages Menu
        ============================================================ -->
   <div class="sr-only-content" aria-label="Saanj Bagh Menu Details">
     <header>
       <h1>Saanj Bagh — Botanical Bar &amp; Kitchen</h1>
-      <p>Jodhpur, Rajasthan</p>
+      <p>Jodhpur, Rajasthan · Estd. 2026</p>
     </header>
 
-    <section aria-label="Soup — A Warm Beginning">
-      <h2>01 · Soup — A Warm Beginning</h2>
-      <article>
-        <h3>01 — Pappa al Pomodoro</h3>
-        <p>Classic Italian soup with ripe tomatoes, fresh basil and olive oil.</p>
-        <span>Price: ₹170</span>
-      </article>
-      <article>
-        <h3>02 — Mexican Chilli Bean Soup</h3>
-        <p>Nutritious, spicy and delicious soup served with a crisp tortilla.</p>
-        <span>Price: ₹160</span>
-      </article>
-      <article>
-        <h3>03 — All-Time Favourite</h3>
-        <p>Manchow Soup &bull; Hot &amp; Sour Soup &bull; Lemon Coriander Soup</p>
-        <span>Price: ₹170</span>
-      </article>
-      <article>
-        <h3>04 — Tibetan Thukpa Soup</h3>
-        <p>Originally Tibetan street soup.</p>
-        <span>Price: ₹180</span>
-      </article>
+    <!-- ==================== FOOD MENU ==================== -->
+    <section aria-label="Food Menu">
+      <h2>FOOD MENU — ESTD. 2026</h2>
+
+      <h3>Soup</h3>
+      <article><h4>Pappa al Pomodoro</h4><p>Classic Italian ripe tomato, basil, olive oil</p><span>Price: ₹170</span></article>
+      <article><h4>Mexican Chillie Bean Soup</h4><p>Nutritious spicy and delicious soup served with tortilla</p><span>Price: ₹160</span></article>
+      <article><h4>All Time Favourite Soup</h4><p>Manchow / Hot &amp; Sour / Lemon Coriander soup</p><span>Price: ₹170</span></article>
+      <article><h4>Tibetan Thukpa Soup</h4><p>Originally Tibetan street soup</p><span>Price: ₹180</span></article>
+
+      <h3>Garde Manger</h3>
+      <article><h4>Garden Green Salad</h4><p>Cucumber, tomato, carrot, onion, lemon &amp; chilli</p><span>Price: ₹150</span></article>
+      <article><h4>Onion Salad</h4><p>Sliced onion topped with lemon &amp; chilli</p><span>Price: ₹100</span></article>
+      <article><h4>Laccha Onion Salad</h4><p>Onion rings sprinkled with Indian spices</p><span>Price: ₹130</span></article>
+      <article><h4>Masala Papad</h4><p>Papadum loaded with veggies, finished with yellow sev</p><span>Price: ₹80</span></article>
+      <article><h4>Roasted Papad</h4><p>Oven-roasted homemade papadum</p><span>Price: ₹50</span></article>
+      <article><h4>French Fries</h4><p>Hot, crunchy potato fingers</p><span>Price: ₹260</span></article>
+      <article><h4>Peri Peri Fries</h4><p>Our homestyle dips and chips loaded with ground spices</p><span>Price: ₹310</span></article>
+      <article><h4>Thai Peanut Chatkara</h4><p>Fried peanuts, Thai spices and a papadum basket</p><span>Price: ₹240</span></article>
+      <article><h4>Khau Gali Khichiya</h4><p>Mumbai Khau Gali street cracker with desi chatkara</p><span>Price: ₹180</span></article>
+      <article><h4>Cheese Masala Khichiya</h4><p>Our desi cracker loaded with veggies</p><span>Price: ₹230</span></article>
+      <article><h4>Loaded Nachos</h4><p>Corn nachos, corn &amp; beans, cheesy sauce</p><span>Price: ₹390</span></article>
+      <article><h4>Chakna Trolly</h4><p>Combination of nachos, papad, peanuts, French fries, peri peri and chatpata chana</p><span>Price: ₹450</span></article>
+
+      <h3>Contie Chinese</h3>
+      <article><h4>Hummus Tzatziki Platter</h4><p>Hummus, tzatziki, crunchy veggie salad, pita &amp; lavash bread</p><span>Price: ₹470</span></article>
+      <article><h4>Tibetan Momo Hot Chilli Style</h4><p>All the way from Tibet veggie stuffed momos with ginger garlic stew</p><span>Price: ₹420</span></article>
+      <article><h4>Chillie Paneer</h4><p>Paneer coated with schezwan</p><span>Price: ₹430</span></article>
+      <article><h4>Corn Chillie Stir Fry</h4><p>Corn kernels dusted with flour tossed in wok</p><span>Price: ₹390</span></article>
+      <article><h4>Dragon / Honey Chillie / Chillie Potato</h4><p>Crispy potato tossed in your choice of flavour</p><span>Price: ₹340</span></article>
+      <article><h4>Hakka Noodle / Shezwan</h4><p>Vegetable noodles in Chinese / Schezwan style</p><span>Price: ₹370</span></article>
+      <article><h4>Galangal Cottage Cheese</h4><p>Paneer steak, galangal, chilli hot &amp; spicy</p><span>Price: ₹450</span></article>
+      <article><h4>Pad Thai Noodle</h4><p>Rice noodles in Thai style</p><span>Price: ₹410</span></article>
+      <article><h4>Burnt Garlic Noodle</h4><p>Noodles with soya burnt garlic</p><span>Price: ₹420</span></article>
+
+      <h3>Pasta</h3>
+      <article><h4>Penne / Spaghetti</h4><p>Arabiatta / Alfredo / Velvet / Pesto</p><span>Price: ₹470</span></article>
+      <article><h4>Pasta Aglio Olio</h4><p>Spaghetti tossed with veggies, olive oil &amp; garlic</p><span>Price: ₹460</span></article>
+      <article><h4>Pesto Spaghetti Butter Garlic</h4><p>Spaghetti pasta with pesto butter garlic</p><span>Price: ₹440</span></article>
+      <article><h4>Lemon Spaghetti</h4><p>Spaghetti with lemon beurre blanc</p><span>Price: ₹450</span></article>
+      <article><h4>Cream Carbonara Spaghetti</h4><p>Creamy spaghetti, parmesan, peppercorn</p><span>Price: ₹450</span></article>
+
+      <h3>Pizza</h3>
+      <article><h4>Fungi Pesto Neapolitan</h4><p>Neapolitan based pizza with pesto and mushroom</p><span>Price: ₹440</span></article>
+      <article><h4>Tandoori Paneer Tikka Pizza</h4><p>Our desi fusion pizza with kasoori methi &amp; paneer</p><span>Price: ₹450</span></article>
+      <article><h4>Four Kind Cheese Pizza</h4><p>Italian parmesan cheese, processed cheese &amp; mozzarella</p><span>Price: ₹480</span></article>
+      <article><h4>Roma Veggies Pizza</h4><p>Exotic veggies, tomato sauce, mozzarella cheese</p><span>Price: ₹460</span></article>
+      <article><h4>Turkies Garlic Bread</h4><p>Creamy cheese and garlic infused pizza</p><span>Price: ₹440</span></article>
+
+      <h3>Tandoor</h3>
+      <article><h4>Veg Seekh Kebab</h4><p>Vegetable mince rubbed with Indian whole spices, skewered &amp; cooked over charcoal</p><span>Price: ₹430</span></article>
+      <article><h4>Cheesy Corn Broccoli</h4><p>Broccoli and corn florets marinated in spiced yoghurt and cheese</p><span>Price: ₹470</span></article>
+      <article><h4>Beetroot Corn Tikki</h4><p>Minced patties of beetroot and corn, cooked on an Indian griddle</p><span>Price: ₹440</span></article>
+      <article><h4>Paneer Tikka Sunehari</h4><p>Cottage cheese marinated in yellow chilli yoghurt and aromatic spices</p><span>Price: ₹430</span></article>
+      <article><h4>Paneer Tikka Sufiyana</h4><p>Dices of cottage cheese cooked with creamy marination and spices</p><span>Price: ₹440</span></article>
+      <article><h4>Paneer Multani Tikka</h4><p>Paneer stuffed with mint relish, marinated in spiced yoghurt &amp; yellow chilli</p><span>Price: ₹440</span></article>
+      <article><h4>Dahi Ke Kebab</h4><p>Hung curd, chopped onion, coriander, rolled in bread crumbs and shallow fried</p><span>Price: ₹410</span></article>
+      <article><h4>Bhatti Paneer Tikka</h4><p>Cottage cheese marinated with crushed whole spices cooked in earthen oven</p><span>Price: ₹420</span></article>
+
+      <h3>Indian Specialities</h3>
+      <article><h4>Paneer Dhaniya Adarki</h4><p>Blend of cottage cheese in ginger and coriander gravy</p><span>Price: ₹420</span></article>
+      <article><h4>Paneer Lahori (Peshawari)</h4><p>Dices of cottage cheese cooked with creamy tomato gravy and Lahori whole spices</p><span>Price: ₹440</span></article>
+      <article><h4>Kade Masale Ka Bhuna Paneer</h4><p>Rich and spicy cottage cheese dish with an amazing bhuna masala</p><span>Price: ₹420</span></article>
+      <article><h4>Jodhpuri Paneer Tufani</h4><p>Our chef special desi twist, hot and spicy</p><span>Price: ₹420</span></article>
+      <article><h4>Bhutta Mirch Masala</h4><p>Punjabi style dish containing bhutta and vegetables rubbed with Indian spices</p><span>Price: ₹380</span></article>
+      <article><h4>Paneer Saagwala</h4><p>Well loved vegetarian side dish, rich in calcium from spinach &amp; cottage cheese</p><span>Price: ₹420</span></article>
+      <article><h4>Mix Vegetable</h4><p>Combination of vegetables cooked in an aromatic onion tomato masala</p><span>Price: ₹390</span></article>
+      <article><h4>Panjabi Chana Masala</h4><p>Unique blend of spices with dry mango powder making perfect Punjabi cuisine</p><span>Price: ₹380</span></article>
+      <article><h4>Kaju Rajwadi</h4><p>Royal cashew nut rich curry with authentic spices</p><span>Price: ₹480</span></article>
+      <article><h4>Malai Kofta Curry</h4><p>Round cottage cheese and khoya dumplings served with velvet silky gravy</p><span>Price: ₹470</span></article>
+      <article><h4>Soya Rara</h4><p>Soya chunks and soya beans blended together with Indian spices and herbs</p><span>Price: ₹480</span></article>
+      <article><h4>Pahadi Mushroom Angara</h4><p>Chef special home ground whole Kashmiri spices blended with mushroom</p><span>Price: ₹480</span></article>
+
+      <h3>Rice Prepration</h3>
+      <article><h4>Steam Rice</h4><p>Plain steamed cooked rice</p><span>Price: ₹160</span></article>
+      <article><h4>Jeera Rice</h4><p>Rice tempered with ghee and cumin</p><span>Price: ₹180</span></article>
+      <article><h4>Peas Pulao</h4><p>Rice tempered with ghee and green peas</p><span>Price: ₹220</span></article>
+      <article><h4>Lakhnavi Biryani</h4><p>Chef special saffron and whole-spiced flavoured biryani</p><span>Price: ₹370</span></article>
+      <article><h4>Char Minar Biryani</h4><p>Brown onion, cashew, ghee, veggies reminiscent of the Mughal era</p><span>Price: ₹390</span></article>
+
+      <h3>Breads</h3>
+      <article><h4>Tandoori Roti</h4><p>Plain ₹45 / Butter ₹55</p></article>
+      <article><h4>Naan</h4><p>Plain ₹60 / Butter ₹70</p></article>
+      <article><h4>Garlic Naan</h4><p>₹110</p></article>
+      <article><h4>Laccha Paratha</h4><p>Plain ₹80 / Butter ₹90</p></article>
+      <article><h4>Kulcha Mirch Masala</h4><p>₹140 / ₹150</p></article>
+      <article><h4>Kulcha (Aloo / Paneer)</h4><p>₹160 / ₹180</p></article>
+      <article><h4>Cheese Garlic Naan</h4><p>₹140 / ₹150</p></article>
+      <article><h4>Paratha (Aloo / Paneer)</h4><p>₹160 / ₹180</p></article>
+
+      <h3>Curd</h3>
+      <article><h4>Plain Curd</h4><p>Fresh wholesome curd</p><span>Price: ₹80</span></article>
+      <article><h4>Mix Veg Raita</h4><p>Chilled seasoned curd with fresh diced vegetables</p><span>Price: ₹130</span></article>
+
+      <h3>Dal Prepration</h3>
+      <article><h4>Dal Fry</h4><p>Traditionally yellow lentil infused with chef special masala</p><span>Price: ₹220</span></article>
+      <article><h4>Dal Tadka</h4><p>Yellow lentil tempering with curry leaves, red chillies and ghee</p><span>Price: ₹260</span></article>
+      <article><h4>Pahadi Dal</h4><p>Chef special mix of red gram and yellow lentils cooked in Pahadi style</p><span>Price: ₹280</span></article>
+      <article><h4>Dal Makhani</h4><p>Black urad cooked overnight, finished with butter and cream</p><span>Price: ₹320</span></article>
+
+      <h3>Dessert</h3>
+      <article><h4>Brownie with Ice Cream</h4><p>Warm rich brownie served with vanilla ice cream</p><span>Price: ₹220</span></article>
+      <article><h4>Tiramisu</h4><p>Italian dessert ladyfinger, mascarpone cheese, finished with cocoa powder</p><span>Price: ₹250</span></article>
     </section>
 
-    <section aria-label="Garde Manger — Fresh Starts & Relishes">
-      <h2>02 · Garde Manger — Fresh Starts &amp; Relishes</h2>
-      <article>
-        <h3>01 — Garden Green Salad</h3>
-        <p>Cucumber , Tomato , Carot , Onion Lemon Chillie</p>
-        <span>Price: ₹150</span>
-      </article>
-      <article>
-        <h3>02 — Onion Salad</h3>
-        <p>Slice Of Onion , Lemon Chillie On Top</p>
-        <span>Price: ₹100</span>
-      </article>
-      <article>
-        <h3>03 — Laccha Onion Salad</h3>
-        <p>Ring Of Onion Sprinkle Indian Spices</p>
-        <span>Price: ₹130</span>
-      </article>
-      <article>
-        <h3>04 — Masala Papad</h3>
-        <p>Papadum Full Loaded With Veggies Finish With Yellow Sev</p>
-        <span>Price: ₹80</span>
-      </article>
-      <article>
-        <h3>05 — Roasted Papad</h3>
-        <p>Oven Roasted Home Made Papadum</p>
-        <span>Price: ₹60</span>
-      </article>
-      <article>
-        <h3>06 — French Fries</h3>
-        <p>Potato Finger Fried Hot And Cruncy</p>
-        <span>Price: ₹260</span>
-      </article>
-      <article>
-        <h3>07 — Boston Loaded Peri Peri Fries</h3>
-        <p>Our Home Style Dips And Chips Loaded With Ground Spices</p>
-        <span>Price: ₹310</span>
-      </article>
-      <article>
-        <h3>08 — Thai Peanut Chatkara</h3>
-        <p>Fried Peanut , Thai Spices Papadum Basket</p>
-        <span>Price: ₹240</span>
-      </article>
-      <article>
-        <h3>09 — Khau Gali Khichiya</h3>
-        <p>Mumbai Khau Gali Street Craker With Deshi Chatkara</p>
-        <span>Price: ₹180</span>
-      </article>
-      <article>
-        <h3>10 — Cheese Masala Khichiya</h3>
-        <p>Our Deshi Craker Loaded With Veggies</p>
-        <span>Price: ₹230</span>
-      </article>
-      <article>
-        <h3>11 — Maxican Street Loaded Nachos</h3>
-        <p>Corn Nachos , Corn &amp; Beans , Cheesey Sauce</p>
-        <span>Price: ₹390</span>
-      </article>
-      <article>
-        <h3>12 — Italian Farmaggie Bites</h3>
-        <p>Our Chef Special Cheese Bites Creamies Youe Palat</p>
-        <span>Price: ₹410</span>
-      </article>
-      <article>
-        <h3>13 — Chakna Trolly</h3>
-        <p>Combination Of Nachos, Papad, Peanut, French Fries, Peri Peri, Chatpata Chana</p>
-        <span>Price: ₹450</span>
-      </article>
+    <!-- ==================== BAR MENU ==================== -->
+    <section aria-label="Bar Menu">
+      <h2>BAR MENU — ESTD. 2026</h2>
+
+      <h3>Single Malt Whiskey</h3>
+      <article><h4>Rampur</h4><span>Price: ₹1,999</span></article>
+      <article><h4>Talisker</h4><span>Price: ₹799</span></article>
+      <article><h4>The Glenlivet 18 y.o</h4><span>Price: ₹1,999</span></article>
+      <article><h4>The Glenlivet 15 Yrs</h4><span>Price: ₹1,299</span></article>
+      <article><h4>The Glenlivet 12 Yrs</h4><span>Price: ₹799</span></article>
+      <article><h4>Glenfiddich 12 Yrs</h4><span>Price: ₹799</span></article>
+      <article><h4>Glenfiddich 15 Yrs</h4><span>Price: ₹1,299</span></article>
+      <article><h4>The Singleton 12 Yrs</h4><span>Price: ₹799</span></article>
+      <article><h4>The Singleton 15 Yrs</h4><span>Price: ₹1,299</span></article>
+      <article><h4>Indri Single Malt</h4><span>Price: ₹599</span></article>
+      <article><h4>Laphroaig 10 Yrs</h4><span>Price: ₹599</span></article>
+      <article><h4>Monkey Shoulder</h4><span>Price: ₹799</span></article>
+
+      <h3>Scotch Whisky</h3>
+      <article><h4>Chivas Regal 18 Yrs</h4><span>Price: ₹1,299</span></article>
+      <article><h4>Chivas Regal 15 Yrs</h4><span>Price: ₹849</span></article>
+      <article><h4>Chivas Regal 12 Yrs</h4><span>Price: ₹499</span></article>
+      <article><h4>J.W. Gold Label</h4><span>Price: ₹849</span></article>
+      <article><h4>J.W. Double Black Label</h4><span>Price: ₹549</span></article>
+      <article><h4>J.W. Black Label</h4><span>Price: ₹499</span></article>
+      <article><h4>J.W. Red Label</h4><span>Price: ₹299</span></article>
+      <article><h4>Teacher's Golden Thistle 12 Yrs</h4><span>Price: ₹499</span></article>
+      <article><h4>Teacher's Highland Cream</h4><span>Price: ₹299</span></article>
+      <article><h4>Teacher's 50</h4><span>Price: ₹349</span></article>
+      <article><h4>Black Dog Triple Gold</h4><span>Price: ₹349</span></article>
+      <article><h4>Black Dog Reserve</h4><span>Price: ₹299</span></article>
+      <article><h4>100 Pipers 12 Yrs</h4><span>Price: ₹349</span></article>
+      <article><h4>100 Pipers</h4><span>Price: ₹299</span></article>
+      <article><h4>Ballantine's Finest</h4><span>Price: ₹299</span></article>
+      <article><h4>Black &amp; White</h4><span>Price: ₹299</span></article>
+      <article><h4>J&amp;B Rare</h4><span>Price: ₹299</span></article>
+      <article><h4>Jameson Irish</h4><span>Price: ₹349</span></article>
+      <article><h4>Jim Beam</h4><span>Price: ₹299</span></article>
+      <article><h4>Jack Daniel's</h4><span>Price: ₹299</span></article>
+      <article><h4>Blenders Pride Reserve</h4><span>Price: ₹249</span></article>
+
+      <h3>Tequila</h3>
+      <article><h4>Camino Real Blanco</h4><span>Price: ₹399</span></article>
+      <article><h4>Camino Real Gold</h4><span>Price: ₹399</span></article>
+      <article><h4>Patron Silver</h4><span>Price: ₹899</span></article>
+      <article><h4>Patron Reposado</h4><span>Price: ₹899</span></article>
+
+      <h3>Gin</h3>
+      <article><h4>Jodhpur</h4><span>Price: ₹849</span></article>
+      <article><h4>Hapusa</h4><span>Price: ₹599</span></article>
+      <article><h4>Beefeater</h4><span>Price: ₹299</span></article>
+      <article><h4>Bombay Sapphire</h4><span>Price: ₹349</span></article>
+      <article><h4>Tanqueray</h4><span>Price: ₹349</span></article>
+
+      <h3>Vodka</h3>
+      <article><h4>Grey Goose</h4><span>Price: ₹599</span></article>
+      <article><h4>Absolut</h4><span>Price: ₹299</span></article>
+      <article><h4>Ketel One</h4><span>Price: ₹299</span></article>
+      <article><h4>Smirnoff</h4><span>Price: ₹249</span></article>
+      <article><h4>Morpheus X.O.</h4><span>Price: ₹249</span></article>
+
+      <h3>Liqueur</h3>
+      <article><h4>Jägermeister</h4><span>Price: ₹549</span></article>
+      <article><h4>Kahlua</h4><span>Price: ₹349</span></article>
+      <article><h4>Absinthe</h4><span>Price: ₹499</span></article>
+      <article><h4>Baileys</h4><span>Price: ₹399</span></article>
+      <article><h4>Campari</h4><span>Price: ₹349</span></article>
+      <article><h4>Cointreau</h4><span>Price: ₹349</span></article>
+
+      <h3>Rum</h3>
+      <article><h4>Bacardi White</h4><span>Price: ₹249</span></article>
+      <article><h4>Old Monk</h4><span>Price: ₹249</span></article>
+
+      <h3>Wine</h3>
+      <article><h4>Sula Sauvignon Blanc (White)</h4><span>Price: ₹599</span></article>
+      <article><h4>Sula Zinfandel (Rosé)</h4><span>Price: ₹299</span></article>
+      <article><h4>Sula Shiraz Cabernet (Red)</h4><span>Price: ₹299</span></article>
+      <article><h4>Jacob's Creek Chardonnay (White)</h4><span>Price: ₹249</span></article>
+      <article><h4>Jacob's Creek Shiraz (Red)</h4><span>Price: ₹249</span></article>
+
+      <h3>Beer</h3>
+      <article><h4>Hoegaarden 330 ml</h4><span>Price: ₹699</span></article>
+      <article><h4>Corona 330ML</h4><span>Price: ₹599</span></article>
+      <article><h4>Heineken 330 ML</h4><span>Price: ₹549</span></article>
+      <article><h4>Budweiser 330Ml</h4><span>Price: ₹499</span></article>
+      <article><h4>Kingfisher Ultra 330ML</h4><span>Price: ₹499</span></article>
+      <article><h4>Budweiser Magnum 500Ml</h4><span>Price: ₹599</span></article>
+      <article><h4>Carlsberg Elephant 500Ml</h4><span>Price: ₹599</span></article>
+      <article><h4>Kingfisher Ultra Max 500Ml</h4><span>Price: ₹599</span></article>
+
+      <h3>Breezer</h3>
+      <article><h4>Orange</h4><span>Price: ₹349</span></article>
+      <article><h4>Cranberry</h4><span>Price: ₹349</span></article>
+      <article><h4>Jamaican Passion</h4><span>Price: ₹349</span></article>
+      <article><h4>Blueberry</h4><span>Price: ₹349</span></article>
     </section>
 
-    <section aria-label="Around the World">
-      <h2>03 · Around the World</h2>
-      <article>
-        <h3>01 — Stuff Potatoes Florentine</h3>
-        <span>Price: ₹430</span>
-      </article>
-      <article>
-        <h3>02 — Panko Coated Cakes with Marinara</h3>
-        <span>Price: ₹420</span>
-      </article>
-      <article>
-        <h3>03 — West of England</h3>
-        <span>Price: ₹450</span>
-      </article>
-      <article>
-        <h3>04 — Hummus Tzatziki Platter</h3>
-        <span>Price: ₹470</span>
-      </article>
-      <article>
-        <h3>05 — Tibetan Momo Hot Chilli Style</h3>
-        <span>Price: ₹420</span>
-      </article>
-      <article>
-        <h3>06 — Chillie Paneer</h3>
-        <span>Price: ₹430</span>
-      </article>
-      <article>
-        <h3>07 — Manchurian Dry / Gravy</h3>
-        <span>Price: ₹380 / ₹410</span>
-      </article>
-      <article>
-        <h3>08 — Fungi Cheese Dip with Garlic Bread</h3>
-        <span>Price: ₹450</span>
-      </article>
-      <article>
-        <h3>09 — Mangolian Soya Chillie</h3>
-        <span>Price: ₹450</span>
-      </article>
-      <article>
-        <h3>10 — Dragon / Honey Chillie / Chillie Garlic</h3>
-        <span>Price: ₹340</span>
-      </article>
-      <article>
-        <h3>11 — Hakka Noodle / Shezwan</h3>
-        <span>Price: ₹370</span>
-      </article>
-      <article>
-        <h3>12 — Galangal Cottage Cheese</h3>
-        <span>Price: ₹450</span>
-      </article>
-      <article>
-        <h3>13 — Pad Thai Noodle</h3>
-        <span>Price: ₹410</span>
-      </article>
-      <article>
-        <h3>14 — Burnt Garlic Soba Noodle</h3>
-        <span>Price: ₹420</span>
-      </article>
+    <!-- ==================== COCKTAIL MENU ==================== -->
+    <section aria-label="Cocktail Menu">
+      <h2>COCKTAIL MENU</h2>
+
+      <h3>Vodka Base Cocktails</h3>
+      <article><h4>Ruby Rush</h4><p>Vodka, mango puree, lime juice, chili-ginger syrup, ginger ale</p><span>Price: ₹600</span></article>
+      <article><h4>Berry Blush</h4><p>Vodka, white peach puree, cointreau, fresh lime juice, cranberry mist</p><span>Price: ₹625</span></article>
+      <article><h4>Black Russian</h4><p>Vodka, coffee liqueur</p><span>Price: ₹600</span></article>
+      <article><h4>Sex on the Beach</h4><p>Vodka, peach schnapps, orange juice, cranberry juice</p><span>Price: ₹625</span></article>
+      <article><h4>White Russian</h4><p>Vodka, coffee liqueur, heavy cream</p><span>Price: ₹650</span></article>
+      <article><h4>Moscow Mule</h4><p>Vodka, fresh lime juice, ginger beer</p><span>Price: ₹625</span></article>
+      <article><h4>Espresso Martini</h4><p>Vodka, coffee liqueur, fresh espresso, simple syrup</p><span>Price: ₹675</span></article>
+      <article><h4>White Peach Cosmo</h4><p>Vodka, lemongrass-infused syrup, fresh lemon juice, ginger ale</p><span>Price: ₹650</span></article>
+      <article><h4>Lemongrass Fizz</h4><p>Vodka, green apple liqueur, calvados, cinnamon syrup, fresh lemon juice</p><span>Price: ₹600</span></article>
+      <article><h4>Cosmopolitan</h4><p>Citrus vodka, cointreau, lime juice, cranberry juice</p><span>Price: ₹625</span></article>
+
+      <h3>Classic Long Island Iced Tea</h3>
+      <article><h4>Saanjh Bagh Sunset Tea</h4><p>Vodka, light rum, gin, tequila, aperol</p><span>Price: ₹799</span></article>
+      <article><h4>Tennessee Iced Tea</h4><p>Vodka, rum, gin, tequila, triple sec, +15ml Jack Daniel's</p><span>Price: ₹999</span></article>
+      <article><h4>Hawaiian Iced Tea</h4><p>Vodka, rum, gin, tequila, triple sec</p><span>Price: ₹999</span></article>
+
+      <h3>Gin Base Cocktails</h3>
+      <article><h4>Tom Collins</h4><p>Old Tom gin, lemon juice, simple syrup, club soda</p><span>Price: ₹750</span></article>
+      <article><h4>Classic Dry Martini</h4><p>Gin, dry vermouth, olive</p><span>Price: ₹725</span></article>
+      <article><h4>Negroni</h4><p>London dry gin, campari, sweet red vermouth</p><span>Price: ₹775</span></article>
+      <article><h4>Negroni Sbagliato</h4><p>Gin, fresh blackberries, lemon juice, simple syrup, fresh basil</p><span>Price: ₹700</span></article>
+      <article><h4>Gibson</h4><p>London dry gin, dry vermouth, cocktail onion</p><span>Price: ₹625</span></article>
+      <article><h4>Gin Fizz</h4><p>Gin, fresh lemon juice, simple syrup, club soda</p><span>Price: ₹600</span></article>
+      <article><h4>Southside</h4><p>Gin, lime juice, simple syrup, fresh mint</p><span>Price: ₹650</span></article>
+      <article><h4>Bramble</h4><p>Dry gin, lemon juice, simple syrup, crème de mûre</p><span>Price: ₹650</span></article>
+      <article><h4>French 75</h4><p>Gin, lemon juice, simple syrup, sparkling wine</p><span>Price: ₹700</span></article>
+      <article><h4>Clover Club</h4><p>Gin, raspberry syrup, fresh lemon juice, egg white</p><span>Price: ₹625</span></article>
+      <article><h4>Aviation</h4><p>Gin, maraschino liqueur, crème de violette, lemon juice</p><span>Price: ₹700</span></article>
+      <article><h4>White Lady</h4><p>Gin, triple sec, fresh lemon juice</p><span>Price: ₹600</span></article>
+      <article><h4>Gimlet</h4><p>Gin, lime cordial / fresh lime juice, simple syrup</p><span>Price: ₹600</span></article>
+      <article><h4>Singapore Sling</h4><p>Gin, cherry liqueur, benedictine, triple sec, pineapple juice, lime juice</p><span>Price: ₹625</span></article>
+      <article><h4>Vesper Martini</h4><p>Gin, vodka, lillet blanc</p><span>Price: ₹650</span></article>
+
+      <h3>Tequila Base Cocktails</h3>
+      <article><h4>Classic Margarita</h4><p>Blanco tequila, triple sec, fresh lime juice</p><span>Price: ₹650</span></article>
+      <article><h4>Tommy's Margarita</h4><p>Tequila, fresh lime juice, agave nectar</p><span>Price: ₹650</span></article>
+      <article><h4>Paloma</h4><p>Tequila, grapefruit soda, fresh lime juice</p><span>Price: ₹625</span></article>
+      <article><h4>Tequila Sunrise</h4><p>Tequila, orange juice, grenadine syrup</p><span>Price: ₹625</span></article>
+      <article><h4>Spicy Jalapeño Margarita</h4><p>Jalapeño-infused tequila, triple sec, lime juice, agave</p><span>Price: ₹675</span></article>
+      <article><h4>El Diablo</h4><p>Reposado tequila, crème de cassis, lime juice, ginger beer</p><span>Price: ₹650</span></article>
+      <article><h4>Mexican Mule</h4><p>Tequila, fresh lime juice, ginger beer</p><span>Price: ₹625</span></article>
+
+      <h3>Rum Base Cocktails</h3>
+      <article><h4>Bourbon Penicillin</h4><p>Bourbon, fresh green apple chunks, cinnamon syrup, lemon juice, mint</p><span>Price: ₹750</span></article>
+      <article><h4>Apple Cinnamon Smash</h4><p>Rye whisky, sweet vermouth, angostura bitters, spiced cherry reduction</p><span>Price: ₹725</span></article>
+      <article><h4>Rye &amp; Spice Manhattan</h4><p>Scotch whisky, honey syrup, fresh lemon juice, sparkling soda</p><span>Price: ₹675</span></article>
+      <article><h4>Highland Honey Highball</h4><p>Dark rum, white rum, orange curaçao, orgeat syrup, fresh lime juice</p><span>Price: ₹725</span></article>
+      <article><h4>Guava Chili Daiquiri</h4><p>Aged rum, fresh mint, lime juice, simple syrup, angostura, sparkling wine</p><span>Price: ₹650</span></article>
+      <article><h4>Piña Colada</h4><p>White rum, cream of coconut, pineapple juice, lime juice</p><span>Price: ₹625</span></article>
+      <article><h4>Dark 'n' Stormy</h4><p>Dark rum, ginger ale, fresh lime juice</p><span>Price: ₹650</span></article>
+      <article><h4>Mai Tai</h4><p>Amber rum, orange curaçao, orgeat syrup, lime juice, dark rum float</p><span>Price: ₹625</span></article>
+      <article><h4>Painkiller</h4><p>Pusser's rum, cream of coconut, pineapple juice, orange juice</p><span>Price: ₹700</span></article>
+      <article><h4>Mojito</h4><p>White rum, lime juice, mint, sugar, soda</p><span>Price: ₹700</span></article>
+      <article><h4>Daiquiri</h4><p>White rum, fresh lime juice, simple syrup</p><span>Price: ₹625</span></article>
+
+      <h3>Wine Base Cocktails</h3>
+      <article><h4>Classic Red Sangria</h4><span>Price: ₹625</span></article>
+      <article><h4>White Peach Spritzer</h4><span>Price: ₹600</span></article>
+      <article><h4>Rosé Botanical Punch</h4><span>Price: ₹650</span></article>
+      <article><h4>Sparkling Mimosa Royale</h4><span>Price: ₹650</span></article>
     </section>
 
-    <section aria-label="Pasta &amp; Pizza">
-      <h2>04 · Pasta &amp; Pizza</h2>
-      <article>
-        <h3>01 — Penne / Spegetti</h3>
-        <p>Arabiatta / Alfredo / Velvet / Pesto</p>
-        <span>Price: ₹470</span>
-      </article>
-      <article>
-        <h3>02 — Pasta Agliolio</h3>
-        <p>Spegetti Tossed With Veggies Olive Oil Garlic</p>
-        <span>Price: ₹460</span>
-      </article>
-      <article>
-        <h3>03 — Stuff Ravioli Creamy Pomodoro</h3>
-        <p>Ricotta Cheese Stuff Ravioli in Creamy Tomato Basil Sauce</p>
-        <span>Price: ₹490</span>
-      </article>
-      <article>
-        <h3>04 — Fettucine Ala Fungi</h3>
-        <p>Fettucine Pasta With Mashroom Veloute Sauce</p>
-        <span>Price: ₹490</span>
-      </article>
-      <article>
-        <h3>05 — Pesto Spegetti Butter Garlic</h3>
-        <p>Spegetti Pasta With Pesto</p>
-        <span>Price: ₹440</span>
-      </article>
-      <article>
-        <h3>06 — Lemon Spegetti</h3>
-        <p>Spegetti With Lemon Beurre Blanc</p>
-        <span>Price: ₹440</span>
-      </article>
-      <article>
-        <h3>07 — Truffle Cream Fettucine</h3>
-        <p>Creamy Fettucine Peppercon With Truffle</p>
-        <span>Price: ₹450</span>
-      </article>
-      <article>
-        <h3>08 — Ruccolaa Burata Cheese Nepolitan</h3>
-        <p>Nepolitan Based Pizza With Ruccolla &amp; Burrata</p>
-        <span>Price: ₹450</span>
-      </article>
-      <article>
-        <h3>09 — Fungi Pesto Nepolitian</h3>
-        <p>Nepolitan Based Pizza With Pesto And Mashroom</p>
-        <span>Price: ₹440</span>
-      </article>
-      <article>
-        <h3>10 — Tandoori Paneer Tikka Pizza</h3>
-        <p>Our Deshi Fusion Pizza With Kasoori Methi &amp; Paneer</p>
-        <span>Price: ₹450</span>
-      </article>
-      <article>
-        <h3>11 — Four Kind Cheese Pizza</h3>
-        <p>Italian Parmesan Cheese, Process Cheese</p>
-        <span>Price: ₹480</span>
-      </article>
-      <article>
-        <h3>12 — Roma Veggies Pizza</h3>
-        <p>Exotic Veggies, Tomato Sauce Mozzarella Cheese</p>
-        <span>Price: ₹460</span>
-      </article>
-      <article>
-        <h3>13 — Beetroot Hummus With Avacado Toast</h3>
-        <p>Garlic Toast Hummus Spread Avacado On The Top</p>
-        <span>Price: ₹410</span>
-      </article>
-      <article>
-        <h3>14 — Cherry Tomato &amp; Burrata Sandwich</h3>
-        <p>Garlic Toast, Balsamic Glaze Cherry Tomato, Burrata</p>
-        <span>Price: ₹430</span>
-      </article>
-      <article>
-        <h3>15 — Turkies Garlic Bread</h3>
-        <p>Creamies Cheese And Garlic Infused Pizza</p>
-        <span>Price: ₹440</span>
-      </article>
-    </section>
+    <!-- ==================== BEVERAGES MENU ==================== -->
+    <section aria-label="Beverages Menu">
+      <h2>BEVERAGES MENU</h2>
 
-    <section aria-label="Tandoor — Kebabs &amp; Rice/Biryani">
-      <h2>05 · Tandoor — Kebabs &amp; Rice/Biryani</h2>
-      <article>
-        <h3>01 — Tandoori Kebab Platter</h3>
-        <p>Our Chef Special Kebab Platter Include Signaure Kebab</p>
-        <span>Price: ₹670</span>
-      </article>
-      <article>
-        <h3>02 — Bhune Besan Ka Paneer Tikka</h3>
-        <p>Chef Special Gramflour And Hand Curd Marination Rosted Paneer</p>
-        <span>Price: ₹480</span>
-      </article>
-      <article>
-        <h3>03 — Hare Podina Ka Paneer Tikka</h3>
-        <p>Mint And Ground Spiced Cottage Cheese Cooked In Clay Oven</p>
-        <span>Price: ₹470</span>
-      </article>
-      <article>
-        <h3>04 — Afgani Feta Cheese Kebab</h3>
-        <p>Cruncy Veggies And Feta Cheese Stuff Kebab Served With Fruit Relish</p>
-        <span>Price: ₹420</span>
-      </article>
-      <article>
-        <h3>05 — Seasome Shami Sheekh Kebab</h3>
-        <p>Chef Special Kebab Coated With Seasome Seeds</p>
-        <span>Price: ₹410</span>
-      </article>
-      <article>
-        <h3>06 — Stuff Meva Aloo</h3>
-        <p>Deshi Meva Stuff Tandoori Potatoes Cheese On The Top</p>
-        <span>Price: ₹470</span>
-      </article>
-      <article>
-        <h3>07 — Kaju Dakh Hara Bhara</h3>
-        <p>Green Peas And Chillie Tikki With Cashew &amp; Raisin Sweet And Savoury Combination</p>
-        <span>Price: ₹430</span>
-      </article>
-      <article>
-        <h3>08 — Steam Rice</h3>
-        <p>Plain Steam Cooked Rice</p>
-        <span>Price: ₹160</span>
-      </article>
-      <article>
-        <h3>09 — Jeera Rice</h3>
-        <p>Rice Temperd With Ghee And Jeera</p>
-        <span>Price: ₹180</span>
-      </article>
-      <article>
-        <h3>10 — Peas Pulao</h3>
-        <p>Rice Temperd With Ghee And Peas</p>
-        <span>Price: ₹220</span>
-      </article>
-      <article>
-        <h3>11 — Lakhnavi Biryani</h3>
-        <p>Our Chef Special Sefron And Whole Spiced Flavoured Biryani</p>
-        <span>Price: ₹370</span>
-      </article>
-      <article>
-        <h3>12 — Char Minar Biryani</h3>
-        <p>Brown Onion, Cashew, Ghee, Veggies Its Remid To Muglai Era</p>
-        <span>Price: ₹390</span>
-      </article>
-    </section>
+      <h3>Mocktails</h3>
+      <article><h4>To Love</h4><p>A tropical blend of pineapple, coconut and fresh basil with a bright lime finish</p><span>Price: ₹349</span></article>
+      <article><h4>Sunflower</h4><p>A refreshing cucumber and coriander cooler lifted with orange and lime</p><span>Price: ₹349</span></article>
+      <article><h4>Aam Tangu</h4><p>Juicy mango with mint and a lively Indian spice kick</p><span>Price: ₹349</span></article>
+      <article><h4>Virgin Mojito</h4><p>Fresh mint, zesty lime and a touch of sweetness topped with sparkling soda</p><span>Price: ₹349</span></article>
+      <article><h4>Paan Virgin Mojito</h4><p>A refreshing mint-lime mojito with aromatic paan notes and a sparkling finish</p><span>Price: ₹349</span></article>
+      <article><h4>Kaffir Ginger Lemonade</h4><p>Fragrant kaffir lime and fresh ginger balanced with tangy lemon and soda</p><span>Price: ₹349</span></article>
+      <article><h4>Non-Alcoholic Masala Breezer</h4><p>Your choice of fruity flavour with a lively blend of Indian spices</p><span>Price: ₹349</span></article>
+      <article><h4>Spirit Bomb</h4><p>Blue citrus, coconut cream and lime with a bright, fizzy finish</p><span>Price: ₹349</span></article>
+      <article><h4>Cucumber Ginger Mocktail</h4><p>Cool cucumber and warming fresh ginger finished with a sparkle of soda</p><span>Price: ₹349</span></article>
+      <article><h4>Coconut Crème Mocktini</h4><p>Velvety coconut cream, pineapple and honey with a hint of vanilla</p><span>Price: ₹349</span></article>
+      <article><h4>Sunset</h4><p>A vibrant, fruit-forward cooler inspired by the colours of a sunset</p><span>Price: ₹349</span></article>
+      <article><h4>Watermelon Basil Smash</h4><p>Fresh watermelon and aromatic basil with a crisp, citrusy finish</p><span>Price: ₹349</span></article>
+      <article><h4>Blueberry Lavender Fizz</h4><p>Sweet-tart blueberry with delicate floral lavender and sparkling fizz</p><span>Price: ₹349</span></article>
+      <article><h4>Virgin Piña Colada</h4><p>A tropical, creamy blend of pineapple and coconut, served chilled</p><span>Price: ₹349</span></article>
 
-    <section aria-label="Tandoor — Breads &amp; Accompaniments">
-      <h2>06 · Tandoor — Breads &amp; Accompaniments</h2>
-      <article>
-        <h3>13 — Tandoori Roti</h3>
-        <span>Price: ₹45 / ₹55</span>
-      </article>
-      <article>
-        <h3>14 — Naan</h3>
-        <span>Price: ₹60 / ₹70</span>
-      </article>
-      <article>
-        <h3>15 — Garlic Naan</h3>
-        <span>Price: ₹110</span>
-      </article>
-      <article>
-        <h3>16 — Laccha Paratha</h3>
-        <span>Price: ₹80 / ₹90</span>
-      </article>
-      <article>
-        <h3>17 — Kulcha Mirch Masala</h3>
-        <span>Price: ₹140 / ₹150</span>
-      </article>
-      <article>
-        <h3>18 — Kulcha (Aloo / Paneer)</h3>
-        <span>Price: ₹160 / ₹180</span>
-      </article>
-      <article>
-        <h3>19 — Cheese Garlic Naan</h3>
-        <span>Price: ₹140 / ₹150</span>
-      </article>
-      <article>
-        <h3>20 — Chillie Basil Naan</h3>
-        <span>Price: ₹140</span>
-      </article>
-      <article>
-        <h3>21 — Stuff Paratha</h3>
-        <span>Price: ₹150</span>
-      </article>
-      <article>
-        <h3>22 — Plain Curd</h3>
-        <span>Price: ₹80</span>
-      </article>
-      <article>
-        <h3>23 — Mix Veg Raita</h3>
-        <span>Price: ₹130</span>
-      </article>
-    </section>
-
-    <section aria-label="Indian, Dal &amp; Sizzler">
-      <h2>07 · Indian, Dal &amp; Sizzler</h2>
-      <article>
-        <h3>01 — Paneer Dhaniya Adarki</h3>
-        <p>Its An Combination Dish This Blend Of Cottage Cheese In Ginger And Coriander Gravy</p>
-        <span>Price: ₹420</span>
-      </article>
-      <article>
-        <h3>02 — Paneer Lahori (Peshawari)</h3>
-        <p>Dices Of Cottage Cheese Cooked With Creamy Tomato Gravy With Lahori Whole Spices</p>
-        <span>Price: ₹440</span>
-      </article>
-      <article>
-        <h3>03 — Kade Masale Ka Bhuna Paneer</h3>
-        <p>Bhuna Paneer Is Rich And Spicy Cottage Cheese Dish With An Amezing Bhuna Masala</p>
-        <span>Price: ₹420</span>
-      </article>
-      <article>
-        <h3>04 — Jodhpuri Paneer Tufani</h3>
-        <p>Our Chef Special Deshi Twist Hot And Spicy</p>
-        <span>Price: ₹420</span>
-      </article>
-      <article>
-        <h3>05 — Bhutta Mirch Masala</h3>
-        <p>Panjabi Style Dish Which Is Contain Bhutta Anad Vegetable Rubbed With Indian Spices</p>
-        <span>Price: ₹380</span>
-      </article>
-      <article>
-        <h3>06 — Vegetable Vilayati (Jalfrezi)</h3>
-        <p>Delicious And Healthy Mixure Of English Veg Are Tossed In Tangy Masala</p>
-        <span>Price: ₹360</span>
-      </article>
-      <article>
-        <h3>07 — Methi Malai Paneer</h3>
-        <p>It's A Great Combination Of Fenugreek Leaves With Green Peas Rich Creamy Curry</p>
-        <span>Price: ₹440</span>
-      </article>
-      <article>
-        <h3>08 — Paneer Saagwala</h3>
-        <p>Paneer Is Well Loved Vegeterian Side Dish Its Rich In Calsium From Spinach And Cottage Cheese</p>
-        <span>Price: ₹420</span>
-      </article>
-      <article>
-        <h3>09 — Gulmarg Aloo</h3>
-        <p>It's A Kashmiri Food Potatoes Cooked In Yoghurt Based Gravy With Fennel And Other Spices</p>
-        <span>Price: ₹400</span>
-      </article>
-      <article>
-        <h3>10 — Nanhi Sabjio Ka Mela</h3>
-        <p>It's A Combination Of Vegetable Which One Cooked In An Aeromatic Onion Tomato Masala</p>
-        <span>Price: ₹390</span>
-      </article>
-      <article>
-        <h3>11 — Pindi Chana Masala</h3>
-        <p>It's A Unique Blend Of Spices Adding Some Dry Mango Pwder To Make Perfect Panjabi Cuisin</p>
-        <span>Price: ₹380</span>
-      </article>
-      <article>
-        <h3>12 — Kaju Rawadi</h3>
-        <span>Price: ₹480</span>
-      </article>
-      <article>
-        <h3>13 — Malai Kofta Curry</h3>
-        <p>Round Shape Cottage Cheese And Khoya Dumping Served With Velvet Silky Gravy</p>
-        <span>Price: ₹470</span>
-      </article>
-      <article>
-        <h3>14 — Soya Rara</h3>
-        <p>Soya Chunk And Soya Beans Blended Together With Indian Spices And Herbs</p>
-        <span>Price: ₹480</span>
-      </article>
-      <article>
-        <h3>15 — Pahadi Mashroom Angara</h3>
-        <p>Our Chef Special Home Ground Whole Kashmiri Spices Blend With Mashroom</p>
-        <span>Price: ₹480</span>
-      </article>
-      <article>
-        <h3>16 — Burrata Butter Cheese</h3>
-        <p>Cheese Melted In Mouth With Indian Delicasy Classical Experience</p>
-        <span>Price: ₹520</span>
-      </article>
-      <article>
-        <h3>17 — Dal Fry</h3>
-        <p>Tradionally Yellow Lentil Infused Chef Special Masala</p>
-        <span>Price: ₹220</span>
-      </article>
-      <article>
-        <h3>18 — Dal Tadka</h3>
-        <p>Yellow Lentil Tempring With Curry Leaves, Red Chillies And Ghee</p>
-        <span>Price: ₹260</span>
-      </article>
-      <article>
-        <h3>19 — Pahadi Dal</h3>
-        <p>Chef Special Mix Of Red Gram Lentil And Yellow Lentil Cooked In Pahadi Style</p>
-        <span>Price: ₹280</span>
-      </article>
-      <article>
-        <h3>20 — Dal Makhani</h3>
-        <p>Black Urad Cooked Overnight Finish With Butter And Cream</p>
-        <span>Price: ₹320</span>
-      </article>
-      <article>
-        <h3>21 — Thai Fushion Sizzler</h3>
-        <p>Rice + Cottage Cheese + French Fries In Thai Style</p>
-        <span>Price: ₹650</span>
-      </article>
-      <article>
-        <h3>22 — Italian Sizzler</h3>
-        <p>Rice + Cottage Cheese + French Fries In Oriental Style</p>
-        <span>Price: ₹650</span>
-      </article>
-      <article>
-        <h3>23 — Brownie with Ice Cream</h3>
-        <span>Price: ₹220</span>
-      </article>
-      <article>
-        <h3>24 — Sizzling Brownie with Ice Cream</h3>
-        <span>Price: ₹320</span>
-      </article>
-      <article>
-        <h3>25 — Tiramissu</h3>
-        <p>Italian dessert ladyfinger, mascarpone cheese, finish with dusting of cocoa pwd</p>
-        <span>Price: ₹250</span>
-      </article>
-    </section>
-
-    <!-- Beverages Menu Semantic Content -->
-    <section aria-label="Beverages Menu — Mocktails, Coffee, Shakes, Smoothies &amp; Refreshments">
-      <h2>Saanj Bagh — Beverages Menu</h2>
-
-      <h3>Mocktails (1–10)</h3>
-      <article><p>Artisanal Mocktail Selection Part 1 (Items 1–10)</p></article>
-
-      <h3>Mocktails (11–20)</h3>
-      <article><p>Artisanal Mocktail Selection Part 2 (Items 11–20)</p></article>
-
-      <h3>Hot Coffee</h3>
-      <article><p>Classic Espresso — ₹149 (Arabica Coffee Beans, Water)</p></article>
-      <article><p>Americano — ₹199 (Arabica Coffee Beans, Hot Water)</p></article>
-      <article><p>Cortado — ₹219 (Espresso, Steamed Milk)</p></article>
-      <article><p>Flat White — ₹219 (Double Espresso, Micro-foam Milk)</p></article>
-      <article><p>Cappuccino — ₹199 (Espresso, Steamed Milk, Milk Foam)</p></article>
-      <article><p>Café Latte — ₹199 (Espresso, Steamed Milk)</p></article>
-      <article><p>Vanilla Bean Latte — ₹249 (Espresso, Milk, Vanilla Bean Syrup)</p></article>
-      <article><p>Dark Chocolate Mocha — ₹249 (Espresso, Milk, Dark Chocolate Sauce)</p></article>
-
-      <h3>Cold Coffee</h3>
-      <article><p>Iced Americano — ₹249 (Espresso, Cold Water, Ice)</p></article>
-      <article><p>Classic Cold Brew — ₹349 (Coarse Ground Coffee, Filtered Water, Ice)</p></article>
-      <article><p>Nitro Cold Brew — ₹349 (Cold Brew Coffee, Nitrogen Gas)</p></article>
-      <article><p>Iced Caramel Macchiato — ₹349 (Espresso, Milk, Ice, Caramel Sauce)</p></article>
-      <article><p>Iced Hazelnut Latte — ₹349 (Espresso, Cold Milk, Ice, Hazelnut Syrup)</p></article>
-      <article><p>Vietnamese Iced Coffee — ₹349 (Dark Roast Coffee, Condensed Milk, Ice)</p></article>
-      <article><p>Affogato — ₹349 (Double Espresso, Vanilla Ice Cream)</p></article>
+      <h3>Coffee Shop Menu</h3>
+      <article><h4>Classic Espresso</h4><span>Price: ₹100</span></article>
+      <article><h4>Americano</h4><span>Price: ₹110</span></article>
+      <article><h4>Cortado</h4><span>Price: ₹140</span></article>
+      <article><h4>Flat White</h4><span>Price: ₹180</span></article>
+      <article><h4>Cappuccino</h4><span>Price: ₹160</span></article>
+      <article><h4>Café Latte</h4><span>Price: ₹170</span></article>
+      <article><h4>Vanilla Bean Latte</h4><span>Price: ₹220</span></article>
+      <article><h4>Dark Chocolate Mocha</h4><span>Price: ₹240</span></article>
+      <article><h4>Iced Americano</h4><span>Price: ₹120</span></article>
+      <article><h4>Classic Cold Brew</h4><span>Price: ₹120</span></article>
+      <article><h4>Nitro Cold Brew</h4><span>Price: ₹180</span></article>
+      <article><h4>Iced Caramel Macchiato</h4><span>Price: ₹240</span></article>
+      <article><h4>Iced Hazelnut Latte</h4><span>Price: ₹220</span></article>
+      <article><h4>Vietnamese Iced Coffee</h4><span>Price: ₹200</span></article>
+      <article><h4>Affogato</h4><span>Price: ₹280</span></article>
 
       <h3>Shakes</h3>
-      <article><p>Vanilla Bean Shake — ₹349 (Vanilla Ice Cream, Whole Milk)</p></article>
-      <article><p>Double Chocolate Fudge Shake — ₹349 (Chocolate Ice Cream, Milk, Hot Fudge)</p></article>
-      <article><p>Fresh Strawberry Shake — ₹349 (Strawberry Ice Cream, Milk, Real Strawberries)</p></article>
-      <article><p>Oreo Cookies &amp; Cream Shake — ₹349 (Vanilla Ice Cream, Milk, Oreo Cookies)</p></article>
-      <article><p>Mango Shake — ₹349 (Vanilla Ice Cream, Milk, Mango Puree)</p></article>
-      <article><p>Saanjh Bagh Signature Royal Shake — ₹349 (Vanilla Ice Cream, Milk, Saffron, Dates, Almonds)</p></article>
-      <article><p>Salted Caramel Pretzel Shake — ₹349 (Vanilla Ice Cream, Milk, Caramel, Sea Salt, Pretzels)</p></article>
-      <article><p>Nutella Hazelnut Shake — ₹349 (Chocolate Ice Cream, Milk, Nutella, Roasted Hazelnuts)</p></article>
-      <article><p>Lotus Biscoff Shake — ₹349 (Vanilla Ice Cream, Milk, Biscoff Spread, Crumbs)</p></article>
-      <article><p>Brownie Batter Shake — ₹349 (Chocolate Ice Cream, Milk, Brownie Chunks, Chocolate)</p></article>
+      <article><h4>Vanilla Bean Shake</h4><span>Price: ₹240</span></article>
+      <article><h4>Double Chocolate Fudge Shake</h4><span>Price: ₹300</span></article>
+      <article><h4>Fresh Strawberry Shake</h4><span>Price: ₹320</span></article>
+      <article><h4>Oreo Cookies &amp; Cream Shake</h4><span>Price: ₹280</span></article>
+      <article><h4>Mango Shake</h4><span>Price: ₹320</span></article>
+      <article><h4>Saanjh Bagh Signature Royal Shake</h4><span>Price: ₹480</span></article>
+      <article><h4>Salted Caramel Pretzel Shake</h4><span>Price: ₹380</span></article>
+      <article><h4>Nutella Hazelnut Shake</h4><span>Price: ₹420</span></article>
+      <article><h4>Lotus Biscoff Shake</h4><span>Price: ₹440</span></article>
+      <article><h4>Brownie Batter Shake</h4><span>Price: ₹400</span></article>
 
-      <h3>Smoothies</h3>
-      <article><p>Mixed Berry Blast — ₹349 (Strawberries, Blueberries, Yogurt, Honey, Almond Milk)</p></article>
-      <article><p>Tropical Mango &amp; Passionfruit — ₹349 (Mango, Passionfruit Pulp, Greek Yogurt, Coconut Water)</p></article>
-      <article><p>Green Detox — ₹349 (Spinach, Green Apple, Kiwi, Mint, Coconut Water)</p></article>
-      <article><p>Banana Oat &amp; Honey — ₹349 (Banana, Rolled Oats, Honey, Cinnamon, Almond Milk)</p></article>
-      <article><p>Piña Colada Smoothie — ₹349 (Pineapple Chunks, Coconut Cream, Banana, Coconut Milk)</p></article>
+      <h3>Smoothie</h3>
+      <article><h4>Mixed Berry Blast</h4><span>Price: ₹360</span></article>
+      <article><h4>Tropical Mango &amp; Passionfruit</h4><span>Price: ₹380</span></article>
+      <article><h4>Green Detox</h4><span>Price: ₹340</span></article>
+      <article><h4>Banana Oat &amp; Honey</h4><span>Price: ₹300</span></article>
+      <article><h4>Piña Colada Smoothie</h4><span>Price: ₹340</span></article>
 
       <h3>Beverages</h3>
-      <article><p>Mineral Water — ₹149</p></article>
-      <article><p>Coke — ₹149</p></article>
-      <article><p>Thums Up — ₹149</p></article>
-      <article><p>Diet Coke — ₹199</p></article>
-      <article><p>Ginger Ale — ₹149</p></article>
-      <article><p>Tonic Water — ₹149</p></article>
-      <article><p>Red Bull — ₹299</p></article>
-      <article><p>Canned Juice — ₹149</p></article>
-    </section>
-
-    <!-- Bar Menu Semantic Content -->
-    <section aria-label="Bar Menu — Spirits, Wine & Beer">
-      <h2>Saanj Bagh — Bar Menu</h2>
-      
-      <h3>Whiskey — Single Malt &amp; Scotch</h3>
-      <article><p>Rampur Single Malt (30ml) — ₹1,999</p></article>
-      <article><p>Talisker (30ml) — ₹799</p></article>
-      <article><p>The Glenlivet 18 Y.O (30ml) — ₹1,999</p></article>
-      <article><p>The Glenlivet 15 Yrs (30ml) — ₹1,299</p></article>
-      <article><p>The Glenlivet 12 Yrs (30ml) — ₹799</p></article>
-      <article><p>Glenfiddich 12 Yrs / 15 Yrs (30ml) — ₹799 / ₹1,299</p></article>
-      <article><p>The Singleton 12 Yrs / 15 Yrs (30ml) — ₹799 / ₹1,299</p></article>
-      <article><p>Indri Single Malt / Laphroaig 10 Yrs / Monkey Solder (30ml) — ₹599 / ₹599 / ₹799</p></article>
-      <article><p>Chivas Regal 18 Yrs / 15 Yrs / 12 Yrs (30ml) — ₹1,299 / ₹849 / ₹499</p></article>
-      <article><p>Johnnie Walker Gold / Double Black / Black / Red Label (30ml) — ₹849 / ₹549 / ₹499 / ₹299</p></article>
-      <article><p>Teacher's Golden Thistle / Highland Cream / 50 (30ml) — ₹499 / ₹299 / ₹349</p></article>
-      <article><p>Black Dog Triple Gold / Reserve / 100 Pipers (30ml) — ₹349 / ₹299 / ₹299</p></article>
-      <article><p>Ballantine's / Black &amp; White / J&amp;B Rare / Jameson / Jim Beam / Jack Daniel's (30ml) — ₹299 - ₹349</p></article>
-      <article><p>Blenders Pride Reserve (30ml) — ₹249</p></article>
-
-      <h3>Tequila, Gin, Vodka &amp; Liqueur</h3>
-      <article><p>Camino Real Blanco / Gold (30ml) — ₹399</p></article>
-      <article><p>Patron Silver / Reposado (30ml) — ₹899</p></article>
-      <article><p>Jodhpur / Hapusa / Beefeater / Bombay Sapphire / Tanqueray Gin (30ml) — ₹299 - ₹849</p></article>
-      <article><p>Grey Goose / Absolut / Ketel One / Smirnoff / Morpheus X.O. Vodka (30ml) — ₹249 - ₹599</p></article>
-      <article><p>Jägermeister / Kahlua / Absinthe / Baileys / Campari / Cointreau — ₹349 - ₹549</p></article>
-
-      <h3>Rum, Wine, Beer &amp; Breezers</h3>
-      <article><p>Bacardi White / Old Monk Rum (30ml) — ₹249</p></article>
-      <article><p>Sula Sauvignon Blanc / Zinfandel / Shiraz Cabernet (150ml) — ₹599</p></article>
-      <article><p>Jacob's Creek Chardonnay / Shiraz (150ml) — ₹749</p></article>
-      <article><p>Hoegaarden 330ml / Corona 330ml / Heineken 330ml — ₹549 - ₹699</p></article>
-      <article><p>Budweiser 330ml / Kingfisher Ultra 330ml — ₹499</p></article>
-      <article><p>Budweiser Magnum 500ml / Carlsberg Elephant 500ml / Kingfisher Ultra Max 500ml — ₹599</p></article>
-      <article><p>Breezer Orange / Cranberry / Jamaican Passion / Blueberry — ₹349</p></article>
-    </section>
-
-    <!-- Cocktail Menu Semantic Content -->
-    <section aria-label="Cocktail Menu — Botanical Cocktails &amp; Long Island Iced Teas">
-      <h2>Saanj Bagh — Cocktail Menu</h2>
-
-      <h3>Vodka Cocktails</h3>
-      <article><p>Ruby Rush — ₹600 (Build over tall glass with cubed ice, top with soda and garnish with rosemary sprig)</p></article>
-      <article><p>Berry Blush — ₹625 (Shake and strain into a highball glass over clear ice, top with club soda)</p></article>
-      <article><p>Black Russian — ₹600 (Pour over ice in a rocks glass, stir gently)</p></article>
-      <article><p>Sea Breeze — ₹600 (Build in a highball glass filled with ice, stir and garnish with a lime wheel)</p></article>
-      <article><p>Greyhound — ₹575 (Build in a highball glass over ice, stir and salt rim optionally)</p></article>
-      <article><p>Kamikaze — ₹575 (Shake vigorously with ice, strain into a chilled cocktail glass or shot glasses)</p></article>
-      <article><p>Sex on the Beach — ₹625 (Build over ice in a highball glass, garnish with an orange slice and cherry)</p></article>
-      <article><p>White Russian — ₹650 (Pour over ice in a rocks glass, float cream on top and stir gently)</p></article>
-      <article><p>Moscow Mule — ₹625 (Build in a copper mug over crushed ice, top with ginger beer and stir)</p></article>
-      <article><p>Espresso Martini — ₹675 (Shake vigorously with ice until frothy, strain into a chilled martini glass)</p></article>
-      <article><p>White Peach Cosmo — ₹650 (Shake all ingredients with ice, strain into a chilled cocktail glass)</p></article>
-      <article><p>Lemongrass Fizz — ₹600 (Shake vodka, syrup, and lemon juice, strain into a highball glass, top with ginger ale)</p></article>
-      <article><p>Midnight Bloom — ₹650 (Layer butterfly pea tea over shaken lychee and vodka for a color-changing effect)</p></article>
-      <article><p>Cosmopolitan — ₹625 (Shake all ingredients with ice, strain into a chilled cocktail glass)</p></article>
-
-      <h3>Gin Cocktails</h3>
-      <article><p>Tom Collins — ₹625 (Shake gin, lemon, and syrup, strain into a tall glass over ice, top with club soda)</p></article>
-      <article><p>Classic Dry Martini — ₹650 (Stir well with cracked ice, strain into a chilled martini glass, garnish with an olive)</p></article>
-      <article><p>Negroni — ₹675 (Stir all ingredients with ice, strain into a rocks glass over a large ice cube, garnish with orange peel)</p></article>
-      <article><p>Negroni Sbagliato — ₹675 (Stir gin, Campari, and vermouth over large ice, top with prosecco)</p></article>
-      <article><p>Gibson — ₹650 (Stir well with ice, strain into a chilled cocktail glass, garnish with cocktail onions)</p></article>
-      <article><p>Bee's Knees — ₹625 (Shake with ice, strain into a chilled coupe glass)</p></article>
-      <article><p>Last Word — ₹775 (Shake with ice, strain into a chilled coupe glass)</p></article>
-      <article><p>Southside Royale — ₹675 (Shake gin, lime, and mint syrup, strain into coupe, float prosecco on top)</p></article>
-      <article><p>Cucumber Elderflower Collins — ₹650 (Build in a highball glass, top with soda and stir gently)</p></article>
-
-      <h3>Tequila Cocktails</h3>
-      <article><p>Brave Bull — ₹600 (Pour over ice in a rocks glass, stir gently)</p></article>
-      <article><p>Cantarito — ₹675 (Build in a clay cup or highball with ice, stir well)</p></article>
-      <article><p>Margarita — ₹700 (Shake with ice, strain into a salt-rimmed rocks glass over fresh ice)</p></article>
-      <article><p>Paloma — ₹650 (Build in a highball glass with a salted rim, stir well)</p></article>
-      <article><p>Hibiscus Rosé Margarita — ₹650 (Shake all ingredients with ice, strain over a large ice cube in a rimmed glass)</p></article>
-      <article><p>Cucumber Jalapeño Cooler — ₹650 (Muddle cucumber and jalapeño, shake with tequila and lime, double strain)</p></article>
-
-      <h3>Whisky Cocktails</h3>
-      <article><p>Smoked Maple Old Fashioned — ₹750 (Stir whiskey and maple with ice, smoke the glass with wood chip aroma)</p></article>
-      <article><p>Scottish Penicillin — ₹725 (Shake Scotch, honey-ginger, and lemon, strain over large ice, float peated Scotch on top)</p></article>
-      <article><p>Apple Cinnamon Smash — ₹675 (Muddle apple and mint, shake with bourbon and syrup, double strain over crushed ice)</p></article>
-      <article><p>Rye &amp; Spice Manhattan — ₹725 (Stir with ice until chilled, strain into a coupe, garnish with a brandied cherry)</p></article>
-      <article><p>Highland Honey Highball — ₹650 (Build in a tall highball glass with clear ice sticks, garnish with lemon peel)</p></article>
-      <article><p>Boulevardier — ₹725 (Stir with ice, strain into a rocks glass over a large ice cube, garnish with orange peel)</p></article>
-      <article><p>Rob Roy — ₹700 (Stir with ice, strain into a chilled coupe glass, garnish with a brandied cherry)</p></article>
-      <article><p>Blood and Sand — ₹675 (Shake with ice, strain into a chilled coupe glass)</p></article>
-      <article><p>Old Fashioned — ₹725 (Muddle sugar, bitters, and water, add bourbon and large ice, stir and garnish with orange twist)</p></article>
-      <article><p>Manhattan — ₹750 (Stir with ice, strain into a chilled coupe glass, garnish with a brandied cherry)</p></article>
-      <article><p>Whiskey Sour — ₹675 (Dry shake without ice, then shake hard with ice, strain into a rocks glass)</p></article>
-
-      <h3>Rum Cocktails</h3>
-      <article><p>Saanjh Tropical Mai Tai — ₹700 (Shake all ingredients with ice, strain into a tiki mug over crushed ice, mint bouquet)</p></article>
-      <article><p>Spiced Cuban Mojito — ₹650 (Muddle mint, lime, and sugar gently, add spiced rum and crushed ice, top with soda)</p></article>
-      <article><p>Coconut Breeze — ₹650 (Blend with ice until smooth and creamy, serve in a hurricane glass with pineapple wedge)</p></article>
-      <article><p>Dark &amp; Stormy Night — ₹625 (Build over large ice cubes in a highball glass, float dark rum on top)</p></article>
-      <article><p>Guava Chili Daiquiri — ₹625 (Shake vigorously with ice and strain straight up into a chilled coupette)</p></article>
-      <article><p>Vanilla Spice Old Cuban — ₹700 (Muddle mint and lime, shake with aged rum and syrup, strain, top with sparkling wine)</p></article>
-      <article><p>Piña Colada — ₹650 (Blend all ingredients with ice until smooth, serve in a hurricane glass)</p></article>
-      <article><p>Dark 'n' Stormy — ₹650 (Build ginger beer and lime over ice, float dark rum on top)</p></article>
-      <article><p>Mai Tai — ₹700 (Shake ingredients with ice, strain into a tiki mug over crushed ice, float dark rum)</p></article>
-      <article><p>Painkiller — ₹700 (Shake with ice, pour into a hurricane glass, garnish with freshly grated nutmeg)</p></article>
-      <article><p>Mojito — ₹625 (Muddle mint, lime, and sugar, add rum and crushed ice, top with club soda and stir gently)</p></article>
-      <article><p>Daiquiri — ₹600 (Shake vigorously with ice, strain into a chilled coupe glass)</p></article>
-      <article><p>Jaggery &amp; Spiced Rum — ₹600 (Shake rum, jaggery syrup, and lemon juice with ice, strain into a rocks glass)</p></article>
-      <article><p>Banana Rum Flip — ₹675 (Dry shake then wet shake intensely, strain into a coupe and dust with fresh nutmeg)</p></article>
-
-      <h3>Wine Cocktails</h3>
-      <article><p>Classic Red Sangria — ₹625 (Macerate fruits in brandy and triple sec, mix with chilled red wine and top with soda)</p></article>
-      <article><p>White Peach Spritzer — ₹600 (Build in a wine glass with ice, stir gently and garnish with a peach slice)</p></article>
-      <article><p>Rosé Botanical Punch — ₹650 (Stir all ingredients in a large pitcher with ice, serve in wine goblets)</p></article>
-      <article><p>Sparkling Mimosa Royale — ₹650 (Pour chilled blood orange juice into a champagne flute, top with dry prosecco)</p></article>
-      <article><p>Mulled Wine (Winter Special) — ₹675 (Simmer gently on low heat with spices and honey, serve warm in a mug)</p></article>
-
-      <h3>Long Island Iced Teas</h3>
-      <article><p>Classic Long Island Iced Tea (Traditional) — ₹625 (Vodka, Rum, Gin, Tequila, Triple Sec, Lemon Juice, Simple Syrup, Top with Cola)</p></article>
-      <article><p>Saanjh Bagh Sunset Tea (Signature) — ₹650 (Vodka, Light Rum, Gin, Tequila, Aperol, Lemon Juice, Top with Grapefruit Soda)</p></article>
-      <article><p>Tokyo Iced Tea (Fruity / Green) — ₹650 (Vodka, Rum, Gin, Tequila, Midori, Lemon Juice, Top with Lemon-Lime Soda)</p></article>
-      <article><p>Tennessee Iced Tea (Strong) — ₹675 (Vodka, Rum, Gin, Tequila, Triple Sec, Jack Daniel's, Lemon Juice, Simple, Top with Cola)</p></article>
-      <article><p>Hawaiian Iced Tea (Tropical) — ₹999 (Vodka, Rum, Gin, Tequila, Triple Sec, Lemon Juice, Top with Pineapple Juice)</p></article>
+      <article><h4>Mineral Water</h4><span>Price: ₹149</span></article>
+      <article><h4>Coke</h4><span>Price: ₹149</span></article>
+      <article><h4>Diet Coke</h4><span>Price: ₹199</span></article>
+      <article><h4>Thumbs Up</h4><span>Price: ₹149</span></article>
+      <article><h4>Tonic Water</h4><span>Price: ₹149</span></article>
+      <article><h4>Ginger Ale</h4><span>Price: ₹299</span></article>
+      <article><h4>Red Bull</h4><span>Price: ₹149</span></article>
+      <article><h4>Canned Juice</h4><span>Price: ₹149</span></article>
+      <article><h4>Fresh Lime Soda / Water</h4><span>Price: ₹149</span></article>
     </section>
   </div>
 
-  <script src="app.js?v=20261021h"></script>
+
+  <script src="app.js?v=20261102a"></script>
 </body>
 </html>
 

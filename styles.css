@@ -88,353 +88,201 @@ html, body {
 .menu-artwork-img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
-  display: block;
-  pointer-events: none;
-}
-
-/* Food Menu 10-Layer Stack */
-.indian-3-layer {
-  z-index: 2;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.indian-2-layer {
-  z-index: 4;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.indian-1-layer {
-  z-index: 6;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.indian-layer {
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-}
-
-/* Layer 6: 06 · Tandoor — Breads & Accompaniments (Page 6) */
-.tandoor-breads-layer {
-  z-index: 8;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-/* Layer 5: 05 · Tandoor — Kebabs & Rice/Biryani (Page 5) */
-.tandoor-kebabs-layer {
-  z-index: 10;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-/* Layer 4: 04 · Pasta & Pizza (Page 4) */
-.pasta-layer {
-  z-index: 12;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-/* Layer 3: 03 · Around the World (Page 3) */
-.around-world-layer {
-  z-index: 14;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-/* Layer 2: 02 · Garde Manger Menu (Page 2) */
-.garde-layer {
-  z-index: 16;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-/* Layer 1: 01 · Soup Menu (Page 1 - continuous live steam) */
-.soup-layer {
-  z-index: 18;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-/* Layer 0: Menu Cover (Front face of closed book, Page 0) */
-.cover-layer {
-  z-index: 20;
-  background: #F6EFE2;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 0.2s ease;
-}
-
-/* Specific styling for all menu page artwork: 100% complete edge-to-edge image fitting */
-.cover-layer img,
-.cover-layer .menu-artwork-img,
-.soup-layer img,
-.soup-layer .menu-artwork-img,
-.garde-layer img,
-.garde-layer .menu-artwork-img,
-.around-world-layer img,
-.around-world-layer .menu-artwork-img,
-.pasta-layer img,
-.pasta-layer .menu-artwork-img,
-.tandoor-kebabs-layer img,
-.tandoor-kebabs-layer .menu-artwork-img,
-.tandoor-breads-layer img,
-.tandoor-breads-layer .menu-artwork-img,
-.indian-layer img,
-.indian-layer .menu-artwork-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
+  object-fit: contain;
   object-position: center;
-  pointer-events: none;
-}
-
-/* Page states & visibility: Sequence Cover (0) -> Soup (1) -> Garde (2) -> Around World (3) -> Pasta (4) -> Tandoor Kebabs (5) -> Tandoor Breads (6) -> Indian (7) */
-
-/* Cover (Page 0) */
-.menu-book-container[data-state="cover"] .cover-layer { opacity: 1; pointer-events: auto; }
-
-/* Soup (Page 1) */
-.menu-book-container[data-state="soup"] .cover-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="soup"] .soup-layer { opacity: 1; pointer-events: auto; }
-
-/* Garde Manger (Page 2) */
-.menu-book-container[data-state="garde-manger"] .cover-layer,
-.menu-book-container[data-state="garde-manger"] .soup-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="garde-manger"] .garde-layer { opacity: 1; pointer-events: auto; }
-
-/* Around the World (Page 3) */
-.menu-book-container[data-state="around-the-world"] .cover-layer,
-.menu-book-container[data-state="around-the-world"] .soup-layer,
-.menu-book-container[data-state="around-the-world"] .garde-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="around-the-world"] .around-world-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Pasta & Pizza (Page 4) */
-.menu-book-container[data-state="pasta-pizza"] .cover-layer,
-.menu-book-container[data-state="pasta-pizza"] .soup-layer,
-.menu-book-container[data-state="pasta-pizza"] .garde-layer,
-.menu-book-container[data-state="pasta-pizza"] .around-world-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="pasta-pizza"] .pasta-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Tandoor — Kebabs & Rice/Biryani (Page 5) */
-.menu-book-container[data-state="tandoor-kebabs"] .cover-layer,
-.menu-book-container[data-state="tandoor-kebabs"] .soup-layer,
-.menu-book-container[data-state="tandoor-kebabs"] .garde-layer,
-.menu-book-container[data-state="tandoor-kebabs"] .around-world-layer,
-.menu-book-container[data-state="tandoor-kebabs"] .pasta-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="tandoor-kebabs"] .tandoor-kebabs-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Tandoor — Breads & Accompaniments (Page 6) */
-.menu-book-container[data-state="tandoor-breads"] .cover-layer,
-.menu-book-container[data-state="tandoor-breads"] .soup-layer,
-.menu-book-container[data-state="tandoor-breads"] .garde-layer,
-.menu-book-container[data-state="tandoor-breads"] .around-world-layer,
-.menu-book-container[data-state="tandoor-breads"] .pasta-layer,
-.menu-book-container[data-state="tandoor-breads"] .tandoor-kebabs-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="tandoor-breads"] .tandoor-breads-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Indian Menu — Page 1: Paneer & Mains (Page 7) */
-.menu-book-container[data-state="indian-1"] .cover-layer,
-.menu-book-container[data-state="indian-1"] .soup-layer,
-.menu-book-container[data-state="indian-1"] .garde-layer,
-.menu-book-container[data-state="indian-1"] .around-world-layer,
-.menu-book-container[data-state="indian-1"] .pasta-layer,
-.menu-book-container[data-state="indian-1"] .tandoor-kebabs-layer,
-.menu-book-container[data-state="indian-1"] .tandoor-breads-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="indian-1"] .indian-1-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Indian Menu — Page 2: Specialties & Vegetables (Page 8) */
-.menu-book-container[data-state="indian-2"] .cover-layer,
-.menu-book-container[data-state="indian-2"] .soup-layer,
-.menu-book-container[data-state="indian-2"] .garde-layer,
-.menu-book-container[data-state="indian-2"] .around-world-layer,
-.menu-book-container[data-state="indian-2"] .pasta-layer,
-.menu-book-container[data-state="indian-2"] .tandoor-kebabs-layer,
-.menu-book-container[data-state="indian-2"] .tandoor-breads-layer,
-.menu-book-container[data-state="indian-2"] .indian-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="indian-2"] .indian-2-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Indian Menu — Page 3: Dal & Sizzlers (Page 9) */
-.menu-book-container[data-state="indian-3"] .cover-layer,
-.menu-book-container[data-state="indian-3"] .soup-layer,
-.menu-book-container[data-state="indian-3"] .garde-layer,
-.menu-book-container[data-state="indian-3"] .around-world-layer,
-.menu-book-container[data-state="indian-3"] .pasta-layer,
-.menu-book-container[data-state="indian-3"] .tandoor-kebabs-layer,
-.menu-book-container[data-state="indian-3"] .tandoor-breads-layer,
-.menu-book-container[data-state="indian-3"] .indian-1-layer,
-.menu-book-container[data-state="indian-3"] .indian-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="indian-3"] .indian-3-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* --- Animating states (Page curl in progress) --- */
-.menu-book-container[data-state="animating-0-1"] .cover-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-0-1"] .soup-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-state="animating-1-2"] .cover-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-1-2"] .soup-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-1-2"] .garde-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-state="animating-2-3"] .cover-layer,
-.menu-book-container[data-state="animating-2-3"] .soup-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-2-3"] .garde-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-2-3"] .around-world-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-state="animating-3-4"] .cover-layer,
-.menu-book-container[data-state="animating-3-4"] .soup-layer,
-.menu-book-container[data-state="animating-3-4"] .garde-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-3-4"] .around-world-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-3-4"] .pasta-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-state="animating-4-5"] .cover-layer,
-.menu-book-container[data-state="animating-4-5"] .soup-layer,
-.menu-book-container[data-state="animating-4-5"] .garde-layer,
-.menu-book-container[data-state="animating-4-5"] .around-world-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-4-5"] .pasta-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-4-5"] .tandoor-kebabs-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-state="animating-5-6"] .cover-layer,
-.menu-book-container[data-state="animating-5-6"] .soup-layer,
-.menu-book-container[data-state="animating-5-6"] .garde-layer,
-.menu-book-container[data-state="animating-5-6"] .around-world-layer,
-.menu-book-container[data-state="animating-5-6"] .pasta-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-5-6"] .tandoor-kebabs-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-5-6"] .tandoor-breads-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-state="animating-6-7"] .cover-layer,
-.menu-book-container[data-state="animating-6-7"] .soup-layer,
-.menu-book-container[data-state="animating-6-7"] .garde-layer,
-.menu-book-container[data-state="animating-6-7"] .around-world-layer,
-.menu-book-container[data-state="animating-6-7"] .pasta-layer,
-.menu-book-container[data-state="animating-6-7"] .tandoor-kebabs-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-6-7"] .tandoor-breads-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-6-7"] .indian-1-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-state="animating-7-8"] .cover-layer,
-.menu-book-container[data-state="animating-7-8"] .soup-layer,
-.menu-book-container[data-state="animating-7-8"] .garde-layer,
-.menu-book-container[data-state="animating-7-8"] .around-world-layer,
-.menu-book-container[data-state="animating-7-8"] .pasta-layer,
-.menu-book-container[data-state="animating-7-8"] .tandoor-kebabs-layer,
-.menu-book-container[data-state="animating-7-8"] .tandoor-breads-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-7-8"] .indian-1-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-7-8"] .indian-2-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-state="animating-8-9"] .cover-layer,
-.menu-book-container[data-state="animating-8-9"] .soup-layer,
-.menu-book-container[data-state="animating-8-9"] .garde-layer,
-.menu-book-container[data-state="animating-8-9"] .around-world-layer,
-.menu-book-container[data-state="animating-8-9"] .pasta-layer,
-.menu-book-container[data-state="animating-8-9"] .tandoor-kebabs-layer,
-.menu-book-container[data-state="animating-8-9"] .tandoor-breads-layer,
-.menu-book-container[data-state="animating-8-9"] .indian-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-state="animating-8-9"] .indian-2-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-state="animating-8-9"] .indian-3-layer { opacity: 1; pointer-events: none; }
-
-/* Backward compatibility aliases */
-.menu-book-container[data-state="open"] .cover-layer {
-  opacity: 0;
-  pointer-events: none;
-}
-.menu-book-container[data-state="open"] .soup-layer {
-  opacity: 1;
-  pointer-events: auto;
-}
-.menu-book-container[data-state="open"] .garde-layer {
-  opacity: 1;
-  pointer-events: none;
-}
-.menu-book-container[data-state="animating"] .cover-layer {
-  opacity: 0;
+  background: #FDFBF4;
+  display: block;
   pointer-events: none;
 }
 
 /* ==========================================================================
-   BAR MENU LAYERS & SWITCHER PRESENTATION
-   Dual-Menu Architecture: Seamless switching between Food & Bar experiences
+   MENU MODE VISIBILITY ISOLATION
    ========================================================================== */
-
-/* In Food Mode, hide Bar, Cocktail and Beverages layers */
 .menu-book-container[data-menu="food"] .bar-layer,
 .menu-book-container[data-menu="food"] .cocktail-layer,
 .menu-book-container[data-menu="food"] .bev-layer {
   display: none !important;
 }
 
-/* In Bar Mode, hide Food, Cocktail and Beverages layers */
-.menu-book-container[data-menu="bar"] .cover-layer,
-.menu-book-container[data-menu="bar"] .soup-layer,
-.menu-book-container[data-menu="bar"] .garde-layer,
-.menu-book-container[data-menu="bar"] .around-world-layer,
-.menu-book-container[data-menu="bar"] .pasta-layer,
-.menu-book-container[data-menu="bar"] .tandoor-kebabs-layer,
-.menu-book-container[data-menu="bar"] .tandoor-breads-layer,
-.menu-book-container[data-menu="bar"] .indian-layer,
+.menu-book-container[data-menu="bar"] .food-layer,
 .menu-book-container[data-menu="bar"] .cocktail-layer,
 .menu-book-container[data-menu="bar"] .bev-layer {
   display: none !important;
 }
 
-/* In Cocktail Mode, hide Food, Bar and Beverages layers */
-.menu-book-container[data-menu="cocktail"] .cover-layer,
-.menu-book-container[data-menu="cocktail"] .soup-layer,
-.menu-book-container[data-menu="cocktail"] .garde-layer,
-.menu-book-container[data-menu="cocktail"] .around-world-layer,
-.menu-book-container[data-menu="cocktail"] .pasta-layer,
-.menu-book-container[data-menu="cocktail"] .tandoor-kebabs-layer,
-.menu-book-container[data-menu="cocktail"] .tandoor-breads-layer,
-.menu-book-container[data-menu="cocktail"] .indian-layer,
+.menu-book-container[data-menu="cocktail"] .food-layer,
 .menu-book-container[data-menu="cocktail"] .bar-layer,
 .menu-book-container[data-menu="cocktail"] .bev-layer {
   display: none !important;
 }
 
-/* In Beverages Mode, hide Food, Bar and Cocktail layers */
-.menu-book-container[data-menu="beverages"] .cover-layer,
-.menu-book-container[data-menu="beverages"] .soup-layer,
-.menu-book-container[data-menu="beverages"] .garde-layer,
-.menu-book-container[data-menu="beverages"] .around-world-layer,
-.menu-book-container[data-menu="beverages"] .pasta-layer,
-.menu-book-container[data-menu="beverages"] .tandoor-kebabs-layer,
-.menu-book-container[data-menu="beverages"] .tandoor-breads-layer,
-.menu-book-container[data-menu="beverages"] .indian-layer,
+.menu-book-container[data-menu="beverages"] .food-layer,
 .menu-book-container[data-menu="beverages"] .bar-layer,
 .menu-book-container[data-menu="beverages"] .cocktail-layer {
   display: none !important;
 }
 
-/* Bar Layers Base */
+/* ==========================================================================
+   FOOD MENU 7-LAYER STACK (Pages 0 to 6)
+   ========================================================================== */
+.food-6-layer {
+  z-index: 2;
+  background: #FDFBF4;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.food-5-layer {
+  z-index: 3;
+  background: #FDFBF4;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.food-4-layer {
+  z-index: 4;
+  background: #FDFBF4;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.food-3-layer {
+  z-index: 5;
+  background: #FDFBF4;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.food-2-layer {
+  z-index: 6;
+  background: #FDFBF4;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.food-1-layer {
+  z-index: 7;
+  background: #FDFBF4;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.food-cover-layer {
+  z-index: 8;
+  background: #FDFBF4;
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+/* Food Layer States */
+/* Page 0: Cover */
+.menu-book-container[data-menu="food"][data-state="cover"] .food-cover-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="cover"] .food-1-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="cover"] .food-2-layer,
+.menu-book-container[data-menu="food"][data-state="cover"] .food-3-layer,
+.menu-book-container[data-menu="food"][data-state="cover"] .food-4-layer,
+.menu-book-container[data-menu="food"][data-state="cover"] .food-5-layer,
+.menu-book-container[data-menu="food"][data-state="cover"] .food-6-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+
+/* Page 1: Soup & Garde Manger */
+.menu-book-container[data-menu="food"][data-state="food-1"] .food-cover-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="food"][data-state="food-1"] .food-1-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="food-1"] .food-2-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="food-1"] .food-3-layer,
+.menu-book-container[data-menu="food"][data-state="food-1"] .food-4-layer,
+.menu-book-container[data-menu="food"][data-state="food-1"] .food-5-layer,
+.menu-book-container[data-menu="food"][data-state="food-1"] .food-6-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+
+/* Page 2: Contie Chinese & Pasta */
+.menu-book-container[data-menu="food"][data-state="food-2"] .food-cover-layer,
+.menu-book-container[data-menu="food"][data-state="food-2"] .food-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="food"][data-state="food-2"] .food-2-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="food-2"] .food-3-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="food-2"] .food-4-layer,
+.menu-book-container[data-menu="food"][data-state="food-2"] .food-5-layer,
+.menu-book-container[data-menu="food"][data-state="food-2"] .food-6-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+
+/* Page 3: Pizza & Tandoor */
+.menu-book-container[data-menu="food"][data-state="food-3"] .food-cover-layer,
+.menu-book-container[data-menu="food"][data-state="food-3"] .food-1-layer,
+.menu-book-container[data-menu="food"][data-state="food-3"] .food-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="food"][data-state="food-3"] .food-3-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="food-3"] .food-4-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="food-3"] .food-5-layer,
+.menu-book-container[data-menu="food"][data-state="food-3"] .food-6-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+
+/* Page 4: Indian Specialities */
+.menu-book-container[data-menu="food"][data-state="food-4"] .food-cover-layer,
+.menu-book-container[data-menu="food"][data-state="food-4"] .food-1-layer,
+.menu-book-container[data-menu="food"][data-state="food-4"] .food-2-layer,
+.menu-book-container[data-menu="food"][data-state="food-4"] .food-3-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="food"][data-state="food-4"] .food-4-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="food-4"] .food-5-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="food-4"] .food-6-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+
+/* Page 5: Rice Prepration, Breads & Curd */
+.menu-book-container[data-menu="food"][data-state="food-5"] .food-cover-layer,
+.menu-book-container[data-menu="food"][data-state="food-5"] .food-1-layer,
+.menu-book-container[data-menu="food"][data-state="food-5"] .food-2-layer,
+.menu-book-container[data-menu="food"][data-state="food-5"] .food-3-layer,
+.menu-book-container[data-menu="food"][data-state="food-5"] .food-4-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="food"][data-state="food-5"] .food-5-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="food"][data-state="food-5"] .food-6-layer { opacity: 1; pointer-events: none; visibility: visible; }
+
+/* Page 6: Dal Prepration & Desert */
+.menu-book-container[data-menu="food"][data-state="food-6"] .food-cover-layer,
+.menu-book-container[data-menu="food"][data-state="food-6"] .food-1-layer,
+.menu-book-container[data-menu="food"][data-state="food-6"] .food-2-layer,
+.menu-book-container[data-menu="food"][data-state="food-6"] .food-3-layer,
+.menu-book-container[data-menu="food"][data-state="food-6"] .food-4-layer,
+.menu-book-container[data-menu="food"][data-state="food-6"] .food-5-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="food"][data-state="food-6"] .food-6-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+
+/* Food Animating States */
+.menu-book-container[data-state="animating-0-1"] .food-cover-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-0-1"] .food-1-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-state="animating-1-2"] .food-cover-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-1-2"] .food-1-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-1-2"] .food-2-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-state="animating-2-3"] .food-cover-layer,
+.menu-book-container[data-state="animating-2-3"] .food-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-2-3"] .food-2-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-2-3"] .food-3-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-state="animating-3-4"] .food-cover-layer,
+.menu-book-container[data-state="animating-3-4"] .food-1-layer,
+.menu-book-container[data-state="animating-3-4"] .food-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-3-4"] .food-3-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-3-4"] .food-4-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-state="animating-4-5"] .food-cover-layer,
+.menu-book-container[data-state="animating-4-5"] .food-1-layer,
+.menu-book-container[data-state="animating-4-5"] .food-2-layer,
+.menu-book-container[data-state="animating-4-5"] .food-3-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-4-5"] .food-4-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-4-5"] .food-5-layer { opacity: 1; pointer-events: none; }
+
+.menu-book-container[data-state="animating-5-6"] .food-cover-layer,
+.menu-book-container[data-state="animating-5-6"] .food-1-layer,
+.menu-book-container[data-state="animating-5-6"] .food-2-layer,
+.menu-book-container[data-state="animating-5-6"] .food-3-layer,
+.menu-book-container[data-state="animating-5-6"] .food-4-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-5-6"] .food-5-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-5-6"] .food-6-layer { opacity: 1; pointer-events: none; }
+
+/* ==========================================================================
+   BAR MENU 5-LAYER STACK (Pages 0 to 4)
+   ========================================================================== */
 .bar-layer {
   display: block;
   position: absolute;
@@ -443,161 +291,102 @@ html, body {
   height: 100%;
   border-radius: 3px;
   overflow: hidden;
-}
-
-/* Layer 6 (Bottommost Bar): Beer & Breezer */
-.bar-beer-breezer-layer {
-  z-index: 2;
-  background: #E8D5B7;
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* Layer 5: Wine Selection */
-.bar-wine-layer {
-  z-index: 4;
-  background: #E8D5B7;
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* Layer 4: Vodka, Brandy, Liqueur & Rum */
-.bar-vodka-rum-layer {
-  z-index: 6;
-  background: #E8D5B7;
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* Layer 3: Tequila & Gin */
-.bar-tequila-gin-layer {
-  z-index: 8;
-  background: #E8D5B7;
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* Layer 2: Scotch & Blended Whisky (Part 2) */
-.bar-whiskey-3-layer {
-  z-index: 10;
-  background: #0E1F0E;
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* Layer 1: Scotch Whisky (Part 1) */
-.bar-whiskey-2-layer {
-  z-index: 12;
-  background: #0E1F0E;
-  opacity: 1;
-  pointer-events: none;
-}
-
-/* Layer 0 (Topmost Bar): Single Malt Whiskey */
-.bar-whiskey-1-layer {
-  z-index: 14;
-  background: #0E1F0E;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Bar Layers Clickable for Quick Expand */
-.menu-book-container[data-menu="bar"] .bar-layer,
-.menu-book-container[data-menu="cocktail"] .cocktail-layer {
+  background: #FDFBF4;
   cursor: pointer;
 }
 
-/* Bar artwork images: Centered without stretching or distortion */
-.bar-whiskey-img,
-.bar-parchment-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
+.bar-4-layer {
+  z-index: 2;
+  opacity: 1;
   pointer-events: none;
-  margin: 0 auto;
+  transition: opacity 0.2s ease;
+}
+
+.bar-3-layer {
+  z-index: 3;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.bar-2-layer {
+  z-index: 4;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.bar-1-layer {
+  z-index: 5;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.bar-0-layer {
+  z-index: 6;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease;
 }
 
 /* Bar Page States */
-/* Bar Page 0: Single Malt Whiskey */
-.menu-book-container[data-menu="bar"][data-state="bar-0"] .bar-whiskey-1-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Page 0: Cover */
+.menu-book-container[data-menu="bar"][data-state="bar-0"] .bar-0-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="bar"][data-state="bar-0"] .bar-1-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="bar"][data-state="bar-0"] .bar-2-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-0"] .bar-3-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-0"] .bar-4-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 
-/* Bar Page 1: Scotch Whisky (Part 1) */
-.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-whiskey-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-whiskey-2-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Page 1: Single Malt & Scotch */
+.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-0-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-1-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-2-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-3-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-1"] .bar-4-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 
-/* Bar Page 2: Scotch & Blended Whisky (Part 2) */
-.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-whiskey-1-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-whiskey-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-whiskey-3-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Page 2: Scotch, Tequila & Gin */
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-0-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-2-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-3-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="bar"][data-state="bar-2"] .bar-4-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 
-/* Bar Page 3: Tequila & Gin */
-.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-whiskey-1-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-whiskey-2-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-whiskey-3-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-tequila-gin-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Page 3: Vodka, Tequila, Liqueur & Rum */
+.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-0-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-1-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-3-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="bar"][data-state="bar-3"] .bar-4-layer { opacity: 1; pointer-events: none; visibility: visible; }
 
-/* Bar Page 4: Vodka, Brandy, Liqueur & Rum */
-.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-whiskey-1-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-whiskey-2-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-whiskey-3-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-tequila-gin-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-vodka-rum-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Bar Page 5: Wine Selection */
-.menu-book-container[data-menu="bar"][data-state="bar-5"] .bar-whiskey-1-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-5"] .bar-whiskey-2-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-5"] .bar-whiskey-3-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-5"] .bar-tequila-gin-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-5"] .bar-vodka-rum-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="bar-5"] .bar-wine-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Bar Page 6: Beer & Breezer */
-.menu-book-container[data-menu="bar"][data-state="bar-6"] .bar-whiskey-1-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-6"] .bar-whiskey-2-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-6"] .bar-whiskey-3-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-6"] .bar-tequila-gin-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-6"] .bar-vodka-rum-layer,
-.menu-book-container[data-menu="bar"][data-state="bar-6"] .bar-wine-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="bar-6"] .bar-beer-breezer-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Page 4: Wine, Beer & Breezer */
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-0-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-1-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-2-layer,
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-3-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="bar"][data-state="bar-4"] .bar-4-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
 /* Bar Animating States */
-.menu-book-container[data-menu="bar"][data-state="animating-bar-0-1"] .bar-whiskey-1-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-0-1"] .bar-whiskey-2-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-bar-0-1"] .bar-0-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-bar-0-1"] .bar-1-layer { opacity: 1; pointer-events: none; }
 
-.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-whiskey-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-whiskey-2-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-1-2"] .bar-whiskey-3-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-bar-1-2"] .bar-0-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-bar-1-2"] .bar-1-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-bar-1-2"] .bar-2-layer { opacity: 1; pointer-events: none; }
 
-.menu-book-container[data-menu="bar"][data-state="animating-bar-2-3"] .bar-whiskey-1-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-2-3"] .bar-whiskey-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-2-3"] .bar-whiskey-3-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-2-3"] .bar-tequila-gin-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-bar-2-3"] .bar-0-layer,
+.menu-book-container[data-state="animating-bar-2-3"] .bar-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-bar-2-3"] .bar-2-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-bar-2-3"] .bar-3-layer { opacity: 1; pointer-events: none; }
 
-.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-whiskey-1-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-whiskey-2-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-whiskey-3-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-tequila-gin-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-3-4"] .bar-vodka-rum-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-menu="bar"][data-state="animating-bar-4-5"] .bar-whiskey-1-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-4-5"] .bar-whiskey-2-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-4-5"] .bar-whiskey-3-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-4-5"] .bar-tequila-gin-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-4-5"] .bar-vodka-rum-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-4-5"] .bar-wine-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-menu="bar"][data-state="animating-bar-5-6"] .bar-whiskey-1-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-5-6"] .bar-whiskey-2-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-5-6"] .bar-whiskey-3-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-5-6"] .bar-tequila-gin-layer,
-.menu-book-container[data-menu="bar"][data-state="animating-bar-5-6"] .bar-vodka-rum-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-5-6"] .bar-wine-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="bar"][data-state="animating-bar-5-6"] .bar-beer-breezer-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-bar-3-4"] .bar-0-layer,
+.menu-book-container[data-state="animating-bar-3-4"] .bar-1-layer,
+.menu-book-container[data-state="animating-bar-3-4"] .bar-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-bar-3-4"] .bar-3-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-bar-3-4"] .bar-4-layer { opacity: 1; pointer-events: none; }
 
 /* ==========================================================================
-   COCKTAIL MENU LAYERS & BOOK PRESENTATION
+   COCKTAIL MENU 3-LAYER STACK (Pages 0 to 2)
    ========================================================================== */
 .cocktail-layer {
   display: block;
@@ -607,126 +396,57 @@ html, body {
   height: 100%;
   border-radius: 3px;
   overflow: hidden;
-  background: #EFE5D0;
+  background: #FDFBF4;
+  cursor: pointer;
 }
 
-.cocktail-iced-tea-layer { z-index: 2; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-wine-layer { z-index: 4; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-whisky-layer { z-index: 6; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-rum-layer { z-index: 8; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-classics-layer { z-index: 10; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-gin-layer { z-index: 12; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-tequila-whisky-layer { z-index: 14; opacity: 1; pointer-events: none; background: #EFE5D0; }
-.cocktail-sig-layer { z-index: 16; opacity: 1; pointer-events: auto; background: #EFE5D0; }
-
-.cocktail-artwork-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
+.cocktail-2-layer {
+  z-index: 2;
+  opacity: 1;
   pointer-events: none;
-  margin: 0 auto;
+  transition: opacity 0.2s ease;
+}
+
+.cocktail-1-layer {
+  z-index: 3;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.cocktail-0-layer {
+  z-index: 4;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease;
 }
 
 /* Cocktail Page States */
-/* Page 0: Signature Cocktails */
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-0"] .cocktail-sig-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Page 0: Vodka & LIIT */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-0"] .cocktail-0-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-0"] .cocktail-1-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-0"] .cocktail-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 
-/* Page 1: Tequila & Whisky Cocktails */
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-1"] .cocktail-sig-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-1"] .cocktail-tequila-whisky-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Page 1: Gin & Tequila */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-1"] .cocktail-0-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-1"] .cocktail-1-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-1"] .cocktail-2-layer { opacity: 1; pointer-events: none; visibility: visible; }
 
-/* Page 2: Gin Cocktails */
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-2"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-2"] .cocktail-tequila-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-2"] .cocktail-gin-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Page 3: Classic Cocktails */
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-tequila-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-gin-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-3"] .cocktail-classics-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Page 4: Rum Cocktails */
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-tequila-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-gin-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-classics-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-4"] .cocktail-rum-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Page 5: Whisky Cocktails */
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-tequila-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-gin-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-classics-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-rum-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-5"] .cocktail-whisky-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Page 6: Wine Cocktails */
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-tequila-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-gin-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-classics-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-rum-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-6"] .cocktail-wine-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-
-/* Page 7: Iced Tea Cocktails */
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-tequila-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-gin-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-classics-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-rum-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-wine-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="cocktail-7"] .cocktail-iced-tea-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+/* Page 2: Rum & Wine */
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-2"] .cocktail-0-layer,
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-2"] .cocktail-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="cocktail"][data-state="cocktail-2"] .cocktail-2-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
 /* Cocktail Animating States */
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-0-1"] .cocktail-sig-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-0-1"] .cocktail-tequila-whisky-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-cocktail-0-1"] .cocktail-0-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-cocktail-0-1"] .cocktail-1-layer { opacity: 1; pointer-events: none; }
 
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-1-2"] .cocktail-sig-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-1-2"] .cocktail-tequila-whisky-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-1-2"] .cocktail-gin-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-tequila-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-gin-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-2-3"] .cocktail-classics-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-tequila-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-gin-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-classics-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-3-4"] .cocktail-rum-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-tequila-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-gin-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-classics-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-rum-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-4-5"] .cocktail-whisky-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-tequila-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-gin-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-classics-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-rum-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-5-6"] .cocktail-wine-layer { opacity: 1; pointer-events: none; }
-
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-sig-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-tequila-whisky-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-gin-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-classics-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-rum-layer,
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-whisky-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-wine-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="cocktail"][data-state="animating-cocktail-6-7"] .cocktail-iced-tea-layer { opacity: 1; pointer-events: none; }
+.menu-book-container[data-state="animating-cocktail-1-2"] .cocktail-0-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-cocktail-1-2"] .cocktail-1-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-cocktail-1-2"] .cocktail-2-layer { opacity: 1; pointer-events: none; }
 
 /* ==========================================================================
-   BEVERAGES MENU LAYERS & BOOK PRESENTATION (COFFEE + SHAKES/BEVERAGES)
+   BEVERAGES MENU 4-LAYER STACK (Pages 0 to 3)
    ========================================================================== */
 .bev-layer {
   display: block;
@@ -736,93 +456,75 @@ html, body {
   height: 100%;
   border-radius: 3px;
   overflow: hidden;
-  background: #F8ECD7;
+  background: #FDFBF4;
+  cursor: pointer;
 }
 
-.bev-artwork-img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  display: block;
-  user-select: none;
-  -webkit-user-drag: none;
+.bev-3-layer {
+  z-index: 2;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
 }
 
-/* Beverages Layer Stacking (6 Pages) */
-.bev-beverages-layer { z-index: 2; background: #FDF4E7; opacity: 1; pointer-events: none; }
-.bev-shakes-smoothies-layer { z-index: 4; background: #F8ECD7; opacity: 1; pointer-events: none; }
-.bev-coffee-shakes-layer { z-index: 6; background: #FDF4E7; opacity: 1; pointer-events: none; }
-.bev-coffee-layer { z-index: 8; background: #F8ECD7; opacity: 1; pointer-events: none; }
-.bev-mocktails-2-layer { z-index: 10; background: #FDF4E7; opacity: 1; pointer-events: none; }
-.bev-mocktails-1-layer { z-index: 12; background: #F8ECD7; opacity: 1; pointer-events: auto; }
+.bev-2-layer {
+  z-index: 3;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
 
-/* Beverages State: Page 0 (Mocktails 1–10 active) */
-.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-mocktails-1-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-mocktails-2-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.bev-1-layer {
+  z-index: 4;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
 
-/* Beverages State: Animating Page 0 -> 1 */
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-0-1"] .bev-mocktails-1-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-0-1"] .bev-mocktails-2-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.bev-0-layer {
+  z-index: 5;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease;
+}
 
-/* Beverages State: Page 1 (Mocktails 11–20 active) */
-.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-mocktails-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-mocktails-2-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-coffee-layer { opacity: 1; pointer-events: none; visibility: visible; }
+/* Beverages Page States */
+/* Page 0: Mocktails */
+.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-0-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-1-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-2-layer,
+.menu-book-container[data-menu="beverages"][data-state="bev-0"] .bev-3-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 
-/* Beverages State: Animating Page 1 -> 2 */
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-1-2"] .bev-mocktails-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-1-2"] .bev-mocktails-2-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-1-2"] .bev-coffee-layer { opacity: 1; pointer-events: none; visibility: visible; }
+/* Page 1: Coffee Shop Menu */
+.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-0-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-1-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-2-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-menu="beverages"][data-state="bev-1"] .bev-3-layer { opacity: 0; pointer-events: none; visibility: hidden; }
 
-/* Beverages State: Page 2 (Coffee active) */
-.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-mocktails-1-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-mocktails-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-coffee-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-coffee-shakes-layer { opacity: 1; pointer-events: none; visibility: visible; }
+/* Page 2: Shakes & Smoothie */
+.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-0-layer,
+.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-2-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-menu="beverages"][data-state="bev-2"] .bev-3-layer { opacity: 1; pointer-events: none; visibility: visible; }
 
-/* Beverages State: Animating Page 2 -> 3 */
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-2-3"] .bev-mocktails-1-layer,
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-2-3"] .bev-mocktails-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-2-3"] .bev-coffee-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-2-3"] .bev-coffee-shakes-layer { opacity: 1; pointer-events: none; visibility: visible; }
+/* Page 3: Beverages */
+.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-0-layer,
+.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-1-layer,
+.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-2-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-3-layer { opacity: 1; pointer-events: auto; visibility: visible; }
 
-/* Beverages State: Page 3 (Coffee & Shakes active) */
-.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-mocktails-1-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-mocktails-2-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-coffee-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-coffee-shakes-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-.menu-book-container[data-menu="beverages"][data-state="bev-3"] .bev-shakes-smoothies-layer { opacity: 1; pointer-events: none; visibility: visible; }
+/* Beverages Animating States */
+.menu-book-container[data-state="animating-bev-0-1"] .bev-0-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-bev-0-1"] .bev-1-layer { opacity: 1; pointer-events: none; }
 
-/* Beverages State: Animating Page 3 -> 4 */
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-3-4"] .bev-mocktails-1-layer,
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-3-4"] .bev-mocktails-2-layer,
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-3-4"] .bev-coffee-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-3-4"] .bev-coffee-shakes-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-3-4"] .bev-shakes-smoothies-layer { opacity: 1; pointer-events: none; visibility: visible; }
+.menu-book-container[data-state="animating-bev-1-2"] .bev-0-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-bev-1-2"] .bev-1-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-bev-1-2"] .bev-2-layer { opacity: 1; pointer-events: none; }
 
-/* Beverages State: Page 4 (Shakes & Smoothies active) */
-.menu-book-container[data-menu="beverages"][data-state="bev-4"] .bev-mocktails-1-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-4"] .bev-mocktails-2-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-4"] .bev-coffee-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-4"] .bev-coffee-shakes-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="beverages"][data-state="bev-4"] .bev-shakes-smoothies-layer { opacity: 1; pointer-events: auto; visibility: visible; }
-.menu-book-container[data-menu="beverages"][data-state="bev-4"] .bev-beverages-layer { opacity: 1; pointer-events: none; visibility: visible; }
-
-/* Beverages State: Animating Page 4 -> 5 */
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-4-5"] .bev-mocktails-1-layer,
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-4-5"] .bev-mocktails-2-layer,
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-4-5"] .bev-coffee-layer,
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-4-5"] .bev-coffee-shakes-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-4-5"] .bev-shakes-smoothies-layer { opacity: 0; pointer-events: none; }
-.menu-book-container[data-menu="beverages"][data-state="animating-bev-4-5"] .bev-beverages-layer { opacity: 1; pointer-events: none; visibility: visible; }
-
-/* Beverages State: Page 5 (Beverages active) */
-.menu-book-container[data-menu="beverages"][data-state="bev-5"] .bev-mocktails-1-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-5"] .bev-mocktails-2-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-5"] .bev-coffee-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-5"] .bev-coffee-shakes-layer,
-.menu-book-container[data-menu="beverages"][data-state="bev-5"] .bev-shakes-smoothies-layer { opacity: 0; pointer-events: none; visibility: hidden; }
-.menu-book-container[data-menu="beverages"][data-state="bev-5"] .bev-beverages-layer { opacity: 1; pointer-events: auto; visibility: visible; }
+.menu-book-container[data-state="animating-bev-2-3"] .bev-0-layer,
+.menu-book-container[data-state="animating-bev-2-3"] .bev-1-layer { opacity: 0; pointer-events: none; visibility: hidden; }
+.menu-book-container[data-state="animating-bev-2-3"] .bev-2-layer { opacity: 0; pointer-events: none; }
+.menu-book-container[data-state="animating-bev-2-3"] .bev-3-layer { opacity: 1; pointer-events: none; }
 
 /* --- 3B. DELICATE BOTANICAL COVER BREEZE ANIMATION --- */
 /* Strictly pure foliage movement: zero architectural, arch, pillar, or border movement */

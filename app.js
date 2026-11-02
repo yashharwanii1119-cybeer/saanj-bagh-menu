@@ -48,79 +48,55 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBook = document.getElementById('menuBook');
   const curlCanvas = document.getElementById('curlCanvas');
 
-  // Food Menu Layers & Artworks
-  const coverLayer = document.getElementById('coverLayer');
-  const soupLayer = document.getElementById('soupLayer');
-  const gardeLayer = document.getElementById('gardeLayer');
-  const aroundWorldLayer = document.getElementById('aroundWorldLayer');
-  const pastaLayer = document.getElementById('pastaLayer');
-  const tandoorKebabsLayer = document.getElementById('tandoorKebabsLayer');
-  const tandoorBreadsLayer = document.getElementById('tandoorBreadsLayer');
-  const indian1Layer = document.getElementById('indian1Layer');
-  const indian2Layer = document.getElementById('indian2Layer');
-  const indian3Layer = document.getElementById('indian3Layer');
+  // Food Menu Layers & Artworks (7 Pages total: 0 to 6)
+  const foodCoverLayer = document.getElementById('foodCoverLayer');
+  const food1Layer = document.getElementById('food1Layer');
+  const food2Layer = document.getElementById('food2Layer');
+  const food3Layer = document.getElementById('food3Layer');
+  const food4Layer = document.getElementById('food4Layer');
+  const food5Layer = document.getElementById('food5Layer');
+  const food6Layer = document.getElementById('food6Layer');
 
-  const coverArtwork = document.getElementById('coverArtwork');
-  const soupArtwork = document.getElementById('soupArtwork');
-  const gardeArtwork = document.getElementById('gardeArtwork');
-  const aroundWorldArtwork = document.getElementById('aroundWorldArtwork');
-  const pastaArtwork = document.getElementById('pastaArtwork');
-  const tandoorKebabsArtwork = document.getElementById('tandoorKebabsArtwork');
-  const tandoorBreadsArtwork = document.getElementById('tandoorBreadsArtwork');
-  const indian1Artwork = document.getElementById('indian1Artwork');
-  const indian2Artwork = document.getElementById('indian2Artwork');
-  const indian3Artwork = document.getElementById('indian3Artwork');
+  const foodCoverArtwork = document.getElementById('foodCoverArtwork');
+  const food1Artwork = document.getElementById('food1Artwork');
+  const food2Artwork = document.getElementById('food2Artwork');
+  const food3Artwork = document.getElementById('food3Artwork');
+  const food4Artwork = document.getElementById('food4Artwork');
+  const food5Artwork = document.getElementById('food5Artwork');
+  const food6Artwork = document.getElementById('food6Artwork');
 
-  // Bar Menu Layers & Artworks
-  const barWhiskey1Layer = document.getElementById('barWhiskey1Layer');
-  const barWhiskey2Layer = document.getElementById('barWhiskey2Layer');
-  const barWhiskey3Layer = document.getElementById('barWhiskey3Layer');
-  const barTequilaGinLayer = document.getElementById('barTequilaGinLayer');
-  const barVodkaRumLayer = document.getElementById('barVodkaRumLayer');
-  const barBeerBreezerLayer = document.getElementById('barBeerBreezerLayer');
-  const barWineLayer = document.getElementById('barWineLayer');
+  // Bar Menu Layers & Artworks (5 Pages total: 0 to 4)
+  const bar0Layer = document.getElementById('bar0Layer');
+  const bar1Layer = document.getElementById('bar1Layer');
+  const bar2Layer = document.getElementById('bar2Layer');
+  const bar3Layer = document.getElementById('bar3Layer');
+  const bar4Layer = document.getElementById('bar4Layer');
 
-  const barWhiskey1Artwork = document.getElementById('barWhiskey1Artwork');
-  const barWhiskey2Artwork = document.getElementById('barWhiskey2Artwork');
-  const barWhiskey3Artwork = document.getElementById('barWhiskey3Artwork');
-  const barTequilaGinArtwork = document.getElementById('barTequilaGinArtwork');
-  const barVodkaRumArtwork = document.getElementById('barVodkaRumArtwork');
-  const barBeerBreezerArtwork = document.getElementById('barBeerBreezerArtwork');
-  const barWineArtwork = document.getElementById('barWineArtwork');
+  const bar0Artwork = document.getElementById('bar0Artwork');
+  const bar1Artwork = document.getElementById('bar1Artwork');
+  const bar2Artwork = document.getElementById('bar2Artwork');
+  const bar3Artwork = document.getElementById('bar3Artwork');
+  const bar4Artwork = document.getElementById('bar4Artwork');
 
-  // Cocktail Menu Layers & Artworks
-  const cocktailSigLayer = document.getElementById('cocktailSigLayer');
-  const cocktailTequilaWhiskyLayer = document.getElementById('cocktailTequilaWhiskyLayer');
-  const cocktailGinLayer = document.getElementById('cocktailGinLayer');
-  const cocktailClassicsLayer = document.getElementById('cocktailClassicsLayer');
-  const cocktailRumLayer = document.getElementById('cocktailRumLayer');
-  const cocktailWhiskyLayer = document.getElementById('cocktailWhiskyLayer');
-  const cocktailWineLayer = document.getElementById('cocktailWineLayer');
-  const cocktailIcedTeaLayer = document.getElementById('cocktailIcedTeaLayer');
+  // Cocktail Menu Layers & Artworks (3 Pages total: 0 to 2)
+  const cocktail0Layer = document.getElementById('cocktail0Layer');
+  const cocktail1Layer = document.getElementById('cocktail1Layer');
+  const cocktail2Layer = document.getElementById('cocktail2Layer');
 
-  const cocktailSigArtwork = document.getElementById('cocktailSigArtwork');
-  const cocktailTequilaWhiskyArtwork = document.getElementById('cocktailTequilaWhiskyArtwork');
-  const cocktailGinArtwork = document.getElementById('cocktailGinArtwork');
-  const cocktailClassicsArtwork = document.getElementById('cocktailClassicsArtwork');
-  const cocktailRumArtwork = document.getElementById('cocktailRumArtwork');
-  const cocktailWhiskyArtwork = document.getElementById('cocktailWhiskyArtwork');
-  const cocktailWineArtwork = document.getElementById('cocktailWineArtwork');
-  const cocktailIcedTeaArtwork = document.getElementById('cocktailIcedTeaArtwork');
+  const cocktail0Artwork = document.getElementById('cocktail0Artwork');
+  const cocktail1Artwork = document.getElementById('cocktail1Artwork');
+  const cocktail2Artwork = document.getElementById('cocktail2Artwork');
 
-  // Beverages Menu Layers & Artworks (6 Pages)
-  const bevMocktails1Layer = document.getElementById('bevMocktails1Layer');
-  const bevMocktails2Layer = document.getElementById('bevMocktails2Layer');
-  const bevCoffeeLayer = document.getElementById('bevCoffeeLayer');
-  const bevCoffeeShakesLayer = document.getElementById('bevCoffeeShakesLayer');
-  const bevShakesSmoothiesLayer = document.getElementById('bevShakesSmoothiesLayer');
-  const bevBeveragesLayer = document.getElementById('bevBeveragesLayer');
+  // Beverages Menu Layers & Artworks (4 Pages total: 0 to 3)
+  const bev0Layer = document.getElementById('bev0Layer');
+  const bev1Layer = document.getElementById('bev1Layer');
+  const bev2Layer = document.getElementById('bev2Layer');
+  const bev3Layer = document.getElementById('bev3Layer');
 
-  const bevMocktails1Artwork = document.getElementById('bevMocktails1Artwork');
-  const bevMocktails2Artwork = document.getElementById('bevMocktails2Artwork');
-  const bevCoffeeArtwork = document.getElementById('bevCoffeeArtwork');
-  const bevCoffeeShakesArtwork = document.getElementById('bevCoffeeShakesArtwork');
-  const bevShakesSmoothiesArtwork = document.getElementById('bevShakesSmoothiesArtwork');
-  const bevBeveragesArtwork = document.getElementById('bevBeveragesArtwork');
+  const bev0Artwork = document.getElementById('bev0Artwork');
+  const bev1Artwork = document.getElementById('bev1Artwork');
+  const bev2Artwork = document.getElementById('bev2Artwork');
+  const bev3Artwork = document.getElementById('bev3Artwork');
 
   // 4-Way Menu Switcher Controls
   const btnFoodMenu = document.getElementById('btnFoodMenu');
@@ -148,34 +124,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const expPageNumber = document.getElementById('expPageNumber');
 
   // --- Expanded Viewer Data Manifests ---
+  const FOOD_MENU_PAGES = [
+    { title: 'FOOD MENU', src: 'assets/images/food-1-cover.jpg?v=20261102a', alt: 'Saanj Bagh — Food Menu Cover' },
+    { title: 'SOUP & GARDE MANGER', src: 'assets/images/food-2-soup-garde.jpg?v=20261102a', alt: 'Saanj Bagh — Soup & Garde Manger Menu' },
+    { title: 'CONTIE CHINESE & PASTA', src: 'assets/images/food-3-contie-pasta.jpg?v=20261102a', alt: 'Saanj Bagh — Contie Chinese & Pasta Menu' },
+    { title: 'PIZZA & TANDOOR', src: 'assets/images/food-4-pizza-tandoor.jpg?v=20261102a', alt: 'Saanj Bagh — Pizza & Tandoor Menu' },
+    { title: 'INDIAN SPECIALITIES', src: 'assets/images/food-5-indian.jpg?v=20261102a', alt: 'Saanj Bagh — Indian Specialities Menu' },
+    { title: 'RICE PREPRATION, BREADS & CURD', src: 'assets/images/food-6-rice-breads.jpg?v=20261102a', alt: 'Saanj Bagh — Rice Prepration, Breads & Curd' },
+    { title: 'DAL PREPRATION & DESSERT', src: 'assets/images/food-7-dal-dessert.jpg?v=20261102a', alt: 'Saanj Bagh — Dal Prepration & Dessert' }
+  ];
+
   const BAR_MENU_PAGES = [
-    { title: 'WHISKEY — SINGLE MALT', src: 'assets/images/bar-whiskey-1.jpg', alt: 'Saanj Bagh — Single Malt Whiskey Menu' },
-    { title: 'SCOTCH WHISKY', src: 'assets/images/bar-whiskey-2.jpg', alt: 'Saanj Bagh — Scotch Whisky Menu (Part 1)' },
-    { title: 'SCOTCH & BLENDED WHISKY', src: 'assets/images/bar-whiskey-3.png', alt: 'Saanj Bagh — Scotch & Blended Whisky Menu (Part 2)' },
-    { title: 'TEQUILA & GIN', src: 'assets/images/bar-tequila-gin.jpg', alt: 'Saanj Bagh — Tequila & Gin Menu' },
-    { title: 'VODKA, BRANDY, LIQUEUR & RUM', src: 'assets/images/bar-vodka-rum.jpg', alt: 'Saanj Bagh — Vodka, Brandy, Liqueur & Rum Menu' },
-    { title: 'WINE SELECTION', src: 'assets/images/bar-wine.jpg', alt: 'Saanj Bagh — Wine Selection Menu' },
-    { title: 'BEER & BREEZER', src: 'assets/images/bar-beer-breezer.jpg?v=20261027c', alt: 'Saanj Bagh — Beer & Breezer Menu' }
+    { title: 'BAR MENU', src: 'assets/images/bar-1-cover.jpg?v=20261102a', alt: 'Saanj Bagh — Bar Menu Cover' },
+    { title: 'SINGLE MALT & SCOTCH WHISKY', src: 'assets/images/bar-2-whiskey.jpg?v=20261102a', alt: 'Saanj Bagh — Single Malt & Scotch Whisky' },
+    { title: 'SCOTCH WHISKY, TEQUILA & GIN', src: 'assets/images/bar-3-scotch-tequila-gin.jpg?v=20261102a', alt: 'Saanj Bagh — Scotch Whisky, Tequila & Gin' },
+    { title: 'VODKA, TEQUILA, LIQUEUR & RUM', src: 'assets/images/bar-4-vodka-rum.jpg?v=20261102a', alt: 'Saanj Bagh — Vodka, Tequila, Liqueur & Rum' },
+    { title: 'WINE, BEER & BREEZER', src: 'assets/images/bar-5-wine-beer.jpg?v=20261102a', alt: 'Saanj Bagh — Wine, Beer & Breezer' }
   ];
 
   const COCKTAIL_MENU_PAGES = [
-    { title: 'SIGNATURE COCKTAILS', src: 'assets/images/cocktail-1-signature.jpg', alt: 'Saanj Bagh — Signature Cocktails Menu' },
-    { title: 'TEQUILA & WHISKY COCKTAILS', src: 'assets/images/cocktail-2-tequila-whisky.jpg', alt: 'Saanj Bagh — Tequila & Whisky Cocktails Menu' },
-    { title: 'GIN COCKTAILS', src: 'assets/images/cocktail-3-gin.jpg', alt: 'Saanj Bagh — Gin Cocktails Menu' },
-    { title: 'CLASSIC COCKTAILS', src: 'assets/images/cocktail-4-classics.jpg', alt: 'Saanj Bagh — Classic Cocktails Menu' },
-    { title: 'RUM COCKTAILS', src: 'assets/images/cocktail-5-rum.jpg', alt: 'Saanj Bagh — Rum Cocktails Menu' },
-    { title: 'WHISKY COCKTAILS', src: 'assets/images/cocktail-6-whisky.jpg', alt: 'Saanj Bagh — Whisky Cocktails Menu' },
-    { title: 'WINE COCKTAILS', src: 'assets/images/cocktail-7-wine.jpg', alt: 'Saanj Bagh — Wine Cocktails Menu' },
-    { title: 'LIIT — LONG ISLAND ICED TEA', src: 'assets/images/cocktail-8-iced-tea.jpg', alt: 'Saanj Bagh — LIIT — Long Island Iced Tea Menu' }
+    { title: 'VODKA COCKTAILS & LIIT', src: 'assets/images/cocktail-1-vodka-liit.jpg?v=20261102a', alt: 'Saanj Bagh — Vodka Base Cocktails & Classic LIIT' },
+    { title: 'GIN & TEQUILA COCKTAILS', src: 'assets/images/cocktail-2-gin-tequila.jpg?v=20261102a', alt: 'Saanj Bagh — Gin & Tequila Base Cocktails' },
+    { title: 'RUM & WINE COCKTAILS', src: 'assets/images/cocktail-3-rum-wine.jpg?v=20261102a', alt: 'Saanj Bagh — Rum & Wine Base Cocktails' }
   ];
 
   const BEVERAGES_MENU_PAGES = [
-    { title: 'MOCKTAILS (1–10)', src: 'assets/images/beverages-mocktails-1.jpg', alt: 'Saanj Bagh — Mocktails Menu (Items 1–10)' },
-    { title: 'MOCKTAILS (11–20)', src: 'assets/images/beverages-mocktails-2.jpg', alt: 'Saanj Bagh — Mocktails Menu (Items 11–20)' },
-    { title: 'COFFEE', src: 'assets/images/beverages-1-coffee.jpg', alt: 'Saanj Bagh — Coffee Menu' },
-    { title: 'COFFEE & SHAKES', src: 'assets/images/beverages-2-coffee-shakes.jpg', alt: 'Saanj Bagh — Coffee & Shakes Menu' },
-    { title: 'SHAKES & SMOOTHIES', src: 'assets/images/beverages-3-shakes-smoothies.jpg', alt: 'Saanj Bagh — Shakes & Smoothies Menu' },
-    { title: 'BEVERAGES', src: 'assets/images/beverages-4-beverages.jpg', alt: 'Saanj Bagh — Beverages Menu' }
+    { title: 'MOCKTAILS', src: 'assets/images/beverages-1-mocktails.jpg?v=20261102a', alt: 'Saanj Bagh — Mocktails Menu' },
+    { title: 'COFFEE SHOP MENU', src: 'assets/images/beverages-2-coffee.jpg?v=20261102a', alt: 'Saanj Bagh — Coffee Shop Menu' },
+    { title: 'SHAKES & SMOOTHIE', src: 'assets/images/beverages-3-shakes-smoothie.jpg?v=20261102a', alt: 'Saanj Bagh — Shakes & Smoothie Menu' },
+    { title: 'BEVERAGES', src: 'assets/images/beverages-4-beverages.jpg?v=20261102a', alt: 'Saanj Bagh — Beverages Menu' }
   ];
 
   // --- High-DPI Canvas 2D Setup (Uniform 682 x 1024 Aspect Ratio) ---
@@ -202,10 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 4-Way Menu Book State ---
   let currentMenu = 'food';     // 'food' | 'bar' | 'cocktail' | 'beverages'
-  let foodPage = 0;             // [0..9]
-  let barPage = 0;              // [0..6]
-  let cocktailPage = 0;         // [0..7]
-  let beveragesPage = 0;        // [0..5]
+  let foodPage = 0;             // [0..6]
+  let barPage = 0;              // [0..4]
+  let cocktailPage = 0;         // [0..2]
+  let beveragesPage = 0;        // [0..3]
   let currentPage = 0;          // Active page within the active menu
   let currentState = 'cover';   // Current data-state attribute
   let activeTurningPage = 0;    // Active turning page index
@@ -218,11 +195,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let expandedPageIndex = 0;
 
   function getMaxPage() {
-    if (currentMenu === 'food') return 9;
-    if (currentMenu === 'bar') return 6;
-    if (currentMenu === 'cocktail') return 7;
-    if (currentMenu === 'beverages') return 5;
-    return 9;
+    if (currentMenu === 'food') return 6;
+    if (currentMenu === 'bar') return 4;
+    if (currentMenu === 'cocktail') return 2;
+    if (currentMenu === 'beverages') return 3;
+    return 6;
   }
 
   function getAnimatingStateName(turningPg) {
@@ -365,36 +342,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // LAYER C: CLIPPED PAGE ARTWORK FOR THE TURNING SHEET
     let turningArt;
     if (currentMenu === 'food') {
-      if (turningPage === 8) turningArt = indian2Artwork;
-      else if (turningPage === 7) turningArt = indian1Artwork;
-      else if (turningPage === 6) turningArt = tandoorBreadsArtwork;
-      else if (turningPage === 5) turningArt = tandoorKebabsArtwork;
-      else if (turningPage === 4) turningArt = pastaArtwork;
-      else if (turningPage === 3) turningArt = aroundWorldArtwork;
-      else if (turningPage === 2) turningArt = gardeArtwork;
-      else if (turningPage === 1) turningArt = soupArtwork;
-      else turningArt = coverArtwork;
+      if (turningPage === 5) turningArt = food5Artwork;
+      else if (turningPage === 4) turningArt = food4Artwork;
+      else if (turningPage === 3) turningArt = food3Artwork;
+      else if (turningPage === 2) turningArt = food2Artwork;
+      else if (turningPage === 1) turningArt = food1Artwork;
+      else turningArt = foodCoverArtwork;
     } else if (currentMenu === 'bar') {
-      if (turningPage === 5) turningArt = barWineArtwork;
-      else if (turningPage === 4) turningArt = barVodkaRumArtwork;
-      else if (turningPage === 3) turningArt = barTequilaGinArtwork;
-      else if (turningPage === 2) turningArt = barWhiskey3Artwork;
-      else if (turningPage === 1) turningArt = barWhiskey2Artwork;
-      else turningArt = barWhiskey1Artwork;
+      if (turningPage === 3) turningArt = bar3Artwork;
+      else if (turningPage === 2) turningArt = bar2Artwork;
+      else if (turningPage === 1) turningArt = bar1Artwork;
+      else turningArt = bar0Artwork;
     } else if (currentMenu === 'cocktail') {
-      if (turningPage === 6) turningArt = cocktailWineArtwork;
-      else if (turningPage === 5) turningArt = cocktailWhiskyArtwork;
-      else if (turningPage === 4) turningArt = cocktailRumArtwork;
-      else if (turningPage === 3) turningArt = cocktailClassicsArtwork;
-      else if (turningPage === 2) turningArt = cocktailGinArtwork;
-      else if (turningPage === 1) turningArt = cocktailTequilaWhiskyArtwork;
-      else turningArt = cocktailSigArtwork;
+      if (turningPage === 1) turningArt = cocktail1Artwork;
+      else turningArt = cocktail0Artwork;
     } else if (currentMenu === 'beverages') {
-      if (turningPage === 4) turningArt = bevShakesSmoothiesArtwork;
-      else if (turningPage === 3) turningArt = bevCoffeeShakesArtwork;
-      else if (turningPage === 2) turningArt = bevCoffeeArtwork;
-      else if (turningPage === 1) turningArt = bevMocktails2Artwork;
-      else turningArt = bevMocktails1Artwork;
+      if (turningPage === 2) turningArt = bev2Artwork;
+      else if (turningPage === 1) turningArt = bev1Artwork;
+      else turningArt = bev0Artwork;
     }
 
     if (turningArt && turningArt.complete) {
@@ -407,33 +372,16 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.closePath();
       ctx.clip();
 
-      if (currentMenu === 'bar') {
-        if (turningArt === barWhiskey1Artwork || turningArt === barWhiskey2Artwork || turningArt === barWhiskey3Artwork) {
-          ctx.fillStyle = '#0E1F0E';
-        } else {
-          ctx.fillStyle = '#E8D5B7';
-        }
-        ctx.fillRect(0, 0, W, H);
-        const nw = turningArt.naturalWidth || 571;
-        const nh = turningArt.naturalHeight || 1024;
-        const artW = Math.round(H * (nw / nh));
-        const artX = Math.round((W - artW) / 2);
-        ctx.drawImage(turningArt, artX, 0, artW, H);
-      } else if (currentMenu === 'cocktail') {
-        ctx.fillStyle = '#EFE5D0';
-        ctx.fillRect(0, 0, W, H);
-        const nw = turningArt.naturalWidth || 571;
-        const nh = turningArt.naturalHeight || 1024;
-        const artW = Math.round(H * (nw / nh));
-        const artX = Math.round((W - artW) / 2);
-        ctx.drawImage(turningArt, artX, 0, artW, H);
-      } else if (currentMenu === 'beverages') {
-        ctx.fillStyle = '#F8ECD7';
-        ctx.fillRect(0, 0, W, H);
-        ctx.drawImage(turningArt, 0, 0, W, H);
-      } else {
-        ctx.drawImage(turningArt, 0, 0, W, H);
-      }
+      ctx.fillStyle = '#FDFBF4';
+      ctx.fillRect(0, 0, W, H);
+      const nw = turningArt.naturalWidth || 1191;
+      const nh = turningArt.naturalHeight || 1685;
+      const scale = Math.min(W / nw, H / nh);
+      const artW = Math.round(nw * scale);
+      const artH = Math.round(nh * scale);
+      const artX = Math.round((W - artW) / 2);
+      const artY = Math.round((H - artH) / 2);
+      ctx.drawImage(turningArt, artX, artY, artW, artH);
 
       // Crease Ambient Darkening
       const creaseDist = Math.max(22, radius * 0.65);
@@ -549,42 +497,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentMenu === 'food') {
       foodPage = page;
       if (page === 0) currentState = 'cover';
-      else if (page === 1) currentState = 'soup';
-      else if (page === 2) currentState = 'garde-manger';
-      else if (page === 3) currentState = 'around-the-world';
-      else if (page === 4) currentState = 'pasta-pizza';
-      else if (page === 5) currentState = 'tandoor-kebabs';
-      else if (page === 6) currentState = 'tandoor-breads';
-      else if (page === 7) currentState = 'indian-1';
-      else if (page === 8) currentState = 'indian-2';
-      else if (page === 9) currentState = 'indian-3';
+      else currentState = `food-${page}`;
     } else if (currentMenu === 'bar') {
       barPage = page;
-      if (page === 0) currentState = 'bar-0';
-      else if (page === 1) currentState = 'bar-1';
-      else if (page === 2) currentState = 'bar-2';
-      else if (page === 3) currentState = 'bar-3';
-      else if (page === 4) currentState = 'bar-4';
-      else if (page === 5) currentState = 'bar-5';
-      else if (page === 6) currentState = 'bar-6';
+      currentState = `bar-${page}`;
     } else if (currentMenu === 'cocktail') {
       cocktailPage = page;
-      if (page === 0) currentState = 'cocktail-0';
-      else if (page === 1) currentState = 'cocktail-1';
-      else if (page === 2) currentState = 'cocktail-2';
-      else if (page === 3) currentState = 'cocktail-3';
-      else if (page === 4) currentState = 'cocktail-4';
-      else if (page === 5) currentState = 'cocktail-5';
-      else if (page === 6) currentState = 'cocktail-6';
-      else if (page === 7) currentState = 'cocktail-7';
+      currentState = `cocktail-${page}`;
     } else if (currentMenu === 'beverages') {
       beveragesPage = page;
-      if (page === 0) currentState = 'bev-0';
-      else if (page === 1) currentState = 'bev-1';
-      else if (page === 2) currentState = 'bev-2';
-      else if (page === 3) currentState = 'bev-3';
-      else if (page === 4) currentState = 'bev-4';
-      else if (page === 5) currentState = 'bev-5';
+      currentState = `bev-${page}`;
     }
 
     menuBook.dataset.menu = currentMenu;
@@ -593,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle Floating Expand Button Visibility
     if (btnExpandMenu) {
-      const isExpandable = (currentMenu === 'bar' || currentMenu === 'cocktail' || currentMenu === 'beverages');
+      const isExpandable = true;
       btnExpandMenu.classList.toggle('visible', isExpandable);
     }
 
@@ -760,7 +682,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const clickXNorm = (e.clientX - rect.left) / rect.width;
       const maxP = getMaxPage();
 
-      if (currentMenu === 'bar' || currentMenu === 'cocktail' || currentMenu === 'beverages') {
+      if (true) {
         if (clickXNorm > 0.80) {
           if (currentPage < maxP) goToPage(currentPage + 1, currentLiftBias);
         } else if (clickXNorm < 0.20) {
@@ -911,6 +833,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //    Fit to width, natural vertical scrolling, strict ZERO zoom
   // ==========================================================================
   function getCurrentMenuManifest() {
+    if (currentMenu === 'food') return FOOD_MENU_PAGES;
     if (currentMenu === 'bar') return BAR_MENU_PAGES;
     if (currentMenu === 'cocktail') return COCKTAIL_MENU_PAGES;
     if (currentMenu === 'beverages') return BEVERAGES_MENU_PAGES;
@@ -1075,7 +998,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (e.key.toLowerCase() === 'e' && !e.ctrlKey && !e.metaKey) {
-      if (currentMenu === 'bar' || currentMenu === 'cocktail' || currentMenu === 'beverages') {
+      if (true) {
         openExpanded(currentPage);
       }
     }
@@ -1100,37 +1023,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // 9. PRELOAD ALL MENU ASSETS
   // ==========================================================================
   const preloadSources = [
-    'assets/images/menu-cover.jpg',
-    'assets/images/soup.jpg',
-    'assets/images/garde-manger.jpg?v=20261027b',
-    'assets/images/around-the-world.jpg?v=20261027b',
-    'assets/images/pasta-pizza.jpg?v=20261027b',
-    'assets/images/tandoor-kebabs.jpg',
-    'assets/images/tandoor-breads.jpg',
-    'assets/images/indian-1.jpg?v=20261027b',
-    'assets/images/indian-2.jpg',
-    'assets/images/indian-3.jpg?v=20261027b',
-    'assets/images/bar-whiskey-1.jpg',
-    'assets/images/bar-whiskey-2.jpg',
-    'assets/images/bar-whiskey-3.png',
-    'assets/images/bar-tequila-gin.jpg',
-    'assets/images/bar-vodka-rum.jpg',
-    'assets/images/bar-wine.jpg',
-    'assets/images/bar-beer-breezer.jpg?v=20261027c',
-    'assets/images/cocktail-1-signature.jpg',
-    'assets/images/cocktail-2-tequila-whisky.jpg',
-    'assets/images/cocktail-3-gin.jpg',
-    'assets/images/cocktail-4-classics.jpg',
-    'assets/images/cocktail-5-rum.jpg',
-    'assets/images/cocktail-6-whisky.jpg',
-    'assets/images/cocktail-7-wine.jpg',
-    'assets/images/cocktail-8-iced-tea.jpg',
-    'assets/images/beverages-mocktails-1.jpg',
-    'assets/images/beverages-mocktails-2.jpg',
-    'assets/images/beverages-1-coffee.jpg',
-    'assets/images/beverages-2-coffee-shakes.jpg',
-    'assets/images/beverages-3-shakes-smoothies.jpg',
-    'assets/images/beverages-4-beverages.jpg'
+    'assets/images/food-1-cover.jpg?v=20261102a',
+    'assets/images/food-2-soup-garde.jpg?v=20261102a',
+    'assets/images/food-3-contie-pasta.jpg?v=20261102a',
+    'assets/images/food-4-pizza-tandoor.jpg?v=20261102a',
+    'assets/images/food-5-indian.jpg?v=20261102a',
+    'assets/images/food-6-rice-breads.jpg?v=20261102a',
+    'assets/images/food-7-dal-dessert.jpg?v=20261102a',
+    'assets/images/bar-1-cover.jpg?v=20261102a',
+    'assets/images/bar-2-whiskey.jpg?v=20261102a',
+    'assets/images/bar-3-scotch-tequila-gin.jpg?v=20261102a',
+    'assets/images/bar-4-vodka-rum.jpg?v=20261102a',
+    'assets/images/bar-5-wine-beer.jpg?v=20261102a',
+    'assets/images/cocktail-1-vodka-liit.jpg?v=20261102a',
+    'assets/images/cocktail-2-gin-tequila.jpg?v=20261102a',
+    'assets/images/cocktail-3-rum-wine.jpg?v=20261102a',
+    'assets/images/beverages-1-mocktails.jpg?v=20261102a',
+    'assets/images/beverages-2-coffee.jpg?v=20261102a',
+    'assets/images/beverages-3-shakes-smoothie.jpg?v=20261102a',
+    'assets/images/beverages-4-beverages.jpg?v=20261102a'
   ];
 
   preloadSources.forEach((src) => {
@@ -1140,13 +1051,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================================================
   // 10. CANONICAL ROUTER & DEDICATED QR LANDING CONTROLLER
-  //     Supports:
-  //     - ?view=food (Direct Food Menu experience)
-  //     - ?view=bar (Direct Bar Menu experience)
-  //     - ?view=cocktail (Direct Cocktail Menu experience)
-  //     - ?view=bar-cocktail (Dedicated Bar & Cocktail 2-option selection)
-  //     - ?view=food-beverage (Dedicated Food & Beverage 3-option selection)
-  //     - Default (no query parameter: Standard 3-way website experience)
   // ==========================================================================
   const qrLandingOverlay = document.getElementById('qrLandingOverlay');
   const qrLandingTitle = document.getElementById('qrLandingTitle');
@@ -1162,32 +1066,32 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'food',
       icon: '🍽️',
       title: 'FOOD MENU',
-      subtitle: 'Soups, Fresh Relishes, Pastas, Woodfired Pizzas, Tandoor & Indian Specialties (10 Pages)',
-      badge: '10 Pages',
+      subtitle: 'Soups, Garde Manger, Contie Chinese, Pasta, Pizza, Tandoor & Indian Specialties (7 Pages)',
+      badge: '7 Pages',
       btnText: 'View Food Menu'
     },
     bar: {
       id: 'bar',
       icon: '🥃',
       title: 'BAR MENU',
-      subtitle: 'Single Malts, Scotch, Tequila, Gin, Vodka, Rum, Wine Selection & Beers (7 Pages)',
-      badge: '7 Pages',
+      subtitle: 'Single Malts, Scotch, Tequila, Gin, Vodka, Liqueur, Rum, Wine, Beer & Breezer (5 Pages)',
+      badge: '5 Pages',
       btnText: 'View Bar Menu'
     },
     cocktail: {
       id: 'cocktail',
       icon: '🍸',
       title: 'COCKTAIL MENU',
-      subtitle: 'Artisanal Signatures, Tequila, Gin, Classics, Wine Cocktails & LIIT (8 Pages)',
-      badge: '8 Pages',
+      subtitle: 'Vodka Base, LIIT, Gin, Tequila, Rum & Wine Base Cocktails (3 Pages)',
+      badge: '3 Pages',
       btnText: 'View Cocktail Menu'
     },
     beverages: {
       id: 'beverages',
       icon: '🍹',
       title: 'BEVERAGES',
-      subtitle: 'Mocktails, Artisanal Coffees, Thick Shakes, Smoothies & Refreshers (6 Pages)',
-      badge: '6 Pages',
+      subtitle: 'Mocktails, Artisanal Coffees, Shakes, Smoothies & Refreshers (4 Pages)',
+      badge: '4 Pages',
       btnText: 'View Beverages'
     }
   };
